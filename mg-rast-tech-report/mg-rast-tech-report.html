@@ -1,0 +1,4004 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>MG-RAST version 3 - A technical report and manual
+</TITLE>
+<META NAME="description" CONTENT="MG-RAST version 3 - A technical report and manual
+">
+<META NAME="keywords" CONTENT="mg-rast-tech-report">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="mg-rast-tech-report.css">
+
+<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+</HEAD>
+
+<BODY >
+
+[1]Argonne National Laboratory
+[2]University of Chicago
+
+<H1 ALIGN="CENTER">
+MG-RAST version 3 - A technical report and manual
+</H1><DIV CLASS="author_info">
+
+<P ALIGN="CENTER"><STRONG>Andreas Wilke</STRONG></P>
+</DIV><DIV CLASS="author_info">
+
+<P ALIGN="CENTER"><STRONG>Elizabeth M. Glass</STRONG></P>
+</DIV><DIV CLASS="author_info">
+
+<P ALIGN="CENTER"><STRONG>Jared Bischof</STRONG></P>
+</DIV><DIV CLASS="author_info">
+
+<P ALIGN="CENTER"><STRONG>Daniel Braithwaite</STRONG></P>
+</DIV><DIV CLASS="author_info">
+
+<P ALIGN="CENTER"><STRONG>Mark D’Souza</STRONG></P>
+</DIV><DIV CLASS="author_info">
+
+<P ALIGN="CENTER"><STRONG>Wolfgang Gerlach</STRONG></P>
+</DIV><DIV CLASS="author_info">
+
+<P ALIGN="CENTER"><STRONG>Travis Harrison</STRONG></P>
+</DIV><DIV CLASS="author_info">
+
+<P ALIGN="CENTER"><STRONG>Kevin Keegan</STRONG></P>
+</DIV><DIV CLASS="author_info">
+
+<P ALIGN="CENTER"><STRONG>Hunter Matthews</STRONG></P>
+</DIV><DIV CLASS="author_info">
+
+<P ALIGN="CENTER"><STRONG>Tobias Paczian</STRONG></P>
+</DIV><DIV CLASS="author_info">
+
+<P ALIGN="CENTER"><STRONG>Wei Tang</STRONG></P>
+</DIV><DIV CLASS="author_info">
+
+<P ALIGN="CENTER"><STRONG>William L. Trimble</STRONG></P>
+</DIV><DIV CLASS="author_info">
+
+<P ALIGN="CENTER"><STRONG>Jared Wilkening</STRONG></P>
+</DIV><DIV CLASS="author_info">
+
+<P ALIGN="CENTER"><STRONG>Narayan Desai</STRONG></P>
+</DIV><DIV CLASS="author_info">
+
+<P ALIGN="CENTER"><STRONG>Folker Meyer</STRONG></P>
+</DIV>
+<P ALIGN="CENTER"><STRONG>May 17, 2013</STRONG></P>
+
+<P>
+<BR>
+
+<H2><A NAME="SECTION00100000000000000000">
+Contents</A>
+</H2>
+<!--Table of Contents-->
+
+<UL CLASS="TofC nav nav-list">
+<LI><A NAME="tex2html188"
+  HREF="mg-rast-tech-report.html#SECTION00200000000000000000">1. Introduction</A>
+<UL>
+<LI><A NAME="tex2html189"
+  HREF="mg-rast-tech-report.html#SECTION00210000000000000000">1.1 Version history</A>
+<LI><A NAME="tex2html190"
+  HREF="mg-rast-tech-report.html#SECTION00220000000000000000">1.2 Comparison of versions 2 and 3</A>
+<LI><A NAME="tex2html191"
+  HREF="mg-rast-tech-report.html#SECTION00230000000000000000">1.3 The MG-RAST team</A>
+<UL>
+<LI><A NAME="tex2html192"
+  HREF="mg-rast-tech-report.html#SECTION00231000000000000000">1.3.1 Contacting the MG-RAST team; the MG-RAST help desk</A>
+<LI><A NAME="tex2html193"
+  HREF="mg-rast-tech-report.html#SECTION00232000000000000000">1.3.2 Past members of the MG-RAST team</A>
+</UL>
+</UL><BR>
+<LI><A NAME="tex2html194"
+  HREF="mg-rast-tech-report.html#SECTION00300000000000000000">2. Under the hood: The MG-RAST technology platform and pipeline</A>
+<UL>
+<LI><A NAME="tex2html195"
+  HREF="mg-rast-tech-report.html#SECTION00310000000000000000">2.1 System design aspects</A>
+<LI><A NAME="tex2html196"
+  HREF="mg-rast-tech-report.html#SECTION00320000000000000000">2.2 Data model</A>
+<LI><A NAME="tex2html197"
+  HREF="mg-rast-tech-report.html#SECTION00330000000000000000">2.3 Details on the new MG-RAST pipeline</A>
+<UL>
+<LI><A NAME="tex2html198"
+  HREF="mg-rast-tech-report.html#SECTION00331000000000000000">2.3.1 Preprocessing</A>
+<LI><A NAME="tex2html199"
+  HREF="mg-rast-tech-report.html#SECTION00332000000000000000">2.3.2 Dereplication</A>
+<LI><A NAME="tex2html200"
+  HREF="mg-rast-tech-report.html#SECTION00333000000000000000">2.3.3 DRISEE</A>
+<LI><A NAME="tex2html201"
+  HREF="mg-rast-tech-report.html#SECTION00334000000000000000">2.3.4 Screening</A>
+<LI><A NAME="tex2html202"
+  HREF="mg-rast-tech-report.html#SECTION00335000000000000000">2.3.5 Gene Calling</A>
+<LI><A NAME="tex2html203"
+  HREF="mg-rast-tech-report.html#SECTION00336000000000000000">2.3.6 AA Clustering</A>
+<LI><A NAME="tex2html204"
+  HREF="mg-rast-tech-report.html#SECTION00337000000000000000">2.3.7 Protein Identification</A>
+<LI><A NAME="tex2html205"
+  HREF="mg-rast-tech-report.html#SECTION00338000000000000000">2.3.8 Annotation Mapping</A>
+<LI><A NAME="tex2html206"
+  HREF="mg-rast-tech-report.html#SECTION00339000000000000000">2.3.9 Abundance Profiles</A>
+</UL>
+<LI><A NAME="tex2html207"
+  HREF="mg-rast-tech-report.html#SECTION00340000000000000000">2.4 The rRNA pipeline</A>
+<UL>
+<LI><A NAME="tex2html208"
+  HREF="mg-rast-tech-report.html#SECTION00341000000000000000">2.4.1 rRNA detection</A>
+<LI><A NAME="tex2html209"
+  HREF="mg-rast-tech-report.html#SECTION00342000000000000000">2.4.2 rRNA CLUSTERING</A>
+<LI><A NAME="tex2html210"
+  HREF="mg-rast-tech-report.html#SECTION00343000000000000000">2.4.3 rRNA IDENTIFICATION</A>
+</UL>
+<LI><A NAME="tex2html211"
+  HREF="mg-rast-tech-report.html#SECTION00350000000000000000">2.5 Quality Assessment</A>
+<UL>
+<LI><A NAME="tex2html212"
+  HREF="mg-rast-tech-report.html#SECTION00351000000000000000">2.5.1 DRISEE, (Duplicate Read Inferred Sequencing Error Estimation)</A>
+<LI><A NAME="tex2html213"
+  HREF="mg-rast-tech-report.html#SECTION00352000000000000000">2.5.2 Kmer profiles</A>
+<LI><A NAME="tex2html214"
+  HREF="mg-rast-tech-report.html#SECTION00353000000000000000">2.5.3 Nucleotide histograms</A>
+</UL>
+<LI><A NAME="tex2html215"
+  HREF="mg-rast-tech-report.html#SECTION00360000000000000000">2.6 Representative hit, best hit, and Lowest Common Ancestor interpretation</A>
+<UL>
+<LI><A NAME="tex2html216"
+  HREF="mg-rast-tech-report.html#SECTION00361000000000000000">2.6.1 Best Hit</A>
+<LI><A NAME="tex2html217"
+  HREF="mg-rast-tech-report.html#SECTION00362000000000000000">2.6.2 Representative Hit</A>
+<LI><A NAME="tex2html218"
+  HREF="mg-rast-tech-report.html#SECTION00363000000000000000">2.6.3 Lowest Common Ancestor (LCA)</A>
+</UL>
+<LI><A NAME="tex2html219"
+  HREF="mg-rast-tech-report.html#SECTION00370000000000000000">2.7 Why don’t the numbers of annotations add up to the number of reads ?</A>
+<LI><A NAME="tex2html220"
+  HREF="mg-rast-tech-report.html#SECTION00380000000000000000">2.8 Metadata, Publishing and Sharing</A>
+<UL>
+<LI><A NAME="tex2html221"
+  HREF="mg-rast-tech-report.html#SECTION00381000000000000000">2.8.1 Metadata</A>
+<LI><A NAME="tex2html222"
+  HREF="mg-rast-tech-report.html#SECTION00382000000000000000">2.8.2 Publishing</A>
+<LI><A NAME="tex2html223"
+  HREF="mg-rast-tech-report.html#SECTION00383000000000000000">2.8.3 Sharing</A>
+<LI><A NAME="tex2html224"
+  HREF="mg-rast-tech-report.html#SECTION00384000000000000000">2.8.4 Identifiers</A>
+<LI><A NAME="tex2html225"
+  HREF="mg-rast-tech-report.html#SECTION00385000000000000000">2.8.5 Linking to MG-RAST</A>
+</UL>
+</UL><BR>
+<LI><A NAME="tex2html226"
+  HREF="mg-rast-tech-report.html#SECTION00400000000000000000">3. The MG-RAST v3 web interface</A>
+<UL>
+<LI><A NAME="tex2html227"
+  HREF="mg-rast-tech-report.html#SECTION00410000000000000000">3.1 Technical details</A>
+<UL>
+<LI><A NAME="tex2html228"
+  HREF="mg-rast-tech-report.html#SECTION00411000000000000000">3.1.1 Browser requirements</A>
+<LI><A NAME="tex2html229"
+  HREF="mg-rast-tech-report.html#SECTION00412000000000000000">3.1.2 Downloading figures</A>
+</UL>
+<LI><A NAME="tex2html230"
+  HREF="mg-rast-tech-report.html#SECTION00420000000000000000">3.2 Sitemap for MG-RAST</A>
+<LI><A NAME="tex2html231"
+  HREF="mg-rast-tech-report.html#SECTION00430000000000000000">3.3 The Upload and Metadata pages</A>
+<LI><A NAME="tex2html232"
+  HREF="mg-rast-tech-report.html#SECTION00440000000000000000">3.4 The Browse page - Metadata enabled data discovery</A>
+<LI><A NAME="tex2html233"
+  HREF="mg-rast-tech-report.html#SECTION00450000000000000000">3.5 Project Page</A>
+<LI><A NAME="tex2html234"
+  HREF="mg-rast-tech-report.html#SECTION00460000000000000000">3.6 The Overview Page</A>
+<UL>
+<LI><A NAME="tex2html235"
+  HREF="mg-rast-tech-report.html#SECTION00461000000000000000">3.6.1 The technical part of the overview page - Details on sequencing and analysis</A>
+<LI><A NAME="tex2html236"
+  HREF="mg-rast-tech-report.html#SECTION00462000000000000000">3.6.2 The biological part of the Overview page - Organism Breakdown</A>
+</UL>
+<LI><A NAME="tex2html237"
+  HREF="mg-rast-tech-report.html#SECTION00470000000000000000">3.7 Download page</A>
+<LI><A NAME="tex2html238"
+  HREF="mg-rast-tech-report.html#SECTION00480000000000000000">3.8 The Analysis Page</A>
+<UL>
+<LI><A NAME="tex2html239"
+  HREF="mg-rast-tech-report.html#SECTION00481000000000000000">3.8.1 Normalization</A>
+<LI><A NAME="tex2html240"
+  HREF="mg-rast-tech-report.html#SECTION00482000000000000000">3.8.2 The KEGG Mapper</A>
+<LI><A NAME="tex2html241"
+  HREF="mg-rast-tech-report.html#SECTION00483000000000000000">3.8.3 The Bar charts</A>
+<LI><A NAME="tex2html242"
+  HREF="mg-rast-tech-report.html#SECTION00484000000000000000">3.8.4 Tree diagram</A>
+<LI><A NAME="tex2html243"
+  HREF="mg-rast-tech-report.html#SECTION00485000000000000000">3.8.5 Heatmap/Dendrogram</A>
+<LI><A NAME="tex2html244"
+  HREF="mg-rast-tech-report.html#SECTION00486000000000000000">3.8.6 Ordination</A>
+<LI><A NAME="tex2html245"
+  HREF="mg-rast-tech-report.html#SECTION00487000000000000000">3.8.7 Table</A>
+<LI><A NAME="tex2html246"
+  HREF="mg-rast-tech-report.html#SECTION00488000000000000000">3.8.8 The workbench</A>
+</UL>
+</UL><BR>
+<LI><A NAME="tex2html247"
+  HREF="mg-rast-tech-report.html#SECTION00500000000000000000">4. User Manual</A>
+<UL>
+<LI><A NAME="tex2html248"
+  HREF="mg-rast-tech-report.html#SECTION00510000000000000000">4.1 Privacy, identifiers, sharing and publication</A>
+<LI><A NAME="tex2html249"
+  HREF="mg-rast-tech-report.html#SECTION00520000000000000000">4.2 Uploading to MG-RAST</A>
+<UL>
+<LI><A NAME="tex2html250"
+  HREF="mg-rast-tech-report.html#SECTION00521000000000000000">4.2.1 Assembled data with read abundance info</A>
+<LI><A NAME="tex2html251"
+  HREF="mg-rast-tech-report.html#SECTION00522000000000000000">4.2.2 Steps for submission via the web interface</A>
+<LI><A NAME="tex2html252"
+  HREF="mg-rast-tech-report.html#SECTION00523000000000000000">4.2.3 The cmd-line uploader</A>
+<LI><A NAME="tex2html253"
+  HREF="mg-rast-tech-report.html#SECTION00524000000000000000">4.2.4 Managing the Inbox</A>
+<LI><A NAME="tex2html254"
+  HREF="mg-rast-tech-report.html#SECTION00525000000000000000">4.2.5 Generating metadata for the submission</A>
+</UL>
+<LI><A NAME="tex2html255"
+  HREF="mg-rast-tech-report.html#SECTION00530000000000000000">4.3 How to work with projects and collections</A>
+<LI><A NAME="tex2html256"
+  HREF="mg-rast-tech-report.html#SECTION00540000000000000000">4.4 Understanding data sets - Has my sequencing worked?</A>
+<UL>
+<LI><A NAME="tex2html257"
+  HREF="mg-rast-tech-report.html#SECTION00541000000000000000">4.4.1 Why are so many reads failing QC?</A>
+</UL>
+<LI><A NAME="tex2html258"
+  HREF="mg-rast-tech-report.html#SECTION00550000000000000000">4.5 How to drill down using the workbench</A>
+<LI><A NAME="tex2html259"
+  HREF="mg-rast-tech-report.html#SECTION00560000000000000000">4.6 Downloads from the workbench</A>
+<UL>
+<LI><A NAME="tex2html260"
+  HREF="mg-rast-tech-report.html#SECTION00561000000000000000">4.6.1 How to compare metagenomes for a specific subsystem</A>
+</UL>
+<LI><A NAME="tex2html261"
+  HREF="mg-rast-tech-report.html#SECTION00570000000000000000">4.7 Viewing Evidence</A>
+<LI><A NAME="tex2html262"
+  HREF="mg-rast-tech-report.html#SECTION00580000000000000000">4.8 MG-RAST Outputs</A>
+<UL>
+<LI><A NAME="tex2html263"
+  HREF="mg-rast-tech-report.html#SECTION00581000000000000000">4.8.1 BIOM file format exports</A>
+<LI><A NAME="tex2html264"
+  HREF="mg-rast-tech-report.html#SECTION00582000000000000000">4.8.2 Downloads</A>
+</UL>
+</UL><BR>
+<LI><A NAME="tex2html265"
+  HREF="mg-rast-tech-report.html#SECTION00600000000000000000">5. Putting it all in perspective</A>
+<UL>
+<LI><A NAME="tex2html266"
+  HREF="mg-rast-tech-report.html#SECTION00610000000000000000">5.1 Discussion</A>
+<LI><A NAME="tex2html267"
+  HREF="mg-rast-tech-report.html#SECTION00620000000000000000">5.2 Future Work</A>
+<UL>
+<LI><A NAME="tex2html268"
+  HREF="mg-rast-tech-report.html#SECTION00621000000000000000">5.2.1 Roadmap</A>
+</UL>
+<LI><A NAME="tex2html269"
+  HREF="mg-rast-tech-report.html#SECTION00630000000000000000">5.3 Acknowledgments</A>
+</UL><BR>
+<LI><A NAME="tex2html270"
+  HREF="mg-rast-tech-report.html#SECTION00700000000000000000">Bibliography</A>
+<LI><A NAME="tex2html271"
+  HREF="mg-rast-tech-report.html#SECTION00800000000000000000">A. The downloadable files for each data set</A>
+<LI><A NAME="tex2html272"
+  HREF="mg-rast-tech-report.html#SECTION00900000000000000000">B. Terms of Service</A>
+<LI><A NAME="tex2html273"
+  HREF="mg-rast-tech-report.html#SECTION001000000000000000000">C. Tools and data used by MG-RAST</A>
+<UL>
+<LI><A NAME="tex2html274"
+  HREF="mg-rast-tech-report.html#SECTION001010000000000000000">C.1 Databases</A>
+<UL>
+<LI><A NAME="tex2html275"
+  HREF="mg-rast-tech-report.html#SECTION001011000000000000000">C.1.1 Protein databases</A>
+<LI><A NAME="tex2html276"
+  HREF="mg-rast-tech-report.html#SECTION001012000000000000000">C.1.2 Ribosomal RNA databases:</A>
+</UL>
+<LI><A NAME="tex2html277"
+  HREF="mg-rast-tech-report.html#SECTION001020000000000000000">C.2 Software</A>
+<UL>
+<LI><A NAME="tex2html278"
+  HREF="mg-rast-tech-report.html#SECTION001021000000000000000">C.2.1 Bioinformatics codes:</A>
+<LI><A NAME="tex2html279"
+  HREF="mg-rast-tech-report.html#SECTION001022000000000000000">C.2.2 Web/UI tools:</A>
+<LI><A NAME="tex2html280"
+  HREF="mg-rast-tech-report.html#SECTION001023000000000000000">C.2.3 Behind the scenes:</A>
+</UL></UL></UL>
+<!--End of Table of Contents-->
+<P>
+
+<P>
+
+<H1><A NAME="SECTION00200000000000000000">
+<SPAN CLASS="arabic">1</SPAN>. Introduction</A>
+</H1>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:cost_per_megabase"></A><A NAME="39"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+The cost for DNA sequencing is shriking. This comparison with Moore's law roughly describing the  development of computing costs highlights the growing gap between sequence data and the available analysis resources. Source: NGHRI
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="400" HEIGHT="300" ALIGN="BOTTOM" BORDER="0"
+ SRC="./cost_per_megabase.png"
+ ALT="Image cost_per_megabase">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+The National Institute of Healths NHGRI publishes information  (see Figure <A HREF="#fig:cost_per_megabase"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A>)  describing the development of computing costs and DNA sequencing cost over time [#!NHGRI_COST!#]. The dramatic gap between the shrinking sequencing cost and the more of less stable computing costs is a major challenge for biomedical researchers trying to use next generation DNA sequencing platforms to obtain information on microbial communities.  Wilkening <SPAN  CLASS="textit">et al.</SPAN> [#!MGCLOUD!#] provide a real currency cost for the analysis of 100 gigabasepairs of DNA sequence data using BLASTX on Amazon's EC2 service: 900,000 US Dollars<A NAME="tex2html2"
+  HREF="#foot45"><SUP><SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A>. A more recent study by University of Maryland researchers [#!CLOVR!#] allows the computation of a real currency cost for a terabase of DNA shotgun data using complete metagenome analysis pipeline at over 5 million dollars per terabase.
+
+<P>
+However the growth in data enabled by next-generation sequencing platforms also provides an exciting opportunity for studying microbial communities,&nbsp;99% of the microbes in which have not yet been cultured [#!MGREVIEW!#]. Cultivation free methods (often summarized as Metagenomics) offer novel insights into the biology of the vast majority of life on the planet [#!THOMASREVIEW!#].
+
+<P>
+Three types of metagenomics experiments are commonly used:
+
+<P>
+
+<OL>
+<LI>Environmental clone libraries (“functional metagenomics”)
+
+<P>
+Frequently using Sanger sequencing instead of more cost efficient next generation sequencing.
+
+<P>
+</LI>
+<LI>Amplicon studies (single gene studies, 16s rDNA) 
+
+<P>
+Next generation sequencing of PCR amplified ribosomal genes providing a single reference gene based view of microbial community ecology.
+
+<P>
+</LI>
+<LI>Shotgun metagenomics 
+
+<P>
+The use of next generation technology applied directly to to environmental samples.
+</LI>
+</OL>
+
+<P>
+Each of these methods have strengths and weaknesses (see [#!THOMASREVIEW!#]) and so do the various sequencing technologies (see [#!LOMAN!#]).
+
+<P>
+To support user-driven analysis of all types of metagenomic data, we have provided MG-RAST [#!MG-RAST!#] at <TT><A NAME="tex2html3"
+  HREF="http://metagenomics.anl.gov">http://metagenomics.anl.gov</A></TT>. MG-RAST enables researchers to study function and composition of microbial communities.
+
+<P>
+The MG-RAST portal offers automated quality control, annotation and comparative analysis services and archiving service. 
+At the time of writing () MG-RAST has completed the analysis of over 25 Terabasepairs of DNA data in over 78,000 datasets contributed by thousands of researchers world-wide.
+
+<P>
+The MG-RAST system provides answers to the following scientific questions:
+
+<UL>
+<LI>Who is out there?
+
+<P>
+Identifying the composition of microbial composition using either amplicon data for single genes or deriving community composition from shotgun metagenomic data using sequence similarities.
+
+<P>
+</LI>
+<LI>What are they doing?
+
+<P>
+Using shotgun data (or metatranscriptomic data) derive the functional complement of a microbial community using similarity searches against a number of databases.
+
+<P>
+</LI>
+<LI>Who is doing what?
+
+<P>
+Based on sequence similarity searches, identify the organisms encoding specific functions.
+
+<P>
+</LI>
+</UL>
+
+<P>
+
+<H1><A NAME="SECTION00210000000000000000">
+<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> Version history</A>
+</H1>
+
+<H2><A NAME="SECTION00211000000000000000">
+Version 1</A>
+</H2>
+The original version of MG-RAST was developed in 2007 by Folker Meyer, Andreas Wilke, Daniel Paarman, Bob Olson and Rob Edwards. It relied heavily on the SEED[#!SUBSYSTEMS!#] environment and allowed upload of pre-processed 454 and Sanger data.
+
+<H2><A NAME="SECTION00212000000000000000">
+Version 2</A>
+</H2>
+Version 2 released in 2008 had numerous improvements. It was optimized to handle full sized 454 data sets and is the first version of MG-RAST that was not fully SEED based.
+Version 2.0 used BLASTX analysis for both gene prediction and functional classification[#!MG-RAST!#].
+
+<H2><A NAME="SECTION00213000000000000000">
+Version 3</A>
+</H2>
+While the previous version of MG-RAST (v2) was widely used, it was limited to datasets smaller than a few 100 Mbases and comparison of samples was limited to pairwise comparisons. Version 3 is not based on SEED technology, but uses the SEED subsystems as a preferred data source.
+Starting with version 3,  MG-RAST moved to github.
+
+<H1><A NAME="SECTION00220000000000000000">
+<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN> Comparison of versions 2 and 3</A>
+</H1>
+
+<P>
+In the new 3.0 version, datasets of 10s of gigabases can be annotated and comparison of taxa or functions that differed between samples is now limited by the available screen real estate. Figure <A HREF="#fig:mgrastv2VSv3"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A> shows a comparison of the analytical and computational approaches used in MG-RAST v2 and v3. The major changes are the inclusion of a dedicated gene calling stage using FragGenescan [#!FGS!#], clustering of predicted proteins at 90% identify using uclust [#!UCLUST!#] and the use of BLAT [#!BLAT!#] for the computation of similarities. Together with changes in the underlying infrastructure this has allowed dramatic scaling of the analysis with the limited hardware available.
+
+<P>
+Similar to version 2.0, the new version of MG-RAST does not pretend to know the correct parameters for the transfer of annotations. Instead the user im empowered to choose the best parameters for their data sets.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:mgrastv2VSv3"></A><A NAME="73"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+Overview of processing pipeline in (a) MG-RAST 2 and (b) MG-RAST 3. In the old pipeline, metadata was rudimentary, compute steps were performed on individual reads on a 40-node cluster that was tightly coupled to the system, and similarities were computed by BLAST to yield abundance profiles that could then be compared on a per-sample or per pair basis. In the new pipeline, rich metadata can be uploaded, normalization and feature prediction are performed, faster methods such as BLAT are used to compute similarities, and the resulting abundance profiles are fed into downstream pipelines on the cloud to perform community and metabolic reconstruction and to allow queries according to rich sample and functional metadata.
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="600" HEIGHT="359" ALIGN="BOTTOM" BORDER="0"
+ SRC="./mgrastv2VSv3.png"
+ ALT="Image mgrastv2VSv3">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+The new version of MG-RAST represents a rethinking of core processes and data products, as well as new user interface metaphors and a redesigned computational infrastructure. MG-RAST supports a variety of user-driven analyses, including comparisons of many samples, previously too computationally intensive to support for an open user community.
+
+<P>
+Scaling to the new workload required changes in two areas: the underlying infrastructure needed to be re-thought and the analysis pipeline needed to be adapted to address the properties of the newest sequencing technologies.
+
+<H1><A NAME="SECTION00230000000000000000">
+<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">3</SPAN> The MG-RAST team</A>
+</H1>
+
+<UL>
+<LI>Andreas Wilke
+</LI>
+<LI>Elizabeth M. Glass
+</LI>
+<LI>Jared Bischof
+</LI>
+<LI>Daniel Braithwaite
+</LI>
+<LI>Mark D’Souza
+</LI>
+<LI>Wolfgang Gerlach
+</LI>
+<LI>Travis Harrison
+</LI>
+<LI>Kevin Keegan
+</LI>
+<LI>Hunter Matthews
+</LI>
+<LI>Tobias Paczian
+</LI>
+<LI>Wei Tang
+</LI>
+<LI>William L. Trimble
+</LI>
+<LI>Jared Wilkening
+</LI>
+<LI>Narayan Desai
+</LI>
+<LI>Folker Meyer
+</LI>
+</UL>
+<H2><A NAME="SECTION00231000000000000000">
+<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN> Contacting the MG-RAST team; the MG-RAST help desk</A>
+</H2>
+
+<P>
+The MG-RAST project uses a ticket system to manage the interaction with our users. 
+
+<P>
+Dr. Mark D'Souza is managing the help desk interaction with the users, please do not email him directly but use the address given in Figure <A HREF="#fig:mgrastemail"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A>.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:mgrastemail"></A><A NAME="85"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+The email address for the MG-RAST project. Note that this is inserted into the document as an image, you will have to type it.
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="300" HEIGHT="94" ALIGN="BOTTOM" BORDER="0"
+ SRC="./mgrastemail.png"
+ ALT="Image mgrastemail">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+We recommend including as much detail as possible into your emails to the help-desk, details like account names, MG-RAST identifiers will help us identify any issues and speed up resolving them. 
+
+<P>
+
+<H2><A NAME="SECTION00232000000000000000">
+<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN> Past members of the MG-RAST team</A>
+</H2>
+The following people were associated with MG-RAST in the past:
+
+<P>
+
+<UL>
+<LI>Daniel Paarmann, 2007-2008
+</LI>
+<LI>Rob Edwards, 2007-2008
+</LI>
+<LI>Bob Olson, 2007-2009
+</LI>
+<LI>Daniela Bartels, 2007-2011
+</LI>
+<LI>Yekaterina Dribinsky, 2011
+</LI>
+</UL>
+
+<P>
+MG-RAST was started by Rob Edwards and Folker Meyer in 2007.
+
+<P>
+
+<H1><A NAME="SECTION00300000000000000000">
+<SPAN CLASS="arabic">2</SPAN>. Under the hood: The MG-RAST technology platform and pipeline</A>
+</H1>
+
+<P>
+
+<H1><A NAME="SECTION00310000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> System design aspects</A>
+</H1>
+One key aspect of scaling MG-RAST to large numbers of modern NGS datasets is the use of cloud
+<A NAME="tex2html6"
+  HREF="#foot889"><SUP><SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A>.
+ computing which decouples MG-RAST from its previous dedicated hardware resources. Using our task server AWE [#!AWE!#] and the SHOCK data management system developed alongside it we have updated our underlying computational platform using purpose built software platform optimized for large scale sequence analysis.
+
+<P>
+The new analytical pipeline for MG-RAST version 3 (see Figure <A HREF="#fig:mgrast-v3-pipeline"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A>)
+ is encapsulated and separated from the data store, enabling far greater scalability.
+
+<P>
+Combined the changes in infrastructure and pipeline had made the new MG-RAST version 750 times faster than version 2.
+
+<P>
+
+<H1><A NAME="SECTION00320000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> Data model</A>
+</H1>
+
+<P>
+The MG-RAST data model (see Figure <A HREF="#fig:data-model"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A>) is something that changes dramatically to handle the size of modern next 
+generation sequencing data sets. We have made a number of choices that reduce the computational and storage burden. 
+
+<P>
+It is important to mention that the size of the derived data products for a next generation data in MG-RAST set is typically about 10x the size of the actual data set. Individual data sets now reach up to a Terabase<A NAME="tex2html7"
+  HREF="#foot98"><SUP><SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A> with the on disk footprint significantly larger than the basepair count due to the inefficient nature of FASTQ files, that basically double the on disk size for FASTQ representations.
+
+<P>
+
+<UL>
+<LI>The use abundance profiles.
+
+<P>
+Using abundance profiles where we count the number of occurences of function or taxon per metagenomic data set is one important factor that keeps the data sets managble. Instead of growing the data set sizes (often with several hundred million individual sequences per data set) the data products now are more or less static in size.
+
+<P>
+</LI>
+<LI>Use a single similarity computing step per feature type.
+
+<P>
+By running exactly one similarity computation for proteins and another one for rRNA features, we have limited the computional requirements. 
+
+<P>
+</LI>
+<LI>The use of clustering of features.
+
+<P>
+By clustering features at 90% identity, we reduce the number of times we compute on similar proteins. Abundant features will be even more efficiently clustered leading to more compression among for abundant species.
+
+<P>
+</LI>
+</UL>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:data-model"></A><A NAME="105"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+The MG-RAST v3 data model.</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="600" HEIGHT="483" ALIGN="BOTTOM" BORDER="0"
+ SRC="./data-model.png"
+ ALT="Image data-model">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+As shown in Figure <A HREF="#fig:data-model"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A> MG-RAST relies on abundance profiles to capture information for each metagenome.
+
+<P>
+The following abundance profiles are calculated for every metagenome:
+
+<P>
+
+<UL>
+<LI>MD5s
+
+<P>
+This table represents the number of sequences (clusters) per database entry in the M5nr.
+
+<P>
+</LI>
+<LI>functions
+
+<P>
+This table represents a summary of all the MD5s that match a given function.
+
+<P>
+</LI>
+<LI>ontologies
+
+<P>
+This table represents a summary of all the MD5s that match a given hierarchy entry.
+
+<P>
+</LI>
+<LI>organisms
+
+<P>
+This table represents a summary of all MD5s that match a given taxon entry.
+
+<P>
+</LI>
+<LI>LCAs
+
+<P>
+</LI>
+</UL>
+
+<P>
+The static helper tables (show in blue in figure <A HREF="#fig:mgrast_analysis-schema"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A>) help
+keep the main tables smaller, by normalizing and providing integer representations for the entities in the abundance profiles.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:mgrast_analysis-schema"></A><A NAME="116"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+The analysis database schema, shows the static objects in blue and the per metagenome (variable) objects in green.
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="600" HEIGHT="516" ALIGN="BOTTOM" BORDER="0"
+ SRC="./mgrast_analysis-schema.png"
+ ALT="Image mgrast_analysis-schema">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:mgrast-v3-pipeline"></A><A NAME="123"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+Details of the analysis pipeline for MG-RAST version 3.x.</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="600" HEIGHT="240" ALIGN="BOTTOM" BORDER="0"
+ SRC="./mgrastv3pipeline.png"
+ ALT="Image mgrastv3pipeline">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<H1><A NAME="SECTION00330000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN> Details on the new MG-RAST pipeline</A>
+</H1>
+
+<P>
+The pipeline shown in Figure <A HREF="#fig:mgrast-v3-pipeline"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A>) contains a significant number of improvements over version 3.0. Using the M5NR [#!M5NR!#] the new pipeline computes results against many reference databases instead of only SEED. 
+Several key algorithmic improvements were needed to support the flood of user-generated data (see Figure <A HREF="#fig:mgrast-job-sizes"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A>). Using a dedicated software to perform gene prediction instead of using a similarity based approach reduces runtime requirements, the additional clustering of proteins at 90% identity reduces data while preserving biological signal. 
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:mgrast-job-sizes"></A><A NAME="134"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+The sizes of MG-RAST jobs per month in gigabasepairs.</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="400" HEIGHT="240" ALIGN="BOTTOM" BORDER="0"
+ SRC="./MG-RAST-job-sizes.png"
+ ALT="Image MG-RAST-job-sizes">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Due to the amount of sequence data submitted to MG-RAST (see Figure <A HREF="#fig:mgrast-job-sizes"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A>) only protein coding genes and ribosomal RNA genes will be annotated by the pipeline.
+
+<P>
+Below we describe each step of the pipeline in some detail, all data sets generated by the individual stages of the processing pipeline are made available as downloads. Appendix <A HREF="#chapter:downloads"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A> lists the available files for each data set.
+
+<P>
+
+<H2><A NAME="SECTION00331000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN> Preprocessing</A>
+</H2> 
+After upload, data is pre-processed using SolexaQA [#!SOLEXAQA!#] to trim low quality regions from FASTQ data.  Platform specific approaches are used for 454 data submitted in FASTA format: reads more than than two standard deviations away from the mean read length are discarded following [#!HUSEPYRO!#]. All sequences submitted to the system are available but discarded reads will not be analyzed further.
+
+<P>
+
+<H2><A NAME="SECTION00332000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN> Dereplication</A>
+</H2>
+For shotgun metagenome and shotgun  metatranscriptome data sets we perform a de-replication step.
+We use a simple k-mer based approach to rapidly identify all 20 character prefix identical sequences. 
+This step is required to remove to remove artificial duplicate reads (ADRs) [#!ADRS!#]. Instead of simply discarding the ADRs, we set them aside and use them later.
+
+<P>
+We note that de-replication is not suitable for amplicon data sets that are likely to share common pre-fixes.
+
+<P>
+
+<H2><A NAME="SECTION00333000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN> DRISEE</A>
+</H2>
+MG-RAST version 3 uses DRISEE[#!DRISEE!#] to analyze the sets of Artificial Duplicate Reads[#!ADRS!#] and determine the degree of variation among prefix identical sequences derived from the same template. See below for details.
+
+<P>
+
+<H2><A NAME="SECTION00334000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN> Screening</A>
+</H2>
+The pipeline provides the option to remove reads that are near-exact matches to the genomes of a handful of model organisms, including fly, mouse, cow, and human.   The screening stage uses bowtie [#!BOWTIE!#] and only reads that do not match the model organisms pass into the next stage of the annotation pipeline.
+
+<P>
+Note that this option will remove all reads similar to the human genome and render them inaccessible. This decision was made to avoid storing any human DNA on MG-RAST.
+
+<P>
+
+<H2><A NAME="SECTION00335000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">5</SPAN> Gene Calling</A>
+</H2>
+While the previous version of MG-RAST used similarity-based gene predictions, this approach is significantly more expensive computationally than de-novo gene prediction.  After an in depth investigation of tool performance [#!TRIMBLE_SHORT!#], we have moved to a machine learning approach: FragGeneScan [#!FGS!#]. Using this approach we can now predict coding regions in DNA sequences of 75 bp and longer. Our novel approach also enables the analysis of user provided assemblies. 
+
+<P>
+It is important to note that FragGeneScan is trained for prokaryotes only. While it will identify proteins for eukaryotic sequences, the results should be viewed as more or less random.
+
+<P>
+
+<H2><A NAME="SECTION00336000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN> AA Clustering</A>
+</H2>
+MG-RAST builds clusters of proteins at the 90% identity level using the uclust [#!UCLUST!#] implementation in QIIME [#!QIIME!#] preserving the relative abundances. These clusters greatly reduce the computational burden of comparing all pairs of short reads while clustering at 90% identity preserves sufficient biological signal. 
+
+<P>
+
+<H2><A NAME="SECTION00337000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">7</SPAN> Protein Identification</A>
+</H2>
+Once created, a representative (the longest sequence) for each cluster is subjected to similarity analysis, instead of BLAST we use sBLAT, an implementation of the BLAT algorithm [#!BLAT!#], which we parallelized using OpenMPI [#!OPENMPI!#] for this work.
+
+<P>
+Once the similarities are computed we present reconstructions of the species content of the sample based on the similarity results. We reconstruct the putative species composition of the sample by looking at the phylogenetic origin of the database sequences hit by the similarity searches.
+
+<P>
+
+<H2><A NAME="SECTION00338000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">8</SPAN> Annotation Mapping</A>
+</H2>
+ Sequence similarity searches are computed against a protein database derived from the M5NR [#!M5NR!#], which provides a non-redundant integration of many databases (GenBank,[#!GENBANK!#], SEED [#!SUBSYSTEMS!#], IMG [#!IMG!#], KEGG [#!KEGG!#] and eggNOGs [#!EGGNOG!#]). Unlike MG-RAST 2, which relied solely on SEED, MG-RAST now supports many complementary views into the data with one similarity search, including different functional hierarchies: SEED subsystems, IMG terms, COG [#!COG!#], eggNOGs [#!EGGNOG!#] and ontologies such as GO (Gene Ontology Consortium, 2013). Users can easily change views without recomputation. For example  COG and KEGG views can be displayed, which both show the relative abundances of histidine biosynthesis in a dataset of four cow rumen metagenomes.
+
+<P>
+
+<H2><A NAME="SECTION00339000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">9</SPAN> Abundance Profiles</A>
+</H2>
+
+<P>
+Anbundance profiles are the primary data product that MG-RAST's user interface uses to display information on the data sets. Abundance profiles functional and taxonomic information.
+
+<P>
+Using the abundance profiles the MG-RAST systems deffers making a decision on when to transfer annotations. As there is no well defined threshold that is acceptable for all use-cases, the abundance profiles contain all similarities and require their users to set cut-off values.
+
+<P>
+The threshold for annotation transfer can be set using the following parameters:
+
+<UL>
+<LI>e-value
+</LI>
+<LI>percent identity
+</LI>
+<LI>minimal alignment length
+</LI>
+</UL>
+
+<P>
+The taxonomic profiles use the NCBI taxnomy, all taxonomic information is projected against this data.
+The functional profile are available for data sources that provide hierarchical information. These are currently:
+
+<P>
+
+<UL>
+<LI>SEED Subsystems
+
+<P>
+The SEED Subsystems[#!SUBSYSTEMS!#] represent an independent re-annotation effort that powers e.g. the RAST[#!RAST!#] effort. Manual curation of subsystems makes them an extremely valuable data source.
+
+<P>
+Subsystems represent a hierarchy:
+
+<OL>
+<LI>Subsystem level 1 - highest level
+</LI>
+<LI>Subsystem level 2 - 
+</LI>
+<LI>Subsystem level 3 - similar to a KEGG pathway
+</LI>
+<LI>Subsystem level 4 - this is the actual functional assignment to the feature in question
+</LI>
+</OL>
+
+<P>
+The page at <TT><A NAME="tex2html12"
+  HREF="http://pubseed.theseed.org//SubsysEditor.cgi">http://pubseed.theseed.org//SubsysEditor.cgi</A></TT> allows browsing the Subsystems.
+
+<P>
+</LI>
+<LI>KEGG Orthologues
+
+<P>
+We use the KEGG[#!KEGG!#] enzyme number hierarchy to implement a four level hierarchy
+
+<OL>
+<LI>KEGG level 1 - first digit of the EC number (EC:X.*.*.*)
+</LI>
+<LI>KEGG level 2 - the first two digits of the EC number (EC:X.Y.*.*)
+</LI>
+<LI>KEGG level 3 - the first three digits of the EC number (EC:X:Y:Z:.*)
+</LI>
+<LI>KEGG level 4 - the entire four digits EC number...
+</LI>
+</OL>
+
+<P>
+We note that KEGG data is no longer available for free download and we thus have to rely on using the latest freely downloadable version of the data.
+
+<P>
+The high level KEGG categories are:
+
+<OL>
+<LI>Cellular Processes
+</LI>
+<LI>Environmental Information Processing
+</LI>
+<LI>Genetic Information Processing
+</LI>
+<LI>Human Diseases
+</LI>
+<LI>Metabolism
+</LI>
+<LI>Organisational Systems
+</LI>
+</OL>
+
+<P>
+</LI>
+<LI>COG and EGGNOG categories
+The high level COG and EGGNOG categories are:
+
+<OL>
+<LI>Cellular Processes
+</LI>
+<LI>Information Storage and Processing
+</LI>
+<LI>Metabolism
+</LI>
+<LI>Poorly Characterized 
+</LI>
+</OL>
+
+<P>
+We note that for most metagenomes the coverage of each of the four namespaces is quite different. The "Source hit Distribution" (see <A HREF="#section:source-hits-distribution"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A>) provides information on how many sequences per data set
+were found for each database.
+</LI>
+</UL>
+
+<P>
+
+<H1><A NAME="SECTION00340000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">4</SPAN> The rRNA pipeline</A>
+</H1>
+
+<P>
+rRNA reads are identified using a simple rRNA detection pipeline and are searched in a separate flow in the pipeline.
+
+<P>
+
+<H2><A NAME="SECTION00341000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">1</SPAN> rRNA detection</A>
+</H2>
+ An initial BLAT [#!BLAT!#] search against a reduced RNA database efficiently identifies RNA.  
+
+<P>
+The reduced database is a 90% identity clustered version of the Silva database and is merely used to rapidly identify sequences with similarities to ribosomal RNA.
+
+<P>
+<SPAN  CLASS="textbf">ANDREAS how is this DB built!</SPAN>
+
+<P>
+
+<H2><A NAME="SECTION00342000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN> rRNA CLUSTERING</A>
+</H2>
+The rRNA-similar reads are then clustered at 97% identity and the longest sequence is picked as the cluster representative.
+
+<P>
+
+<H2><A NAME="SECTION00343000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">3</SPAN> rRNA IDENTIFICATION</A>
+</H2>
+ A BLAT similarity search is performed for the longest cluster representative.
+
+<P>
+<SPAN  CLASS="textbf">ANDREAS explain the M5rna</SPAN>
+
+<P>
+
+<H1><A NAME="SECTION00350000000000000000"></A>
+<A NAME="secton:Quality"></A><BR>
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">5</SPAN> Quality Assessment
+</H1>
+The MG-RAST pipeline offers a variety of summaries of technical aspects of the sequence quality to enable sequence data triage.  These tools include DRISEE for estimating sequence error, summaries of the spectra of long kmers, and visualizations of the base caller output.
+
+<P>
+
+<H2><A NAME="SECTION00351000000000000000"></A>
+<A NAME="DRISEEDETAIL"></A><BR>
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">1</SPAN> DRISEE, (Duplicate Read Inferred Sequencing Error Estimation)
+</H2>
+
+<P>
+DRISEE [#!DRISEE!#] is a method to provide a measure for sequencing error for whole genome shotgun metagenomic sequence data that is independent of sequencing technology, and accounts for many of the shortcomings of Phred. It utilizes ADR’s (artifactual/artificial duplicate reads) to generate internal sequence standards from which an overall assessment of sequencing error in a sample is derived. DRISEE values are normally reported as percent error.
+
+<P>
+DRISEE values can be used to assess the overall quality of sequence samples.   DRISEE data are presented on the Overview page for each MG-RAST sample for which a DRISEE profile can be determined.  Total DRISEE Error presents the overall DRISEE based assessment of the sample as a percent error:
+
+<P>
+<!-- MATH
+ \begin{math}
+Total DRISEE Er	ror = base\_errors/total\_bases * 100
+\end{math}
+ -->
+<IMG
+ WIDTH="449" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$Total DRISEE Er ror = base\_errors/total\_bases * 100$">
+
+<P>
+where “base_errors” refers to the sum of DRISEE detected errors and total_bases refers to the sum of all bases considered by DRISEE.
+
+<P>
+The current implementation of DRISEE is not suitable for amplicon sequencing data, or other samples that may contain natural duplicated sequences (e.g. eukaryotic DNA where gene duplication and other forms of highly repetitive sequences are common) in high abundance.
+
+<P>
+
+<H2><A NAME="SECTION00352000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">2</SPAN> Kmer profiles</A>
+</H2>
+
+<P>
+k-mer digests are an annotation-independent method to describe sequence datasets that can support inferences about genome size and coverage.  Here the overview page presents several visualizations of the kmer spectrum of each dataset, evaluated at k=15.
+
+<P>
+Three visualizations provided of the kmer spectrum are the kmer spectrum, kmer rank abundance, and ranked kmer consumed.   All three graphs represent the same spectrum, but in different ways.  The kmer spectrum plots the number of distinct kmers against kmer coverage.  The kmer coverage is equivalent to number of observations of each kmer.   The kmer rank abundance plots the relationship between kmer coverage and the kmer rank–answering the quesiton “what is the coverage of the nth most-abundant kmer.”   Ranked kmer consumed plots the largest fraction of the data explained by the nth most abundant kmers only.
+
+<P>
+
+<H2><A NAME="SECTION00353000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">3</SPAN> Nucleotide histograms</A>
+</H2>
+
+<P>
+These graphs show the fraction of base pairs of each type (A, C, G, T, or ambiguous base “N”) at each position starting from the beginning of each read. Amplicon datasets  (see Figure <A HREF="#fig:nucleotide-hist-amplicon"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A>)
+ should show biased distributions of bases at each position, reflecting both conservation and variability in the recovered sequences:
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:nucleotide-hist-amplicon"></A><A NAME="208"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+ Nucleotide histogram with biased distributions typical for an amplicon data set</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="300" HEIGHT="105" ALIGN="BOTTOM" BORDER="0"
+ SRC="./nucleotide-hist-amplicon.png"
+ ALT="Image nucleotide-hist-amplicon">
+
+</DIV>
+
+<P></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Shotgun datasets should have roughly equal proportions of A, T, G and C basecalls, independent of position in the read as shown in Figure <A HREF="#fig:nucleotide-hist-ok"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A>.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:nucleotide-hist-ok"></A><A NAME="216"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+Nucleotide histogram showing ideal distributions typical for a shotgun metagenome.
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="300" HEIGHT="103" ALIGN="BOTTOM" BORDER="0"
+ SRC="./nucleotide-hist-ok.png"
+ ALT="Image nucleotide-hist-ok">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Vertical bars at the beginning of the read indicate untrimmed (see Figure <A HREF="#fig:nucleotide-hist-barcodes"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A>), contiguous barcodes. Gene calling via FragGeneScan [#!FGS!#] and RNA similarity searches are not impacted by the presence of barcodes. However if a significant fraction of the reads is consumed by barcodes it reduces the biological information contained in the reads.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:nucleotide-hist-barcodes"></A><A NAME="225"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+Nucleotide histogram with untrimmed barcodes.
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="300" HEIGHT="104" ALIGN="BOTTOM" BORDER="0"
+ SRC="./nucleotide-hist-barcodes.png"
+ ALT="Image nucleotide-hist-barcodes">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+If a shotgun dataset has clear patterns in the data (see Figure <A HREF="#fig:nucleotide-with-contamination"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A>, this indicates likely contamination with artificial sequences.  This dataset had a large fraction of adapter dimers:
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:nucleotide-with-contamination"></A><A NAME="233"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+Nucleotide histogram with contamination.
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="300" HEIGHT="104" ALIGN="BOTTOM" BORDER="0"
+ SRC="./nucleotide-with-contamination.png"
+ ALT="Image nucleotide-with-contamination">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<H1><A NAME="SECTION00360000000000000000"></A>
+<A NAME="section:hit-types"></A><BR>
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">6</SPAN> Representative hit, best hit, and Lowest Common Ancestor interpretation
+</H1>
+
+<P>
+MG-RAST searches the non-redundant M5NR and M5RNA databases in which each sequence is unique. These two databases are built from multiple sequence database sources and the individual sequences may occur multiple times in different strains and species (and sometimes genera) with 100% identity. In these circumstances,  choosing the “right” taxonomic information is not a straightforward process.
+
+<P>
+To optimally serve a number of different use cases, we have implemented three different ways of finding the “right” function or taxon information. This impacts the end-user experience as they have three different methods to choose the number of hits reported for a given sequence in their data set. The details on the three different classification functions implemented are below:
+
+<H2><A NAME="SECTION00361000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN> Best Hit</A>
+</H2>
+
+<P>
+The best hit classification reports the functional and taxonomic annotation of the best hit in the M5NR for each feature. In those cases where the similarity search yields multiple same-scoring hits for a feature, we do not choose any single  “correct” label. For this reason we have decided to “double count” all  annotations with identical match properties and leave determination of truth to our users. While this approach aims to inform about the functional and taxonomic potential of a microbial community by preserving all information, subsequent analysis can be biased because of a single feature having multiple annotations, leading to inflated hit counts. If you are looking for a specific species or function in your results, the “best hit” function is likely what you are looking for.
+
+<H2><A NAME="SECTION00362000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">2</SPAN> Representative Hit</A>
+</H2>
+
+<P>
+The representative hit classification selects a single unambiguous annotation for each feature. The annotation is based on the first hit in the homology search and the first annotation for that hit in our database. This makes counts additive across functional and taxonomic levels and thus allows for example to compare functional and taxonomic profiles of different metagenomes.
+
+<H2><A NAME="SECTION00363000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">3</SPAN> Lowest Common Ancestor (LCA)</A>
+</H2>
+
+<P>
+To avoid the problem of multiple taxonomic annotations for a single feature we provide taxonomic annotations based on the widely used LCA-method (lowest common ancestor) introduced by MEGAN [#!MEGAN!#]. In this method all hits that have a bit score close to the bit score of the best hit are collected. The taxonomic annotation of the feature is then determined by computing the LCA of all species in this set.  This replaces all taxonomic annotations from ambiguous hits with a single higher level annotation in the NCBI taxonomy tree.
+
+<P>
+The number of hits (“occurrences of the input sequence in the database”) may be inflated if the “best hit” filter is used, or your favorite species might be missing despite a very similar sequence similarity result if using the “representative hit” classifier function (in fact 100% identical match to your favorite species exists).
+
+<P>
+One way to consider both “representative” and “best” hit is that they over-interpret the available evidence, with the LCA classifier function any input sequence is only classified down to a trustworthy taxonomic level. While naively this seems to be the best function to choose in all cases as it classifies sequences to varying depths, this causes problems for downstream analysis tools that might rely on everything being classified to the same level.
+
+<P>
+
+<H1><A NAME="SECTION00370000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">7</SPAN> Why don’t the numbers of annotations add up to the number of reads ?</A>
+</H1>
+
+<P>
+The MG-RAST v3 annotation pipeline does not usually provide a single annotation for each submitted fragment of DNA. There are steps in the pipeline that map one read to multiple annotations and one annotation to multiple reads. These steps are a consequence of genome structure, pipeline engineering, and the character of the sequence databases that MG-RAST uses for annotation.
+
+<P>
+The first step that is not one-to-one is gene prediction. Long reads (&gt;400bp) and contigs can contain pieces of two or more microbial genes; when the gene caller makes this prediction, the multiple predicted protein sequences (called “fragments”) are annotated separately.
+
+<P>
+There is an intermediate clustering step that identifies sequences at 90% amino acid identity and performs one search for each cluster. Sequences that do not fall into clusters are searched separately. The “abundance” column in the MG-RAST tables presents the estimate of the number of sequences that contain a given annotation, found by multiplying each selected database match (hit) by the number of representatives in each cluster.
+The final step that is not one-to-one is the annotation process itself. Sequences can exist in the underlying data sources many times with different labels. When those sequence are the best hit similarity, we do not have a principled way to choosing the “correct” label. For this reason we have decided to double count these annotations and leave determination of truth to our users. Note: Even when considering a single data source, double-counting can occur depending on the consistency of annotations.
+Also note, “Hits” refers to the number of unique database sequences that were found in the similarity search, NOT the number of reads. The hit count can be smaller than the number of reads because of clustering or larger due to double counting.
+
+<P>
+
+<H1><A NAME="SECTION00380000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">8</SPAN> Metadata, Publishing and Sharing</A>
+</H1>
+As mentioned above MG-RAST is both an analytical platform and a data integration. To enable data re-use for e.g. metaanalyses we require that all data being made available to third parties contain at least minimal metadata. The MG-RAST team has decided to follow the minimal checklist approach used by the Genomics Standards Consortium (GSC)[#!GSC!#]. 
+
+<H2><A NAME="SECTION00381000000000000000"></A>
+<A NAME="section:metadata"></A><BR>
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">8</SPAN>.<SPAN CLASS="arabic">1</SPAN> Metadata
+</H2>.
+While the GSC provide a GCDML [#!GCDML!#] encoding this XML based format is more useful to programmers than to end users submitting data. 
+
+<P>
+We have therefore elected to use spreadsheets to transport metadata. Specifically we use MIxS (Minimum information about any (x) sequence (MIxS) and MIMARKS (Minimum Information about a MARKer gene Survey) to encode minimal metadata [#!MIENS!#].
+
+<P>
+The metadata describe both origins of samples and provide details on the generation of the sequence data. While the GSC checklist aims at capturing a minimum of information, MG-RAST can handle additional metadata if supplied by the user. The metadata is stored in a simple key value format and is displayed on the Metagenome Overview page.
+
+<P>
+Once uploaded metadata spreadsheets are validated automatically and users informed of any problems. 
+
+<P>
+The presence of metadata enables discovery by end-users using contextual metadata. Users can perform searches like  “retrieve soil samples from the continental U.S.”. If the users have added additional metadata (domain specific extension) additional queries are enabled e.g. “restrict the results to soils with a specific pH”.
+
+<H2><A NAME="SECTION00382000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">8</SPAN>.<SPAN CLASS="arabic">2</SPAN> Publishing</A>
+</H2>
+MG-RAST provides a mechanism to make data and analyses publicly accessible. Only the submitting user can make data public on MG-RAST. As stated above, metadata is mandatory for data set publication.
+
+<P>
+
+<H2><A NAME="SECTION00383000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">8</SPAN>.<SPAN CLASS="arabic">3</SPAN> Sharing</A>
+</H2>
+In addition to publishing, data and analysis can also be shared with specific users. To share data with a user simply enter their email address via clicking sharing on the overview page. The dialogue shown in Figure <A HREF="#fig:sharing"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A> will allow entering email addresses.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:sharing"></A><A NAME="256"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+The sharing mechanisms requires a valid email address for the user the data is to be shared with. A list of users with access to the data is displayed at the bottom on the page.
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="600" HEIGHT="324" ALIGN="BOTTOM" BORDER="0"
+ SRC="./sharing.png"
+ ALT="Image sharing">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+As shown in Figure <A HREF="#fig:Data-sharing-in-mg-rast"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A> we tend to see data sets sharing between small groups of users.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:Data-sharing-in-mg-rast"></A><A NAME="264"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+Data sets shared in MG-RAST by users (orange dots) are shown as connecting edges.
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="300" HEIGHT="295" ALIGN="BOTTOM" BORDER="0"
+ SRC="./Data-sharing-in-mg-rast.png"
+ ALT="Image Data-sharing-in-mg-rast">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<H2><A NAME="SECTION00384000000000000000"></A>
+<A NAME="section:identifier"></A><BR>
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">8</SPAN>.<SPAN CLASS="arabic">4</SPAN> Identifiers
+</H2>
+MG-RAST automatically assigns a unique identifier to every data set submitted. Upon completion of the automated pipeline data sets can be viewed via the web interface using the identifiers.
+
+<P>
+The data set identifiers are of the form <TT>integer prefix</TT>.<TT>revision</TT>, an example is <TT>4440283.3</TT>.
+
+<P>
+In addition to data sets MG-RAST supports projects (groups of data sets) that can be addressed with simple numerical project identifiers.
+
+<P>
+An example:
+<TT><A NAME="tex2html19"
+  HREF="http://metagenomics.anl.gov/linkin.cgi?project=128">http://metagenomics.anl.gov/linkin.cgi?project=128</A></TT>
+<P>
+
+<H2><A NAME="SECTION00385000000000000000">
+<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">8</SPAN>.<SPAN CLASS="arabic">5</SPAN> Linking to MG-RAST</A>
+</H2>
+As future version of MG-RAST may change, we provide a link-in mechanism as a stable way of linking to MG-RAST. If you need to link out to data sets in MG-RAST the <TT>linkin.cgi</TT> is the right way to do it.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:linkin.cgi"></A><A NAME="890"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+The <TT>linkin.cgi</TT> mechanism provides stable URLs for linking to MG-RAST.</CAPTION>
+<TR><TD><IMG
+ WIDTH="573" HEIGHT="44" BORDER="0"
+ SRC="img2.png"
+ ALT="\begin{figure*}\par
+\texttt{http://metagenomics.anl.gov/linkin.cgi?metagenome=}
+...
+...exttt{http://metagenomics.anl.gov/linkin.cgi?project=}
+\par\par
+\end{figure*}"></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+For example, for the metagenome ID <TT>4440283.3</TT> the URL is: <TT><A NAME="tex2html21"
+  HREF="http://metagenomics.anl.gov/linkin.cgi?metagenome=4440283.3">http://metagenomics.anl.gov/linkin.cgi?metagenome=4440283.3</A></TT>
+<P>
+This URL provides a stable method of linking to your data which does not require the viewer to have an MG-RAST account. Please do not use the URL you see when you are browsing the site.
+
+<P>
+By default your data is not visible to others, you will need to explicitly grant permission for it to be visible to anyone on the internet by making it public through the MG-RAST website.
+
+<P>
+
+<H1><A NAME="SECTION00400000000000000000">
+<SPAN CLASS="arabic">3</SPAN>. The MG-RAST v3 web interface</A>
+</H1>
+
+<P>
+The MG-RAST system provides a rich web user interface that covers all aspects of the metagenome analysis from data upload to ordination analysis. The web interface can also be used for data discovery. Metagenomic datasets can be easily selected individually or on the basis of filters such as technology (including read length), quality, sample type, and keyword, with dynamic filtering of results based on similarity to known reference proteins or taxonomy. For example, a user might want to perform a search such as (phylum eq “actinobacteria” and function in “KEGG pathway Lysine Biosynthesis” and sample in “Ocean”) to extract sets of reads matching the appropriate functions and taxa across metagenomes. The results can be displayed in familiar formats, including bar charts, trees that incorporate abundance information, heatmaps, or principal components analyses, or exported in tabular form. The raw or processed data can be recovered via download pages. Metabolic reconstructions based on mapping to KEGG pathways are also provided.
+
+<P>
+Sample selection is crucial for understanding large-scale patterns when multiple metagenomes are compared. Accordingly, MG-RAST supports MIxS and MIMARKS (Yilmaz, 2011) (as well as domain-specific plug-ins for specialized environments not extending the minimal GSC standards); several projects, including TerraGenome, HMP, TARA, and EMP, use these GSC standards, enabling standardized queries that integrate new samples into these massive datasets. An example query using the metadata browser, enabling the user to interrogate the existing pool of public data sets for a Biome of interest (e.g. Hot springs) and performing comparisons and a search for organisms encoding a specific gene function (e.g. Beta-lactamase or Aldo/keto reductase; 
+see Figure <A HREF="#fig:quad-chart-analysis-example"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A>.
+
+<P>
+One key aspect of the MG-RAST approach is the creation of smart data products enabling the user at the time of analysis to determine the best parameters for e.g. a comparison between samples. This is done without the need for re-computation of results. 
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:quad-chart-analysis-example"></A><A NAME="289"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+a) Using the web interface for a search of metagenomes for microbial mats in hotsprings (GSC-MIMS-Keywords Biome=”hotspring; microbial mat”) we find 6 metagenomes (refs: 4443745.3, 4443746.3, 4443747.3, 4443749.3, 4443750.3, 4443762.3). b) Initial comparison reveals some differences in protein functional class abundance (using SEED subsystens level 1). C) From the PCoA plot using normalized counts of functional SEED subsystem based functional annotations (level 2) and Bray-Curtis as metric, we attempt to find differences between two similar datasets (MG-RAST-IDs: 444749.3, 4443762.3). d) Using exported tables with functional annotations and taxonomic mapping we analyze the distribution of organisms observed to contain Beta-lactamase and plot the abundance per species for two distinct samples.
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="600" HEIGHT="374" ALIGN="BOTTOM" BORDER="0"
+ SRC="./quad-chart-analysis-example.png"
+ ALT="Image quad-chart-analysis-example">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<H1><A NAME="SECTION00410000000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN> Technical details</A>
+</H1>
+
+<H2><A NAME="SECTION00411000000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> Browser requirements</A>
+</H2>
+The current web interface for MG-RAST is being developed for recent versions of Firefox. 
+If you are using another browser please understand that some or all of the web site will not function.
+
+<P>
+We understand that this may not be your favorite (or institutionally prescribed) browser, but writing 
+interactive web sites for many browsers is hard. While we are aiming to create a multi-browser version of the web interface, the current version is limited to Firefox.
+
+<P>
+
+<H2><A NAME="SECTION00412000000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN> Downloading figures</A>
+</H2>
+Almost all figures and tables are downloadable into either graphics or spreadsheets. Please look for
+a download chart data link next to the graphic.
+
+<P>
+
+<H1><A NAME="SECTION00420000000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN> Sitemap for MG-RAST</A>
+</H1>
+The MG-RAST web site (as shown in Figure <A HREF="#fig:sitemap"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A>) is rather complex and offers a lot of 
+different options.
+
+<P>
+In addition to the home page, the site at <TT><A NAME="tex2html23"
+  HREF="http://metagenomics.anl.gov">http://metagenomics.anl.gov</A></TT> has 5 main pages 
+(shown in blue in Figure <A HREF="#fig:sitemap"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A>).
+
+<P>
+
+<UL>
+<LI>Download page
+
+<P>
+This page lists all publicly available data for download. The data is structured into projects.
+
+<P>
+</LI>
+<LI>the Browse page
+
+<P>
+This page allows interactive browsing of all data sets and is powered by metadata.
+
+<P>
+</LI>
+<LI>the Search page
+
+<P>
+The search page allows identifier, taxonomy and function driven searches against all public data.
+
+<P>
+</LI>
+<LI>the Analysis page
+
+<P>
+The Analysis page enables comparisons between data sets and in depth analyses.
+
+<P>
+</LI>
+<LI>the Upload page
+
+<P>
+This is allowing users to provide their samples and metadata to MG-RAST. More details on uploading are below.
+
+<P>
+</LI>
+<LI>the Metagenome Overview page
+
+<P>
+For each indivual data set this page provides an overview.
+</LI>
+</UL>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:sitemap"></A><A NAME="305"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+The sitemap for the MG-RAST version 3 web site. On the site map the main pages are shown in blue, management pages in orange. The green boxes represent pages that are not directly accessible from the home page.
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="600" HEIGHT="317" ALIGN="BOTTOM" BORDER="0"
+ SRC="./sitemap.png"
+ ALT="Image sitemap">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+It is important to mention that if you want to create links to the MG-RAST web site you should use the <SPAN  CLASS="textit">linkin</SPAN> mechanism instead of linking to any web page directly. All pages intended for users to create external links to provide the linkin feature. 
+
+<P>
+
+<H1><A NAME="SECTION00430000000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">3</SPAN> The Upload and Metadata pages</A>
+</H1>
+
+<P>
+Data and Metadata can be uploaded in the form of spreadsheets along with the sequence data using both the ftp and the http protocols. The web uploader will automatically split larger files and allow parallel uploads.
+
+<P>
+MG-RAST supports datasets that are augmented with rich metadata using the standards and technology developed by the GSC.  
+
+<P>
+Each user has a temporary storage location inside the MG-RAST system. This “inbox” provides temporary storage for data and metadata to be submitted to the system. Using the inbox users can extract compressed files, convert a number of vendor specific formats to MG-RAST submission compliant formats and obtain an MD5 checksum for verifying that transmission to MG-RAST has not altered the data.
+
+<P>
+The web uploader has been optimized for large data sets of over 100GBp (gigabasepairs) often resulting in file sizes in excess of 150 GB.
+
+<P>
+
+<H1><A NAME="SECTION00440000000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">4</SPAN> The Browse page - Metadata enabled data discovery</A>
+</H1>
+
+<P>
+The Metagenome Browse page lists all data sets visible to the user.<A NAME="tex2html25"
+  HREF="#foot311"><SUP><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A>This page also provides an overview of the non-public data sets submitted by the user or shared with them. 
+
+<P>
+Figure <A HREF="#fig:metagenome-browser"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A> shows the interactive metagenome browse table, which provides an interactive graphical means to discover data based on technical data (e.g. sequence type or data set size) or metadata (e.g. location or biome).
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:metagenome-browser"></A><A NAME="317"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+The Metagenome Browser page enables sorting and data search. Users can select the metadata they wish to view and search. Some of the metadata is hidden by default and can be viewed by clicking on the ‘…’ header on the right side of the table and selecting the desired columns, this can also be used to hide unwanted columns.
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="600" HEIGHT="625" ALIGN="BOTTOM" BORDER="0"
+ SRC="./metagenome-browser.png"
+ ALT="Image metagenome-browser">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<H1><A NAME="SECTION00450000000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">5</SPAN> Project Page</A>
+</H1>
+Shown in Figure <A HREF="#fig:project-page"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A> the project page provides a list of data sets and metadata for a project.
+The table at the bottom of the project page provides access to the individual metagenomes via clicking on the identifiers in the first column. In addition the final column provides downloads for metadata, submitted data and the analysis results via the three labelled arrows.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:project-page"></A><A NAME="326"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+The project page provides a summary of all data in the project and provides an interface for downloads.
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="600" HEIGHT="656" ALIGN="BOTTOM" BORDER="0"
+ SRC="./project-page.png"
+ ALT="Image project-page">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+For the data set owners the project page provides editing capability using a number of menu entries at the top of the page. Figure <A HREF="#fig:project-page-editing-buttons"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A> shows all available options.
+
+<P>
+
+<UL>
+<LI>Share Project
+
+<P>
+Make the data in this project avaialble to third parties via sending them access tokens.
+
+<P>
+</LI>
+<LI>Add Jobs
+
+<P>
+Add additional data sets to this project.
+
+<P>
+</LI>
+<LI>Edit Project data
+
+<P>
+Edit the contents of this page.
+
+<P>
+</LI>
+<LI>Upload info
+
+<P>
+Upload information to be displayed on this page.
+
+<P>
+</LI>
+<LI>Upload metadata 
+
+<P>
+Upload a metadata spreadsheet for the project.
+
+<P>
+</LI>
+<LI>Export metadata<A NAME="tex2html28"
+  HREF="#foot331"><SUP><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A>
+<P>
+Export the metadata spreadsheet for this project.
+
+<P>
+</LI>
+</UL>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:project-page-editing-buttons"></A><A NAME="337"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+If you are the data set owner, the project page will display these buttons.
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="600" HEIGHT="47" ALIGN="BOTTOM" BORDER="0"
+ SRC="./project-page-editing-buttons.png"
+ ALT="Image project-page-editing-buttons">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<H1><A NAME="SECTION00460000000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN> The Overview Page</A>
+</H1>
+
+<P>
+MG-RAST automatically creates an individual summary page for each dataset. This “metagenome overview page” provides a summary of the annotations for a single data set.  The page is made available by the automated pipeline once the computation is finished.
+
+<P>
+This page is a good starting for looking at a particular data set and provides a signifcant amount of information on technical details and biological content. 
+
+<P>
+The page is intended as a single point of reference for metadata, quality and data. It also provides an initial overview of the analysis results for individual data sets with default parameters. Further analysis are available on the Analysis page.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:metagenome-overview"></A><A NAME="345"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+Top of the metagenome overview page.
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="300" HEIGHT="81" ALIGN="BOTTOM" BORDER="0"
+ SRC="./metagenome-overview.png"
+ ALT="Image metagenome-overview">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<H2><A NAME="SECTION00461000000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN> The technical part of the overview page - Details on sequencing and analysis</A>
+</H2>
+
+<P>
+The Overview page provides the MG-RAST ID for a data set, a unique identifier that is usable as accession number for publications. Additional information like the Name of the submitting PI and organization and a user provided metagenome name are displayed at the top of the page as well. A static URL for linking to the system that will be stable across changes to the MG-RAST web interface is provided as additional information 
+(Figure <A HREF="#fig:metagenome-overview"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A>).
+
+<P>
+We provide an automatically generated paragraph of text describing the submitted data and the results computed by the pipeline. Via the project information we display additional information provided by the data submitters at the time of submission or later.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:classification-pie-chart"></A><A NAME="354"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+Sequences to the pipeline are classified into one of 5 categories.  grey = failed the QC, red = unknown sequences, yellow = unknown function but protein coding, green = protein coding with known function and blue = ribosomal RNA. For this example over 50% of sequences were either filtered by QC or failed to be recognized as either protein coding or ribosomal.
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="250" HEIGHT="203" ALIGN="BOTTOM" BORDER="0"
+ SRC="./classification-pie-chart.png"
+ ALT="Image classification-pie-chart">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+One of the key diagrams in MG-RAST is the sequence breakdown pie chart (Figure <A HREF="#fig:classification-pie-chart"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A>) classifying the submitted sequences submitted into several categories according to their annotation status. As detailed in the description of the MG-RAST v3 pipeline above, the features annotated in MG-RAST are protein coding genes and ribosomal proteins.
+
+<P>
+It should be noted that for performance reasons no other sequence features are annotated by the default pipeline. Other feature types e.g. small RNAs or regulatory motifs (e.g. CRISPRS [#!CRISPRS!#]) will not only require significantly higher computational resources but also are frequently not supported by the unassembled short reads that comprise the vast majority of today’s metagenomic data in MG-RAST. The quality of the sequence data coming from next generation instruments requires careful design of experiments, lest the sensitivity of the methods is greater than the signal to noise ratio of the data supports.
+
+<P>
+The overview page also provides metadata (data describing data) for each data set to the extent that data has been made available.  Metadata enables other researchers to discover datasets and compare annotations.  MG-RAST requires standard metadata for data sharing and data publication. This is implemented using the standards developed by the Genomics Standards Consortium. Figure <A HREF="#fig:GSC-MIxS-checklist-information"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A> shows the metadata summary for a data set.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:GSC-MIxS-checklist-information"></A><A NAME="364"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+The information from the GSC MIxS checklist providing minimal metadata on the sample.
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="280" HEIGHT="399" ALIGN="BOTTOM" BORDER="0"
+ SRC="./GSC-MIxS-checklist-information.png"
+ ALT="Image GSC-MIxS-checklist-information">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+All metadata stored for a specific dataset is available in MG-RAST, we merely display a standardized subset in this table. A link at the bottom of the table (“more metadata”) provides access to a table with the complete metadata. This enables users to provide extended metadata going beyond the GSC minimal standards. A mechanism to provide community consensus extensions to the minimal checklists are the environmental packages are explicitly encouraged, but not required when using MG-RAST.
+
+<H3><A NAME="SECTION00461100000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> Metagenome QC</A>
+</H3>
+
+<P>
+The analysis flowchart and analysis statistics provide an overview of the number of sequences at each stage in the pipeline. (Figure <A HREF="#fig:analysis-flowchart"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A>).  The text block next to the analysis flowchart presents the numbers next to their definitions.
+
+<DIV ALIGN="CENTER"><A NAME="373"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+The analysis flowchart provides an overview of the fractions of sequences “surviving” the various steps of the automated analysis. In this case about 20% of sequences were filtered during quality control. From the remaining 37,122,128 sequences, 53.5% were predicted to be protein coding, 5.5% hit ribosomal RNA. From the predicted proteins, 76.8% could be annotated with a putative protein function. Out of 32 million annotated proteins, 24 million have been assigned to a functional classification (SEED, COG, EggNOG, KEEG), representing 84% of the reads.
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="300" HEIGHT="239" ALIGN="BOTTOM" BORDER="0"
+ SRC="./analysis-flowchart.png"
+ ALT="Image analysis-flowchart">
+
+</DIV>
+
+labelfig:analysis-flowchart</TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<H3><A NAME="SECTION00461200000000000000"></A>
+<A NAME="section:source-hits-distribution"></A><BR>
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN> Source hits distribution
+</H3>
+The source hits distribution shows what percentage of the predicted protein features could be annotated with similarity to a protein of known function and which database those functions were from. In addition ribosomal RNA genes are also mapped to the rRNA databases.
+
+<P>
+The graph <A HREF="#fig:source-hits-distribution"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A> shows the number of features in this dataset that were annotated by the different databases. These include protein databases, protein databases with functional hierarchy information, and ribosomal RNA databases.
+
+<P>
+In addition this display will print the number of records in the M5NR protein database and in the M5RNA ribosomal databases. 
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:source-hits-distribution"></A><A NAME="383"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+The graph shows the number of features in this dataset that were annotated by the different databases. 
+ The bars representing annotated reads are colored by e-value range. Different databases have different numbers of hits, but can also have different types of annotation data.</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="600" HEIGHT="252" ALIGN="BOTTOM" BORDER="0"
+ SRC="./source-hits-distribution.png"
+ ALT="Image source-hits-distribution">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<H3><A NAME="SECTION00461300000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">3</SPAN> yet more statistics in Technical Data</A>
+</H3>
+
+<P>
+This part provides a quick links to a general statistical overview of the different analysis steps performed (see Analysis flowchart),  a comprehensive list of all metadata for the data set, sequence length and GC distributions and a breakdown of blat hits per data source (e.g. hits to RefSeq [#!REFSEQ!#], UniProt [#!UNIPROT!#] or SEED [#!SUBSYSTEMS!#]).
+
+<P>
+The Analysis Statistics and Analysis Flowchart provide sequence statistics for the main steps in the pipeline from raw data to annotation, describing the transformation of the data between steps.
+
+<P>
+Sequence length and GC histograms display the distribution before and after quality control steps.
+
+<P>
+Metadata is presented in a searchable table which contains contextual metadata describing sample location, acquisition, library construction and sequencing using GSC compliant metadata. All metadata can be downloaded from the table.  
+
+<P>
+
+<H2><A NAME="SECTION00462000000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">2</SPAN> The biological part of the Overview page - Organism Breakdown</A>
+</H2>
+
+<P>
+The taxonomic hit distribution display breaks down taxonomic units into a series of pie charts of all the annotations grouped at various taxonomic ranks (Domain, Phylum, Class, Order, Family, Genus).  The subsets are selectable for downstream analysis, this also enables downloads of subsets of reads, e.g. those hitting a specific taxonomic unit.
+
+<H3><A NAME="SECTION00462100000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> Rank abundance</A>
+</H3>
+
+<P>
+The rank abundance plot ((Figure <A HREF="#fig:rank-abundance"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A>) provides a rank-ordered list of taxonomic units at a user-defined taxonomic level, ordered by their abundance in the annotations.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:rank-abundance"></A><A NAME="397"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+Organism breakdown: Sample rank abundance plot by phylum.
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="300" HEIGHT="308" ALIGN="BOTTOM" BORDER="0"
+ SRC="./rank-abundance.png"
+ ALT="Image rank-abundance">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<H3><A NAME="SECTION00462200000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> Rarefaction</A>
+</H3>
+The rarefaction curve of annotated species richness is a plot (see <A HREF="#fig:rarefaction"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A> of the total number of distinct species annotations as a function of the number of sequences sampled. The slope of the right-hand part of the curve is related to the fraction of sampled species that are rare.  When the rarefaction curve is flat, more intensive sampling is likely to yield only few additional species. The rarefaction curve is derived from the protein taxonomic annotations and is subject to problems stemming from technical artifacts. These artifacts can be similar to the ones affecting amplicon sequencing [#!RARE!#] but the process of inferring species from protein similarities may introduce additional uncertainty.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:rarefaction"></A><A NAME="407"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+The rarefaction plot shows a curve of annotated species richness. This curve is a plot of the total number of distinct species annotations as a function of the number of sequences sampled. 
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="600" HEIGHT="193" ALIGN="BOTTOM" BORDER="0"
+ SRC="./rarefaction.png"
+ ALT="Image rarefaction">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+On the left, a steep slope indicates that a large fraction of the species diversity remains to be discovered. If the curve becomes flatter to the right, a reasonable number of individuals is sampled: more intensive sampling is likely to yield only few additional species.
+
+<P>
+Sampling curves generally rise very quickly at first and then level off towards an asymptote as fewer new species are found per unit of individuals collected. These rarefaction curves are calculated from the table of species abundance. The curves represent the average number of different species annotations for subsamples of the the complete dataset.
+
+<P>
+
+<H3><A NAME="SECTION00462300000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN> Alpha Diversity</A>
+</H3>
+Finally in this section we display an estimate of the alpha diversity based on the taxonomic annotations for the predicted proteins. The alpha diversity is presented in context of other metagenomes in the same project (see Figure <A HREF="#fig:alpha-diversity"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A>).
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:alpha-diversity"></A><A NAME="416"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+The alpha diversity plot shows the range of α-diversity values in the project the data set belongs to. The min, max, and mean values are shown, with the standard deviation ranges (σ and 2σ) in different shades. The α-diversity of this metagenome is shown in red.
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="600" HEIGHT="158" ALIGN="BOTTOM" BORDER="0"
+ SRC="./alpha-diversity.png"
+ ALT="Image alpha-diversity">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+The alpha diversity estimate is a single number that summarizes the distribution of species-level annotations in a dataset.   The Shannon diversity index is an abundance-weighted average of the logarithm of the relative abundances of annotated species.
+
+<P>
+We compute the species richness as the antilog of the Shannon diversity:
+
+<P>
+<BR><P></P>
+<DIV ALIGN="CENTER">
+<!-- MATH
+ \begin{displaymath}
+\textrm{Richness} = 10^{-\sum_i  p_i \log(p_i) }
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="202" HEIGHT="33" BORDER="0"
+ SRC="img3.png"
+ ALT="\begin{displaymath}\textrm{Richness} = 10^{-\sum_i p_i \log(p_i) } \end{displaymath}">
+</DIV><BR CLEAR="ALL">
+<P></P>
+
+<P>
+where <IMG
+ WIDTH="20" HEIGHT="34" ALIGN="MIDDLE" BORDER="0"
+ SRC="img4.png"
+ ALT="$p_i$"> are the proportions of annotations in each of the species categories.
+
+<P>
+Shannon species richess is the antilog of the Shannon index
+It has units of “effective number of species.”  Each p is a ratio of the number of annotations for each species to the total number of annotations and m is the total number of different species annotations.
+
+<P>
+The species-level annotations are from all the annotation source databases used by MG-RAST.   The table of species and number of observations used to calculate this diversity estimate can be downloaded under “download source data” on the overview page.
+
+<H3><A NAME="SECTION00462400000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">4</SPAN> Functional Breakdown</A>
+</H3>
+
+<P>
+This section contains four pie charts providing a breakdown of the functional categories for KEGG [#!KEGG!#], COG [#!COG!#], SEED Subsystems [#!SUBSYSTEMS!#] and EggNOGs [#!EGGNOG!#]. Clicking on the individual pie chart slices will save the respective sequences to the workbench.
+
+<P>
+The relative abundance of sequences per functional category can be downloaded as a spreadsheet and users can browse the functional breakdowns via the Krona tool [#!KRONA!#]integrated in the page.
+
+<P>
+A more detailed functional analysis, allowing the user to manipulate parameters for sequence similarity matches is available via the analysis page.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:subsystems-functions-piechart"></A><A NAME="431"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+The subsystems function piechart classifies reads into the Subsystem level one functions. In contrast to the COG, EGGNOG and KEGG classification schemes there are over 20 top level subsystem categories creating a more highly resolved "fingerprint" for the metagenome.
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="600" HEIGHT="547" ALIGN="BOTTOM" BORDER="0"
+ SRC="./subsystems-functions-piechart.png"
+ ALT="Image subsystems-functions-piechart">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+We note that users can explore subsystems abundance on various levels using the analysis page.
+
+<P>
+<SPAN  CLASS="textbf">QUESTION:: What are the default parameters used to display these graphs??</SPAN>
+
+<P>
+
+<H3><A NAME="SECTION00462500000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">5</SPAN> Taxonomic breakdown</A>
+</H3>
+
+<P>
+This section contains 6 pie charts representing the break
+
+<P>
+
+<H1><A NAME="SECTION00470000000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">7</SPAN> Download page</A>
+</H1>
+
+<P>
+The download page provides all publicly available data sets for download. 
+Three types of data are available for download:
+
+<P>
+
+<UL>
+<LI>metadata
+
+<P>
+Data describing data in GSC compliant format.
+
+<P>
+</LI>
+<LI>submitted data
+
+<P>
+The original user submission
+
+<P>
+</LI>
+<LI>analysis results 
+
+<P>
+The results of running the MG-RAST pipeline, the list includes all intermediate data products and is intended to serve as a basis for further analysis outside the MG-RAST pipeline.
+
+<P>
+Details on the individual files are in <A HREF="#chapter:downloads"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A>.
+</LI>
+</UL>
+
+<P>
+
+<H1><A NAME="SECTION00480000000000000000"></A>
+<A NAME="section:analysis-page"></A><BR>
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">8</SPAN> The Analysis Page
+</H1>
+
+<P>
+The MG-RAST annotation pipeline produces a set of annotations for each sample; these annotations can be interpreted as functional or taxonomic abundance profiles. The analysis page can be used to view these profiles for a single metagenome, or compare profiles from multiple metagenomes using various visualizations (e.g. heatmap) and statistics (e.g. PCoA , normalization).  
+
+<P>
+The page breaks down in three parts following a typical workflow (Figure <A HREF="#fig:analysis-page"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A>):
+
+<P>
+
+<OL>
+<LI><SPAN  CLASS="textbf">Data type</SPAN>
+
+<P>
+Selection of an MG-RAST analysis scheme, that is selection of a particular taxonomic or functional abundance profile mapping. For taxonomic annotations, since there is not always a unique mapping from hit to annotation, we provide three interpretations: Best Hit, Representative Hit and Lowest Common Ancestor as explained below. Functional annotations can either be grouped into mappings to functional hierarchies or displayed without a hierarchy. In addition the recruitment plot displays the recruitment of protein sequences against a reference genome.
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textbf">Data selection</SPAN>
+
+<P>
+Selection of sample and parameters. This dialog allows the selection of multiple metagenomes which can be compared undividually, or selected and compared as groups. Comparison is always relative to the annotation source, e-value and percent identity cutoffs selectable in this section. In addition to the metagenomes available in MG-RAST, sets of  sequences previously saved in the workbench can be selected for visualization.  
+
+<P>
+</LI>
+<LI><SPAN  CLASS="textbf">Data visualization</SPAN>
+
+<P>
+Data Visualization and Comparison. Depending on the selected profile type, the profiles for the metagenomes can be visualized and compared using “barcharts”, “trees”, spreadsheet like “tables” , “heatmaps”, “PCoA”, “rarefaction plots”, “Circular recruitment plot”  and KEGG maps.
+</LI>
+</OL>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:analysis-page"></A><A NAME="452"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+Using the analysis page is a three step process. First select a profile and hit (see below) type. Second select a list of metagenomes and set annotation source and similarity parameters. Third chose a comparison.
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="600" HEIGHT="229" ALIGN="BOTTOM" BORDER="0"
+ SRC="./analysis-page.png"
+ ALT="Image analysis-page">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+The analysis page offers several hit classification schemes that are explained in <A HREF="#section:hit-types"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A>.
+
+<P>
+The data selection dialogue provides access to data sets in four ways. The four categories can be selected via a pulldown menu.
+
+<P>
+Once a category is selected, the data browser underneath available metagenomes will display data of the selected category. The text field under available metagenomes displays the available data sets or group identifiers.
+
+<P>
+The use of MG-RAST identifiers (e.g. 4447971.3) is possible in the text field underneath "available metagenomes".
+
+<P>
+
+<UL>
+<LI>the <SPAN  CLASS="textbf">private</SPAN> data
+
+<P>
+This will display a list of private or shared data sets for browsing under available metagenomes.
+
+<P>
+</LI>
+<LI>the <SPAN  CLASS="textbf">collections</SPAN>
+
+<P>
+Collections are used defined sets of metagenomes grouped for easier analysis. This is the recommended way of working with the analysus page.
+
+<P>
+</LI>
+<LI>the <SPAN  CLASS="textbf">projects</SPAN>
+
+<P>
+Projects are global groups of data sets grouped by the submitting user. The project name will be displayed
+
+<P>
+</LI>
+<LI>the <SPAN  CLASS="textbf">public</SPAN> data
+
+<P>
+All public data sets will be displayed.
+
+<P>
+</LI>
+</UL>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:Data-selection-expanded"></A><A NAME="466"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+A view of the data selection dialogue, with the list of four data categories expanded.
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="600" HEIGHT="326" ALIGN="BOTTOM" BORDER="0"
+ SRC="./Data-selection-expanded.png"
+ ALT="Image Data-selection-expanded">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+When using collections or projects, data can also be grouped into one set per collection or project and subsequently compared added. 
+
+<P>
+
+<H2><A NAME="SECTION00481000000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">8</SPAN>.<SPAN CLASS="arabic">1</SPAN> Normalization</A>
+</H2>
+
+<P>
+Normalization refers to a transformation that attempts to reshape an underlying distribution.   A large number of biological variables exhibit a log-normal distribution, meaning that when you transform the data with a log transformation, the values exhibit a normal distribution.   Log-transformation of the counts data makes a normalized data product that is more likely to satisfy the assumptions additional downstream tests like ANOVA or t-tests.
+
+<P>
+Standardization is a transformation applied to each distribution in a group of distributions so that all distributions exhibit the same mean and the same standard deviation. This removes some aspects of inter-sample variability and can make data more comparable. This sort of procedure is analogous to commonly practiced scaling procedures, but is more robust in that it controls for both scale and location.
+
+<P>
+The analysis page calculates the ordination visualizations with either raw or normalized counts, at the user’s option.  The normalization procedure is to take
+
+<P>
+<!-- MATH
+ \begin{math}
+normalized\_value\_i = log2(raw\_counts\_i + 1)
+\end{math}
+ -->
+<IMG
+ WIDTH="379" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img5.png"
+ ALT="$normalized\_value\_i = log2(raw\_counts\_i + 1)$">
+
+<P>
+And then the standardized values are calculated from the normalized values by subtracting the mean of each sample’s normalized values and dividing by the standard deviation of each sample’s normalized values.  
+
+<P>
+<!-- MATH
+ \begin{math}
+standardized\_i = (normalized\_i - mean({normalized\_i})) / stddev({normalized\_i})
+\end{math}
+ -->
+<IMG
+ WIDTH="651" HEIGHT="37" ALIGN="MIDDLE" BORDER="0"
+ SRC="img6.png"
+ ALT="$standardized\_i = (normalized\_i - mean({normalized\_i})) / stddev({normalized\_i})$">
+You can read more about these procedures in a number of texts - We recommend Terry Speed’s “Statistical Analysis of Gene Expression in Microarray Data” [#!1584883278!#].
+
+<P>
+When data exhibit a non-normal, normal or unknown distribution, non-parametric tests (e.g. Man-Whitney or Kurskal-Wallis) should be used.   Boxplots are an easy way to check – and the MG-RAST analysis page provides boxplots of the standardized abundance values for checking the comparability of samples (Figure <A HREF="#fig:boxplots"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A>).
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:boxplots"></A><A NAME="486"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+Boxplots of the abundance data for raw values (top) as well as values that have undergone the normalization and standardization procedure described above (bottom).  It is clear that after normalization and standardization, samples exhibit value distributions that are much more comparable, and that exhibit a normal distribution; the normalized and standardized data are suitable for analysis with parametric tests, the raw data are not.
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="300" HEIGHT="324" ALIGN="BOTTOM" BORDER="0"
+ SRC="./boxplots.png"
+ ALT="Image boxplots">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<H2><A NAME="SECTION00482000000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">8</SPAN>.<SPAN CLASS="arabic">2</SPAN> The KEGG Mapper</A>
+</H2>
+
+<P>
+The KEGG mapper provides the ability to compare data sets visually on the basis of them mapped onto 
+a KEGG pathway map. Users can select from any available KEGG pathway map.
+
+<P>
+Different colors indicate different metagenomic data sets.
+<SPAN  CLASS="textbf">add a figure here</SPAN>
+
+<P>
+The KEGG map tool allows the visual comparison of predicted metabolic pathways in metagenomic samples. It maps the abundance of identified enzymes onto a KEGG [#!KEGG!#] map of functional pathways. 
+Metagenomes can be assigned into one of two groups and those groups can be visually compared.
+
+<P>
+
+<H2><A NAME="SECTION00483000000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">8</SPAN>.<SPAN CLASS="arabic">3</SPAN> The Bar charts</A>
+</H2>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:analysis-page-bar-chart"></A><A NAME="497"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+The bar chart view comparing normalized abundance of taxa. We have expanded the Bacteria domain to display the next level of the hierarchy.
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="600" HEIGHT="363" ALIGN="BOTTOM" BORDER="0"
+ SRC="./analysis-page-bar-chart.png"
+ ALT="Image analysis-page-bar-chart">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Figure <A HREF="#fig:analysis-page-bar-chart"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A> shows the bar chart visualization option on the analysis page. One important property of the page is the built-in ability to drill down by clicking on a specific category. In this example we have expanded the domain Bacteria to show the normalized abundance (adjusted for sample sizes) of bacterial phyla.  The abundance information displayed can be downloaded into a local spreadsheet. Once a subselection has been made (e.g. the domain Bacteria selected) data can be sent to the workbench for detailed analysis.
+
+<P>
+
+<H2><A NAME="SECTION00484000000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">8</SPAN>.<SPAN CLASS="arabic">4</SPAN> Tree diagram</A>
+</H2>
+
+<P>
+The tree diagram allows comparison of data sets against a hierarchy (e.g. Subsystems or the NCBI taxonomy).
+
+<P>
+The hierarchy is displayed as a rooted tree and the abundance (normalized for data set size or raw) for each data set in the various categories is displayed as a bar chart for each category.
+
+<P>
+By clicking on a category (inside the circle) detailed information can be requested for that node; see Figure <A HREF="#fig:analysis-page-tree-additional-bar-charts"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A>.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:analysis-page-radial-tree"></A><A NAME="507"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+The tree diagram is a visualization method on the analysis page.
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="600" HEIGHT="491" ALIGN="BOTTOM" BORDER="0"
+ SRC="./analysis-page-radial-tree.png"
+ ALT="Image analysis-page-radial-tree">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:analysis-page-tree-additional-bar-charts"></A><A NAME="514"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+Clicking on a node in the tree diagram will display addition information to the right of the tree display.
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="300" HEIGHT="560" ALIGN="BOTTOM" BORDER="0"
+ SRC="./analysis-page-tree-additional-bar-charts.png"
+ ALT="Image analysis-page-tree-additional-bar-charts">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+The tree offers another of capabilities via the options shown in Figure <A HREF="#fig:analysis-page-tree-options"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A>.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:analysis-page-tree-options"></A><A NAME="522"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+The options for the tree view.
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="300" HEIGHT="195" ALIGN="BOTTOM" BORDER="0"
+ SRC="./analysis-page-tree-options.png"
+ ALT="Image analysis-page-tree-options">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<UL>
+<LI>export of a high resolution image
+
+<P>
+For publication purposes we provide a SVG  version of the image.
+
+<P>
+</LI>
+<LI>re-rooting
+
+<P>
+The tree display allows zooming in by re-rooting the tree display. For this select an node inside the tree (turning it red) and select reoot at the selected node. See Figure <A HREF="#fig:analysis-page-tree-options.png"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A>).
+
+<P>
+</LI>
+<LI>bar chart or stacked chart
+
+<P>
+The abundances of the hierarchy entries can be displayed as bar charts per node or as a stacked graph.
+
+<P>
+</LI>
+<LI>restrict to domain
+
+<P>
+Is identical to re-rooting the tree for a specific domain.
+
+<P>
+</LI>
+<LI>maximum level
+
+<P>
+This setting determines the depth of the tree being displayed.
+
+<P>
+</LI>
+<LI>color by
+
+<P>
+Determines the color (if any) used for the out circle of the display.
+
+<P>
+Figure <A HREF="#fig:analysis-page-tree-order-level-with-phylum-colors"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A> shows the result of changing the display depth and coloring options. The color is used to group organism visually into order level groups.
+
+<P>
+</LI>
+</UL>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:analysis-page-tree-order-level-with-phylum-colors"></A><A NAME="533"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+A tree view at order level with coloring set to phylum level.
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="300" HEIGHT="221" ALIGN="BOTTOM" BORDER="0"
+ SRC="./analysis-page-tree-order-level-with-phylum-colors.png"
+ ALT="Image analysis-page-tree-order-level-with-phylum-colors">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<H2><A NAME="SECTION00485000000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">8</SPAN>.<SPAN CLASS="arabic">5</SPAN> Heatmap/Dendrogram</A>
+</H2>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:heatmap"></A><A NAME="541"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+Heatmap/dendogram example in MG-RAST. The MG-RAST heatmap/dendrogram has two dendrograms, one indicating the similarity/dissimilarity among metagenomic samples (x axis dendrogram) and another to indicate the similarity/dissimilarity among annotation categories (e.g., functional roles; the y-axis dendrogram).
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="300" HEIGHT="133" ALIGN="BOTTOM" BORDER="0"
+ SRC="./heatmap.png"
+ ALT="Image heatmap">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+The heatmap/dendrogram (Figure <A HREF="#fig:heatmap"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A>) is a tool that allows an enormous amount of information to be presented in a visual form that is amenable to human interpretation.   Dendrograms are trees that indicate similarities between annotation vectors.    The MG-RAST heatmap/dendrogram has two dendrograms, one indicating the similarity/dissimilarity among metagenomic samples (x axis dendrogram) and another to indicate the similarity/dissimilarity among annotation categories (e.g., functional roles; the y-axis dendrogram).  A distance metric is evaluated between every possible pair of sample abundance profiles.   A clustering algorithm (e.g ward-based clustering) then produces the dendrogram trees.  Each square in the heatmap dendrogram represents the abundance level of a single category in a single sample.  The values used to generate the heatmap/dendrogram figure can be downloaded as a table by clicking on the “download” button.
+
+<P>
+The barchart and tree tools map raw or normalized abundances  onto functional or taxonomic hierarchies.  The barchart tool presents mapping onto the highest category of  a hierarchy (e.g. Domain)  and allows a drill down into the hierarchy.  In addition reads from a specific level can be added into the workbench.
+
+<H2><A NAME="SECTION00486000000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">8</SPAN>.<SPAN CLASS="arabic">6</SPAN> Ordination</A>
+</H2>
+
+<P>
+MG-RAST uses Principle Coordinate Analysis (PCoA) to reduce the dimensionality of comparisons of multiple samples that consider functional or taxonomic annotations.
+
+<P>
+PCoA is a well known method for dimensionality reduction of large data sets.  Dimensionality reduction is a process that allows the complex variation found in a large data sets (e.g. the abundance values of thousands of functional roles or annotated species across dozens of metagenomic samples) to be reduced to a much smaller number of variables that can be visualized as simple 2 or 3 dimensional scatter plots.  The plots enable interpretation of the multidimensional data in a human-friendly presentation. Samples that exhibit similar abundance profiles (taxonomic or functional) group together, whereas those that differ are found further apart.  A key feature of PCoA based analyses is that users can compare components not just to each other, but to metadata recorded variables (e.g. sample pH, biome, DNA extraction protocol etc.) to reveal correlations between extracted variation and metadata-defined characteristics of the samples.  It is also possible to couple PCoA with higher resolution statistical methods to identify individual sample features (taxa or functions) that drive correlations observed in PCoA visualizations.  This can be accomplished with permutation based statistics applied directly to the data before calculation of distance measures used to produce PCoAs, or by applying conventional statistical approaches (e.g. ANOVA or Kruskal-Wallis test) to groups observed in PCoA based visualizations.
+
+<H2><A NAME="SECTION00487000000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">8</SPAN>.<SPAN CLASS="arabic">7</SPAN> Table</A>
+</H2>
+
+<P>
+The table tool creates a spreadsheet based abundance table that can be searched and restricted by the user. Tables can be generated at user-selected levels of phylogenetic or functional resolution.  Table data can be visualized using Krona [#!KRONA!#], can be exported in BIOM[#!BIOM!#] format to be used in other tools, e.g. QIIME [#!QIIME!#] or the tables can be exported as tab-separated text.  
+
+<P>
+Abundance tables serve as the basis for all comparative analysis tools in MG-RAST, from PCoA to heatmap-dendrograms.
+
+<P>
+We show how to use the taxonomic information derived from an analysis of protein similarities found for the data set 4447970.3.
+We are using best hit classifcation, SEED, 105, 60% identity and minimal alignment length of 15 amino acids and selecting table output. The resulting table output is shown in Figure <A HREF="#fig:analysis-page-table"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A>.
+
+<P>
+The following control elements are connected to the table:
+
+<UL>
+<LI>group by 
+
+<P>
+This allows summarizing entries below the level chosen here to be subsumed.
+
+<P>
+</LI>
+<LI>download table
+
+<P>
+This will download the entire table as a spreadsheet.
+
+<P>
+</LI>
+<LI>Krona
+
+<P>
+This will invoke KRONA [#!KRONA!#] with the table data.
+
+<P>
+</LI>
+<LI>QIIME
+
+<P>
+Creates a BIOM[#!BIOM!#] format file with the data being displayed in the table.
+
+<P>
+</LI>
+<LI>table size
+
+<P>
+Changing the number of elements to display for the web page.
+
+<P>
+</LI>
+</UL>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:analysis-page-table"></A><A NAME="559"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+A view of the analysis page table.
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="600" HEIGHT="378" ALIGN="BOTTOM" BORDER="0"
+ SRC="./analysis-page-table.png"
+ ALT="Image analysis-page-table">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Below we explain the columns of the table and the functions available for them.
+For each column we allow sorting the table via clicking on the upwards and downwards pointing triangles.
+
+<P>
+
+<UL>
+<LI>metagenome
+
+<P>
+In the case of multiple data sets being displayed, this column allows sorting by metagenome ID or selecting a single metagenome.
+
+<P>
+</LI>
+<LI>source
+
+<P>
+Displays the annotation source for the data being displayed.
+
+<P>
+</LI>
+<LI>domain
+
+<P>
+The domain column allows sub selecting from Archaea, Bacteria, Eukarya and Viruses. 
+
+<P>
+</LI>
+<LI>phylum, class
+
+<P>
+Since we have selected to group results at the class level only phylum and class are being displayed. The text fields in the colum headers 
+allow subsection (e.g. by entering Acidobacteria or Actinobacteria in the phylum field). The searches are performed inside the web browser and are very efficient. 
+
+<P>
+Any subselection will narrow down all data sets being displayed in the table.
+
+<P>
+Users can elect to have the results grouped by other taxonomy levels, e.g. genus, creating more colums in the table view.
+
+<P>
+</LI>
+<LI>abundance
+
+<P>
+The number of sequences found with the parameters selected matching this taxonomic unit. (Not the parameters chosen are displayed on top of the table). Clicking on the abundance displays another page displaying the BLAT alignments underlying the assignments.
+
+<P>
+The abundance is calculated by multiplying the acutal number of database hits found for the clusters by the number of cluster members.
+
+<P>
+</LI>
+<LI>avg. evalue, avg percent identity, average alignment length
+
+<P>
+The average values for evalue, percent identity and alignment length
+
+<P>
+</LI>
+<LI>hits
+
+<P>
+The number of clusters found for this entity (function or taxon) in the metagenome.
+
+<P>
+</LI>
+<LI>...
+
+<P>
+Allows extending the table to add additional columns.
+
+<P>
+</LI>
+</UL>
+
+<P>
+
+<H2><A NAME="SECTION00488000000000000000">
+<SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">8</SPAN>.<SPAN CLASS="arabic">8</SPAN> The workbench</A>
+</H2>
+The workbench supports selecting sequence features and submitting them to further analysis or other analysis. A number of use cases are described below.
+
+<P>
+An important limitation with the current implementation is the fact that data sent to the workbench only exist until you close your current session. 
+
+<P>
+The workbench was designed to allow users to select subsets of the data for comparison or export. 
+
+<P>
+
+<H1><A NAME="SECTION00500000000000000000">
+<SPAN CLASS="arabic">4</SPAN>. User Manual</A>
+</H1>
+
+<P>
+
+<H1><A NAME="SECTION00510000000000000000">
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">1</SPAN> Privacy, identifiers, sharing and publication</A>
+</H1>
+
+<P>
+Data in MG-RAST is private unless published to everyone or shared with specific users by the submitter.
+
+<P>
+Once data is submitted to the pipeline a unique identifier is assigned (see <A HREF="#section:identifier"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A> for details).
+
+<P>
+The web interface allows sharing and publication of data, requiring the presence of minimal metadata 
+(see <A HREF="#section:metadata"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A>). Data can only be shared once the computation has finished.
+
+<P>
+
+<H1><A NAME="SECTION00520000000000000000">
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN> Uploading to MG-RAST</A>
+</H1>
+
+<P>
+MG-RAST was designed to allow users to upload sequence data directly from next generation sequencing machines. Data can be in FASTA, FASTQ or SFF format. 
+
+<P>
+All uploaded sequence files must have one of the following extensions:
+
+<UL>
+<LI>.fasta
+</LI>
+<LI>.fna
+</LI>
+<LI>.fastq
+</LI>
+<LI>.fq
+</LI>
+<LI>.sff 
+</LI>
+</UL>
+
+<P>
+Compressing large files will reduce the upload time and the chances of a failed upload, you can use Zip (.zip) and gzip (.gz) as well as tarred gzipped files (.tgz).
+
+<P>
+We suggest you upload raw data (in FASTQ or SFF format) and let MG-RAST perform the quality control step as 
+this will allow us to identify any issues with the sequencing run. Frequently local quality control will identify some 
+issues but mask others.
+
+<P>
+It is not neccesary to assemble data prior to upload to MG-RAST, the system has been optimized for short reads and can handle uploads of many hundred gigabytes.
+
+<H2><A NAME="SECTION00521000000000000000">
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> Assembled data with read abundance info</A>
+</H2>
+For assembled data (in FASTA format) uploaded to MG-RAST read abundance information for contigs can be imported as well. 
+The “assembled” option for the pipeline will attempt to retrieve read abundance information from the sequence files using the following simple format:
+
+<P>
+<PRE>
+&gt;sequence_number_1_[cov=2]
+CTAGCGCACATAGCATTCAGCGTAGCAGTCACTAGTACGTAGTACGTACC
+&gt;sequence_number_2_[cov=4]
+ACGTAGCTCACTCCAGTAGCAGGTACGTCGAGAAGACGTCTAGTCATCAT
+....
+</PRE>
+
+<P>
+The abundance information must be appended without spaces to the end of the sequence name (also without whitespace) in the format “_[cov=n]” where n is the coverage or abundance of each contig.
+
+<H2><A NAME="SECTION00522000000000000000">
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> Steps for submission via the web interface</A>
+</H2>
+
+<P>
+To start uploading data to MG-RAST through the website, click on the up arrow, this opens the Upload page. 
+
+<P>
+On this page you can upload files, modify the files where needed, add metadata and finally submit for analysis. 
+
+<P>
+The page is split into two sections, ‘Prepare Data’ to upload, manipulate and assemble all the files required for a submission and ‘Submission’ to create the MG-RAST job(s), set analysis parameters and start the analysis. Each Section contains subsections which you can click to expand.
+
+<H3><A NAME="SECTION00522100000000000000">
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> Prepare Data</A>
+</H3>
+
+<H4><A NAME="SECTION00522110000000000000">
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> Download metadata spreadsheet template</A>
+</H4>
+The best time to enter metadata for a dataset is at this stage and we provide a spreadsheet template which can be filled out with all the available information. The metadata can be modified at a later date to add information as it becomes available or to correct errors. While the number of fields in the template are large, the number of required fields, labelled in red in the template, is small. The template file can be used to upload metadata for one or multiple samples and submit them to MG-RAST as a single project.
+
+<P>
+
+<H4><A NAME="SECTION00522120000000000000">
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN> Upload files</A>
+</H4>
+All files uploaded to MG-RAST should be named using alphanumeric and .-_ characters without spaces. Files larger than 50MB should be compressed before upload using gzip (preferable) or Zip, this will reduce the time taken for the upload of the file which in turn reduces the chance that the upload will fail.
+
+<P>
+Types of files:
+Sequence files — FASTA, FASTQ or SFF formats
+Metadata files — filled out spreadsheet
+Barcode files — The barcode file should be plain text ASCII containing lines with a barcode sequence followed by a unique filename separated by a tab, with as many lines as necessary for the barcodes in the sequence file you are submitting.
+
+<P>
+Click on the ‘Browse’ button to select the file or files and the upload will begin automatically after the files are selected.
+
+<P>
+As MG-RAST has been designed to work with metagenomic and metatranscriptomic data sets, there is a filter in place trying to identify
+data sets not suitable for MG-RAST. Those data sets will be painted in red and cannot be submitted. 
+
+<P>
+Below we list the criteria for rejection
+
+<P>
+
+<UL>
+<LI>protein sequences
+
+<P>
+MG-RAST is optimized to perform translation from DNA to proteins.
+
+<P>
+</LI>
+<LI>reads shorter than 75 basepairs
+
+<P>
+The gene prediction stage performance deteriorates significantly with shorter reads.
+
+<P>
+</LI>
+<LI>genomes
+
+<P>
+Submissions with complete genomes or a small number of contigs are rejected as well. Here our sister service RAST at <TT><A NAME="tex2html49"
+  HREF="http://rast.nmpdr.org">http://rast.nmpdr.org</A></TT> should be used instead of MG-RAST.
+
+<P>
+</LI>
+<LI>files that are too small (sequence data less than 1Mbp)
+
+<P>
+Files that are too small for MG-RAST to properly function are rejected at the submission stage. There is a minimal size requirement of 1 metagebase.
+
+<P>
+</LI>
+<LI>corrupted files
+
+<P>
+If he number of unique identifiers is not matching the number of sequence records in a file.
+
+<P>
+</LI>
+<LI>alignments
+
+<P>
+We cannot identify proteins from sequences containing alignment information.
+
+<P>
+</LI>
+<LI>Colorspace
+
+<P>
+The tool chain does not function for ABIsolid sequences in colorspace, please translate to standard FASTA.
+
+<P>
+</LI>
+<LI>rar compressed files and Zip files over 4GB
+
+<P>
+We cannot decompress these files.
+
+<P>
+</LI>
+</UL>
+
+<P>
+In addition we will filter at the upload stage any Word documents, Rich Text Format files and all
+files without the extension .fna, .fasta, .fq, .fastq or .sff in their name.
+
+<P>
+<SPAN  CLASS="textbf">Please note:</SPAN> We recommend computing an MD5 checksum and verifying that the checksum computed by MG-RAST is identical to the locally computed checksum. This is the best way to ensure data integrity.
+
+<P>
+
+<H5><A NAME="SECTION00522121000000000000">
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> De-Multiplexing for 454 and similar data sets</A>
+</H5>
+MG-RAST performs the demultiplexing based on the presence of the barcode sequence at the beginning of the reads.
+
+<P>
+Assuming  you have a sequence file testseq.fasta and your barcode file has tab-separated lines like:
+<PRE>
+AAAAAAAA     fileA
+CCCCCCCC     fileC
+</PRE>
+The demultiplexing step will split your sequence file into three files:
+fileA.fasta containing all the reads that begin with AAAAAAAA,
+fileC.fasta containing all the reads that begin with CCCCCCCC,
+and
+testseq_no_MID_tag.fasta containing reads which do not match either of the two.
+
+<P>
+We note that demultiplexing for Illumina needs to be done outside the MG-RAST system. Illumina barcodes work differently from 454 barcodes.
+
+<P>
+
+<H4><A NAME="SECTION00522130000000000000">
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">3</SPAN> Managing the inbox</A>
+</H4>
+All files uploaded to MG-RAST will be displayed in your inbox and you can perform certain functions operations on them. Compressed and/or archived files can be unpacked, SFF files can be converted to FASTQ and sequence data can be demultiplexed using barcodes contained in uploaded files, files can also be deleted. When a sequence file is selected some information about the sequence data is displayed. It is a good idea to check that the uploaded files in your inbox match your local copies. The file md5 checksum, file size, sequence count, and basepair count can be used for this purpose.
+
+<H3><A NAME="SECTION00522200000000000000">
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> Submission</A>
+</H3>
+The submission process allows you to create MG-RAST jobs using files in your inbox and is designed to facilitate the creation of a large number of jobs easily.
+
+<P>
+
+<H4><A NAME="SECTION00522210000000000000">
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN>  Select metadata file</A>
+</H4>
+We recommend you supply metadata for all your samples and will assign a higher processing priority to samples with metadata and which will be made public. Metadata files which will have successfully passed out validation step will be displayed for selection. READ more on how to create a valid metadata file.
+
+<P>
+
+<H4><A NAME="SECTION00522220000000000000">
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> Select project</A>
+</H4>
+All jobs created in MG-RAST will need to be placed in a project which can be an existing project or a new one created by you during the submission. The project can be specified one of 3 ways:  in the metadata file if supplied, selected from the existing projects you have access to, or a new project name can be entered into the text box.
+
+<P>
+
+<H4><A NAME="SECTION00522230000000000000">
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN> Select sequence file(s)</A>
+</H4>
+All the sequence files in your inbox will be displayed for selection and job submission, each sequence file can be used to create a single MG-RAST job.
+
+<P>
+
+<H4><A NAME="SECTION00522240000000000000">
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">4</SPAN> Choose pipeline options</A>
+</H4>
+The MG-RAST analysis can be influenced by the options selected here which affect dereplication, screening and quality filtering of the reads. The options selected are applied to all the sequence files selected.
+
+<P>
+
+<H4><A NAME="SECTION00522250000000000000">
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">5</SPAN> Submit job</A>
+</H4>
+This is the final step after which the analysis pipeline takes over and the processing begins. Once the job or jobs have been submitted all the files required to create them will be removed from your inbox.
+
+<P>
+You can monitor the progress of your jobs in "My Data Summary" on the Browse Metagenomes page.
+
+<P>
+
+<H2><A NAME="SECTION00523000000000000000">
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN> The cmd-line uploader</A>
+</H2>
+
+<P>
+The following syntax will allow uploading to MG-RAST from the command line.
+
+<P>
+<PRE>
+curl -H "auth: webkey" -X POST -F "upload=@/path_to_file/metagenome.fasta" "http://api.metagenomics.anl.gov/inbox/upload" &gt; curl_output.txt
+</PRE>
+where you need to substitute ‘webkey’ with the unique string of text generated by MG-RAST for your account. Your webkey is valid for a limited time period and ensures that the uploads you perform from the command line are recognized as belonging to your MG-RAST account and placed in the correct inbox.
+
+<P>
+
+<H2><A NAME="SECTION00524000000000000000">
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">4</SPAN> Managing the Inbox</A>
+</H2>
+
+<P>
+The Inbox is a temporary storage location for sequence and metadata files prior to submission to the pipeline. To protect us from any 
+misuse of the facility, we have limited the Inbox to metadata spreadsheets and sequence files.
+
+<P>
+Files are visible only to the uploading user and will automatically be deleted after 72 hours.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:Inbox"></A><A NAME="601"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+The Inbox provides temporary storage before submitting data and limited editing features.
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="600" HEIGHT="429" ALIGN="BOTTOM" BORDER="0"
+ SRC="./Inbox.png"
+ ALT="Image Inbox">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<H3><A NAME="SECTION00524100000000000000">
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">1</SPAN> File processing options in the Inbox</A>
+</H3>
+
+<UL>
+<LI>unpack selected
+Unpacks selected zip, gzip, or tar files.
+</LI>
+<LI>convert sff to fastq
+Converts selected sff files to fastq format. Only FASTQ and FASTA files can be submitted to the system.
+</LI>
+<LI>demultiplex
+Demultiplexes selected files.
+
+<P>
+Note that this is only suitable for 454 type barcodes that are actual pre-fixes of the reads. This approach does not work for the Illumina barcode approach (basically a third read for each paired end read).
+
+<P>
+</LI>
+<LI>join paired ends
+Joins overlapping paired-end reads.
+</LI>
+</UL>
+
+<P>
+<SPAN  CLASS="textbf">Please note:</SPAN> After the actual upload is complete the system will compute the statistics shown in Figure <A HREF="#fig:Inbox-File-Information"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A>. Computing this information takes some time, so your data will not immediately be visible after you uploaded it.
+
+<P>
+
+<H3><A NAME="SECTION00524200000000000000">
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN> Directory management operations for the Inbox</A>
+</H3>
+
+<P>
+
+<UL>
+<LI>update inbox
+
+<P>
+Refreshes the contents of your inbox.
+</LI>
+<LI>move selected
+
+<P>
+Moves the selected files into or out of a directory.
+</LI>
+<LI>delete selected
+
+<P>
+Deletes the selected files.
+</LI>
+<LI>create directory
+
+<P>
+Creates a new directory in your inbox.
+</LI>
+<LI>delete directory
+
+<P>
+Allows you to select and delete an empty directory.
+</LI>
+</UL>
+
+<P>
+Users should always double check the MD5 checksum for files that are uploaded to the system to verify the integrity. Figure <A HREF="#fig:Inbox-File-Information"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A> shows the MD5 finger print that is computed upon upload for each file.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:Inbox-File-Information"></A><A NAME="617"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+The information displayed by the inbox for one file (once selected).
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="600" HEIGHT="578" ALIGN="BOTTOM" BORDER="0"
+ SRC="./Inbox-File-Information.png"
+ ALT="Image Inbox-File-Information">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<H2><A NAME="SECTION00525000000000000000">
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">5</SPAN> Generating metadata for the submission</A>
+</H2>
+
+<P>
+MG-RAST uses questionnaires to capture metadata for each project with one or more samples. Users download and fill out the questionnaire, then submit it. Questionnaires are validated for completeness and compliance with the controlled vocabularies for certain fields automatically by MG-RAST.
+
+<P>
+MG-RAST has implemented the use of Minimum Information about any (X) Sequence (MIxS)[#!MIENS!#] developed by the Genomic Standards Consortium (GSC). In addition to the minimal checklists, more detailed data can be captured in optional environmental packages.
+
+<P>
+We use simple spreadsheets to capture metadata, with a minimal number of required fields (in red in the spreadsheets) and a number of optional fields. The spreadsheet is separated into multiple tabs representing the different metadata categories. The MG-RAST metadata spreadsheet template is available on the MG-RAST upload page or here <TT><A NAME="tex2html52"
+  HREF="ftp://ftp.metagenomics.anl.gov/data/misc/metadata/MGRAST_MetaData_template_1.3.xlsx">ftp://ftp.metagenomics.anl.gov/data/misc/metadata/MGRAST_MetaData_template_1.3.xlsx</A></TT>.
+
+<P>
+A filled out version of the spreadsheat is available here: <TT><A NAME="tex2html53"
+  HREF="ftp://ftp.metagenomics.anl.gov/data/misc/metadata/MGRAST_MetaData_template_example.xlsx">ftp://ftp.metagenomics.anl.gov/data/misc/metadata/MGRAST_MetaData_template_example.xlsx</A></TT>.
+
+<P>
+In Figure <A HREF="#fig:project-spreadsheet"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A> we show the template tab for project and the required field labels (in red); in essence your contact information.]
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:project-spreadsheet"></A><A NAME="629"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+The project spreadsheet. In red are required fields. Note that the 2nd row contains information on how to fill out the form.
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="600" HEIGHT="274" ALIGN="BOTTOM" BORDER="0"
+ SRC="./project-spreadsheet.png"
+ ALT="Image project-spreadsheet">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:project-spreadsheet-multiple-tabs"></A><A NAME="636"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+The various tabs in the spreadsheet. Project, sample and one of library metagenome or library mimarks survey are required.
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="600" HEIGHT="71" ALIGN="BOTTOM" BORDER="0"
+ SRC="./project-spreadsheet-multiple-tabs.png"
+ ALT="Image project-spreadsheet-multiple-tabs">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Note: Use the third line in the spreadsheet and below as shown in Figure <A HREF="#fig:project-spreadsheet-with-3-samples"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A> to enter your data. Do not attempt to alter the first two lines or delete them, they are read only. The first line contains the field labels and second line contains descriptions that can help explain how to fill out the fields, along with what unit to use, e.g. temperature in Celsius and distance in meters.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:project-spreadsheet-with-3-samples"></A><A NAME="644"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+The sample tab with 3 new samples (sample1, sample2 and sample3) added. Again red text in the first row indicates required fields. Rows 1 and 2 cannot be altered.
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="600" HEIGHT="147" ALIGN="BOTTOM" BORDER="0"
+ SRC="./project-spreadsheet-with-3-samples.png"
+ ALT="Image project-spreadsheet-with-3-samples">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<H5><A NAME="SECTION00525001000000000000">
+Required sheets</A>
+</H5>
+You need to fill out four sheets to describe your metadata:
+
+<P>
+
+<OL>
+<LI>project 
+
+<P>
+This sheet has only one row, and describes a set of samples uploaded together; the other sheets have one row per sample
+
+<P>
+</LI>
+<LI>sample
+
+<P>
+This sheet includes either the filename or metagenome name used for matching
+
+<P>
+</LI>
+<LI>library
+
+<P>
+either metagenome (for WGS and WXS) or mimarks-survey (for 16S amplicon)
+
+<P>
+</LI>
+<LI>environmental package
+
+<P>
+at least one of the environmental packages of suggested standard metadata. Choose the package that best describes your dataset (e.g. water, human-skin, soil)
+
+<P>
+</LI>
+</OL>
+
+<P>
+The sample section (below) requires minimal information (including the sample name) about where and when the sample was taken. Note that some fields in the spreadsheet must be filled out with terms from a controlled vocabulary or in a certain way. Country and environment (biome, feature, material) fields require entries from curated ontologies, gazetteer and environmental ontology respectively.
+
+<P>
+The sample tab with 3 new samples (sample1, sample2 and sample3) added. Again red text in the first row indicates required fields.
+
+<P>
+<SPAN  CLASS="textbf">Mandatory fields</SPAN>
+
+<UL>
+<LI>country  
+United States of America, Netherlands, Australia, Uruguay
+</LI>
+<LI>latitude and longitude 
+106.84517, -104.60667, 28° 42.306′N, 88° 24.099′W, 45.30 N, 73.35 W
+</LI>
+<LI>biome  
+Small lake biome, Tropical humid forests, Mangrove biome This term must be one of the terms from the bioportal ontology. Terms that are not on this list are not valid.
+</LI>
+<LI>feature  
+city, fish farm, livestock-associated habitat, marine habitat, ocean basin, microbial mat This term must be one of the terms from the bioportal ontology. Terms that are not on this list are not valid.
+</LI>
+<LI>material 
+air, dust, volcanic soil, saliva, blood, dairy product, surface water, piece of gravelThis term must be one of the terms from the bioportal ontology. Terms that are not on this list are not valid.
+</LI>
+</UL>
+
+<P>
+
+<H5><A NAME="SECTION00525002000000000000">
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">0</SPAN>.<SPAN CLASS="arabic">0</SPAN>.<SPAN CLASS="arabic">1</SPAN> The library section</A>
+</H5> captures technical data on the preparation and sequencing done. Chose the library tab to fill out (“metagenome” for shotgun sequencing or “mimarks-survey” for amplicon) based on the type of sequencing done. These are separated as different sequencing techniques involved different metadata fields. Each row describes one library for one sample, the samples need to have the identical sample name you used in the sample tab before.
+
+<P>
+The library_metagenome tab, required fields in red.
+The <SPAN  CLASS="textbf">file_name</SPAN> field holds the filename of the sequence file uploaded, or the filename to use for creating the demultiplexed file if you uploaded a multiplexed sequence file and have barcode sequences in the spreadsheet. This is used for mapping sequence files to metadata.
+
+<P>
+The <SPAN  CLASS="textbf">metagenome_name</SPAN> field holds the name of the metagenome you are submitting.  If the file_name field is empty it will be used for mapping metadata to sequence files, in this case it would need to match the uploaded sequence filename (not including file extension).
+
+<P>
+The <SPAN  CLASS="textbf">investigation_type</SPAN> field is required to be “metagenome” for shotgun metagenome samples and “mimarks-survey” for amplicon studies (reflecting what tab was filled out).
+
+<P>
+The type of sequencing instrument used is another required field values are e.g. Illumina, 454, Ion Torrent, Sanger or assembled.
+
+<P>
+Again, only a limited number of fields are required. However, the more info you provide the easier it is for you and others to understand any potential uses of your data and to understand why results appear in a particular way. It might, for example, allow understanding of specific biases caused by technology choices or sampled environments.
+
+<P>
+You can fill out one or more environmental metadata packages.  Currently we provide support for the following GSC environmental packages:
+
+<P>
+
+<UL>
+<LI>Air
+</LI>
+<LI>Built Environment
+</LI>
+<LI>Host-associated
+</LI>
+<LI>Human-associated
+</LI>
+<LI>Human-oral
+</LI>
+<LI>Human-skin
+</LI>
+<LI>Human-vaginal
+</LI>
+<LI>Microbial mat/biofilm
+</LI>
+<LI>Miscellaneous natural or artificial environment
+</LI>
+<LI>Plant-associated
+</LI>
+<LI>Sediment
+</LI>
+<LI>Soil
+</LI>
+<LI>Wastewater sludge
+</LI>
+<LI>Water
+</LI>
+</UL>
+
+<P>
+We strongly encourage users to submit rich metadata but understand the effort required in providing it. Using the environmental packages (which were designed and are used by practitioners in the respective field) should make it reasonably simple to report the essential metadata required to analyze the data. If there is no environmental package to report metadata for your specific sample, please contact MG-RAST staff, we will work with the GSC[#!GSC!#] to create the required questionnaire.
+
+<P>
+
+<H1><A NAME="SECTION00530000000000000000">
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">3</SPAN> How to work with projects and collections</A>
+</H1>
+
+<P>
+Collections provide an efficient way to create multiple sets of metagenomes for analysis. If you wanted e.g. to compare human gut to cow rumen samples, you probably want to see a dialogue like this:
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:collections-total-list1"></A><A NAME="665"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+A view of the browse table with the collection column enabled. Clicking on the "..." at the right end of the table allows expanding the table columns.
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="600" HEIGHT="449" ALIGN="BOTTOM" BORDER="0"
+ SRC="./collections-total-list1.png"
+ ALT="Image collections-total-list1">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Luckily MG-RAST v3 provides a mechanism to make this happen. Users can create collections that are persistent across multiple sessions
+
+<P>
+Below we show how to define a  collection  that allows comparison of multiple data sets. Please note that collections are just short-cuts to the actual samples, they can not be shared at this time.
+
+<P>
+Step 1: Start with the metadata browser (either on the front page or in the little menu block in the top right hand corner) and click on the globe symbol. See Figure <A HREF="#fig:browse-for-metagenomes"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A> for the symbol.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:browse-for-metagenomes"></A><A NAME="673"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+The symbol for the MG-RAST metagenome browser</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="200" HEIGHT="22" ALIGN="BOTTOM" BORDER="0"
+ SRC="./browse-for-metagenomes.png"
+ ALT="Image browse-for-metagenomes">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Step 2: This will take you to the Browser dialogue, showing a large number of metagenomes.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:browse-window"></A><A NAME="680"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+The MG-RAST metagenome browser</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="400" HEIGHT="295" ALIGN="BOTTOM" BORDER="0"
+ SRC="./collections-browse-window.png"
+ ALT="Image collections-browse-window">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Step 3: Clicking on biome will allow selecting a specific Biome (here we pick Animal associated)
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:collections-filter-by-biome"></A><A NAME="687"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+The browser allows filtering by e.g. specific BIOME information. </CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="600" HEIGHT="498" ALIGN="BOTTOM" BORDER="0"
+ SRC="./collections-filter-by-biome.png"
+ ALT="Image collections-filter-by-biome">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+This results in the following list of metagenomes to be shown:
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:collections-filtered-but-too-many"></A><A NAME="694"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+A reduced list of metagenomes for one BIOME. </CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="400" HEIGHT="375" ALIGN="BOTTOM" BORDER="0"
+ SRC="./collections-filtered-but-too-many.png"
+ ALT="Image collections-filtered-but-too-many">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+The list of samples (show above) still shows too many samples when restricted to just animal associated metagenomes.
+
+<P>
+Step 4: To downselect, search for Twin to further restrict to samples from Peter Turnbaugh and Jeffrey Gordon’s  Human Twin study.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:collections-twin"></A><A NAME="701"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+Selecting a specific project further reduces the number of data sets being displayed. </CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="600" HEIGHT="385" ALIGN="BOTTOM" BORDER="0"
+ SRC="./collections-twin.png"
+ ALT="Image collections-twin">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Step 5: Clicking on the black shopping cart symbol in the top right hand corner will allow the creation of a new collection entry. The next step is naming the collection.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:Collections-how-to-save"></A><A NAME="708"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+Saving a collection</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="600" HEIGHT="384" ALIGN="BOTTOM" BORDER="0"
+ SRC="./Collections-how-to-save.png"
+ ALT="Image Collections-how-to-save">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Here we name the collection “Twin Study” and hit “OK”.
+
+<P>
+Step 6: Once the collection is added, the new collection will appear in the list of collections (in “Your Data Summary”).
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:collections-finished"></A><A NAME="715"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+A list of collections</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="600" HEIGHT="528" ALIGN="BOTTOM" BORDER="0"
+ SRC="./collections-finished.png"
+ ALT="Image collections-finished">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Step 7: Use collection in the Metagenome selection on the Analysis page. It is possible to do analysis on the metagenomes where they are compared individually, or, alternatively, you may compare whole groups of metagenomes.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:using-collections"></A><A NAME="722"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+Collections can be compared as groups.</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="600" HEIGHT="407" ALIGN="BOTTOM" BORDER="0"
+ SRC="./using-collections.png"
+ ALT="Image using-collections">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<H1><A NAME="SECTION00540000000000000000">
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">4</SPAN> Understanding data sets - Has my sequencing worked?</A>
+</H1>
+Unfortunately not every sequencing run works equally well. Users of MG-RAST have provided data with 
+many different sources of error allowing us to provide a number of tools to identify the most common errors.
+
+<P>
+The quality assessment tools described in <A HREF="#secton:Quality"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A> provide a good tool set for a first data quality analysis. While there are many potential sources of error, some common problems can be easily identified with just the nucleotide histograms, if your data exhibits patterns like the ones described in <A HREF="#secton:Quality"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A>  it is likely there were problems with sequencing.
+
+<H2><A NAME="SECTION00541000000000000000">
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">1</SPAN> Why are so many reads failing QC?</A>
+</H2>
+
+<P>
+We frequently find data sets with high numbers of reads filtered out by the quality control. Below we list the major reasons for filtered reads:
+
+<P>
+
+<OL>
+<LI>Artificial duplicate reads (ADRs)
+
+<P>
+The presence of significant amounts of ADRs hints at problems with a PCR step. Frequently a problem with 454 runs, but also seen with other platforms, a set of DNA templates was copied many times during a PCR step, often consuming up to 80% of the entire data set.
+
+<P>
+</LI>
+<LI>filtered reads
+
+<P>
+If you have selected screening against a host organism, e.g. the human genome, reads matching that particular genome will be removed from the data set. This frequently consumes a large fraction of the sequence run. There are <SPAN  CLASS="textit">in vitro</SPAN> techniques to minimize the amount of host DNA in your sample, see [#!THOMASREVIEW!#].
+
+<P>
+</LI>
+<LI>filter rRNA reads in metatranscriptomes
+
+<P>
+If you are trying to analyze a metatranscriptome, reducing the amount of ribosomal is essential. Unless an <SPAN  CLASS="textit">in vitro</SPAN> rRNA knockdown method is applied, up to 97% of all reads will be ribosomal.
+
+<P>
+</LI>
+</OL>
+
+<P>
+
+<H1><A NAME="SECTION00550000000000000000">
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">5</SPAN>  How to drill down using the workbench</A>
+</H1>
+
+<P>
+One of the new features of MGRAST v3 is the workbench. It is the main mechanism for exchanging subsets of data between analysis views. It also allows you to download the FASTA files of a selection of proteins.
+
+<P>
+When you initially go to the analysis page (see <A HREF="#section:analysis-page"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A>) , your workbench will be empty. It is displayed as the leftmost tab in the data tabular view. So how do you get data into the workbench? There are two simple ways to select data subsets – from any generated table or from the drilldown of a barchart.
+
+<P>
+Try this example: Start by selecting the lean and obese mouse cecum samples  (MG-RAST IDs 4440463.3 and 4440464.3) [#!OBESEMICE!#] in the data selection and creating a table. To do this go to the analysis page and select the analysis view ‘Organism Classification’. Expand the metagenome selection by clicking the plus symbol next to metagenomes. Select public from the dropdown-box (to view only public data sets) and type ‘mouse‘ into the filter box. Select the two samples and click the button with the right arrow, then the ok button. The default data visualization is ‘table’, so you can click the ‘generate’ button (Figure <A HREF="#fig:analysis-page-selecting-lean-and-obese"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A>).
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:analysis-page-selecting-lean-and-obese"></A><A NAME="742"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+Screenshot of the Analysis Page and Workbench tab. Note that users can search and select metagenomes to analyze, the annotation cources and par
+ameters to set, along with the analysis and visualization they want to perform.
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="600" HEIGHT="475" ALIGN="BOTTOM" BORDER="0"
+ SRC="./analysis-page-selecting-lean-and-obese.png"
+ ALT="Image analysis-page-selecting-lean-and-obese">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+After a short wait, a new tab will appear in the tabview below (see Figure 20), showing the data table with organism classifications for the two samples. The last column of this table will have a button labeled ‘to workbench‘ as the column header. Each cell in that column will have a checkbox. Checking a checkbox and clicking the ‘to workbench‘-button will send the proteins identified by that row to the workbench (Figure 19). Note that you only have one workbench and putting a new set of proteins into it will replace the current content. So what if I want to select all Bacteria, do I really need to click through all those checkboxes? No – you can use the grouping feature of the table, so you only have to click one checkbox per metagenome.
+
+<P>
+Above the table you will find a dropdown-box labeled ‘group table by’ (Figure <A HREF="#fig:table-group-by-class"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A>). Select ‘domain‘ and the table will be grouped, so there is only one row per metagenome and domain.
+
+<DIV ALIGN="CENTER"><A NAME="fig:table-group-by-class"></A><A NAME="750"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+Using the tables to group results.
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="200" HEIGHT="221" ALIGN="BOTTOM" BORDER="0"
+ SRC="./table-group-by-class.png"
+ ALT="Image table-group-by-class">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Now check the two boxes in the ‘Bacteria‘ rows and click the ‘to workbench‘ button (see Figure <A HREF="#fig:table-organism-abundance"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A>.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:table-organism-abundance"></A><A NAME="758"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+Use the table to select results you want to add to your workbench for further analyses.
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="300" HEIGHT="74" ALIGN="BOTTOM" BORDER="0"
+ SRC="./table-organism-abundance.png"
+ ALT="Image table-organism-abundance">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+A pop-up message will appear, telling you how many proteins have been sent to the workbench. If you take a look at the tabular view now, you will notice that the workbench tab shows the number of proteins it currently contains (see Figure <A HREF="#fig:workbench"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A>). If you click on that tab, you will get information about what the workbench contains. On this tab you will also find a ‘download as FASTA‘ button,
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:workbench"></A><A NAME="766"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+View of the workbench with the summary of the proteins that have been added.
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="300" HEIGHT="157" ALIGN="BOTTOM" BORDER="0"
+ SRC="./workbench.png"
+ ALT="Image workbench">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Aside from being able to download the sequences of your selected proteins, you can also use them to generate other visualizations. This includes switching from organism to functional classification. To to this, simply check the ‘use proteins from workbench‘ checkbox in the data selection when generating a new visualization, e.g. a circular tree  using the proteins we just buffered.
+
+<P>
+The table is not the only visualization that allows to put a subselection into the workbench. You can also use the barchart to do this (Figure <A HREF="#fig:barchart-from-workbench"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A>). Simply click on the ‘to workbench’ button next to the headline of a drilldown. Note that you cannot put the topmost barchart into the workbench, as it is not yet a subselection of proteins.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:barchart-from-workbench"></A><A NAME="774"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+In addition to the results table, users can download results or add to their workbench from barcharts.</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="300" HEIGHT="114" ALIGN="BOTTOM" BORDER="0"
+ SRC="./barchart-from-workbench.png"
+ ALT="Image barchart-from-workbench">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<H1><A NAME="SECTION00560000000000000000">
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">6</SPAN> Downloads from the workbench</A>
+</H1>
+
+<P>
+The workbench feature stores sub-selections of data and allows those to be used as input for further selection or displays, e.g. select all E. coli reads and then display the functional categories present just in E. coli reads across multiple data sets. In addition the workbench allows downloading the annotated reads for the sub-selection stored in the workbench as fasta (Figure <A HREF="#fig:workbench-download"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A>).
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:workbench-download"></A><A NAME="783"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+The workbench facilitates the download of selected reads using the name space of the selection.
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="300" HEIGHT="135" ALIGN="BOTTOM" BORDER="0"
+ SRC="./workbench-download.png"
+ ALT="Image workbench-download">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Once processing data sets in MG-RAST is finished a download page is created for the project. On this page all data products created during the computation are made available as files. In addition, datasets which have been published in MG-RAST have links to an ftp site at the top of this page where you can download additional information.
+
+<P>
+
+<H2><A NAME="SECTION00561000000000000000">
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">6</SPAN>.<SPAN CLASS="arabic">1</SPAN> How to compare metagenomes for a specific subsystem</A>
+</H2>
+
+<P>
+<SPAN  CLASS="textbf">provide an answer to the question: I understood how to make a collection of metagenomes to query but could not figure out if it was possible to limit the comparison to the roles in a SS.</SPAN>
+
+<P>
+
+<H1><A NAME="SECTION00570000000000000000">
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">7</SPAN> Viewing Evidence</A>
+</H1>
+
+<P>
+For individual proteins, the MG-RAST page allows users to retrieve the sequence alignments underlying the annotation transfers (see Figure <A HREF="#fig:blat-alignment"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A>).
+Using the M5NR [#!M5NR!#] technology users can retrieve alignments against the database of interest with no additional overhead.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:blat-alignment"></A><A NAME="795"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure:</STRONG>
+
+BLAT hit details with alignment.
+</CAPTION>
+<TR><TD><DIV ALIGN="CENTER">
+<IMG
+  WIDTH="600" HEIGHT="420" ALIGN="BOTTOM" BORDER="0"
+ SRC="./blat-alignment.png"
+ ALT="Image blat-alignment">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+
+<H1><A NAME="SECTION00580000000000000000">
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">8</SPAN> MG-RAST Outputs</A>
+</H1>
+In additional to the web interface and inside the MG-RAST offers a number of data products for downstream analysis.
+
+<P>
+
+<H2><A NAME="SECTION00581000000000000000">
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">8</SPAN>.<SPAN CLASS="arabic">1</SPAN> BIOM file format exports</A>
+</H2>
+From the table on the analysis page, users can download BIOM[#!BIOM!#] formatted streams, reflecting the paramter choices made.
+Using this approach users can download abundance profiles in BIOM format.  This enables downstream processing with BIOM compliant tools e.g. QIIME [#!QIIME!#].
+
+<P>
+
+<H2><A NAME="SECTION00582000000000000000">
+<SPAN CLASS="arabic">4</SPAN>.<SPAN CLASS="arabic">8</SPAN>.<SPAN CLASS="arabic">2</SPAN> Downloads</A>
+</H2>
+One of the critical insights when developing MG-RAST version 3 was the need to make a maximum number of data products available for download for downstream analysis. For this purpose we have created the download page that contains all automatically created data products in a single location for each metagenome. In addition a global download page provides access to all public data sets grouped by projects.
+
+<P>
+We list the data products available on the download page for each metagenome using a specific example (MG-RAST ID: 4465825.3) in the Appendix (see Appendix <A HREF="#chapter:downloads"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:/sw/share/lib/latex2html/icons/crossref.png"></A>.
+
+<P>
+The general paradigm is to make all files available that are generated during the automated analysis, in addition the user submitted data and metadata are made available.
+
+<P>
+
+<H1><A NAME="SECTION00600000000000000000">
+<SPAN CLASS="arabic">5</SPAN>. Putting it all in perspective</A>
+</H1>
+
+<H1><A NAME="SECTION00610000000000000000">
+<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">1</SPAN> Discussion</A>
+</H1>
+
+<P>
+We have described MG-RAST, a community resource for the analysis of metagenomic sequence data. We have developed a new pipeline and environment for automated analysis of shotgun metagenomic data, as well as a series of interactive tools for comparative analysis. The pipeline is also being used for the analysis of metatranscriptome data as well as amplicon data of various kinds. This service is being used by thousands of users worldwide, many contributing their data and analysis results to the community. We believe that community resources, such as MG-RAST, will fill a vital role in the bioinformatics ecosystem in the years to come.
+
+<P>
+MG-RAST has become a community clearinghouse for metagenomic data and analysis, with over 12,000 public data sets that can be freely used. Because analysis was performed in a uniform way, these data sets can be used as building blocks for new comparative analysis; so long as new data sets are analyzed similarly, results are robustly comparable between new and old data set analysis. These data sets (and the resulting analysis data products) are made available for download and reuse as well.
+
+<P>
+Community resources like MG-RAST provide an interesting value proposition to the metagenomics community: First, it enables low-cost meta-analysis. Users utilize the data products in MG-RAST as a basis for comparison without the need to re-analyze every data set used in their studies. The high computational cost of analysis [#!MGCLOUD!#] makes pre-computation a prerequisite for large scale meta-analyses. In 2001, Angiuli et al.[#!CLOVR!#], determined the real currency cost of re-analysis for the over 12,000 data sets openly available on MG-RAST to be in excess of 30 million US-dollars if Amazon’s EC2 platform is used. 
+This figure doesn’t consider the 66,000 private data sets that have been analyzed with MG-RAST.
+
+<P>
+Second, it provides incentives to the community to adopt standards, both in terms of metadata and analysis approaches. Without this standardization, data products aren’t readily reusable, and computational costs quickly become unsustainable. We are not arguing that a single analysis is necessarily suitable for all users, rather, we are pointing out that if one particular type of analysis is run for all data sets, the results can be efficiently reused, amortizing costs.  Open access to data and analyses foster community interactions that make it easier for researchers’ efforts to achieve consensus with respect to establishing best practises as well as identifying methods and analyses that could provide misleading results.
+
+<P>
+Third, community resources drive increased efficiency and computational performance. Community resources consolidate the demand for analysis resources sufficiently to drive innovation in algorithms and approaches. Due to this demand, the MG-RAST team has needed to scale the efficiency of their pipeline by a factor of nearly 1000 over the last four years. This drive has caused improvements in gene calling, clustering, sequence quality analysis, as well as many other areas. In less specialized groups with less extreme computational needs, this sort of efficiency gain would be difficult to achieve. Moreover, the large quantities of data sets that flow through the system have forced the hardening of the pipeline against a large variety of sequence pathology types that wouldn’t be readily observed in smaller systems.
+
+<P>
+We believe that our experiences in the design and operation of MG-RAST are representative of bioinformatics as a whole. The community resource model is critical if we are to benefit from the exponential growth in sequence data. This data has the potential to enable new insights into the world around us, but only if we can analyze it effectively. It is only due to this approach that we have been able to scale to the demands of our users effectively, analyzing over 200 billion sequences thus far.
+
+<P>
+We note that scaling to the required throughput by adding hardware to the system or simply renting time using an unoptimized pipeline on e.g. Amazon’s EC2 machine would not be economically feasible. The real currency cost on EC2 for the data currently analyzed in MG-RAST (26 Terabasepairs) would be in excess of 100 million US dollars using an unoptimized workflow like CLOVR [#!CLOVR!#].
+
+<P>
+All of MG-RAST is open source and available on <TT><A NAME="tex2html73"
+  HREF="https://github.com/MG-RAST">https://github.com/MG-RAST</A></TT>.
+
+<P>
+
+<H1><A NAME="SECTION00620000000000000000">
+<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">2</SPAN> Future Work</A>
+</H1>
+
+<P>
+While MG-RAST v3 is a substantial improvement over prior systems, much work remains to be done. Data set sizes continue to increase at an exponential pace. Keeping up with this change remains a top priority, as metagenomics users continue to benefit from increased resolution of microbial communities. Upcoming versions of MG-RAST will include: (1) mechanisms for speeding pipeline up using data reduction strategies that are biologically motivated; (2) opening up the data ecosystem via an API that will enable third-party development and enhancements; (3) providing distributed compute capabilities using user-provided resources; as well as (4) providing virtual integration of local data sets to allow comparison between local data and shared  data without requiring full integration.
+
+<H2><A NAME="SECTION00621000000000000000">
+<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> Roadmap</A>
+</H2>
+We maintain a rough roadmap for future version of MG-RAST.
+
+<P>
+
+<H3><A NAME="SECTION00621100000000000000">
+version 3.4</A>
+</H3>
+
+<P>
+
+<UL>
+<LI>web services API
+</LI>
+<LI>R client 
+</LI>
+<LI>provide alpha version of MG-RAST remote compute client (using VMs)
+
+<P>
+</LI>
+</UL>
+<H3><A NAME="SECTION00621200000000000000">
+3.5</A>
+</H3>
+
+<UL>
+<LI>provide reviewer access tokens
+</LI>
+<LI>consolidate all SQL onto PostGRES
+</LI>
+<LI>provide beta version of MG-RAST remote compute client (using VMs)
+</LI>
+<LI>include IPython based notebooks for analysis
+</LI>
+<LI>use AWE for all computations and SHOCK for all pipeline storage
+</LI>
+</UL>
+<H3><A NAME="SECTION00621300000000000000">
+4.0</A>
+</H3>
+
+<UL>
+<LI>re-write web interface to support many browsers
+</LI>
+<LI>BAM upload support
+</LI>
+<LI>BAM download support
+</LI>
+<LI>variation study support
+</LI>
+<LI>convert all file access to SHOCK
+</LI>
+</UL>
+<H3><A NAME="SECTION00621400000000000000">
+5.0</A>
+</H3>
+
+<UL>
+<LI>provide federated SHOCK system 
+</LI>
+<LI>provide an assembly based pipeline
+</LI>
+</UL>
+
+<P>
+
+<H1><A NAME="SECTION00630000000000000000">
+<SPAN CLASS="arabic">5</SPAN>.<SPAN CLASS="arabic">3</SPAN> Acknowledgments</A>
+</H1>
+
+<P>
+This work used the Magellan machine (Office of Advanced Scientific Computing Research, Office of Science, U.S. Department of Energy, Contract grant DE-AC02-06CH11357) at Argonne National Laboratory, and the PADS resource (National Science Foundation grant OCI-0821678) at the Argonne National Laboratory/University of Chicago Computation Institute.This work was supported in part by the U.S. Dept. of Energy under Contract DE-AC02-06CH11357, the Sloan Foundation (SLOAN #2010-12), NIH NIAID (HHSN272200900040C) and the NIH Roadmap HMP program (1UH2DK083993-01).
+
+<P>
+The submitted manuscript has been created by UChicago Argonne, LLC, Operator of Argonne National Laboratory ("Argonne"). Argonne, a U.S. Department of Energy Office of Science laboratory, is operated under Contract No. DE-AC02-06CH11357. The U.S. Government retains for itself, and others acting on its behalf, a paid-up nonexclusive, irrevocable worldwide license in said article to reproduce, prepare derivative works, distribute copies to the public, and perform publicly and display publicly, by or on behalf of the Government.
+
+<P>
+
+<P>
+
+<H2>No References!</H2>
+
+<P>
+
+<P>
+
+<H1><A NAME="SECTION00800000000000000000"></A>
+<A NAME="chapter:downloads"></A><BR>
+A. The downloadable files for each data set
+</H1>
+
+<P>
+<BR>
+<IMG
+ WIDTH="697" HEIGHT="3907" ALIGN="BOTTOM" BORDER="0"
+ SRC="img7.png"
+ ALT="\begin{mdframed}
+\textbf{Uploaded File(s) DNA} (4465825.3.25422.fna)
+\par
+Upload...
+... output filtered to take only the best hit from each data source.
+\end{mdframed}">
+<BR>
+
+<P>
+
+<H1><A NAME="SECTION00900000000000000000">
+B. Terms of Service</A>
+</H1>
+
+<P>
+
+<UL>
+<LI>MG-RAST is a web-based computational metagenome analysis service provided on a best-effort basis. We strive to provide correct analysis, privacy, but can not guarantee correctness of results, integrity of data or privacy. That being said, we are not responsible for any HIPPA regulations regarding human samples uploaded by users. We will try to provide as much speed as possible and will try to inform users about wait times. We will inform users about changes to the system and the underlying data.
+</LI>
+<LI>We reserve the right to delete non public data sets after 120 days.
+</LI>
+<LI>We reserve the right to reject data set that are not complying with the purpose of MG-RAST.
+</LI>
+<LI>We reserve the right to perform additional data analysis (e.g. search for novel sequence errors to improve our sequence quality detection, clustering to improve sequence similarity searches etc.) AND in certain cases utilize the results. We will NOT release user provided data without consent and or publish on user data before the user.
+</LI>
+<LI>User acknowledges the restrictions stated about and will cite MG-RAST when reporting on their work.
+</LI>
+<LI>User acknowledges the fact that data sharing on MG-RAST is meant as a pre-publication mechanism and we strongly encourage users to make data publicly accessible in MG-RAST once published in a journal (or after 120 days).
+</LI>
+<LI>User acknowledges that data (including metadata) provided is a) correct and b) user has either own the data or has the permission of the owner to upload data and or publish data on MG-RAST.
+</LI>
+<LI>We reserve the right to curate and update public meta data.
+</LI>
+<LI>We reserve the right at any time to modify this agreement. Such modifications and additional terms and conditions will be effective immediately and incorporated into this agreement. MG-RAST will make a reasonable effort to contact users via email of any changes and your continued use of MG-RAST will be deemed acceptance thereof.
+</LI>
+</UL>
+
+<P>
+
+<H1><A NAME="SECTION001000000000000000000">
+C. Tools and data used by MG-RAST</A>
+</H1>
+The MG-RAST team is happy to acknowledge the use of the following great software and data products:
+Databases
+
+<P>
+MG-RAST uses a number of protein and ribosomal RNA databases integrated into the M5NR [#!M5NR!#] (Wilke et al, BMC Bioinformatics 2012. Vol 13, No. 151) non-redundant database using the M5NR tools.
+
+<H1><A NAME="SECTION001010000000000000000">
+C.<SPAN CLASS="arabic">1</SPAN> Databases</A>
+</H1>
+
+<H2><A NAME="SECTION001011000000000000000">
+C.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN> Protein databases</A>
+</H2>
+
+<UL>
+<LI>The SEED [#!SUBSYSTEMS!#] (Overbeek et al., NAR, 2005, Vol. 33, Issue 17)
+</LI>
+<LI>GenBank [#!GENBANK!#] (Benson et al., NAR, 2011, Vol. 39, Database issue)
+</LI>
+<LI>RefSeq [#!REFSEQ!#] (Pruitt et al., NAR, 2009, Vol. 37, Database issue)
+</LI>
+<LI>IMG/M (Markowitz et al., NAR, 2008, Vol. 36, Database issue)
+</LI>
+<LI>UniProt [#!UNIPROT!#] (Apweiler et al., NAR, 2011, Vol. 39, Database issue)
+</LI>
+<LI>eggNOGG [#!EGGNOG!#] (Muller et al., NAR, 2010, Vol. 38, Database issue)
+</LI>
+<LI>KEGG [#!KEGG!#] (Kanehisa et al., NAR, 2008, Vol. 36, Database issue)
+</LI>
+<LI>PATRIC [#!PATRIC!#] (Gillespie et al., Infect. Immun., 2011, Vol. 79, no. 11)
+</LI>
+</UL>
+<H2><A NAME="SECTION001012000000000000000">
+C.<SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">2</SPAN> Ribosomal RNA databases:</A>
+</H2>
+
+<UL>
+<LI>greengenes (DeSantis et al., Appl Environ Microbiol., 2006, Vol. 72, no. 7)
+</LI>
+<LI>SILVA (Pruesse et al., NAR, 2007, Vol. 35, issue 21)
+</LI>
+<LI>RDP (Cole et al., NAR, 2009, Vol. 37, Database issue)
+</LI>
+</UL>
+
+<P>
+
+<H1><A NAME="SECTION001020000000000000000">
+C.<SPAN CLASS="arabic">2</SPAN> Software</A>
+</H1>
+
+<P>
+
+<H2><A NAME="SECTION001021000000000000000">
+C.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN> Bioinformatics codes:</A>
+</H2>
+
+<UL>
+<LI>FragGeneScan [#!FGS!#] (Rho et al, NAR, 2010, Vol. 38, issue 20)
+</LI>
+<LI>BLAT [#!BLAT!#] (J. Kent, Genome Res, 2002, Vol. 12, No. 4)
+</LI>
+<LI>QIIME [#!QIIME!#] (Caporaso et al, Nature Methods, 2010, Vol. 7, No. 5) (we also use uclust that is part of QIIME)
+</LI>
+<LI>Biopython
+</LI>
+<LI>Bowtie [#!BOWTIE!#] (Langmead et al., Genome Biol. 2009, Vol 10, issue 3)
+</LI>
+<LI>sff_extract, Jose Blanca and Joaquin Cañizares
+</LI>
+<LI>Dynamic Trim, part of SolexaQA, [#!SOLEXAQA!#] (Cox et al., BMC Bioinformatics, 2011, Vol. 11, 485)
+</LI>
+<LI>FastqJoin
+</LI>
+</UL>
+<H2><A NAME="SECTION001022000000000000000">
+C.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN> Web/UI tools:</A>
+</H2>
+
+<UL>
+<LI>Krona [#!KRONA!#] (Ondov et. al. BMC Bioinformatics, 2011, Vol. 12, 385)
+</LI>
+<LI>Raphaël JavaScript Library (Dmitry Baranovskiy)
+</LI>
+<LI>jQuery
+</LI>
+<LI>Circos (Krzywinski et al., Genome Res. 2009, Vol. 19)
+</LI>
+<LI>cURL
+</LI>
+</UL>
+<H2><A NAME="SECTION001023000000000000000">
+C.<SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">3</SPAN> Behind the scenes:</A>
+</H2>
+
+<UL>
+<LI>Perl
+</LI>
+<LI>Python
+</LI>
+<LI>R
+</LI>
+<LI>Google’s V8  JavaScript engine
+</LI>
+<LI>Node.js
+</LI>
+<LI>nginx
+</LI>
+<LI>OpenStack
+</LI>
+</UL>
+
+<P>
+
+<H1><A NAME="SECTION001100000000000000000">
+About this document ...</A>
+</H1>
+ <STRONG>
+MG-RAST version 3 - A technical report and manual
+</STRONG><P>
+This document was generated using the
+<A HREF="http://www.latex2html.org/"><STRONG>LaTeX</STRONG>2<tt>HTML</tt></A> translator Version 2002-2-1 (1.71)
+<P>
+Copyright &#169; 1993, 1994, 1995, 1996,
+<A HREF="http://cbl.leeds.ac.uk/nikos/personal.html">Nikos Drakos</A>, 
+Computer Based Learning Unit, University of Leeds.
+<BR>Copyright &#169; 1997, 1998, 1999,
+<A HREF="http://www.maths.mq.edu.au/~ross/">Ross Moore</A>, 
+Mathematics Department, Macquarie University, Sydney.
+<P>
+The command line arguments were: <BR>
+ <STRONG>latex2html</STRONG> <TT>-split 0 -show_section_numbers -no_navigation -address MG-RAST mg-rast-tech-report.tex</TT>
+<P>
+The translation was initiated by Tobias Paczian on 2013-05-23<BR><HR><H4>Footnotes</H4>
+<DL>
+<DT><A NAME="foot45">... Dollars</A><A
+ HREF="mg-rast-tech-report.html#tex2html2"><SUP><SPAN CLASS="arabic">1</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A></DT>
+<DD>This includes only the computation cost, no data transfer cost and was computed using 2009 prices.
+
+</DD>
+<DT><A NAME="foot889">... cloud</A><A
+ HREF="mg-rast-tech-report.html#tex2html6"><SUP><SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A></DT>
+<DD>We use the term <SPAN  CLASS="textit">cloud</SPAN> as a shortcut for Infrastructure as a Service (IaaS)
+
+</DD>
+<DT><A NAME="foot98">... Terabase</A><A
+ HREF="mg-rast-tech-report.html#tex2html7"><SUP><SPAN CLASS="arabic">2</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A></DT>
+<DD>This would be for several metagenomes that are part of the JGI Prairie pilot.
+
+</DD>
+<DT><A NAME="foot311">... user.</A><A
+ HREF="mg-rast-tech-report.html#tex2html25"><SUP><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">1</SPAN></SUP></A></DT>
+<DD>Datasets in MG-RAST are private by default, but the submitting user has the option to share datasets with specific users or to make datasets public.
+
+</DD>
+<DT><A NAME="foot331">... metadata</A><A
+ HREF="mg-rast-tech-report.html#tex2html28"><SUP><SPAN CLASS="arabic">3</SPAN>.<SPAN CLASS="arabic">2</SPAN></SUP></A></DT>
+<DD>This option is available to non data set owners
+
+</DD>
+</DL><BR><HR>
+<ADDRESS>
+MG-RAST
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,317 @@
+\begin{thebibliography}{10}
+
+\bibitem{CLOVR}
+S.~V. Angiuoli, M.~Matalka, A.~Gussman, K.~Galens, M.~Vangala, D.~R. Riley,
+  C.~Arze, J.~R. White, O.~White, and W.~F. Fricke.
+\newblock Clovr: a virtual machine for automated and portable sequence analysis
+  from the desktop using cloud computing.
+\newblock {\em BMC Bioinformatics}, 12:356, 2011.
+
+\bibitem{RAST}
+Ramy Aziz, Daniela Bartels, Aaron Best, Matthew DeJongh, Terrence Disz, Robert
+  Edwards, Kevin Formsma, Svetlana Gerdes, Elizabeth Glass, Michael Kubal,
+  Folker Meyer, Gary Olsen, Robert Olson, Andrei Osterman, Ross Overbeek,
+  Leslie McNeil, Daniel Paarmann, Tobias Paczian, Bruce Parrello, Gordon Pusch,
+  Claudia Reich, Rick Stevens, Olga Vassieva, Veronika Vonstein, Andreas Wilke,
+  and Olga Zagnitko.
+\newblock The rast server: Rapid annotations using subsystems technology.
+\newblock {\em BMC Genomics}, 9(1):75, 2008.
+
+\bibitem{GENBANK}
+D.~A. Benson, M.~Cavanaugh, K.~Clark, I.~Karsch-Mizrachi, D.~J. Lipman,
+  J.~Ostell, and E.~W. Sayers.
+\newblock Genbank.
+\newblock {\em Nucleic Acids Res}, 41(Database issue):D36--42, 2013.
+
+\bibitem{CRISPRS}
+A.~Bolotin, B.~Quinquis, A.~Sorokin, and S.~D. Ehrlich.
+\newblock Clustered regularly interspaced short palindrome repeats (crisprs)
+  have spacers of extrachromosomal origin.
+\newblock {\em Microbiology}, 151(Pt 8):2551--61, 2005.
+
+\bibitem{QIIME}
+J.~G. Caporaso, J.~Kuczynski, J.~Stombaugh, K.~Bittinger, F.~D. Bushman, E.~K.
+  Costello, N.~Fierer, A.~G. Pena, J.~K. Goodrich, J.~I. Gordon, G.~A. Huttley,
+  S.~T. Kelley, D.~Knights, J.~E. Koenig, R.~E. Ley, C.~A. Lozupone,
+  D.~McDonald, B.~D. Muegge, M.~Pirrung, J.~Reeder, J.~R. Sevinsky, P.~J.
+  Turnbaugh, W.~A. Walters, J.~Widmann, T.~Yatsunenko, J.~Zaneveld, and
+  R.~Knight.
+\newblock Qiime allows analysis of high-throughput community sequencing data.
+\newblock {\em Nat Methods}, 7(5):335--6, 2010.
+
+\bibitem{RDP}
+J.~R. Cole, B.~Chai, T.~L. Marsh, R.~J. Farris, Q.~Wang, S.~A. Kulam,
+  S.~Chandra, D.~M. McGarrell, T.~M. Schmidt, G.~M. Garrity, J.~M. Tiedje, and
+  {Ribosomal Database Project}.
+\newblock The ribosomal database project ({RDP}-{II}): previewing a new
+  autoaligner that allows regular updates and the new prokaryotic taxonomy.
+\newblock {\em Nucleic acids research}, 31(1):442--443, January 2003.
+
+\bibitem{SOLEXAQA}
+M.~P. Cox, D.~A. Peterson, and P.~J. Biggs.
+\newblock Solexaqa: At-a-glance quality assessment of illumina
+  second-generation sequencing data.
+\newblock {\em BMC Bioinformatics}, 11:485, 2010.
+
+\bibitem{GREENGENES}
+T.~Z. DeSantis, P.~Hugenholtz, N.~Larsen, M.~Rojas, E.~L. Brodie, K.~Keller,
+  T.~Huber, D.~Dalevi, P.~Hu, and G.~L. Andersen.
+\newblock Greengenes, a {Chimera-Checked} {16S} {rRNA} gene database and
+  workbench compatible with {ARB}.
+\newblock {\em Appl. Environ. Microbiol.}, 72(7):5069--5072, July 2006.
+
+\bibitem{UCLUST}
+R.~C. Edgar.
+\newblock Search and clustering orders of magnitude faster than blast.
+\newblock {\em Bioinformatics}, 26(19):2460--1, 2010.
+
+\bibitem{GSC}
+D.~Field, L.~Amaral-Zettler, G.~Cochrane, J.R. Cole, P.~Dawyndt, G.M. Garrity,
+  J.~Gilbert, F.O. Gl{\"o}ckner, L.~Hirschman, and I.~Karsch-Mizrachi.
+\newblock The genomic standards consortium.
+\newblock {\em Plos Biology}, 9(6):e1001088, 2011.
+
+\bibitem{OPENMPI}
+Edgar Gabriel, Graham~E. Fagg, George Bosilca, Thara Angskun, Jack~J. Dongarra,
+  Jeffrey~M. Squyres, Vishal Sahay, Prabhanjan Kambadur, Brian Barrett, Andrew
+  Lumsdaine, Ralph~H. Castain, David~J. Daniel, Richard~L. Graham, and
+  Timothy~S. Woodall.
+\newblock Open {MPI}: Goals, concept, and design of a next generation {MPI}
+  implementation.
+\newblock In {\em Proceedings, 11th European PVM/MPI Users' Group Meeting},
+  pages 97--104, Budapest, Hungary, September 2004.
+
+\bibitem{ADRS}
+V.~Gomez-Alvarez, T.~K. Teal, and T.~M. Schmidt.
+\newblock Systematic artifacts in metagenomes from complex microbial
+  communities.
+\newblock {\em ISME J}, 3(11):1314--7, 2009.
+
+\bibitem{HUSEPYRO}
+S.~M. Huse, J.~A. Huber, H.~G. Morrison, M.~L. Sogin, and D.~M. Welch.
+\newblock Accuracy and quality of massively parallel dna pyrosequencing.
+\newblock {\em Genome Biol}, 8(7):R143, 2007.
+
+\bibitem{MEGAN}
+D.~H. Huson, A.~F. Auch, J.~Qi, and S.~C. Schuster.
+\newblock Megan analysis of metagenomic data.
+\newblock {\em Genome Res}, 17(3):377--86, 2007.
+
+\bibitem{EGGNOG}
+L.~J. Jensen, P.~Julien, M.~Kuhn, C.~von Mering, J.~Muller, T.~Doerks, and
+  P.~Bork.
+\newblock eggnog: automated construction and annotation of orthologous groups
+  of genes.
+\newblock {\em Nucleic Acids Res}, 36(Database issue):D250--4, 2008.
+
+\bibitem{KEGG}
+M.~Kanehisa.
+\newblock The kegg database.
+\newblock {\em Novartis Found Symp}, 247:91--101; discussion 101--3, 119--28,
+  244--52, 2002.
+
+\bibitem{DRISEE}
+K.~P. Keegan, W.~L. Trimble, J.~Wilkening, A.~Wilke, T.~Harrison, M.~D'Souza,
+  and F.~Meyer.
+\newblock A platform-independent method for detecting errors in metagenomic
+  sequencing data: Drisee.
+\newblock {\em PLoS Comput Biol}, 8(6):e1002541, 2012.
+
+\bibitem{BLAT}
+W.~J. Kent.
+\newblock Blat--the blast-like alignment tool.
+\newblock {\em Genome Res}, 12(4):656--64, 2002.
+
+\bibitem{GCDML}
+Murphy S Kagan L Kravitz S Lombardot T Field D Glöckner FO; Genomic
+  Standards~Consortium Kottmann~R, Gray~T.
+\newblock A standard migs/mims compliant xml schema: toward the development of
+  the genomic contextual data markup language (gcdml).
+\newblock {\em OMICS}, 12(2):115--21, 2008.
+
+\bibitem{BOWTIE}
+B.~Langmead, C.~Trapnell, M.~Pop, and S.~L. Salzberg.
+\newblock Ultrafast and memory-efficient alignment of short dna sequences to
+  the human genome.
+\newblock {\em Genome Biol}, 10(3):R25, 2009.
+
+\bibitem{UNIPROT}
+Michele Magrane and Uniprot Consortium.
+\newblock {UniProt} knowledgebase: a hub of integrated protein data.
+\newblock {\em Database : the journal of biological databases and curation},
+  2011, January 2011.
+
+\bibitem{IMG}
+V.~M. Markowitz, N.~N. Ivanova, E.~Szeto, K.~Palaniappan, K.~Chu, D.~Dalevi,
+  I.~M. Chen, Y.~Grechkin, I.~Dubchak, I.~Anderson, A.~Lykidis, K.~Mavromatis,
+  P.~Hugenholtz, and N.~C. Kyrpides.
+\newblock Img/m: a data management and analysis system for metagenomes.
+\newblock {\em Nucleic Acids Res}, 36(Database issue):D534--8, 2008.
+
+\bibitem{BIOM}
+D.~McDonald, J.C. Clemente, J.~Kuczynski, J.~Rideout, J.~Stombaugh, D.~Wendel,
+  A.~Wilke, S.~Huse, J.~Hufnagle, and F.~Meyer.
+\newblock The biological observation matrix (biom) format or: how i learned to
+  stop worrying and love the ome-ome.
+\newblock {\em Gigascience}, 2012.
+
+\bibitem{MG-RAST}
+F~Meyer, D~Paarmann, M~D'Souza, R~Olson, EM~Glass, M~Kubal, T~Paczian,
+  A~Rodriguez, R~Stevens, A~Wilke, J~Wilkening, and RA~Edwards.
+\newblock The metagenomics rast server - a public resource for the automatic
+  phylogenetic and functional analysis of metagenomes.
+\newblock {\em BMC Bioinformatics}, 9(1):386, 2008.
+
+\bibitem{NHGRI_COST}
+NHGRI.
+\newblock Cost per raw megabase of dna sequence, 2012.
+
+\bibitem{LOMAN}
+Timothy J. Dallman Chrystala Constantinidou Saheer E Gharbia John Wain Mark
+  J.~Pallen Nicholas J.~Loman, Raju V~Misra.
+\newblock Performance comparison of benchtop high-throughput sequencing
+  platforms.
+\newblock {\em Nature Biotechnology}, (5):434–439, 2012.
+
+\bibitem{KRONA}
+B.~D. Ondov, N.~H. Bergman, and A.~M. Phillippy.
+\newblock Interactive metagenomic visualization in a web browser.
+\newblock {\em BMC Bioinformatics}, 12:385, 2011.
+
+\bibitem{SUBSYSTEMS}
+R.~Overbeek, T.~Begley, R.M. Butler, J.V. Choudhuri, N.~Diaz, H.-Y. Chuang,
+  M.~Cohoon, V.~de~Cr{\'e}cy-Lagard, T.~Disz, R~Edwards, M~Fonstein, E.D.
+  Frank, S.~Gerdes, E.M. Glass, A.~Goesmann, L.~Krause, B.~Linke, A.C. McHardy,
+  F.~Meyer, A.~Hanson, D.~Iwata-Reuyl, R.~Jensen, N.~Jamshidi, M.~Kubal,
+  N.~Larsen, H.~Neuweger, C.~R{\"u}ckert, G.~J. Olsen, R.~Olson, A.~Osterman,
+  V.~Portnoy, G.D. Pusch, D.A. Rodionov, J.~Steiner, R.~Stevens, I.~Thiele,
+  O.~Vassieva, Y.~Ye, O.~Zagnitko, and V.~Vonstein.
+\newblock The subsystems approach to genome annotation and its use in the
+  project to annotate 1000 genomes.
+\newblock {\em Nucleic Acids Res}, 33(17), 2005.
+
+\bibitem{SILVA}
+Elmar Pruesse, Christian Quast, Katrin Knittel, Bernhard~M. Fuchs, Wolfgang
+  Ludwig, J\"{o}rg Peplies, and Frank Oliver~O. Gl\"{o}ckner.
+\newblock {SILVA}: a comprehensive online resource for quality checked and
+  aligned ribosomal {RNA} sequence data compatible with {ARB}.
+\newblock {\em Nucleic acids research}, 35(21):7188--7196, December 2007.
+
+\bibitem{REFSEQ}
+K.~D. Pruitt, T.~Tatusova, and D.~R. Maglott.
+\newblock {NCBI} reference sequences ({RefSeq}): a curated non-redundant
+  sequence database of genomes, transcripts and proteins.
+\newblock {\em Nucleic Acids Res}, 35(Database issue), January 2007.
+
+\bibitem{RARE}
+J.~Reeder and R.~Knight.
+\newblock The 'rare biosphere': a reality check.
+\newblock {\em Nat Methods}, 6(9):636--7, 2009.
+
+\bibitem{FGS}
+Mina Rho, Haixu Tang, and Yuzhen Ye.
+\newblock Fraggenescan: Predicting genes in short and error-prone reads,.
+\newblock {\em NAR}, (in print), 2009.
+
+\bibitem{MGREVIEW}
+C.~S. Riesenfeld, P.~D. Schloss, and J.~Handelsman.
+\newblock Metagenomics: genomic analysis of microbial communities.
+\newblock {\em Annu Rev Genet}, 38:525--52, 2004.
+
+\bibitem{PATRIC}
+E.~E. Snyder, N.~Kampanya, J.~Lu, E.~K. Nordberg, H.~R. Karur, M.~Shukla,
+  J.~Soneja, Y.~Tian, T.~Xue, H.~Yoo, F.~Zhang, C.~Dharmanolla, N.~V. Dongre,
+  J.~J. Gillespie, J.~Hamelius, M.~Hance, K.~I. Huntington, D.~Jukneliene,
+  J.~Koziski, L.~Mackasmiel, S.~P. Mane, V.~Nguyen, A.~Purkayastha, J.~Shallom,
+  G.~Yu, Y.~Guo, J.~Gabbard, D.~Hix, A.~F. Azad, S.~C. Baker, S.~M. Boyle,
+  Y.~Khudyakov, X.~J. Meng, C.~Rupprecht, J.~Vinje, O.~R. Crasta, M.~J. Czar,
+  A.~Dickerman, J.~D. Eckart, R.~Kenyon, R.~Will, J.~C. Setubal, and B.~W.
+  Sobral.
+\newblock {PATRIC}: the {VBI} {PathoSystems} resource integration center.
+\newblock {\em Nucleic Acids Res}, 35(Database issue), January 2007.
+
+\bibitem{1584883278}
+Terry Speed.
+\newblock {\em Statistical Analysis of Gene Expression Microarray Data}.
+\newblock Chapman and Hall/CRC, 2003.
+
+\bibitem{COG}
+R.~L. Tatusov, N.~D. Fedorova, J.~D. Jackson, A.~R. Jacobs, B.~Kiryutin, E.~V.
+  Koonin, D.~M. Krylov, R.~Mazumder, S.~L. Mekhedov, A.~N. Nikolskaya, B.~S.
+  Rao, S.~Smirnov, A.~V. Sverdlov, S.~Vasudevan, Y.~I. Wolf, J.~J. Yin, and
+  D.~A. Natale.
+\newblock The cog database: an updated version includes eukaryotes.
+\newblock {\em BMC Bioinformatics}, 4:41, 2003.
+
+\bibitem{THOMASREVIEW}
+Torsten Thomas, Jack Gilbert, and Folker Meyer.
+\newblock Metagenomics - a guide from sampling to data analysis.
+\newblock {\em Microbial Informatics and Experimentation}, 2(1):3, 2012.
+
+\bibitem{TRIMBLE_SHORT}
+W.~L. Trimble, K.~P. Keegan, M.~D'Souza, A.~Wilke, J.~Wilkening, J.~Gilbert,
+  and F.~Meyer.
+\newblock Short-read reading-frame predictors are not created equal: sequence
+  error causes loss of signal.
+\newblock {\em BMC Bioinformatics}, 13(1):183, 2012.
+
+\bibitem{OBESEMICE}
+P.~J. Turnbaugh, R.~E. Ley, M.~A. Mahowald, V.~Magrini, E.~R. Mardis, and J.~I.
+  Gordon.
+\newblock An obesity-associated gut microbiome with increased capacity for
+  energy harvest.
+\newblock {\em Nature}, 444(7122):1027--31, 2006.
+
+\bibitem{HTML5FILEAPI}
+W3C.
+\newblock File api; w3c working draft 25 october 2012, 2012.
+
+\bibitem{M5NR}
+A.~Wilke, T.~Harrison, J.~Wilkening, D.~Field, E.~M. Glass, N.~Kyrpides,
+  K.~Mavrommatis, and F.~Meyer.
+\newblock The m5nr: a novel non-redundant database containing protein sequences
+  and annotations from multiple sources and associated tools.
+\newblock {\em BMC Bioinformatics}, 13:141, 2012.
+
+\bibitem{AWE}
+A.~Wilke, J.~Wilkening, E.M. Glass, N.~Desai, and F.~Meyer.
+\newblock An experience report: porting the mg-rast rapid metagenomics analysis
+  pipeline to the cloud.
+\newblock {\em Concurrency and Computation: Practice and Experience},
+  23(17):2250–2257, 2011.
+
+\bibitem{MGCLOUD}
+J.~Wilkening, A.~Wilke, Narayan Desai, and Folker Meyer.
+\newblock Using clouds for metagenomics: A case study.
+\newblock In {\em IEEE Cluster 2009}, 2009.
+
+\bibitem{MIENS}
+Pelin Yilmaz, Renzo Kottmann, Dawn Field, Rob Knight, James~R. Cole, Linda
+  Amaral-Zettler, Jack~A. Gilbert, Ilene Karsch-Mizrachi, Anjanette Johnston,
+  Guy Cochrane, Robert Vaughan, Christopher Hunter, Joonhong Park, Norman
+  Morrison, Phillipe Rocca-Serra, Peter Sterk, Mani Arumugam, Laura
+  Baumgartner, Bruce~W. Birren, Martin~J. Blaser, Vivien Bonazzi, Tim Booth,
+  Peer Bork, Frederic~D. Bushman, Pier~Luigi Buttigieg, Patrick~Chain ~,
+  Elizabeth~K. Costello, Heather Huot-Creasy, Peter Dawyndt, Todd~DeSantis ~,
+  Noah Fierer, Jed Fuhrman, Rachel E.~Gallery ~, Dirk~Gevers ~, Richard
+  A.~Gibbs ~, Michelle Gwinn~Giglio ~, Inigo San~Gil ~, Antonio~Gonzalez3 ~,
+  Jeffrey~I. Gordon, Robert~Guralnick ~, Wolfgang~Hankeln ~, Sarah~Highlander
+  ~, Philip Hugenholtz, Janet~Jansson ~, Scott T.~Kelley ~, Jerry~Kennedy ~,
+  Dan~Knights ~, Omry~Koren ~, Justin~Kuczynski ~, Nikos~Kyrpides ~,
+  Robert~Larsen ~, Christian L.~Lauber ~, Teresa~Legg ~, Ruth E.~Ley ~,
+  Catherine A.~Lozupone ~, Wolfgang~Ludwig ~, Donna~Lyons ~, Eamonn~Maguire ~,
+  Barbara A.~Meth{\'e} ~, Folker~Meyer ~, Sara~Nakielny ~, Karen E.~Nelson ~,
+  Diana~Nemergut ~, Lindsay K.~Neubold ~, Josh D.~Neufeld ~, Anna E.~Oliver ~,
+  Norman R.~Pace ~, Giriprakash~Palanisamy ~, J{\"o}rg~Peplies ~, Jane~Peterson
+  ~, Joseph~Petrosino ~, Lita~Proctor ~, Elmar~Pruesse ~, Christian~Quast ~,
+  Jeroen~Raes ~, Sujeevan~Ratnasingham ~, Jacques~Ravel ~, David A.~Relman ~,
+  Susanna Assunta-Sansone ~, Patrick D.~Schloss ~, Lynn~Schriml ~,
+  Erica~Sodergren ~, Aym{\'e}~Spor ~, Jesse~Stombaugh ~, James M.~Tiedje ~,
+  Doyle V.~Ward ~, George M.~Weinstock ~, Doug~Wendel ~, Owen~White ~,
+  Andrew~Whitely ~, Andreas~Wilke ~, Jennifer~Wortmann ~, and Frank
+  Oliver~Gl{\"o}ckner ~.
+\newblock The ``minimum information about an environmental sequence'' (miens)
+  specification.
+\newblock {\em Nature Biotechnology}, 2010.
+
+\end{thebibliography}

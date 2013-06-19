@@ -1,0 +1,210 @@
+No implementation found for style `graphicx'
+No implementation found for style `mdframed'
+No implementation found for style `authblk'
+No implementation found for style `hyperref'
+
+The mg-rast-tech-report.aux file was not found, so sections will not be numbered 
+and cross-references will be shown as icons.
+
+No number for "ThecostforDNAsequencingisshriking.ThiscomparisonwithMoore'slawroughlydescribingthedevelopmentofcomputingcostshighlightsthegrowinggapbetweensequencedataandtheavailableanalysisresources.Source:NGHRI"
+
+No number for "Overviewofprocessingpipelinein(a)MG-RAST2and(b)MG-RAST3.Intheoldpipeline,metadatawasrudimentary,computestepswereperformedonindividualreadsona40-nodeclusterthatwastightlycoupledtothesystem,andsimilaritieswerecomputedbyBLASTtoyieldabundanceprofilesthatcouldthenbecomparedonaper-sampleorperpairbasis.Inthenewpipeline,richmetadatacanbeuploaded,normalizationandfeaturepredictionareperformed,fastermethodssuchasBLATareusedtocomputesimilarities,andtheresultingabundanceprofilesarefedintodownstreampipelinesonthecloudtoperformcommunityandmetabolicreconstructionandtoallowqueriesaccordingtorichsampleandfunctionalmetadata."
+
+No number for "TheemailaddressfortheMG-RASTproject.Notethatthisisinsertedintothedocumentasanimage,youwillhavetotypeit."
+
+No number for "TheMG-RASTv3datamodel."
+
+No number for "Theanalysisdatabaseschema,showsthestaticobjectsinblueandthepermetagenome(variable)objectsingreen."
+
+No number for "DetailsoftheanalysispipelineforMG-RASTversion3.x."
+
+No number for "ThesizesofMG-RASTjobspermonthingigabasepairs."
+
+No number for "Nucleotidehistogramwithbiaseddistributionstypicalforanamplicondataset"
+
+No number for "Nucleotidehistogramshowingidealdistributionstypicalforashotgunmetagenome."
+
+No number for "Nucleotidehistogramwithuntrimmedbarcodes."
+
+No number for "Nucleotidehistogramwithcontamination."
+
+No number for "Thesharingmechanismsrequiresavalidemailaddressfortheuserthedataistobesharedwith.Alistofuserswithaccesstothedataisdisplayedatthebottomonthepage."
+
+No number for "DatasetssharedinMG-RASTbyusers(orangedots)areshownasconnectingedges."
+
+No number for "The<TT>linkin.cgi</TT>mechanismprovidesstableURLsforlinkingtoMG-RAST."
+
+No number for "a)Usingthewebinterfaceforasearchofmetagenomesformicrobialmatsinhotsprings(GSC-MIMS-KeywordsBiome=”hotspring;microbialmat”)wefind6metagenomes(refs:4443745.3,4443746.3,4443747.3,4443749.3,4443750.3,4443762.3).b)Initialcomparisonrevealssomedifferencesinproteinfunctionalclassabundance(usingSEEDsubsystenslevel1).C)FromthePCoAplotusingnormalizedcountsoffunctionalSEEDsubsystembasedfunctionalannotations(level2)andBray-Curtisasmetric,weattempttofinddifferencesbetweentwosimilardatasets(MG-RAST-IDs:444749.3,4443762.3).d)UsingexportedtableswithfunctionalannotationsandtaxonomicmappingweanalyzethedistributionoforganismsobservedtocontainBeta-lactamaseandplottheabundanceperspeciesfortwodistinctsamples."
+
+No number for "ThesitemapfortheMG-RASTversion3website.Onthesitemapthemainpagesareshowninblue,managementpagesinorange.Thegreenboxesrepresentpagesthatarenotdirectlyaccessiblefromthehomepage."
+
+No number for "TheMetagenomeBrowserpageenablessortinganddatasearch.Userscanselectthemetadatatheywishtoviewandsearch.Someofthemetadataishiddenbydefaultandcanbeviewedbyclickingonthe‘…’headerontherightsideofthetableandselectingthedesiredcolumns,thiscanalsobeusedtohideunwantedcolumns."
+
+No number for "Theprojectpageprovidesasummaryofalldataintheprojectandprovidesaninterfacefordownloads."
+
+No number for "Ifyouarethedatasetowner,theprojectpagewilldisplaythesebuttons."
+
+No number for "Topofthemetagenomeoverviewpage."
+
+No number for "Sequencestothepipelineareclassifiedintooneof5categories.grey=failedtheQC,red=unknownsequences,yellow=unknownfunctionbutproteincoding,green=proteincodingwithknownfunctionandblue=ribosomalRNA.Forthisexampleover50%ofsequenceswereeitherfilteredbyQCorfailedtoberecognizedaseitherproteincodingorribosomal."
+
+No number for "TheinformationfromtheGSCMIxSchecklistprovidingminimalmetadataonthesample."
+
+No number for "Theanalysisflowchartprovidesanoverviewofthefractionsofsequences“surviving”thevariousstepsoftheautomatedanalysis.Inthiscaseabout20%ofsequenceswerefilteredduringqualitycontrol.Fromtheremaining37,122,128sequences,53.5%werepredictedtobeproteincoding,5.5%hitribosomalRNA.Fromthepredictedproteins,76.8%couldbeannotatedwithaputativeproteinfunction.Outof32millionannotatedproteins,24millionhavebeenassignedtoafunctionalclassification(SEED,COG,EggNOG,KEEG),representing84%ofthereads."
+
+No number for "Thegraphshowsthenumberoffeaturesinthisdatasetthatwereannotatedbythedifferentdatabases.Thebarsrepresentingannotatedreadsarecoloredbye-valuerange.Differentdatabaseshavedifferentnumbersofhits,butcanalsohavedifferenttypesofannotationdata."
+
+No number for "Organismbreakdown:Samplerankabundanceplotbyphylum."
+
+No number for "Therarefactionplotshowsacurveofannotatedspeciesrichness.Thiscurveisaplotofthetotalnumberofdistinctspeciesannotationsasafunctionofthenumberofsequencessampled."
+
+No number for "Thealphadiversityplotshowstherangeofα-diversityvaluesintheprojectthedatasetbelongsto.Themin,max,andmeanvaluesareshown,withthestandarddeviationranges(σand2σ)indifferentshades.Theα-diversityofthismetagenomeisshowninred."
+
+No number for "ThesubsystemsfunctionpiechartclassifiesreadsintotheSubsystemlevelonefunctions.IncontrasttotheCOG,EGGNOGandKEGGclassificationschemesthereareover20toplevelsubsystemcategoriescreatingamorehighlyresolved;SPMquot;fingerprint;SPMquot;forthemetagenome."
+
+No number for "Usingtheanalysispageisathreestepprocess.Firstselectaprofileandhit(seebelow)type.Secondselectalistofmetagenomesandsetannotationsourceandsimilarityparameters.Thirdchoseacomparison."
+
+No number for "Aviewofthedataselectiondialogue,withthelistoffourdatacategoriesexpanded."
+
+No number for "Boxplotsoftheabundancedataforrawvalues(top)aswellasvaluesthathaveundergonethenormalizationandstandardizationproceduredescribedabove(bottom).Itisclearthatafternormalizationandstandardization,samplesexhibitvaluedistributionsthataremuchmorecomparable,andthatexhibitanormaldistribution;thenormalizedandstandardizeddataaresuitableforanalysiswithparametrictests,therawdataarenot."
+
+No number for "Thebarchartviewcomparingnormalizedabundanceoftaxa.WehaveexpandedtheBacteriadomaintodisplaythenextlevelofthehierarchy."
+
+No number for "Thetreediagramisavisualizationmethodontheanalysispage."
+
+No number for "Clickingonanodeinthetreediagramwilldisplayadditioninformationtotherightofthetreedisplay."
+
+No number for "Theoptionsforthetreeview."
+
+No number for "Atreeviewatorderlevelwithcoloringsettophylumlevel."
+
+No number for "Heatmap/dendogramexampleinMG-RAST.TheMG-RASTheatmap/dendrogramhastwodendrograms,oneindicatingthesimilarity/dissimilarityamongmetagenomicsamples(xaxisdendrogram)andanothertoindicatethesimilarity/dissimilarityamongannotationcategories(e.g.,functionalroles;they-axisdendrogram)."
+
+No number for "Aviewoftheanalysispagetable."
+couldn't convert character 5circ into available encodings
+
+ ...set $ACCENT_IMAGES  to get an image 
+
+No number for "TheInboxprovidestemporarystoragebeforesubmittingdataandlimitededitingfeatures."
+
+No number for "Theinformationdisplayedbytheinboxforonefile(onceselected)."
+
+No number for "Theprojectspreadsheet.Inredarerequiredfields.Notethatthe2ndrowcontainsinformationonhowtofillouttheform."
+
+No number for "Thevarioustabsinthespreadsheet.Project,sampleandoneoflibrarymetagenomeorlibrarymimarkssurveyarerequired."
+
+No number for "Thesampletabwith3newsamples(sample1,sample2andsample3)added.Againredtextinthefirstrowindicatesrequiredfields.Rows1and2cannotbealtered."
+
+No number for "Aviewofthebrowsetablewiththecollectioncolumnenabled.Clickingonthe;SPMquot;...;SPMquot;attherightendofthetableallowsexpandingthetablecolumns."
+
+No number for "ThesymbolfortheMG-RASTmetagenomebrowser"
+
+No number for "TheMG-RASTmetagenomebrowser"
+
+No number for "Thebrowserallowsfilteringbye.g.specificBIOMEinformation."
+
+No number for "AreducedlistofmetagenomesforoneBIOME."
+
+No number for "Selectingaspecificprojectfurtherreducesthenumberofdatasetsbeingdisplayed."
+
+No number for "Savingacollection"
+
+No number for "Alistofcollections"
+
+No number for "Collectionscanbecomparedasgroups."
+
+No number for "ScreenshotoftheAnalysisPageandWorkbenchtab.Notethatuserscansearchandselectmetagenomestoanalyze,theannotationcourcesandparameterstoset,alongwiththeanalysisandvisualizationtheywanttoperform."
+
+No number for "Usingthetablestogroupresults."
+
+No number for "Usethetabletoselectresultsyouwanttoaddtoyourworkbenchforfurtheranalyses."
+
+No number for "Viewoftheworkbenchwiththesummaryoftheproteinsthathavebeenadded."
+
+No number for "Inadditiontotheresultstable,userscandownloadresultsoraddtotheirworkbenchfrombarcharts."
+
+No number for "Theworkbenchfacilitatesthedownloadofselectedreadsusingthenamespaceoftheselection."
+
+No number for "BLAThitdetailswithalignment."
+
+The bibliography file was not found.
+
+no reference for citation: NHGRI_COST
+
+no reference for citation: MGCLOUD
+
+no reference for citation: CLOVR
+
+no reference for citation: MGREVIEW
+
+no reference for citation: THOMASREVIEW
+
+no reference for citation: LOMAN
+
+no reference for citation: MG-RAST
+
+no reference for citation: SUBSYSTEMS
+
+no reference for citation: FGS
+
+no reference for citation: UCLUST
+
+no reference for citation: BLAT
+
+no reference for citation: AWE
+
+no reference for citation: M5NR
+
+no reference for citation: SOLEXAQA
+
+no reference for citation: HUSEPYRO
+
+no reference for citation: ADRS
+
+no reference for citation: DRISEE
+
+no reference for citation: BOWTIE
+
+no reference for citation: TRIMBLE_SHORT
+
+no reference for citation: QIIME
+
+no reference for citation: OPENMPI
+
+no reference for citation: GENBANK
+
+no reference for citation: IMG
+
+no reference for citation: KEGG
+
+no reference for citation: EGGNOG
+
+no reference for citation: COG
+
+no reference for citation: RAST
+
+no reference for citation: MEGAN
+
+no reference for citation: GSC
+
+no reference for citation: GCDML
+
+no reference for citation: MIENS
+
+no reference for citation: CRISPRS
+
+no reference for citation: REFSEQ
+
+no reference for citation: UNIPROT
+
+no reference for citation: RARE
+
+no reference for citation: KRONA
+
+no reference for citation: 1584883278
+
+no reference for citation: BIOM
+
+no reference for citation: OBESEMICE
+
+no reference for citation: PATRIC
