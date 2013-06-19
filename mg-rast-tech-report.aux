@@ -1,0 +1,439 @@
+\relax 
+\providecommand\zref@newlabel[2]{}
+\providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
+\HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
+\global\let\oldcontentsline\contentsline
+\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
+\global\let\oldnewlabel\newlabel
+\gdef\newlabel#1#2{\newlabelxx{#1}#2}
+\gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
+\AtEndDocument{\ifx\hyper@anchor\@undefined
+\let\contentsline\oldcontentsline
+\let\newlabel\oldnewlabel
+\fi}
+\fi}
+\global\let\hyper@last\relax 
+\gdef\HyperFirstAtBeginDocument#1{#1}
+\providecommand\HyField@AuxAddToFields[1]{}
+\@newglossary{main}{glg}{gls}{glo}
+\@istfilename{mg-rast-tech-report.ist}
+\@glsorder{word}
+\citation{NHGRI_COST}
+\citation{MGCLOUD}
+\citation{CLOVR}
+\citation{MGREVIEW}
+\citation{THOMASREVIEW}
+\citation{THOMASREVIEW}
+\citation{LOMAN}
+\@writefile{toc}{\contentsline {chapter}{\numberline {1}Introduction}{5}{chapter.1}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\citation{MG-RAST}
+\newlabel{fig:cost_per_megabase}{{1}{6}{Introduction\relax }{chapter.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.1}{\ignorespaces Chart showing shrinking cost for DNA sequencing. This comparison with Moore's law roughly describing the development of computing costs highlights the growing gap between sequence data and the available analysis resources. Source: NHGRI }}{6}{figure.1.1}}
+\citation{SUBSYSTEMS}
+\citation{MG-RAST}
+\citation{FGS}
+\citation{UCLUST}
+\citation{BLAT}
+\@writefile{toc}{\contentsline {section}{\numberline {1.1}Version history}{7}{section.1.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.2}Comparison of versions 2 and 3}{7}{section.1.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.2}{\ignorespaces  Overview of processing pipeline in (left) MG-RAST v2 and (right) MG-RAST v3. In the old pipeline, metadata was rudimentary, compute steps were performed on individual reads on a 40-node cluster that was tightly coupled to the system, and similarities were computed by BLAST to yield abundance profiles that could then be compared on a per sample or per pair basis. In the new pipeline, rich metadata can be uploaded, normalization and feature prediction are performed, faster methods such as BLAT are used to compute similarities, and the resulting abundance profiles are fed into downstream pipelines on the cloud to perform community and metabolic reconstruction and to allow queries according to rich sample and functional metadata. }}{8}{figure.1.2}}
+\newlabel{fig:mgrastv2VSv3}{{1.2}{8}{Overview of processing pipeline in (left) MG-RAST v2 and (right) MG-RAST v3. In the old pipeline, metadata was rudimentary, compute steps were performed on individual reads on a 40-node cluster that was tightly coupled to the system, and similarities were computed by BLAST to yield abundance profiles that could then be compared on a per sample or per pair basis. In the new pipeline, rich metadata can be uploaded, normalization and feature prediction are performed, faster methods such as BLAT are used to compute similarities, and the resulting abundance profiles are fed into downstream pipelines on the cloud to perform community and metabolic reconstruction and to allow queries according to rich sample and functional metadata}{figure.1.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {1.3}The MG-RAST team}{9}{section.1.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.3}{\ignorespaces  The email address for the MG-RAST project. Note that this is inserted into the document as an image, you will have to type it. }}{10}{figure.1.3}}
+\newlabel{fig:mgrastemail}{{1.3}{10}{The email address for the MG-RAST project. Note that this is inserted into the document as an image, you will have to type it}{figure.1.3}{}}
+\citation{AWE}
+\@writefile{toc}{\contentsline {chapter}{\numberline {2}Under the hood: The MG-RAST technology platform and pipeline}{12}{chapter.2}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}Data model}{12}{section.2.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces  MG-RAST v3 data model.}}{13}{figure.2.1}}
+\newlabel{fig:data-model}{{2.1}{13}{MG-RAST v3 data model}{figure.2.1}{}}
+\citation{M5NR}
+\citation{SOLEXAQA}
+\citation{HUSEPYRO}
+\citation{ADRS}
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}Details on the new MG-RAST pipeline}{14}{section.2.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}Preprocessing}{14}{subsection.2.2.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces  Analysis database schema: static objects (blue) and per metagenome (variable) objects (green). }}{15}{figure.2.2}}
+\newlabel{fig:mgrast_analysis-schema}{{2.2}{15}{Analysis database schema: static objects (blue) and per metagenome (variable) objects (green)}{figure.2.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces  Details of the analysis pipeline for MG-RAST version 3}}{16}{figure.2.3}}
+\newlabel{fig:mgrast-v3-pipeline}{{2.3}{16}{Details of the analysis pipeline for MG-RAST version 3\relax }{figure.2.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.4}{\ignorespaces  Sizes of MG-RAST jobs per month in gigabasepairs from 2007 to 2013.}}{16}{figure.2.4}}
+\newlabel{fig:mgrast-job-sizes}{{2.4}{16}{Sizes of MG-RAST jobs per month in gigabasepairs from 2007 to 2013}{figure.2.4}{}}
+\citation{DRISEE}
+\citation{ADRS}
+\citation{BOWTIE}
+\citation{TRIMBLE_SHORT}
+\citation{FGS}
+\citation{UCLUST}
+\citation{QIIME}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}Dereplication}{17}{subsection.2.2.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.3}DRISEE}{17}{subsection.2.2.3}}
+\newlabel{section:DRISEE}{{2.2.3}{17}{DRISEE\relax }{subsection.2.2.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.4}Screening}{17}{subsection.2.2.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.5}Gene calling}{17}{subsection.2.2.5}}
+\citation{BLAT}
+\citation{OPENMPI}
+\citation{M5NR}
+\citation{GENBANK}
+\citation{SUBSYSTEMS}
+\citation{IMG}
+\citation{UNIPROT}
+\citation{KEGG}
+\citation{EGGNOG}
+\citation{COG}
+\citation{EGGNOG}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.6}AA clustering}{18}{subsection.2.2.6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.7}Protein identification}{18}{subsection.2.2.7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.8}Annotation mapping}{18}{subsection.2.2.8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.9}Abundance profiles}{18}{subsection.2.2.9}}
+\citation{SUBSYSTEMS}
+\citation{RAST}
+\citation{KEGG}
+\citation{BLAT}
+\citation{SILVA}
+\citation{GREENGENES}
+\citation{RDP}
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}The rRNA pipeline}{20}{section.2.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}rRNA detection}{20}{subsection.2.3.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}rRNA clustering}{20}{subsection.2.3.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.3}rRNA identification}{20}{subsection.2.3.3}}
+\citation{DRISEE}
+\@writefile{toc}{\contentsline {section}{\numberline {2.4}Quality assessment}{21}{section.2.4}}
+\newlabel{secton:Quality}{{2.4}{21}{Quality assessment\relax }{section.2.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.1}DRISEE}{21}{subsection.2.4.1}}
+\newlabel{DRISEEDETAIL}{{2.4.1}{21}{DRISEE\relax }{subsection.2.4.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.2}Kmer profiles}{21}{subsection.2.4.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.3}Nucleotide histograms}{21}{subsection.2.4.3}}
+\citation{FGS}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.5}{\ignorespaces  Nucleotide histogram with biased distributions typical for an amplicon dataset.}}{22}{figure.2.5}}
+\newlabel{fig:nucleotide-hist-amplicon}{{2.5}{22}{Nucleotide histogram with biased distributions typical for an amplicon dataset}{figure.2.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.6}{\ignorespaces  Nucleotide histogram showing ideal distributions typical for a shotgun metagenome. }}{22}{figure.2.6}}
+\newlabel{fig:nucleotide-hist-ok}{{2.6}{22}{Nucleotide histogram showing ideal distributions typical for a shotgun metagenome}{figure.2.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.7}{\ignorespaces  Nucleotide histogram with untrimmed barcodes. }}{22}{figure.2.7}}
+\newlabel{fig:nucleotide-hist-barcodes}{{2.7}{22}{Nucleotide histogram with untrimmed barcodes}{figure.2.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.8}{\ignorespaces  Nucleotide histogram with contamination. }}{23}{figure.2.8}}
+\newlabel{fig:nucleotide-with-contamination}{{2.8}{23}{Nucleotide histogram with contamination}{figure.2.8}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.5}Best hit, representative hit, and lowest common ancestor interpretation}{23}{section.2.5}}
+\newlabel{section:hit-types}{{2.5}{23}{Best hit, representative hit, and lowest common ancestor interpretation\relax }{section.2.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.1}Best hit}{23}{subsection.2.5.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.2}Representative hit}{23}{subsection.2.5.2}}
+\citation{MEGAN}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.3}Lowest Common Ancestor (LCA)}{24}{subsection.2.5.3}}
+\newlabel{section:LCA}{{2.5.3}{24}{Lowest Common Ancestor (LCA)\relax }{subsection.2.5.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.5.4}Comparison of methods}{24}{subsection.2.5.4}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.6}Numbers of annotations vs. number of reads}{24}{section.2.6}}
+\citation{GSC}
+\citation{GCDML}
+\citation{MIENS}
+\@writefile{toc}{\contentsline {section}{\numberline {2.7}Metadata, Publishing, and Sharing}{25}{section.2.7}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.7.1}Metadata}{25}{subsection.2.7.1}}
+\newlabel{section:metadata}{{2.7.1}{25}{Metadata\relax }{subsection.2.7.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.9}{\ignorespaces  Dialogue showing the sharing mechanism. The mechanism requires a valid email address for the user with whom the data is to be shared. A list of users with access to the data is displayed at the bottom on the page. }}{26}{figure.2.9}}
+\newlabel{fig:sharing}{{2.9}{26}{Dialogue showing the sharing mechanism. The mechanism requires a valid email address for the user with whom the data is to be shared. A list of users with access to the data is displayed at the bottom on the page}{figure.2.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.7.2}Publishing}{26}{subsection.2.7.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.7.3}Sharing}{26}{subsection.2.7.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.7.4}Identifiers}{26}{subsection.2.7.4}}
+\newlabel{section:identifier}{{2.7.4}{26}{Identifiers\relax }{subsection.2.7.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.10}{\ignorespaces  Data sets shared in MG-RAST by users (orange dots), shown as connecting edges. }}{27}{figure.2.10}}
+\newlabel{fig:Data-sharing-in-mg-rast}{{2.10}{27}{Data sets shared in MG-RAST by users (orange dots), shown as connecting edges}{figure.2.10}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.7.5}Linking to MG-RAST}{27}{subsection.2.7.5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.11}{\ignorespaces Stable URLs provided by the \texttt  {linkin.cgi} mechanism for linking to MG-RAST.}}{27}{figure.2.11}}
+\newlabel{fig:linkin.cgi}{{2.11}{27}{Stable URLs provided by the \texttt {linkin.cgi} mechanism for linking to MG-RAST}{figure.2.11}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {3}MG-RAST v3 web interface}{28}{chapter.3}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces  (a) Using the web interface for a search of metagenomes for microbial mats in hotsprings (GSC-MIMS-Keywords Biome=”hotspring; microbial mat”), we find 6 metagenomes (refs: 4443745.3, 4443746.3, 4443747.3, 4443749.3, 4443750.3, 4443762.3). (b) Initial comparison reveals some differences in protein functional class abundance (using \gls {SEED} subsystens level 1). (c) From the PCoA plot using normalized counts of functional \gls {SEED} \gls {Subsystem}--based functional annotations (level 2) and Bray-Curtis as metric, we attempt to find differences between two similar datasets (MG-RAST-IDs: 444749.3, 4443762.3). (d) Using exported tables with functional annotations and taxonomic mapping, we analyze the distribution of organisms observed to contain beta-lactamase and plot the abundance per species for two distinct samples. }}{29}{figure.3.1}}
+\newlabel{fig:quad-chart-analysis-example}{{3.1}{29}{(a) Using the web interface for a search of metagenomes for microbial mats in hotsprings (GSC-MIMS-Keywords Biome=”hotspring; microbial mat”), we find 6 metagenomes (refs: 4443745.3, 4443746.3, 4443747.3, 4443749.3, 4443750.3, 4443762.3). (b) Initial comparison reveals some differences in protein functional class abundance (using \gls {SEED} subsystens level 1). (c) From the PCoA plot using normalized counts of functional \gls {SEED} \gls {Subsystem}--based functional annotations (level 2) and Bray-Curtis as metric, we attempt to find differences between two similar datasets (MG-RAST-IDs: 444749.3, 4443762.3). (d) Using exported tables with functional annotations and taxonomic mapping, we analyze the distribution of organisms observed to contain beta-lactamase and plot the abundance per species for two distinct samples}{figure.3.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}Technical details}{30}{section.3.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.1}Browser requirements}{30}{subsection.3.1.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1.2}Downloading figures}{30}{subsection.3.1.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Sitemap for MG-RAST}{30}{section.3.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces  Sitemap for the MG-RAST version 3 web site. On the site map the main pages are shown in blue, management pages in orange. The green boxes represent pages that are not directly accessible from the home page. }}{31}{figure.3.2}}
+\newlabel{fig:sitemap}{{3.2}{31}{Sitemap for the MG-RAST version 3 web site. On the site map the main pages are shown in blue, management pages in orange. The green boxes represent pages that are not directly accessible from the home page}{figure.3.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}Upload page}{31}{section.3.3}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.4}Browse page -- Metadata-enabled data discovery}{32}{section.3.4}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.5}Project page}{32}{section.3.5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces  Browse page, enabling sorting and data search. Users can select the metadata they wish to view and search. Some of the metadata is hidden by default and can be viewed by clicking on the last column header on the right side of the table and selecting the desired columns; this can also be used to hide unwanted columns. }}{33}{figure.3.3}}
+\newlabel{fig:metagenome-browser}{{3.3}{33}{Browse page, enabling sorting and data search. Users can select the metadata they wish to view and search. Some of the metadata is hidden by default and can be viewed by clicking on the last column header on the right side of the table and selecting the desired columns; this can also be used to hide unwanted columns}{figure.3.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces  Project page, providing a summary of all data in the project and an interface for downloads. }}{34}{figure.3.4}}
+\newlabel{fig:project-page}{{3.4}{34}{Project page, providing a summary of all data in the project and an interface for downloads}{figure.3.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces  Buttons displayed by Project page to dataset owner.}}{34}{figure.3.5}}
+\newlabel{fig:project-page-editing-buttons}{{3.5}{34}{Buttons displayed by Project page to dataset owner}{figure.3.5}{}}
+\citation{CRISPRS}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.6}{\ignorespaces  Top of the metagenome Overview page. }}{35}{figure.3.6}}
+\newlabel{fig:metagenome-overview}{{3.6}{35}{Top of the metagenome Overview page}{figure.3.6}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.6}Overview page}{35}{section.3.6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6.1}Technical part of the Overview page -- Details on sequencing and analysis}{35}{subsection.3.6.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.7}{\ignorespaces  Sequences to the pipeline are classified into one of five categories: grey = failed the QC, red = unknown sequences, yellow = unknown function but protein coding, green = protein coding with known function, and blue = ribosomal RNA. For this example over 50\% of sequences were either filtered by QC or failed to be recognized as either protein coding or ribosomal. }}{36}{figure.3.7}}
+\newlabel{fig:classification-pie-chart}{{3.7}{36}{Sequences to the pipeline are classified into one of five categories: grey = failed the QC, red = unknown sequences, yellow = unknown function but protein coding, green = protein coding with known function, and blue = ribosomal RNA. For this example over 50\% of sequences were either filtered by QC or failed to be recognized as either protein coding or ribosomal}{figure.3.7}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.6.1.1}Metagenome quality control}{36}{subsubsection.3.6.1.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.8}{\ignorespaces  Information from the GSC MIxS checklist providing minimal metadata on the sample. }}{37}{figure.3.8}}
+\newlabel{fig:GSC-MIxS-checklist-information}{{3.8}{37}{Information from the GSC MIxS checklist providing minimal metadata on the sample}{figure.3.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.9}{\ignorespaces  Analysis flowchart providing an overview of the fractions of sequences surviving the various steps of the automated analysis. In this case about 20\% of sequences were filtered during quality control. From the remaining 37,122,128 sequences, 53.5\% were predicted to be protein coding, 5.5\% hit ribosomal RNA. From the predicted proteins, 76.8\% could be annotated with a putative protein function. Of 32 million annotated proteins, 24 million have been assigned to a functional classification (\gls {SEED}, COG, EggNOG, KEEG), representing 84\% of the reads. }}{38}{figure.3.9}}
+\citation{REFSEQ}
+\citation{UNIPROT}
+\citation{SUBSYSTEMS}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.10}{\ignorespaces Graph showing the number of features in this dataset annotated by the different databases. The bars representing annotated reads are colored by e-value range. Different databases have different numbers of hits but can also have different types of annotation data.}}{39}{figure.3.10}}
+\newlabel{fig:source-hits-distribution}{{3.10}{39}{Graph showing the number of features in this dataset annotated by the different databases. The bars representing annotated reads are colored by e-value range. Different databases have different numbers of hits but can also have different types of annotation data}{figure.3.10}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.6.1.2}Source hits distribution}{39}{subsubsection.3.6.1.2}}
+\newlabel{section:source-hits-distribution}{{3.6.1.2}{39}{Source hits distribution\relax }{subsubsection.3.6.1.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.6.1.3}Other statistics }{39}{subsubsection.3.6.1.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.11}{\ignorespaces  Sample rank abundance plot by phylum. }}{40}{figure.3.11}}
+\newlabel{fig:rank-abundance}{{3.11}{40}{Sample rank abundance plot by phylum}{figure.3.11}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6.2}Biological part of the Overview page }{40}{subsection.3.6.2}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.6.2.1}Rank abundance}{40}{subsubsection.3.6.2.1}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.6.2.2}Rarefaction}{40}{subsubsection.3.6.2.2}}
+\citation{RARE}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.12}{\ignorespaces  Rarefaction plot showing a curve of annotated species richness. This curve is a plot of the total number of distinct species annotations as a function of the number of sequences sampled. }}{41}{figure.3.12}}
+\newlabel{fig:rarefaction}{{3.12}{41}{Rarefaction plot showing a curve of annotated species richness. This curve is a plot of the total number of distinct species annotations as a function of the number of sequences sampled}{figure.3.12}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.6.2.3}Alpha diversity}{41}{subsubsection.3.6.2.3}}
+\citation{KEGG}
+\citation{COG}
+\citation{SUBSYSTEMS}
+\citation{EGGNOG}
+\citation{KRONA}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.13}{\ignorespaces  Alpha diversity plot showing the range of α-diversity values in the project the data set belongs to. The min, max, and mean values are shown, with the standard deviation ranges (σ and 2σ) in different shades. The α-diversity of this metagenome is shown in red. }}{42}{figure.3.13}}
+\newlabel{fig:alpha-diversity}{{3.13}{42}{Alpha diversity plot showing the range of α-diversity values in the project the data set belongs to. The min, max, and mean values are shown, with the standard deviation ranges (σ and 2σ) in different shades. The α-diversity of this metagenome is shown in red}{figure.3.13}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.6.2.4}Functional categories}{42}{subsubsection.3.6.2.4}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.7}Download page}{42}{section.3.7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.14}{\ignorespaces  The \gls {Subsystem}s function piechart, showing reads classified into SEED subsystem level-one functions. In contrast to the COG, EGGNOG, and KEGG classification schemes, there are over 20 top-level subsystem categories, creating a more highly resolved ``fingerprint" for the metagenome. }}{43}{figure.3.14}}
+\newlabel{fig:subsystems-functions-piechart}{{3.14}{43}{The \gls {Subsystem}s function piechart, showing reads classified into SEED subsystem level-one functions. In contrast to the COG, EGGNOG, and KEGG classification schemes, there are over 20 top-level subsystem categories, creating a more highly resolved ``fingerprint" for the metagenome}{figure.3.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.15}{\ignorespaces Searching for ``oral health" returns 11 data sets for two projects. }}{44}{figure.3.15}}
+\newlabel{fig:search-page-unsorted-results}{{3.15}{44}{Searching for ``oral health" returns 11 data sets for two projects}{figure.3.15}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.8}Search Page}{44}{section.3.8}}
+\newlabel{section:search-page}{{3.8}{44}{Search Page\relax }{section.3.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.16}{\ignorespaces Search results from the previous search sorted by projects.}}{45}{figure.3.16}}
+\newlabel{fig:search-page-sorted-results}{{3.16}{45}{Search results from the previous search sorted by projects}{figure.3.16}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.17}{\ignorespaces  Three-step process in using the Analysis page: (1) select a profile and hit (see text) type; (2) select a list of metagenomes and set annotation source and similarity parameters; (3) choose a comparison. }}{46}{figure.3.17}}
+\newlabel{fig:analysis-page}{{3.17}{46}{Three-step process in using the Analysis page: (1) select a profile and hit (see text) type; (2) select a list of metagenomes and set annotation source and similarity parameters; (3) choose a comparison}{figure.3.17}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {3.9}Analysis page}{46}{section.3.9}}
+\newlabel{section:analysis-page}{{3.9}{46}{Analysis page\relax }{section.3.9}{}}
+\citation{1584883278}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.18}{\ignorespaces  View of the data selection dialogue, with the list of four data categories expanded. }}{48}{figure.3.18}}
+\newlabel{fig:Data-selection-expanded}{{3.18}{48}{View of the data selection dialogue, with the list of four data categories expanded}{figure.3.18}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.9.1}Normalization}{48}{subsection.3.9.1}}
+\citation{RARE}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.19}{\ignorespaces  Boxplots of the abundance data for raw values (top) as well as values that have undergone the normalization and standardization procedures (bottom) described in the text. After normalization and standardization, samples exhibit value distributions that are much more comparable and that have a normal distribution; the normalized and standardized data are suitable for analysis with parametric tests; the raw data are not. }}{49}{figure.3.19}}
+\newlabel{fig:boxplots}{{3.19}{49}{Boxplots of the abundance data for raw values (top) as well as values that have undergone the normalization and standardization procedures (bottom) described in the text. After normalization and standardization, samples exhibit value distributions that are much more comparable and that have a normal distribution; the normalized and standardized data are suitable for analysis with parametric tests; the raw data are not}{figure.3.19}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.9.2}Rarefaction}{49}{subsection.3.9.2}}
+\newlabel{section:analysis-page-rarefaction}{{3.9.2}{49}{Rarefaction\relax }{subsection.3.9.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.20}{\ignorespaces  Rarefaction plot showing a curve of annotated species richness. This curve is a plot of the total number of distinct species annotations as a function of the number of sequences sampled. }}{50}{figure.3.20}}
+\newlabel{fig:analysis-page-rarefaction-example.png}{{3.20}{50}{Rarefaction plot showing a curve of annotated species richness. This curve is a plot of the total number of distinct species annotations as a function of the number of sequences sampled}{figure.3.20}{}}
+\citation{KEGG}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.21}{\ignorespaces Options available for coloring the KEGG maps.}}{51}{figure.3.21}}
+\newlabel{fig:analysis-page-kegg-mapper-options}{{3.21}{51}{Options available for coloring the KEGG maps}{figure.3.21}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.9.3}KEGG mapper}{51}{subsection.3.9.3}}
+\newlabel{section:kegg-mapper}{{3.9.3}{51}{KEGG mapper\relax }{subsection.3.9.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.9.4}Recruitment plots}{51}{subsection.3.9.4}}
+\newlabel{section:recruitment-plots}{{3.9.4}{51}{Recruitment plots\relax }{subsection.3.9.4}{}}
+\citation{REFSEQ}
+\citation{GENBANK}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.22}{\ignorespaces Comparison of two datasets using the KEGG mapper. Parts of metabolism common are shown in purple; unique to A are in blue; unique to B are in red.}}{52}{figure.3.22}}
+\newlabel{fig:analysis-page-kegg-mapper-example}{{3.22}{52}{Comparison of two datasets using the KEGG mapper. Parts of metabolism common are shown in purple; unique to A are in blue; unique to B are in red}{figure.3.22}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.23}{\ignorespaces  Selection of a genome for display, sorted by number of hits per genome. }}{53}{figure.3.23}}
+\newlabel{fig:analysis-page-recruitment-plot-genome-selection}{{3.23}{53}{Selection of a genome for display, sorted by number of hits per genome}{figure.3.23}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.9.5}Bar charts}{53}{subsection.3.9.5}}
+\newlabel{section:bar-charts}{{3.9.5}{53}{Bar charts\relax }{subsection.3.9.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.9.6}Tree diagram}{53}{subsection.3.9.6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.24}{\ignorespaces  Example recruitment plot with the parameters from the previous figure for \textit  {Actinomyces viscosus} C505. }}{54}{figure.3.24}}
+\newlabel{fig:analysis-page-recruitment-plot-example}{{3.24}{54}{Example recruitment plot with the parameters from the previous figure for \textit {Actinomyces viscosus} C505}{figure.3.24}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.25}{\ignorespaces  Bar chart view comparing normalized abundance of taxa. We have expanded the Bacteria domain to display the next level of the hierarchy. }}{55}{figure.3.25}}
+\newlabel{fig:analysis-page-bar-chart}{{3.25}{55}{Bar chart view comparing normalized abundance of taxa. We have expanded the Bacteria domain to display the next level of the hierarchy}{figure.3.25}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.26}{\ignorespaces  Tree diagram visualization option on the Analysis page. }}{56}{figure.3.26}}
+\newlabel{fig:analysis-page-radial-tree}{{3.26}{56}{Tree diagram visualization option on the Analysis page}{figure.3.26}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.27}{\ignorespaces  Tree diagram provision for detailed information: clicking on a node in the tree diagram will display addition information to the right of the tree display. }}{57}{figure.3.27}}
+\newlabel{fig:analysis-page-tree-additional-bar-charts}{{3.27}{57}{Tree diagram provision for detailed information: clicking on a node in the tree diagram will display addition information to the right of the tree display}{figure.3.27}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.28}{\ignorespaces  Options for the tree view. }}{58}{figure.3.28}}
+\newlabel{fig:analysis-page-tree-options}{{3.28}{58}{Options for the tree view}{figure.3.28}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.9.7}Heatmap/Dendrogram}{58}{subsection.3.9.7}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.29}{\ignorespaces  Tree view at order level with coloring set to phylum level. }}{59}{figure.3.29}}
+\newlabel{fig:analysis-page-tree-order-level-with-phylum-colors}{{3.29}{59}{Tree view at order level with coloring set to phylum level}{figure.3.29}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.30}{\ignorespaces  Heatmap/dendogram example in MG-RAST. The MG-RAST heatmap/dendrogram has two dendrograms, one indicating the similarity/dissimilarity among metagenomic samples (x axis dendrogram) and another indicating the similarity/dissimilarity among annotation categories (e.g., functional roles; the y-axis dendrogram). }}{59}{figure.3.30}}
+\newlabel{fig:heatmap}{{3.30}{59}{Heatmap/dendogram example in MG-RAST. The MG-RAST heatmap/dendrogram has two dendrograms, one indicating the similarity/dissimilarity among metagenomic samples (x axis dendrogram) and another indicating the similarity/dissimilarity among annotation categories (e.g., functional roles; the y-axis dendrogram)}{figure.3.30}{}}
+\citation{KRONA}
+\citation{BIOM}
+\citation{QIIME}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.9.8}Ordination}{60}{subsection.3.9.8}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.9.9}Table}{60}{subsection.3.9.9}}
+\citation{KRONA}
+\citation{BIOM}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.31}{\ignorespaces  View of the analysis page table. }}{61}{figure.3.31}}
+\newlabel{fig:analysis-page-table}{{3.31}{61}{View of the analysis page table}{figure.3.31}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.9.10}Workbench}{63}{subsection.3.9.10}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {4}User Manual}{64}{chapter.4}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Privacy, Identifiers, Sharing, and Publication}{64}{section.4.1}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Uploading to MG-RAST}{64}{section.4.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Assembled data with read abundance information}{65}{subsection.4.2.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Steps for submission via the web interface}{65}{subsection.4.2.2}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2.1}Prepare data}{65}{subsubsection.4.2.2.1}}
+\citation{HTML5FILEAPI}
+\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Summary of upload times}}{66}{table.4.1}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2.2}Upload files}{66}{subsubsection.4.2.2.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces  Dialogue requesting the user to put in a locally generated \gls {MD5} checksum for the files to identify any data corruption during the upload. }}{67}{figure.4.1}}
+\newlabel{fig:upload-page-md5-verification}{{4.1}{67}{Dialogue requesting the user to put in a locally generated \gls {MD5} checksum for the files to identify any data corruption during the upload}{figure.4.1}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.2.3}Submission}{68}{subsubsection.4.2.2.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}Cmd-line uploader}{69}{subsection.4.2.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.4}Managing the Inbox}{69}{subsection.4.2.4}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces  Temporary storage provided in Inbox before submitting data and limited editing features. }}{70}{figure.4.2}}
+\newlabel{fig:Inbox}{{4.2}{70}{Temporary storage provided in Inbox before submitting data and limited editing features}{figure.4.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.4.1}File-processing options in the Inbox}{71}{subsubsection.4.2.4.1}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {4.2.4.2}Directory management operations for the Inbox}{71}{subsubsection.4.2.4.2}}
+\citation{MIENS}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces  Information displayed by the inbox for one file (once selected). }}{72}{figure.4.3}}
+\newlabel{fig:Inbox-File-Information}{{4.3}{72}{Information displayed by the inbox for one file (once selected)}{figure.4.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.5}Generating metadata for the submission}{72}{subsection.4.2.5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces  Project spreadsheet. In red are required fields. Note that the 2nd row contains information on how to fill out the form. }}{73}{figure.4.4}}
+\newlabel{fig:project-spreadsheet}{{4.4}{73}{Project spreadsheet. In red are required fields. Note that the 2nd row contains information on how to fill out the form}{figure.4.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces  The various tabs in the spreadsheet. Project, sample and one of library metagenome or library mimarks survey are required. }}{73}{figure.4.5}}
+\newlabel{fig:project-spreadsheet-multiple-tabs}{{4.5}{73}{The various tabs in the spreadsheet. Project, sample and one of library metagenome or library mimarks survey are required}{figure.4.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces  Sample tab with 3 new samples (sample1, sample2, and sample3) added. Again red text in the first row indicates required fields. Rows 1 and 2 cannot be altered. }}{74}{figure.4.6}}
+\newlabel{fig:project-spreadsheet-with-3-samples}{{4.6}{74}{Sample tab with 3 new samples (sample1, sample2, and sample3) added. Again red text in the first row indicates required fields. Rows 1 and 2 cannot be altered}{figure.4.6}{}}
+\citation{GSC}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Working with Projects and Collections}{76}{section.4.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces  View of the browse table with the collection column enabled. Clicking on the ``..." at the right end of the table allows expanding the table columns. }}{77}{figure.4.7}}
+\newlabel{fig:collections-total-list1}{{4.7}{77}{View of the browse table with the collection column enabled. Clicking on the ``..." at the right end of the table allows expanding the table columns}{figure.4.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}Understanding Datasets}{77}{section.4.4}}
+\citation{THOMASREVIEW}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces  Symbol for the MG-RAST metagenome browser}}{78}{figure.4.8}}
+\newlabel{fig:browse-for-metagenomes}{{4.8}{78}{Symbol for the MG-RAST metagenome browser\relax }{figure.4.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.9}{\ignorespaces  MG-RAST metagenome browser}}{78}{figure.4.9}}
+\newlabel{fig:browse-window}{{4.9}{78}{MG-RAST metagenome browser\relax }{figure.4.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.10}{\ignorespaces  Filtering by BIOME information. }}{79}{figure.4.10}}
+\newlabel{fig:collections-filter-by-biome}{{4.10}{79}{Filtering by BIOME information}{figure.4.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.11}{\ignorespaces  A reduced list of metagenomes for one BIOME. }}{80}{figure.4.11}}
+\newlabel{fig:collections-filtered-but-too-many}{{4.11}{80}{A reduced list of metagenomes for one BIOME}{figure.4.11}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.12}{\ignorespaces  Selecting a specific project to further reduce the number of datasets being displayed. }}{81}{figure.4.12}}
+\newlabel{fig:collections-twin}{{4.12}{81}{Selecting a specific project to further reduce the number of datasets being displayed}{figure.4.12}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.5}Drilling Down with the Workbench}{81}{section.4.5}}
+\citation{OBESEMICE}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.13}{\ignorespaces  Saving a collection}}{82}{figure.4.13}}
+\newlabel{fig:Collections-how-to-save}{{4.13}{82}{Saving a collection\relax }{figure.4.13}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.14}{\ignorespaces  List of collections}}{83}{figure.4.14}}
+\newlabel{fig:collections-finished}{{4.14}{83}{List of collections\relax }{figure.4.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.15}{\ignorespaces  Comparing collections as groups.}}{84}{figure.4.15}}
+\newlabel{fig:using-collections}{{4.15}{84}{Comparing collections as groups}{figure.4.15}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.6}Downloads from the Workbench}{84}{section.4.6}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.16}{\ignorespaces  Screenshot of the Analysis page and Workbench tab. Users can search and select metagenomes to analyze, the annotation sources and parameters to set, and the analysis and visualization they want to perform. }}{85}{figure.4.16}}
+\newlabel{fig:analysis-page-selecting-lean-and-obese}{{4.16}{85}{Screenshot of the Analysis page and Workbench tab. Users can search and select metagenomes to analyze, the annotation sources and parameters to set, and the analysis and visualization they want to perform}{figure.4.16}{}}
+\citation{M5NR}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.17}{\ignorespaces  Using the tables to group results. }}{86}{figure.4.17}}
+\newlabel{fig:table-group-by-class}{{4.17}{86}{Using the tables to group results}{figure.4.17}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.18}{\ignorespaces  Use the table to select results you want to add to your workbench for further analyses. }}{86}{figure.4.18}}
+\newlabel{fig:table-organism-abundance}{{4.18}{86}{Use the table to select results you want to add to your workbench for further analyses}{figure.4.18}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.7}Viewing Evidence}{86}{section.4.7}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.8}MG-RAST Output}{86}{section.4.8}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.19}{\ignorespaces  View of the workbench with a summary of the proteins that have been added. }}{87}{figure.4.19}}
+\newlabel{fig:workbench}{{4.19}{87}{View of the workbench with a summary of the proteins that have been added}{figure.4.19}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.20}{\ignorespaces Using barcharts to download or add results to workbench.}}{87}{figure.4.20}}
+\newlabel{fig:barchart-from-workbench}{{4.20}{87}{Using barcharts to download or add results to workbench}{figure.4.20}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.21}{\ignorespaces  Download of selected reads, via the workbench, using the name space of the selection. }}{87}{figure.4.21}}
+\newlabel{fig:workbench-download}{{4.21}{87}{Download of selected reads, via the workbench, using the name space of the selection}{figure.4.21}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.22}{\ignorespaces  BLAT hit details with alignment. }}{88}{figure.4.22}}
+\newlabel{fig:blat-alignment}{{4.22}{88}{BLAT hit details with alignment}{figure.4.22}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces Differences between the various access modalities}}{88}{table.4.2}}
+\newlabel{table:access-modalities}{{4.2}{88}{Differences between the various access modalities\relax }{table.4.2}{}}
+\citation{BIOM}
+\citation{QIIME}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.8.1}Data products on the website}{89}{subsection.4.8.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.8.2}FTP server}{89}{subsection.4.8.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.23}{\ignorespaces Listing of the project directory for \texttt  {ftp://ftp.metagenomics.anl.gov/projects/128/} }}{90}{figure.4.23}}
+\newlabel{fig:ftp-server-project-view}{{4.23}{90}{Listing of the project directory for \texttt {ftp://ftp.metagenomics.anl.gov/projects/128/}\relax }{figure.4.23}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.8.3}Downloads}{90}{subsection.4.8.3}}
+\citation{MGCLOUD}
+\citation{CLOVR}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Putting It All in Perspective}{91}{chapter.5}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}MG-RAST" A community resource}{91}{section.5.1}}
+\citation{CLOVR}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Future Work}{92}{section.5.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}Roadmap}{93}{subsection.5.2.1}}
+\citation{GREENGENES}
+\citation{SILVA}
+\citation{RDP}
+\@writefile{toc}{\contentsline {chapter}{\numberline {A}The downloadable files for each data set}{95}{appendix.A}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{chapter:downloads}{{A}{95}{The downloadable files for each data set\relax }{appendix.A}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {B}Terms of Service}{99}{appendix.B}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\citation{M5NR}
+\citation{SUBSYSTEMS}
+\citation{GENBANK}
+\citation{REFSEQ}
+\citation{UNIPROT}
+\citation{EGGNOG}
+\citation{KEGG}
+\citation{PATRIC}
+\citation{GREENGENES}
+\@writefile{toc}{\contentsline {chapter}{\numberline {C}Tools and data used by MG-RAST}{101}{appendix.C}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\@writefile{toc}{\contentsline {section}{\numberline {C.1}Databases}{101}{section.C.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.1.1}Protein databases}{101}{subsection.C.1.1}}
+\citation{SILVA}
+\citation{RDP}
+\citation{FGS}
+\citation{BLAT}
+\citation{QIIME}
+\citation{BOWTIE}
+\citation{SOLEXAQA}
+\citation{KRONA}
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.1.2}Ribosomal RNA databases:}{102}{subsection.C.1.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {C.2}Software}{102}{section.C.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.2.1}Bioinformatics codes:}{102}{subsection.C.2.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.2.2}Web/UI tools:}{102}{subsection.C.2.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {C.2.3}Behind the scenes:}{103}{subsection.C.2.3}}
+\@writefile{toc}{\contentsline {subsection}{Glossary and Acronyms}{108}{appendix*.15}}
+\bibdata{mg-rast-tech-report}
+\bibcite{CLOVR}{1}
+\bibcite{RAST}{2}
+\bibcite{GENBANK}{3}
+\bibcite{CRISPRS}{4}
+\bibcite{QIIME}{5}
+\bibcite{RDP}{6}
+\bibcite{SOLEXAQA}{7}
+\bibcite{GREENGENES}{8}
+\bibcite{UCLUST}{9}
+\bibcite{GSC}{10}
+\bibcite{OPENMPI}{11}
+\bibcite{ADRS}{12}
+\bibcite{HUSEPYRO}{13}
+\bibcite{MEGAN}{14}
+\bibcite{EGGNOG}{15}
+\bibcite{KEGG}{16}
+\bibcite{DRISEE}{17}
+\bibcite{BLAT}{18}
+\bibcite{GCDML}{19}
+\bibcite{BOWTIE}{20}
+\bibcite{UNIPROT}{21}
+\bibcite{IMG}{22}
+\bibcite{BIOM}{23}
+\bibcite{MG-RAST}{24}
+\bibcite{NHGRI_COST}{25}
+\bibcite{LOMAN}{26}
+\bibcite{KRONA}{27}
+\bibcite{SUBSYSTEMS}{28}
+\bibcite{SILVA}{29}
+\bibcite{REFSEQ}{30}
+\bibcite{RARE}{31}
+\bibcite{FGS}{32}
+\bibcite{MGREVIEW}{33}
+\bibcite{PATRIC}{34}
+\bibcite{1584883278}{35}
+\bibcite{COG}{36}
+\bibcite{THOMASREVIEW}{37}
+\bibcite{TRIMBLE_SHORT}{38}
+\bibcite{OBESEMICE}{39}
+\bibcite{HTML5FILEAPI}{40}
+\bibcite{M5NR}{41}
+\bibcite{AWE}{42}
+\bibcite{MGCLOUD}{43}
+\bibcite{MIENS}{44}
+\bibstyle{plain}

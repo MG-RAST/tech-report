@@ -1,0 +1,495 @@
+\batchmode
+\documentclass[12pt,fullpage]{report}
+\RequirePackage{ifthen}
+
+
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{times}
+\usepackage{mdframed}
+\usepackage{authblk}
+\usepackage{float}
+\usepackage{cite}
+\usepackage{hyperref}
+
+
+\linespread{1.2}
+
+
+\setcounter{secnumdepth}{6}
+
+
+
+
+\usepackage[dvips]{color}
+
+
+\pagecolor[gray]{.7}
+
+\usepackage[]{inputenc}
+
+
+
+\makeatletter
+
+\makeatletter
+\count@=\the\catcode`\_ \catcode`\_=8 
+\newenvironment{tex2html_wrap}{}{}%
+\catcode`\<=12\catcode`\_=\count@
+\newcommand{\providedcommand}[1]{\expandafter\providecommand\csname #1\endcsname}%
+\newcommand{\renewedcommand}[1]{\expandafter\providecommand\csname #1\endcsname{}%
+  \expandafter\renewcommand\csname #1\endcsname}%
+\newcommand{\newedenvironment}[1]{\newenvironment{#1}{}{}\renewenvironment{#1}}%
+\let\newedcommand\renewedcommand
+\let\renewedenvironment\newedenvironment
+\makeatother
+\let\mathon=$
+\let\mathoff=$
+\ifx\AtBeginDocument\undefined \newcommand{\AtBeginDocument}[1]{}\fi
+\newbox\sizebox
+\setlength{\hoffset}{0pt}\setlength{\voffset}{0pt}
+\addtolength{\textheight}{\footskip}\setlength{\footskip}{0pt}
+\addtolength{\textheight}{\topmargin}\setlength{\topmargin}{0pt}
+\addtolength{\textheight}{\headheight}\setlength{\headheight}{0pt}
+\addtolength{\textheight}{\headsep}\setlength{\headsep}{0pt}
+\setlength{\textwidth}{349pt}
+\newwrite\lthtmlwrite
+\makeatletter
+\let\realnormalsize=\normalsize
+\global\topskip=2sp
+\def\preveqno{}\let\real@float=\@float \let\realend@float=\end@float
+\def\@float{\let\@savefreelist\@freelist\real@float}
+\def\liih@math{\ifmmode$\else\bad@math\fi}
+\def\end@float{\realend@float\global\let\@freelist\@savefreelist}
+\let\real@dbflt=\@dbflt \let\end@dblfloat=\end@float
+\let\@largefloatcheck=\relax
+\let\if@boxedmulticols=\iftrue
+\def\@dbflt{\let\@savefreelist\@freelist\real@dbflt}
+\def\adjustnormalsize{\def\normalsize{\mathsurround=0pt \realnormalsize
+ \parindent=0pt\abovedisplayskip=0pt\belowdisplayskip=0pt}%
+ \def\phantompar{\csname par\endcsname}\normalsize}%
+\def\lthtmltypeout#1{{\let\protect\string \immediate\write\lthtmlwrite{#1}}}%
+\newcommand\lthtmlhboxmathA{\adjustnormalsize\setbox\sizebox=\hbox\bgroup\kern.05em }%
+\newcommand\lthtmlhboxmathB{\adjustnormalsize\setbox\sizebox=\hbox to\hsize\bgroup\hfill }%
+\newcommand\lthtmlvboxmathA{\adjustnormalsize\setbox\sizebox=\vbox\bgroup %
+ \let\ifinner=\iffalse \let\)\liih@math }%
+\newcommand\lthtmlboxmathZ{\@next\next\@currlist{}{\def\next{\voidb@x}}%
+ \expandafter\box\next\egroup}%
+\newcommand\lthtmlmathtype[1]{\gdef\lthtmlmathenv{#1}}%
+\newcommand\lthtmllogmath{\dimen0\ht\sizebox \advance\dimen0\dp\sizebox
+  \ifdim\dimen0>.95\vsize
+   \lthtmltypeout{%
+*** image for \lthtmlmathenv\space is too tall at \the\dimen0, reducing to .95 vsize ***}%
+   \ht\sizebox.95\vsize \dp\sizebox\z@ \fi
+  \lthtmltypeout{l2hSize %
+:\lthtmlmathenv:\the\ht\sizebox::\the\dp\sizebox::\the\wd\sizebox.\preveqno}}%
+\newcommand\lthtmlfigureA[1]{\let\@savefreelist\@freelist
+       \lthtmlmathtype{#1}\lthtmlvboxmathA}%
+\newcommand\lthtmlpictureA{\bgroup\catcode`\_=8 \lthtmlpictureB}%
+\newcommand\lthtmlpictureB[1]{\lthtmlmathtype{#1}\egroup
+       \let\@savefreelist\@freelist \lthtmlhboxmathB}%
+\newcommand\lthtmlpictureZ[1]{\hfill\lthtmlfigureZ}%
+\newcommand\lthtmlfigureZ{\lthtmlboxmathZ\lthtmllogmath\copy\sizebox
+       \global\let\@freelist\@savefreelist}%
+\newcommand\lthtmldisplayA{\bgroup\catcode`\_=8 \lthtmldisplayAi}%
+\newcommand\lthtmldisplayAi[1]{\lthtmlmathtype{#1}\egroup\lthtmlvboxmathA}%
+\newcommand\lthtmldisplayB[1]{\edef\preveqno{(\theequation)}%
+  \lthtmldisplayA{#1}\let\@eqnnum\relax}%
+\newcommand\lthtmldisplayZ{\lthtmlboxmathZ\lthtmllogmath\lthtmlsetmath}%
+\newcommand\lthtmlinlinemathA{\bgroup\catcode`\_=8 \lthtmlinlinemathB}
+\newcommand\lthtmlinlinemathB[1]{\lthtmlmathtype{#1}\egroup\lthtmlhboxmathA
+  \vrule height1.5ex width0pt }%
+\newcommand\lthtmlinlineA{\bgroup\catcode`\_=8 \lthtmlinlineB}%
+\newcommand\lthtmlinlineB[1]{\lthtmlmathtype{#1}\egroup\lthtmlhboxmathA}%
+\newcommand\lthtmlinlineZ{\egroup\expandafter\ifdim\dp\sizebox>0pt %
+  \expandafter\centerinlinemath\fi\lthtmllogmath\lthtmlsetinline}
+\newcommand\lthtmlinlinemathZ{\egroup\expandafter\ifdim\dp\sizebox>0pt %
+  \expandafter\centerinlinemath\fi\lthtmllogmath\lthtmlsetmath}
+\newcommand\lthtmlindisplaymathZ{\egroup %
+  \centerinlinemath\lthtmllogmath\lthtmlsetmath}
+\def\lthtmlsetinline{\hbox{\vrule width.1em \vtop{\vbox{%
+  \kern.1em\copy\sizebox}\ifdim\dp\sizebox>0pt\kern.1em\else\kern.3pt\fi
+  \ifdim\hsize>\wd\sizebox \hrule depth1pt\fi}}}
+\def\lthtmlsetmath{\hbox{\vrule width.1em\kern-.05em\vtop{\vbox{%
+  \kern.1em\kern0.8 pt\hbox{\hglue.17em\copy\sizebox\hglue0.8 pt}}\kern.3pt%
+  \ifdim\dp\sizebox>0pt\kern.1em\fi \kern0.8 pt%
+  \ifdim\hsize>\wd\sizebox \hrule depth1pt\fi}}}
+\def\centerinlinemath{%
+  \dimen1=\ifdim\ht\sizebox<\dp\sizebox \dp\sizebox\else\ht\sizebox\fi
+  \advance\dimen1by.5pt \vrule width0pt height\dimen1 depth\dimen1 
+ \dp\sizebox=\dimen1\ht\sizebox=\dimen1\relax}
+
+\def\lthtmlcheckvsize{\ifdim\ht\sizebox<\vsize 
+  \ifdim\wd\sizebox<\hsize\expandafter\hfill\fi \expandafter\vfill
+  \else\expandafter\vss\fi}%
+\providecommand{\selectlanguage}[1]{}%
+\makeatletter \tracingstats = 1 
+
+
+\begin{document}
+\pagestyle{empty}\thispagestyle{empty}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength hsize=\the\hsize}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength vsize=\the\vsize}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength hoffset=\the\hoffset}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength voffset=\the\voffset}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength topmargin=\the\topmargin}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength topskip=\the\topskip}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength headheight=\the\headheight}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength headsep=\the\headsep}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength parskip=\the\parskip}\lthtmltypeout{}%
+\lthtmltypeout{latex2htmlLength oddsidemargin=\the\oddsidemargin}\lthtmltypeout{}%
+\makeatletter
+\if@twoside\lthtmltypeout{latex2htmlLength evensidemargin=\the\evensidemargin}%
+\else\lthtmltypeout{latex2htmlLength evensidemargin=\the\oddsidemargin}\fi%
+\lthtmltypeout{}%
+\makeatother
+\setcounter{page}{1}
+\onecolumn
+
+% !!! IMAGES START HERE !!!
+
+\setcounter{secnumdepth}{6}
+\stepcounter{chapter}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{chapter}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{section}
+\stepcounter{subsection}
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline198}%
+$Total DRISEE Er	ror = base\_errors/total\_bases * 100$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+{\newpage\clearpage
+\lthtmlfigureA{figurestar275}%
+\begin{figure*}\par
+\texttt{http://metagenomics.anl.gov/linkin.cgi?metagenome=}
+\par
+\texttt{http://metagenomics.anl.gov/linkin.cgi?project=} 
+\par
+
+\par
+\end{figure*}%
+\lthtmlfigureZ
+\lthtmlcheckvsize\clearpage}
+
+\stepcounter{chapter}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsubsection}
+\stepcounter{subsubsection}
+\stepcounter{subsubsection}
+\stepcounter{subsection}
+\stepcounter{subsubsection}
+\stepcounter{subsubsection}
+\stepcounter{subsubsection}
+{\newpage\clearpage
+\lthtmldisplayA{displaymath891}%
+\begin{displaymath} \textrm{Richness} = 10^{-\sum_i  p_i \log(p_i) }  \end{displaymath}%
+\lthtmldisplayZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline893}%
+$p_i$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+\stepcounter{subsubsection}
+\stepcounter{subsubsection}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{subsection}
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline471}%
+$normalized\_value\_i = log2(raw\_counts\_i + 1)$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+{\newpage\clearpage
+\lthtmlinlinemathA{tex2html_wrap_inline475}%
+$standardized\_i = (normalized\_i - mean({normalized\_i})) / stddev({normalized\_i})$%
+\lthtmlinlinemathZ
+\lthtmlcheckvsize\clearpage}
+
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{chapter}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsubsection}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{subparagraph}
+\stepcounter{paragraph}
+\stepcounter{subsubsection}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{paragraph}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsubsection}
+\stepcounter{subsubsection}
+\stepcounter{subsection}
+\stepcounter{subparagraph}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{chapter}
+\stepcounter{section}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{section}
+\appendix
+\stepcounter{chapter}
+{\newpage\clearpage
+\lthtmlfigureA{mdframed830}%
+\begin{mdframed}
+\textbf{Uploaded File(s) DNA} (4465825.3.25422.fna)
+\par
+Uploaded nucleotide sequence data in FASTA format.
+Preprocessing
+\par
+Depending on the options chosen, the preprocessing step filters sequences based on length, number of ambiguous bases and quality values if available.
+\par
+\textbf{passed, DNA} (4465825.3.100.preprocess.passed.fna)
+\par
+A FASTA formatted file containing the sequences which were accepted and will be passed on to the next stage of the analysis pipeline.
+\par
+\textbf{removed, DNA} (4465825.3.100.preprocess.removed.fna)
+\par
+A FASTA formatted file containing the sequences which were rejected and will not be passed on to the next stage of the analysis pipeline.
+Dereplication
+\par
+The optional dereplication step removes redundant “technical replicate” sequences from the metagenomic sample. Technical replicates are identified by binning reads with identical first 50 base-pairs. One copy of each 50-base-pair identical bin is retained.
+\par
+\textbf{passed, DNA} (4465825.3.150.dereplication.passed.fna)
+\par
+A FASTA formatted file containing one sequence from each bin which will be passed on to the next stage of the analysis pipeline.
+\par
+\textbf{removed, DNA} (4465825.3.150.dereplication.removed.fna)
+\par
+A FASTA formatted file containing the sequences which were identified as technical replicates and will not be passed on to the next stage of the analysis pipeline.
+Screening
+\par
+The optional screening step screens reads against model organisms using bowtie to remove reads which are similar to the genome of the selected species.
+\par
+\textbf{passed, DNA} (4465825.3.299.screen.passed.fna)
+\par
+A FASTA formatted file containing the reads which which had no similarity to the selected genome and will be passed on to the next stage of the analysis pipeline.
+Prediction of protein coding sequences
+\par
+Coding regions within the sequences are predicted using FragGeneScan, an ab-initio prokaryotic gene calling algorithm. Using a hidden Markov model for coding regions and non-coding regions, this step identifies the most likely reading frame and translates nucleotide sequences into amino acids sequences. The predicted coding regions, possibly more than one per fragment, are called features.
+\par
+\textbf{coding, Protein} (4465825.3.350.genecalling.coding.faa)
+\par
+A amino-acid sequence FASTA formatted file containing the translations of the predicted coding regions.
+\par
+\textbf{coding, DNA} (4465825.3.350.genecalling.coding.fna)
+\par
+A nucleotide sequence FASTA formatted file containing the predicted coding regions.
+RNA Clustering
+\par
+Sequences from step 2 (before dereplication) are pre-screened for at least 60\% identity to ribosomal sequences and then clustered at 97\% identity using UCLUST. These clusters are checked for similarity against the ribosomal RNA databases (Greengenes, LSU, SSU, and RDP).
+\par
+\textbf{rna97, DNA} (4465825.3.440.cluster.rna97.fna)
+\par
+A FASTA formatted file containing sequences that have at least 60\% identity to ribosomal sequences and are checked for RNA similarity.
+\par
+\textbf{rna97, Cluster} (4465825.3.440.cluster.rna97.mapping)
+\par
+A tab-delimited file that identifies the sequence clusters and the sequences that comprise them.
+\par
+The columns making up each line in this file are:
+\par
+Cluster ID, e.g. rna97\_998
+\par
+Representative read ID, e.g. 11909294
+\par
+List of IDs for other reads in the cluster, e.g. 11898451,11944918
+\par
+List of percentage identities to the representative read sequence, e.g. 97.5\%,100.0\%
+\par
+\textbf{RNA similarities}
+\par
+The two files labelled ‘expand’ are comma- and semicolon- delimited files that provide the mappings from md5s to function and md5s to taxonomy:
+\par
+\textbf{annotated, Sims} (4465825.3.450.rna.expand.lca)
+\par
+\textbf{annotated, Sims} (4465825.3.450.rna.expand.rna)
+\par
+Packaged results of the blat search against all the DNA databases with md5 value of the database sequence hit followed by sequence or cluster ID, similarity information, annotation, organism, database name.
+\par
+\textbf{raw, Sims} (4465825.3.450.rna.sims)
+\par
+This is the similarity output from BLAT. This includes the identifier for the query which is either the FASTA id or the cluster ID, and the internal identifier for the sequence that it hits.
+\par
+The fields are in BLAST m8 format:
+\par
+Query id (either fasta ID or cluster ID), e.g. 11847922
+\par
+Hit id, e.g. lcl|501336051b4d5d412fb84afe8b7fdd87
+\par
+percentage identity, e.g. 100.00
+\par
+alignment length, e.g. 107
+\par
+number of mismatches, e.g. 0
+\par
+number of gap openings, e.g. 0
+\par
+q.start, e.g. 1
+\par
+q.end, e.g. 107
+\par
+s.start, e.g. 1262
+\par
+s.end, e.g. 1156
+\par
+e-value, e.g. 1.7e-54
+\par
+score in bits, e.g. 210.0
+\par
+\textbf{filtered, Sims} (15:04 4465825.3.450.rna.sims.filter)
+\par
+This is a filtered version of the raw Sims file above that removes all but the best hit for each data source.
+Gene Clustering
+\par
+Protein coding sequences are clustered at 80\% identity with UCLUST. This process does not remove any sequences but instead makes the similarity search step easier. Following the search, the original reads are loaded into MG-RAST for retrieval on-demand.
+\par
+\textbf{aa90, Protein} (4465825.3.550.cluster.aa90.faa)
+\par
+An amino acid sequence FASTA formatted file containing the translations of one sequence from each cluster (by cluster ids starting with aa90\_) and all the unclustered (singleton) sequences with the original sequence ID.
+\par
+\textbf{aa90, Cluster} (4465825.3.550.cluster.aa90.mapping)
+\par
+A tab-separated file in which each line describes a single cluster.
+\par
+The fields are:
+\par
+Cluster ID, e.g. aa90\_3270
+\par
+protein coding sequence ID including hit location and strand, e.g. 11954908\_1\_121\_+
+\par
+additional sequence ids including hit location and strand, e.g. 11898451\_1\_119\_+,11944918\_19\_121\_+
+\par
+sequence \% identities, e.g. 94.9\%,97.0\%
+\par
+Protein similarities
+\par
+\textbf{annotated, Sims} (4465825.3.650.superblat.expand.lca)
+\par
+The expand.lca file decodes the md5 to the taxonomic classification it is annotated with.
+\par
+The format is:
+\par
+md5(s), e.g. cf036dfa9cdde3a8a4c09d7fabfd9ba5;1e538305b8319dab322b8f28da82e0a1
+\par
+feature id (for singletons) or cluster id of hit including hit location and strand, e.g. 11857921\_1\_101\_-
+\par
+alignment \%, e.g. 70.97;70.97
+\par
+alignment length, e.g. 31;31
+\par
+E-value, e.g. 7.5e-05;7.5e-05
+\par
+Taxonomic string, e.g. Bacteria;Actinobacteria;Actinobacteria (class);Coriobacteriales;Coriobacteriaceae;Slackia;Slackia exigua;-
+\par
+\textbf{annotated, Sims} (4465825.3.650.superblat.expand.protein)
+\par
+Packaged results of the blat search against all the protein databases with md5 value of the database sequence hit followed by sequence or cluster ID, similarity information, functional annotation, organism, database name.
+\par
+Format is:
+\par
+md5 (identifier for the database hit), e.g. 88848aa7224ca2f3ac117e7953edd2d9
+\par
+feature id (for singletons) or cluster ID for the query, e.g. aa90\_22837
+\par
+alignment \% identity, e.g. 76.47
+\par
+alignment length, e.g. 34
+\par
+E-value, e.g. 1.3e-06
+\par
+protein functional label, e.g. SsrA-binding protein
+\par
+Species name associated with best protein hit, e.g. Prevotella bergensis DSM 17361 RefSeq 585502
+\par
+\textbf{raw, Sims} (4465825.3.650.superblat.sims)
+\par
+Blat output with sequence or cluster ID, md5 value for the sequence in the database and similarity information.
+\par
+\textbf{filtered, Sims} (4465825.3.650.superblat.sims.filter)
+\par
+Blat output filtered to take only the best hit from each data source.
+\end{mdframed}%
+\lthtmlfigureZ
+\lthtmlcheckvsize\clearpage}
+
+\stepcounter{chapter}
+\stepcounter{chapter}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{section}
+\stepcounter{subsection}
+\stepcounter{subsection}
+\stepcounter{subsection}
+
+\end{document}
