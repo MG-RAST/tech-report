@@ -1,0 +1,85 @@
+This is BibTeX, Version 0.99d (TeX Live 2012)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: mg-rast-tech-report.aux
+The style file: plain.bst
+Database file #1: mg-rast-tech-report.bib
+Too many commas in name 1 of "Nicholas J. Loman, Raju V Misra, Timothy J. Dallman, Chrystala Constantinidou, Saheer E Gharbia, John Wain, Mark J. Pallen" for entry LOMAN
+while executing---line 1049 of file plain.bst
+Too many commas in name 1 of "Nicholas J. Loman, Raju V Misra, Timothy J. Dallman, Chrystala Constantinidou, Saheer E Gharbia, John Wain, Mark J. Pallen" for entry LOMAN
+while executing---line 1049 of file plain.bst
+Too many commas in name 1 of "Nicholas J. Loman, Raju V Misra, Timothy J. Dallman, Chrystala Constantinidou, Saheer E Gharbia, John Wain, Mark J. Pallen" for entry LOMAN
+while executing---line 1049 of file plain.bst
+Too many commas in name 1 of "Nicholas J. Loman, Raju V Misra, Timothy J. Dallman, Chrystala Constantinidou, Saheer E Gharbia, John Wain, Mark J. Pallen" for entry LOMAN
+while executing---line 1049 of file plain.bst
+Too many commas in name 1 of "Kottmann R, Gray T, Murphy S, Kagan L, Kravitz S, Lombardot T, Field D, Glöckner FO; Genomic Standards Consortium" for entry GCDML
+while executing---line 1049 of file plain.bst
+Too many commas in name 1 of "Kottmann R, Gray T, Murphy S, Kagan L, Kravitz S, Lombardot T, Field D, Glöckner FO; Genomic Standards Consortium" for entry GCDML
+while executing---line 1049 of file plain.bst
+Too many commas in name 1 of "Kottmann R, Gray T, Murphy S, Kagan L, Kravitz S, Lombardot T, Field D, Glöckner FO; Genomic Standards Consortium" for entry GCDML
+while executing---line 1049 of file plain.bst
+Too many commas in name 1 of "Kottmann R, Gray T, Murphy S, Kagan L, Kravitz S, Lombardot T, Field D, Glöckner FO; Genomic Standards Consortium" for entry GCDML
+while executing---line 1049 of file plain.bst
+Too many commas in name 1 of "Kottmann R, Gray T, Murphy S, Kagan L, Kravitz S, Lombardot T, Field D, Glöckner FO; Genomic Standards Consortium" for entry GCDML
+while executing---line 1049 of file plain.bst
+Too many commas in name 1 of "Kottmann R, Gray T, Murphy S, Kagan L, Kravitz S, Lombardot T, Field D, Glöckner FO; Genomic Standards Consortium" for entry GCDML
+while executing---line 1090 of file plain.bst
+Too many commas in name 1 of "Kottmann R, Gray T, Murphy S, Kagan L, Kravitz S, Lombardot T, Field D, Glöckner FO; Genomic Standards Consortium" for entry GCDML
+while executing---line 1090 of file plain.bst
+Too many commas in name 1 of "Kottmann R, Gray T, Murphy S, Kagan L, Kravitz S, Lombardot T, Field D, Glöckner FO; Genomic Standards Consortium" for entry GCDML
+while executing---line 1090 of file plain.bst
+Too many commas in name 1 of "Kottmann R, Gray T, Murphy S, Kagan L, Kravitz S, Lombardot T, Field D, Glöckner FO; Genomic Standards Consortium" for entry GCDML
+while executing---line 1090 of file plain.bst
+Too many commas in name 1 of "Kottmann R, Gray T, Murphy S, Kagan L, Kravitz S, Lombardot T, Field D, Glöckner FO; Genomic Standards Consortium" for entry GCDML
+while executing---line 1090 of file plain.bst
+Too many commas in name 1 of "Nicholas J. Loman, Raju V Misra, Timothy J. Dallman, Chrystala Constantinidou, Saheer E Gharbia, John Wain, Mark J. Pallen" for entry LOMAN
+while executing---line 1090 of file plain.bst
+Too many commas in name 1 of "Nicholas J. Loman, Raju V Misra, Timothy J. Dallman, Chrystala Constantinidou, Saheer E Gharbia, John Wain, Mark J. Pallen" for entry LOMAN
+while executing---line 1090 of file plain.bst
+Too many commas in name 1 of "Nicholas J. Loman, Raju V Misra, Timothy J. Dallman, Chrystala Constantinidou, Saheer E Gharbia, John Wain, Mark J. Pallen" for entry LOMAN
+while executing---line 1090 of file plain.bst
+Too many commas in name 1 of "Nicholas J. Loman, Raju V Misra, Timothy J. Dallman, Chrystala Constantinidou, Saheer E Gharbia, John Wain, Mark J. Pallen" for entry LOMAN
+while executing---line 1090 of file plain.bst
+Warning--there's a number but no volume in LOMAN
+Warning--there's a number but no volume in FGS
+You've used 44 entries,
+            2118 wiz_defined-function locations,
+            773 strings with 17195 characters,
+and the built_in function-call counts, 24422 in all, are:
+= -- 2011
+> -- 2354
+< -- 1
++ -- 951
+- -- 892
+* -- 2421
+:= -- 4421
+add.period$ -- 130
+call.type$ -- 44
+change.case$ -- 577
+chr.to.int$ -- 0
+cite$ -- 46
+duplicate$ -- 483
+empty$ -- 1097
+format.name$ -- 892
+if$ -- 4546
+int.to.chr$ -- 0
+int.to.str$ -- 44
+missing$ -- 43
+newline$ -- 221
+num.names$ -- 88
+pop$ -- 527
+preamble$ -- 1
+purify$ -- 534
+quote$ -- 0
+skip$ -- 319
+stack$ -- 0
+substring$ -- 901
+swap$ -- 52
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 174
+warning$ -- 2
+while$ -- 126
+width$ -- 46
+write$ -- 477
+(There were 18 error messages)
