@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  16 JUL 2013 11:25
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  16 JUL 2013 11:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1630,12 +1630,12 @@ Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no “ in font ptmr7t!
  [114])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2882.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2878.
  [115]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2882.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2878.
  (./mg-rast-tech-report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2882.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2882.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2878.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2878.
 
 Package rerunfilecheck Info: File `mg-rast-tech-report.out' has not changed.
 (rerunfilecheck)             Checksum: FBE48091FC5EABF2C043E0DB9F422C1F;6477.
@@ -1670,7 +1670,7 @@ ist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2012/texmf-dist/font
 s/type1/urw/times/utmb8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/ur
 w/times/utmr8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/urw/times/ut
 mri8a.pfb>
-Output written on mg-rast-tech-report.pdf (116 pages, 6441165 bytes).
+Output written on mg-rast-tech-report.pdf (116 pages, 6440688 bytes).
 PDF statistics:
  1833 PDF objects out of 2073 (max. 8388607)
  1604 compressed objects within 17 object streams
