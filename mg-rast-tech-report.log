@@ -1,6 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  14 JUN 2013 12:40
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  16 JUL 2013 11:25
 entering extended mode
  restricted \write18 enabled.
+ file:line:error style messages enabled.
  %&-line parsing enabled.
 **mg-rast-tech-report.tex
 (./mg-rast-tech-report.tex
@@ -710,9 +711,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <14.4> on input line 45.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 45.
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Ä in font ptmr7t!
-Missing character: There is no ô in font ptmr7t!
  [1
 
 \openout3 = `mg-rast-tech-report.ist'.
@@ -746,96 +744,99 @@ Chapter 1.
 File: Images/cost_per_megabase.png Graphic file (type png)
 
 <use Images/cost_per_megabase.png>
-Package pdftex.def Info: Images/cost_per_megabase.png used on input line 84.
+Package pdftex.def Info: Images/cost_per_megabase.png used on input line 83.
 (pdftex.def)             Requested size: 289.07999pt x 216.80615pt.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 91.
+(Font)              <5> on input line 90.
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ù in font ptmr7t!
  [5
 
 ]
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 114.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 125.
 
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-)
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 120.
+) [6 <./Images/cost_per_megabase.png>]
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 131.
 
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 120.
- [6 <./Images/cost_per_megabase.png>]
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 131.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 134.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 145.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 136.
-
-<Images/mgrastv2VSv3.png, id=557, 1217.54875pt x 727.71875pt>
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 147.
+ [7]
+<Images/mgrastv2VSv3.png, id=568, 1217.54875pt x 727.71875pt>
 File: Images/mgrastv2VSv3.png Graphic file (type png)
 
 <use Images/mgrastv2VSv3.png>
-Package pdftex.def Info: Images/mgrastv2VSv3.png used on input line 156.
+Package pdftex.def Info: Images/mgrastv2VSv3.png used on input line 167.
 (pdftex.def)             Requested size: 433.62pt x 259.1692pt.
- [7] [8 <./Images/mgrastv2VSv3.png>]
+ [8 <./Images/mgrastv2VSv3.png>]
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ô in font ptmr7t!
  [9]
-<Images/mgrastemail.png, id=580, 154.5775pt x 48.18pt>
+<Images/mgrastemail.png, id=584, 154.5775pt x 48.18pt>
 File: Images/mgrastemail.png Graphic file (type png)
 
 <use Images/mgrastemail.png>
-Package pdftex.def Info: Images/mgrastemail.png used on input line 199.
+Package pdftex.def Info: Images/mgrastemail.png used on input line 210.
 (pdftex.def)             Requested size: 216.81pt x 67.58308pt.
  [10 <./Images/mgrastemail.png>] [11]
 Chapter 2.
 [12
 
-] <Images/data-model.png, id=606, 632.3625pt x 508.90125pt>
+] <Images/data-model.png, id=610, 632.3625pt x 508.90125pt>
 File: Images/data-model.png Graphic file (type png)
 
 <use Images/data-model.png>
-Package pdftex.def Info: Images/data-model.png used on input line 292.
+Package pdftex.def Info: Images/data-model.png used on input line 303.
 (pdftex.def)             Requested size: 433.62pt x 348.96799pt.
  [13 <./Images/data-model.png>]
-<Images/mgrast_analysis-schema.png, id=613, 1417.4556pt x 1217.9904pt>
+<Images/mgrast_analysis-schema.png, id=617, 1417.4556pt x 1217.9904pt>
 File: Images/mgrast_analysis-schema.png Graphic file (type png)
 
 <use Images/mgrast_analysis-schema.png>
 Package pdftex.def Info: Images/mgrast_analysis-schema.png used on input line 3
-27.
+38.
 (pdftex.def)             Requested size: 433.62pt x 372.59235pt.
 
-<Images/mgrastv3pipeline.png, id=614, 569.9694pt x 227.6505pt>
+<Images/mgrastv3pipeline.png, id=618, 569.9694pt x 227.6505pt>
 File: Images/mgrastv3pipeline.png Graphic file (type png)
 
 <use Images/mgrastv3pipeline.png>
-Package pdftex.def Info: Images/mgrastv3pipeline.png used on input line 341.
+Package pdftex.def Info: Images/mgrastv3pipeline.png used on input line 352.
 (pdftex.def)             Requested size: 433.62pt x 173.20027pt.
 
-<Images/MG-RAST-job-sizes.png, id=621, 959.585pt x 574.145pt>
+<Images/MG-RAST-job-sizes.png, id=625, 959.585pt x 574.145pt>
 File: Images/MG-RAST-job-sizes.png Graphic file (type png)
 
 <use Images/MG-RAST-job-sizes.png>
-Package pdftex.def Info: Images/MG-RAST-job-sizes.png used on input line 361.
+Package pdftex.def Info: Images/MG-RAST-job-sizes.png used on input line 372.
 (pdftex.def)             Requested size: 289.07999pt x 172.96321pt.
  [14] [15 <./Images/mgrast_analysis-schema.png>] [16 <./Images/mgrastv3pipeline
 .png> <./Images/MG-RAST-job-sizes.png>]
-[17] [18]
-Overfull \hbox (1.8545pt too wide) in paragraph at lines 435--436
+[17]
+
+LaTeX Warning: Citation `OPENMP' on page 18 undefined on input line 409.
+
+[18]
+Overfull \hbox (1.8545pt too wide) in paragraph at lines 446--447
 []\OT1/ptm/m/n/12 The page at []$\OT1/pcr/m/n/12 http : / / pubseed . theseed .
  org / /SubsysEditor . cgi$[] \OT1/ptm/m/n/12 al-lows brows-
  []
 
 [19] [20]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 513.
+(Font)              <10.95> on input line 524.
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ì in font ptmr7t!
@@ -848,35 +849,35 @@ Missing character: There is no ú in font ptmr7t!
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ù in font ptmr7t!
- <Images/nucleotide-hist-amplicon.png, id=734, 736.7525pt x 256.96pt>
+ <Images/nucleotide-hist-amplicon.png, id=736, 736.7525pt x 256.96pt>
 File: Images/nucleotide-hist-amplicon.png Graphic file (type png)
 
 <use Images/nucleotide-hist-amplicon.png>
 Package pdftex.def Info: Images/nucleotide-hist-amplicon.png used on input line
- 534.
+ 545.
 (pdftex.def)             Requested size: 216.81pt x 75.61433pt.
  [21]
-<Images/nucleotide-hist-ok.png, id=742, 737.75626pt x 252.945pt>
+<Images/nucleotide-hist-ok.png, id=744, 737.75626pt x 252.945pt>
 File: Images/nucleotide-hist-ok.png Graphic file (type png)
 
 <use Images/nucleotide-hist-ok.png>
-Package pdftex.def Info: Images/nucleotide-hist-ok.png used on input line 546.
+Package pdftex.def Info: Images/nucleotide-hist-ok.png used on input line 557.
 (pdftex.def)             Requested size: 216.81pt x 74.3325pt.
 
-<Images/nucleotide-hist-barcodes.png, id=746, 735.74875pt x 252.945pt>
+<Images/nucleotide-hist-barcodes.png, id=748, 735.74875pt x 252.945pt>
 File: Images/nucleotide-hist-barcodes.png Graphic file (type png)
 
 <use Images/nucleotide-hist-barcodes.png>
 Package pdftex.def Info: Images/nucleotide-hist-barcodes.png used on input line
- 559.
+ 570.
 (pdftex.def)             Requested size: 216.81pt x 74.53706pt.
 
-<Images/nucleotide-with-contamination.png, id=748, 744.7825pt x 257.96375pt>
+<Images/nucleotide-with-contamination.png, id=750, 744.7825pt x 257.96375pt>
 File: Images/nucleotide-with-contamination.png Graphic file (type png)
 
 <use Images/nucleotide-with-contamination.png>
 Package pdftex.def Info: Images/nucleotide-with-contamination.png used on input
- line 575.
+ line 586.
 (pdftex.def)             Requested size: 216.81pt x 75.09491pt.
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
@@ -901,18 +902,18 @@ Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ù in font ptmr7t!
  [25]
-<Images/sharing.png, id=781, 737.75626pt x 397.485pt>
+<Images/sharing.png, id=783, 737.75626pt x 397.485pt>
 File: Images/sharing.png Graphic file (type png)
  <use Images/sharing.png>
-Package pdftex.def Info: Images/sharing.png used on input line 653.
+Package pdftex.def Info: Images/sharing.png used on input line 664.
 (pdftex.def)             Requested size: 433.62pt x 233.62254pt.
 
-<Images/Data-sharing-in-mg-rast.png, id=783, 325.215pt x 319.1925pt>
+<Images/Data-sharing-in-mg-rast.png, id=785, 325.215pt x 319.1925pt>
 File: Images/Data-sharing-in-mg-rast.png Graphic file (type png)
 
 <use Images/Data-sharing-in-mg-rast.png>
 Package pdftex.def Info: Images/Data-sharing-in-mg-rast.png used on input line 
-666.
+677.
 (pdftex.def)             Requested size: 216.81pt x 212.80096pt.
  [26 <./Images/sharing.png>] [27 <./Images/Data-sharing-in-mg-rast.png>]
 Chapter 3.
@@ -922,12 +923,12 @@ Missing character: There is no ú in font ptmr7t!
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ù in font ptmr7t!
-<Images/quad-chart-analysis-example.png, id=800, 752.5716pt x 468.5505pt>
+<Images/quad-chart-analysis-example.png, id=802, 752.5716pt x 468.5505pt>
 File: Images/quad-chart-analysis-example.png Graphic file (type png)
 
 <use Images/quad-chart-analysis-example.png>
 Package pdftex.def Info: Images/quad-chart-analysis-example.png used on input l
-ine 721.
+ine 732.
 (pdftex.def)             Requested size: 433.62pt x 269.9721pt.
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
@@ -943,103 +944,103 @@ Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ù in font ptmr7t!
  [28
 
-] [29 <./Images/quad-chart-analysis-example.png>] <Images/sitemap.png, id=820, 
+] [29 <./Images/quad-chart-analysis-example.png>] <Images/sitemap.png, id=822, 
 1556.81625pt x 821.0675pt>
 File: Images/sitemap.png Graphic file (type png)
 
 <use Images/sitemap.png>
-Package pdftex.def Info: Images/sitemap.png used on input line 781.
+Package pdftex.def Info: Images/sitemap.png used on input line 792.
 (pdftex.def)             Requested size: 433.62pt x 228.6946pt.
  [30] [31 <./Images/sitemap.png>]
-<Images/metagenome-browser.png, id=834, 797.98125pt x 831.105pt>
+<Images/metagenome-browser.png, id=836, 797.98125pt x 831.105pt>
 File: Images/metagenome-browser.png Graphic file (type png)
 
 <use Images/metagenome-browser.png>
-Package pdftex.def Info: Images/metagenome-browser.png used on input line 817.
+Package pdftex.def Info: Images/metagenome-browser.png used on input line 828.
 (pdftex.def)             Requested size: 433.62pt x 451.61801pt.
 
-<Images/project-page.png, id=836, 902.37125pt x 985.6825pt>
+<Images/project-page.png, id=838, 902.37125pt x 985.6825pt>
 File: Images/project-page.png Graphic file (type png)
 
 <use Images/project-page.png>
-Package pdftex.def Info: Images/project-page.png used on input line 831.
+Package pdftex.def Info: Images/project-page.png used on input line 842.
 (pdftex.def)             Requested size: 433.62pt x 473.66367pt.
 
-<Images/project-page-editing-buttons.png, id=839, 489.83pt x 38.1425pt>
+<Images/project-page-editing-buttons.png, id=841, 489.83pt x 38.1425pt>
 File: Images/project-page-editing-buttons.png Graphic file (type png)
 
 <use Images/project-page-editing-buttons.png>
 Package pdftex.def Info: Images/project-page-editing-buttons.png used on input 
-line 864.
+line 875.
 (pdftex.def)             Requested size: 433.62pt x 33.76628pt.
  [32] [33 <./Images/metagenome-browser.png>] [34 <./Images/project-page.png> <.
 /Images/project-page-editing-buttons.png>] <Images/metagenome-overview.png, id=
-858, 733.74126pt x 195.73125pt>
+860, 733.74126pt x 195.73125pt>
 File: Images/metagenome-overview.png Graphic file (type png)
 
 <use Images/metagenome-overview.png>
-Package pdftex.def Info: Images/metagenome-overview.png used on input line 891.
+Package pdftex.def Info: Images/metagenome-overview.png used on input line 902.
 
 (pdftex.def)             Requested size: 216.81pt x 57.83578pt.
 
-<Images/classification-pie-chart.png, id=860, 379.4175pt x 307.1475pt>
+<Images/classification-pie-chart.png, id=862, 379.4175pt x 307.1475pt>
 File: Images/classification-pie-chart.png Graphic file (type png)
 
 <use Images/classification-pie-chart.png>
 Package pdftex.def Info: Images/classification-pie-chart.png used on input line
- 905.
+ 916.
 (pdftex.def)             Requested size: 180.67499pt x 146.26213pt.
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ô in font ptmr7t!
  [35 <./Images/metagenome-overview.png>]
-<Images/GSC-MIxS-checklist-information.png, id=870, 314.17375pt x 447.6725pt>
+<Images/GSC-MIxS-checklist-information.png, id=873, 314.17375pt x 447.6725pt>
 File: Images/GSC-MIxS-checklist-information.png Graphic file (type png)
 
 <use Images/GSC-MIxS-checklist-information.png>
 Package pdftex.def Info: Images/GSC-MIxS-checklist-information.png used on inpu
-t line 921.
+t line 932.
 (pdftex.def)             Requested size: 202.35622pt x 288.3401pt.
 
 
 LaTeX Warning: Reference `fig:analysis-flowchart' on page 36 undefined on input
- line 933.
+ line 944.
 
-<Images/analysis-flowchart.png, id=871, 387.4475pt x 308.15125pt>
+<Images/analysis-flowchart.png, id=874, 387.4475pt x 308.15125pt>
 File: Images/analysis-flowchart.png Graphic file (type png)
 
 <use Images/analysis-flowchart.png>
-Package pdftex.def Info: Images/analysis-flowchart.png used on input line 936.
+Package pdftex.def Info: Images/analysis-flowchart.png used on input line 947.
 (pdftex.def)             Requested size: 216.81pt x 172.43655pt.
  [36 <./Images/classification-pie-chart.png>] [37 <./Images/GSC-MIxS-checklist-
 information.png>] [38 <./Images/analysis-flowchart.png>]
-<Images/source-hits-distribution.png, id=892, 731.73375pt x 307.1475pt>
+<Images/source-hits-distribution.png, id=894, 731.73375pt x 307.1475pt>
 File: Images/source-hits-distribution.png Graphic file (type png)
 
 <use Images/source-hits-distribution.png>
 Package pdftex.def Info: Images/source-hits-distribution.png used on input line
- 955.
+ 966.
 (pdftex.def)             Requested size: 433.62pt x 182.01218pt.
  [39 <./Images/source-hits-distribution.png>] <Images/rank-abundance.png, id=90
-4, 315.1775pt x 323.2075pt>
+6, 315.1775pt x 323.2075pt>
 File: Images/rank-abundance.png Graphic file (type png)
 
 <use Images/rank-abundance.png>
-Package pdftex.def Info: Images/rank-abundance.png used on input line 990.
+Package pdftex.def Info: Images/rank-abundance.png used on input line 1001.
 (pdftex.def)             Requested size: 216.81pt x 222.33282pt.
  [40 <./Images/rank-abundance.png>]
-<Images/rarefaction.png, id=915, 903.375pt x 290.08376pt>
+<Images/rarefaction.png, id=917, 903.375pt x 290.08376pt>
 File: Images/rarefaction.png Graphic file (type png)
 
 <use Images/rarefaction.png>
-Package pdftex.def Info: Images/rarefaction.png used on input line 1008.
+Package pdftex.def Info: Images/rarefaction.png used on input line 1019.
 (pdftex.def)             Requested size: 433.62pt x 139.24304pt.
 
-<Images/alpha-diversity.png, id=918, 423.5825pt x 111.41624pt>
+<Images/alpha-diversity.png, id=920, 423.5825pt x 111.41624pt>
 File: Images/alpha-diversity.png Graphic file (type png)
 
 <use Images/alpha-diversity.png>
-Package pdftex.def Info: Images/alpha-diversity.png used on input line 1026.
+Package pdftex.def Info: Images/alpha-diversity.png used on input line 1037.
 (pdftex.def)             Requested size: 433.62pt x 114.06128pt.
 Missing character: There is no Œ in font ptmr7t!
 Missing character: There is no ± in font ptmr7t!
@@ -1058,57 +1059,57 @@ Missing character: There is no É in font ptmr7t!
 Missing character: There is no Œ in font ptmr7t!
 Missing character: There is no ± in font ptmr7t!
  [41 <./Images/rarefaction.png>]
-<Images/subsystems-functions-piechart.png, id=939, 485.815pt x 442.65375pt>
+<Images/subsystems-functions-piechart.png, id=941, 485.815pt x 442.65375pt>
 File: Images/subsystems-functions-piechart.png Graphic file (type png)
 
 <use Images/subsystems-functions-piechart.png>
 Package pdftex.def Info: Images/subsystems-functions-piechart.png used on input
- line 1058.
+ line 1069.
 (pdftex.def)             Requested size: 433.62pt x 395.0953pt.
  [42 <./Images/alpha-diversity.png>] [43 <./Images/subsystems-functions-piechar
 t.png>]
-<Images/search-page-unsorted-results.png, id=958, 905.3825pt x 598.235pt>
+<Images/search-page-unsorted-results.png, id=960, 905.3825pt x 598.235pt>
 File: Images/search-page-unsorted-results.png Graphic file (type png)
 
 <use Images/search-page-unsorted-results.png>
 Package pdftex.def Info: Images/search-page-unsorted-results.png used on input 
-line 1115.
+line 1126.
 (pdftex.def)             Requested size: 433.62pt x 286.51054pt.
 
-<Images/search-page-sorted-results.png, id=959, 878.28125pt x 616.3025pt>
+<Images/search-page-sorted-results.png, id=961, 878.28125pt x 616.3025pt>
 File: Images/search-page-sorted-results.png Graphic file (type png)
 
 <use Images/search-page-sorted-results.png>
 Package pdftex.def Info: Images/search-page-sorted-results.png used on input li
-ne 1124.
+ne 1135.
 (pdftex.def)             Requested size: 433.62pt x 304.28545pt.
  [44 <./Images/search-page-unsorted-results.png>] [45 <./Images/search-page-sor
 ted-results.png>]
-<Images/analysis-page.png, id=971, 874.26625pt x 332.24126pt>
+<Images/analysis-page.png, id=973, 874.26625pt x 332.24126pt>
 File: Images/analysis-page.png Graphic file (type png)
 
 <use Images/analysis-page.png>
-Package pdftex.def Info: Images/analysis-page.png used on input line 1145.
+Package pdftex.def Info: Images/analysis-page.png used on input line 1156.
 (pdftex.def)             Requested size: 433.62pt x 164.78691pt.
  [46 <./Images/analysis-page.png>]
-Overfull \hbox (5.48642pt too wide) in paragraph at lines 1167--1168
+Overfull \hbox (5.48642pt too wide) in paragraph at lines 1178--1179
 []\OT1/ptm/m/n/12 Selection of sam-ple and pa-ram-e-ters. This di-a-log al-lows
  the se-lec-tion of mul-ti-ple metagenomes
  []
 
-<Images/Data-selection-expanded.png, id=979, 680.5425pt x 369.38pt>
+<Images/Data-selection-expanded.png, id=981, 680.5425pt x 369.38pt>
 File: Images/Data-selection-expanded.png Graphic file (type png)
 
 <use Images/Data-selection-expanded.png>
 Package pdftex.def Info: Images/Data-selection-expanded.png used on input line 
-1198.
+1209.
 (pdftex.def)             Requested size: 433.62pt x 235.35968pt.
  [47]
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ô in font ptmr7t!
 
-Overfull \hbox (0.6369pt too wide) in paragraph at lines 1220--1222
+Overfull \hbox (0.6369pt too wide) in paragraph at lines 1231--1233
 []\OT1/ptm/m/n/12 The Anal-y-sis page cal-cu-lates the or-di-na-tion vi-su-al-i
 za-tions with ei-ther raw or nor-mal-ized counts,
  []
@@ -1129,121 +1130,121 @@ Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ù in font ptmr7t!
 [48 <./Images/Data-selection-expanded.png>]
-<Images/boxplots.png, id=994, 595.22375pt x 641.39626pt>
+<Images/boxplots.png, id=996, 595.22375pt x 641.39626pt>
 File: Images/boxplots.png Graphic file (type png)
 
 <use Images/boxplots.png>
-Package pdftex.def Info: Images/boxplots.png used on input line 1244.
+Package pdftex.def Info: Images/boxplots.png used on input line 1255.
 (pdftex.def)             Requested size: 216.81pt x 233.62323pt.
 
 
 LaTeX Warning: Reference `fig:analysis-page-rarefaction-example' on page 49 und
-efined on input line 1261.
+efined on input line 1272.
 
 [49 <./Images/boxplots.png>]
-<Images/analysis-page-rarefaction-example.png, id=1004, 858.20625pt x 687.56876
+<Images/analysis-page-rarefaction-example.png, id=1006, 858.20625pt x 687.56876
 pt>
 File: Images/analysis-page-rarefaction-example.png Graphic file (type png)
  <use Images/analysis-page-rarefaction-example.png>
 Package pdftex.def Info: Images/analysis-page-rarefaction-example.png used on i
-nput line 1270.
+nput line 1281.
 (pdftex.def)             Requested size: 433.62pt x 347.40308pt.
  [50 <./Images/analysis-page-rarefaction-example.png>]
-<Images/analysis-page-kegg-mapper-options.png, id=1013, 218.8175pt x 128.48pt>
+<Images/analysis-page-kegg-mapper-options.png, id=1015, 218.8175pt x 128.48pt>
 File: Images/analysis-page-kegg-mapper-options.png Graphic file (type png)
 
 <use Images/analysis-page-kegg-mapper-options.png>
 Package pdftex.def Info: Images/analysis-page-kegg-mapper-options.png used on i
-nput line 1306.
+nput line 1317.
 (pdftex.def)             Requested size: 144.54pt x 84.86763pt.
 
-<Images/analysis-page-kegg-mapper-example.png, id=1014, 849.1725pt x 691.58376p
+<Images/analysis-page-kegg-mapper-example.png, id=1016, 849.1725pt x 691.58376p
 t>
 File: Images/analysis-page-kegg-mapper-example.png Graphic file (type png)
  <use Images/analysis-page-kegg-mapper-example.png>
 Package pdftex.def Info: Images/analysis-page-kegg-mapper-example.png used on i
-nput line 1314.
+nput line 1325.
 (pdftex.def)             Requested size: 433.62pt x 353.14626pt.
 
-<Images/analysis-page-recruitment-plot-genome-selection.png, id=1016, 774.895pt
+<Images/analysis-page-recruitment-plot-genome-selection.png, id=1018, 774.895pt
  x 392.46625pt>
 File: Images/analysis-page-recruitment-plot-genome-selection.png Graphic file (
 type png)
 
 <use Images/analysis-page-recruitment-plot-genome-selection.png>
 Package pdftex.def Info: Images/analysis-page-recruitment-plot-genome-selection
-.png used on input line 1333.
+.png used on input line 1344.
 (pdftex.def)             Requested size: 433.62pt x 219.61789pt.
  [51 <./Images/analysis-page-kegg-mapper-options.png>]
-<Images/analysis-page-recruitment-plot-example.png, id=1026, 920.43875pt x 1004
+<Images/analysis-page-recruitment-plot-example.png, id=1028, 920.43875pt x 1004
 .75375pt>
 File: Images/analysis-page-recruitment-plot-example.png Graphic file (type png)
 
  <use Images/analysis-page-recruitment-plot-example.png>
 Package pdftex.def Info: Images/analysis-page-recruitment-plot-example.png used
- on input line 1355.
+ on input line 1366.
 (pdftex.def)             Requested size: 433.62pt x 473.35352pt.
 
-<Images/analysis-page-bar-chart.png, id=1029, 990.70125pt x 598.235pt>
+<Images/analysis-page-bar-chart.png, id=1031, 990.70125pt x 598.235pt>
 File: Images/analysis-page-bar-chart.png Graphic file (type png)
 
 <use Images/analysis-page-bar-chart.png>
 Package pdftex.def Info: Images/analysis-page-bar-chart.png used on input line 
-1374.
+1385.
 (pdftex.def)             Requested size: 433.62pt x 261.8367pt.
  [52 <./Images/analysis-page-kegg-mapper-example.png>]
-<Images/analysis-page-radial-tree.png, id=1036, 780.9175pt x 638.385pt>
+<Images/analysis-page-radial-tree.png, id=1038, 780.9175pt x 638.385pt>
 File: Images/analysis-page-radial-tree.png Graphic file (type png)
 
 <use Images/analysis-page-radial-tree.png>
 Package pdftex.def Info: Images/analysis-page-radial-tree.png used on input lin
-e 1396.
+e 1407.
 (pdftex.def)             Requested size: 433.62pt x 354.47345pt.
 
-<Images/analysis-page-tree-additional-bar-charts.png, id=1039, 343.2825pt x 640
+<Images/analysis-page-tree-additional-bar-charts.png, id=1041, 343.2825pt x 640
 .3925pt>
 File: Images/analysis-page-tree-additional-bar-charts.png Graphic file (type pn
 g)
  <use Images/analysis-page-tree-additional-bar-charts.png>
 Package pdftex.def Info: Images/analysis-page-tree-additional-bar-charts.png us
-ed on input line 1411.
+ed on input line 1422.
 (pdftex.def)             Requested size: 216.81pt x 404.45587pt.
 
-<Images/analysis-page-tree-options.png, id=1041, 273.02pt x 176.66pt>
+<Images/analysis-page-tree-options.png, id=1043, 273.02pt x 176.66pt>
 File: Images/analysis-page-tree-options.png Graphic file (type png)
 
 <use Images/analysis-page-tree-options.png>
 Package pdftex.def Info: Images/analysis-page-tree-options.png used on input li
-ne 1425.
+ne 1436.
 (pdftex.def)             Requested size: 216.81pt x 140.29037pt.
  [53 <./Images/analysis-page-recruitment-plot-genome-selection.png>] [54 <./Ima
 ges/analysis-page-recruitment-plot-example.png>] [55 <./Images/analysis-page-ba
 r-chart.png>] [56 <./Images/analysis-page-radial-tree.png>] [57 <./Images/analy
 sis-page-tree-additional-bar-charts.png>]
-<Images/analysis-page-tree-order-level-with-phylum-colors.png, id=1069, 790.955
+<Images/analysis-page-tree-order-level-with-phylum-colors.png, id=1071, 790.955
 pt x 581.17125pt>
 File: Images/analysis-page-tree-order-level-with-phylum-colors.png Graphic file
  (type png)
 
 <use Images/analysis-page-tree-order-level-with-phylum-colors.png>
 Package pdftex.def Info: Images/analysis-page-tree-order-level-with-phylum-colo
-rs.png used on input line 1460.
+rs.png used on input line 1471.
 (pdftex.def)             Requested size: 216.81pt x 159.3038pt.
 
-<Images/heatmap.png, id=1070, 916.42375pt x 405.515pt>
+<Images/heatmap.png, id=1072, 916.42375pt x 405.515pt>
 File: Images/heatmap.png Graphic file (type png)
 
 <use Images/heatmap.png>
-Package pdftex.def Info: Images/heatmap.png used on input line 1478.
+Package pdftex.def Info: Images/heatmap.png used on input line 1489.
 (pdftex.def)             Requested size: 216.81pt x 95.93335pt.
  [58 <./Images/analysis-page-tree-options.png>]
 [59 <./Images/analysis-page-tree-order-level-with-phylum-colors.png> <./Images/
 heatmap.png>] [60]
-<Images/analysis-page-table.png, id=1095, 963.6pt x 606.265pt>
+<Images/analysis-page-table.png, id=1097, 963.6pt x 606.265pt>
 File: Images/analysis-page-table.png Graphic file (type png)
 
 <use Images/analysis-page-table.png>
-Package pdftex.def Info: Images/analysis-page-table.png used on input line 1531
+Package pdftex.def Info: Images/analysis-page-table.png used on input line 1542
 .
 (pdftex.def)             Requested size: 433.62pt x 272.81673pt.
  [61 <./Images/analysis-page-table.png>]
@@ -1262,51 +1263,51 @@ Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no î in font ptmr7t!
  [66]
-<Images/upload-page-md5-verification.png, id=1132, 592.2125pt x 304.13625pt>
+<Images/upload-page-md5-verification.png, id=1134, 592.2125pt x 304.13625pt>
 File: Images/upload-page-md5-verification.png Graphic file (type png)
 
 <use Images/upload-page-md5-verification.png>
 Package pdftex.def Info: Images/upload-page-md5-verification.png used on input 
-line 1723.
+line 1734.
 (pdftex.def)             Requested size: 216.81pt x 111.34526pt.
  [67 <./Images/upload-page-md5-verification.png>] [68] <Images/Inbox.png, id=11
-48, 932.48375pt x 665.48625pt>
+50, 932.48375pt x 665.48625pt>
 File: Images/Inbox.png Graphic file (type png)
 
 <use Images/Inbox.png>
-Package pdftex.def Info: Images/Inbox.png used on input line 1834.
+Package pdftex.def Info: Images/Inbox.png used on input line 1845.
 (pdftex.def)             Requested size: 433.62pt x 309.45805pt.
  [69] [70 <./Images/Inbox.png>]
-<Images/Inbox-File-Information.png, id=1161, 423.5825pt x 407.5225pt>
+<Images/Inbox-File-Information.png, id=1163, 423.5825pt x 407.5225pt>
 File: Images/Inbox-File-Information.png Graphic file (type png)
 
 <use Images/Inbox-File-Information.png>
 Package pdftex.def Info: Images/Inbox-File-Information.png used on input line 1
-882.
+893.
 (pdftex.def)             Requested size: 216.81pt x 208.58614pt.
  [71]
-<Images/project-spreadsheet.png, id=1174, 641.39626pt x 292.09125pt>
+<Images/project-spreadsheet.png, id=1176, 641.39626pt x 292.09125pt>
 File: Images/project-spreadsheet.png Graphic file (type png)
 
 <use Images/project-spreadsheet.png>
-Package pdftex.def Info: Images/project-spreadsheet.png used on input line 1913
+Package pdftex.def Info: Images/project-spreadsheet.png used on input line 1924
 .
 (pdftex.def)             Requested size: 433.62pt x 197.47397pt.
 
-<Images/project-spreadsheet-multiple-tabs.png, id=1175, 541.02126pt x 63.23625p
+<Images/project-spreadsheet-multiple-tabs.png, id=1177, 541.02126pt x 63.23625p
 t>
 File: Images/project-spreadsheet-multiple-tabs.png Graphic file (type png)
  <use Images/project-spreadsheet-multiple-tabs.png>
 Package pdftex.def Info: Images/project-spreadsheet-multiple-tabs.png used on i
-nput line 1925.
+nput line 1936.
 (pdftex.def)             Requested size: 433.62pt x 50.68459pt.
  [72 <./Images/Inbox-File-Information.png>]
-<Images/project-spreadsheet-with-3-samples.png, id=1187, 529.98pt x 129.48375pt
+<Images/project-spreadsheet-with-3-samples.png, id=1189, 529.98pt x 129.48375pt
 >
 File: Images/project-spreadsheet-with-3-samples.png Graphic file (type png)
  <use Images/project-spreadsheet-with-3-samples.png>
 Package pdftex.def Info: Images/project-spreadsheet-with-3-samples.png used on 
-input line 1937.
+input line 1948.
 (pdftex.def)             Requested size: 433.62pt x 105.94223pt.
  [73 <./Images/project-spreadsheet.png> <./Images/project-spreadsheet-multiple-
 tabs.png>]
@@ -1321,182 +1322,182 @@ Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ≤ in font ptmr7t!
  [74 <./Images/project-spreadsheet-with-3-samples.png>] [75]
-<Images/collections-total-list1.png, id=1211, 384.6872pt x 287.57437pt>
+<Images/collections-total-list1.png, id=1213, 384.6872pt x 287.57437pt>
 File: Images/collections-total-list1.png Graphic file (type png)
 
 <use Images/collections-total-list1.png>
 Package pdftex.def Info: Images/collections-total-list1.png used on input line 
-2035.
+2046.
 (pdftex.def)             Requested size: 433.62pt x 324.17857pt.
 
-<Images/browse-for-metagenomes.png, id=1213, 272.01625pt x 29.10875pt>
+<Images/browse-for-metagenomes.png, id=1215, 272.01625pt x 29.10875pt>
 File: Images/browse-for-metagenomes.png Graphic file (type png)
 
 <use Images/browse-for-metagenomes.png>
 Package pdftex.def Info: Images/browse-for-metagenomes.png used on input line 2
-051.
+062.
 (pdftex.def)             Requested size: 144.54pt x 15.46797pt.
 
-<Images/collections-browse-window.png, id=1215, 578.16pt x 426.09187pt>
+<Images/collections-browse-window.png, id=1217, 578.16pt x 426.09187pt>
 File: Images/collections-browse-window.png Graphic file (type png)
 
 <use Images/collections-browse-window.png>
 Package pdftex.def Info: Images/collections-browse-window.png used on input lin
-e 2063.
+e 2074.
 (pdftex.def)             Requested size: 289.07999pt x 213.04541pt.
 
-<Images/collections-filter-by-biome.png, id=1217, 560.8453pt x 465.23813pt>
+<Images/collections-filter-by-biome.png, id=1219, 560.8453pt x 465.23813pt>
 File: Images/collections-filter-by-biome.png Graphic file (type png)
 
 <use Images/collections-filter-by-biome.png>
 Package pdftex.def Info: Images/collections-filter-by-biome.png used on input l
-ine 2077.
+ine 2088.
 (pdftex.def)             Requested size: 433.62pt x 359.69684pt.
 
-<Images/collections-filtered-but-too-many.png, id=1218, 490.08093pt x 459.21562
+<Images/collections-filtered-but-too-many.png, id=1220, 490.08093pt x 459.21562
 pt>
 File: Images/collections-filtered-but-too-many.png Graphic file (type png)
  <use Images/collections-filtered-but-too-many.png>
 Package pdftex.def Info: Images/collections-filtered-but-too-many.png used on i
-nput line 2089.
+nput line 2100.
 (pdftex.def)             Requested size: 289.07999pt x 270.8788pt.
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ô in font ptmr7t!
 
-<Images/collections-twin.png, id=1220, 645.91313pt x 414.04688pt>
+<Images/collections-twin.png, id=1222, 645.91313pt x 414.04688pt>
 File: Images/collections-twin.png Graphic file (type png)
 
 <use Images/collections-twin.png>
-Package pdftex.def Info: Images/collections-twin.png used on input line 2100.
+Package pdftex.def Info: Images/collections-twin.png used on input line 2111.
 (pdftex.def)             Requested size: 433.62pt x 277.95961pt.
  [76]
-<Images/Collections-how-to-save.png, id=1231, 647.41875pt x 413.29407pt>
+<Images/Collections-how-to-save.png, id=1233, 647.41875pt x 413.29407pt>
 File: Images/Collections-how-to-save.png Graphic file (type png)
 
 <use Images/Collections-how-to-save.png>
 Package pdftex.def Info: Images/Collections-how-to-save.png used on input line 
-2113.
+2124.
 (pdftex.def)             Requested size: 433.62pt x 276.81097pt.
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ù in font ptmr7t!
 
-<Images/collections-finished.png, id=1232, 487.06969pt x 428.35031pt>
+<Images/collections-finished.png, id=1234, 487.06969pt x 428.35031pt>
 File: Images/collections-finished.png Graphic file (type png)
 
 <use Images/collections-finished.png>
-Package pdftex.def Info: Images/collections-finished.png used on input line 212
-5.
+Package pdftex.def Info: Images/collections-finished.png used on input line 213
+6.
 (pdftex.def)             Requested size: 433.62pt x 381.34822pt.
 
-<Images/using-collections.png, id=1234, 548.80031pt x 371.88937pt>
+<Images/using-collections.png, id=1236, 548.80031pt x 371.88937pt>
 File: Images/using-collections.png Graphic file (type png)
 
 <use Images/using-collections.png>
-Package pdftex.def Info: Images/using-collections.png used on input line 2136.
+Package pdftex.def Info: Images/using-collections.png used on input line 2147.
 (pdftex.def)             Requested size: 433.62pt x 293.84613pt.
  [77 <./Images/collections-total-list1.png>]
 
 LaTeX Warning: Reference `section:Quality' on page 78 undefined on input line 2
-155.
+166.
 
 
 LaTeX Warning: Reference `section:Quality' on page 78 undefined on input line 2
-155.
+166.
 
 [78 <./Images/browse-for-metagenomes.png> <./Images/collections-browse-window.p
 ng>] [79 <./Images/collections-filter-by-biome.png>] [80 <./Images/collections-
 filtered-but-too-many.png>] [81 <./Images/collections-twin.png>]
-<Images/analysis-page-selecting-lean-and-obese.png, id=1269, 664.4825pt x 525.9
+<Images/analysis-page-selecting-lean-and-obese.png, id=1271, 664.4825pt x 525.9
 65pt>
 File: Images/analysis-page-selecting-lean-and-obese.png Graphic file (type png)
 
  <use Images/analysis-page-selecting-lean-and-obese.png>
 Package pdftex.def Info: Images/analysis-page-selecting-lean-and-obese.png used
- on input line 2189.
+ on input line 2200.
 (pdftex.def)             Requested size: 433.62pt x 343.2295pt.
  [82 <./Images/Collections-how-to-save.png>]
-<Images/table-group-by-class.png, id=1277, 284.06125pt x 313.17pt>
+<Images/table-group-by-class.png, id=1279, 284.06125pt x 313.17pt>
 File: Images/table-group-by-class.png Graphic file (type png)
 
 <use Images/table-group-by-class.png>
-Package pdftex.def Info: Images/table-group-by-class.png used on input line 220
-5.
+Package pdftex.def Info: Images/table-group-by-class.png used on input line 221
+6.
 (pdftex.def)             Requested size: 144.54pt x 159.35619pt.
 
-<Images/table-organism-abundance.png, id=1279, 758.835pt x 184.69pt>
+<Images/table-organism-abundance.png, id=1281, 758.835pt x 184.69pt>
 File: Images/table-organism-abundance.png Graphic file (type png)
 
 <use Images/table-organism-abundance.png>
 Package pdftex.def Info: Images/table-organism-abundance.png used on input line
- 2217.
+ 2228.
 (pdftex.def)             Requested size: 216.81pt x 52.76682pt.
 
-<Images/workbench.png, id=1281, 568.1225pt x 297.11pt>
+<Images/workbench.png, id=1283, 568.1225pt x 297.11pt>
 File: Images/workbench.png Graphic file (type png)
 
 <use Images/workbench.png>
-Package pdftex.def Info: Images/workbench.png used on input line 2230.
+Package pdftex.def Info: Images/workbench.png used on input line 2241.
 (pdftex.def)             Requested size: 216.81pt x 113.38351pt.
  [83 <./Images/collections-finished.png>]
-<Images/barchart-from-workbench.png, id=1291, 811.03pt x 307.1475pt>
+<Images/barchart-from-workbench.png, id=1293, 811.03pt x 307.1475pt>
 File: Images/barchart-from-workbench.png Graphic file (type png)
 
 <use Images/barchart-from-workbench.png>
 Package pdftex.def Info: Images/barchart-from-workbench.png used on input line 
-2244.
+2255.
 (pdftex.def)             Requested size: 216.81pt x 82.10606pt.
 
-<Images/workbench-download.png, id=1293, 543.02875pt x 243.91125pt>
+<Images/workbench-download.png, id=1295, 543.02875pt x 243.91125pt>
 File: Images/workbench-download.png Graphic file (type png)
 
 <use Images/workbench-download.png>
-Package pdftex.def Info: Images/workbench-download.png used on input line 2256.
+Package pdftex.def Info: Images/workbench-download.png used on input line 2267.
 
 (pdftex.def)             Requested size: 216.81pt x 97.38411pt.
  [84 <./Images/using-collections.png>]
 [85 <./Images/analysis-page-selecting-lean-and-obese.png>]
-<Images/blat-alignment.png, id=1307, 991.705pt x 693.59125pt>
+<Images/blat-alignment.png, id=1309, 991.705pt x 693.59125pt>
 File: Images/blat-alignment.png Graphic file (type png)
 
 <use Images/blat-alignment.png>
-Package pdftex.def Info: Images/blat-alignment.png used on input line 2279.
+Package pdftex.def Info: Images/blat-alignment.png used on input line 2290.
 (pdftex.def)             Requested size: 433.62pt x 303.2655pt.
  [86 <./Images/table-group-by-class.png> <./Images/table-organism-abundance.png
 >] [87 <./Images/workbench.png> <./Images/barchart-from-workbench.png> <./Image
 s/workbench-download.png>]
-Overfull \hbox (19.92456pt too wide) in paragraph at lines 2308--2316
+Overfull \hbox (19.92456pt too wide) in paragraph at lines 2319--2327
 [][] 
  []
 
 
-Overfull \hbox (3.54436pt too wide) in paragraph at lines 2320--2331
+Overfull \hbox (3.54436pt too wide) in paragraph at lines 2331--2342
 \OT1/ptm/m/n/12 able via the urls re-turned by a query to http://api.metagenomi
 cs.anl.gov/analysisset/mgm4450212.3.
  []
 
 
-Overfull \hbox (32.00764pt too wide) in paragraph at lines 2320--2331
+Overfull \hbox (32.00764pt too wide) in paragraph at lines 2331--2342
 \OT1/ptm/m/n/12 This re-turns a JSON data struc-ture with urls for all the data
  files. For in-stance, 900.abun-dance.organism.gz
  []
 
 [88 <./Images/blat-alignment.png>]
-Overfull \hbox (16.68365pt too wide) in paragraph at lines 2382--2384
+Overfull \hbox (16.68365pt too wide) in paragraph at lines 2393--2395
 []\OT1/ptm/m/n/12 A project di-rec-tory for []$\OT1/pcr/m/n/12 ftp : / / ftp . 
 metagenomics . anl . gov / projects / 128/$[] \OT1/ptm/m/n/12 is shown
  []
 
-<Images/ftp-server-project-view.png, id=1328, 714.67pt x 354.32375pt>
+<Images/ftp-server-project-view.png, id=1330, 714.67pt x 354.32375pt>
 File: Images/ftp-server-project-view.png Graphic file (type png)
 
 <use Images/ftp-server-project-view.png>
 Package pdftex.def Info: Images/ftp-server-project-view.png used on input line 
-2388.
+2399.
 (pdftex.def)             Requested size: 433.62pt x 214.98557pt.
 
-Overfull \hbox (71.33484pt too wide) in paragraph at lines 2391--2391
+Overfull \hbox (71.33484pt too wide) in paragraph at lines 2402--2402
 []\OT1/ptm/m/n/12 Figure 4.23: []Listing of the project di-rec-tory for \OT1/pc
 r/m/n/12 ftp://ftp.metagenomics.anl.gov/projects/128/ 
  []
@@ -1530,13 +1531,13 @@ Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ô in font ptmr7t!
 
-Underfull \hbox (badness 10000) in paragraph at lines 2702--2703
+Underfull \hbox (badness 10000) in paragraph at lines 2713--2714
 []\OT1/ptm/m/n/12 additional se-quence ids in-clud-ing hit lo-ca-tion and stran
 d, e.g.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2724--2725
+Underfull \hbox (badness 10000) in paragraph at lines 2735--2736
 []\OT1/ptm/m/n/12 Taxonomic string, e.g. Bac-te-ria;Actinobacteria;Actinobacter
 ia
  []
@@ -1629,12 +1630,12 @@ Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ì in font ptmr7t!
  [114])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2871.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2882.
  [115]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2871.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2882.
  (./mg-rast-tech-report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2871.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2871.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2882.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2882.
 
 Package rerunfilecheck Info: File `mg-rast-tech-report.out' has not changed.
 (rerunfilecheck)             Checksum: FBE48091FC5EABF2C043E0DB9F422C1F;6477.
@@ -1644,13 +1645,13 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 14135 strings out of 493488
- 235090 string characters out of 3141326
- 339138 words of memory out of 3000000
- 16742 multiletter control sequences out of 15000+200000
+ 14137 strings out of 493488
+ 235105 string characters out of 3141326
+ 339154 words of memory out of 3000000
+ 16743 multiletter control sequences out of 15000+200000
  29623 words of font info for 58 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,8n,38p,1439b,473s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,8n,38p,1439b,495s stack positions out of 5000i,500n,10000p,200000b,50000s
 pdfTeX warning (dest): name{glo:JSON} has been referenced but does not exist,
  replaced by a fixed one
 
@@ -1669,10 +1670,10 @@ ist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2012/texmf-dist/font
 s/type1/urw/times/utmb8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/ur
 w/times/utmr8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/urw/times/ut
 mri8a.pfb>
-Output written on mg-rast-tech-report.pdf (116 pages, 6440211 bytes).
+Output written on mg-rast-tech-report.pdf (116 pages, 6441165 bytes).
 PDF statistics:
- 1830 PDF objects out of 2073 (max. 8388607)
- 1601 compressed objects within 17 object streams
- 397 named destinations out of 1000 (max. 500000)
+ 1833 PDF objects out of 2073 (max. 8388607)
+ 1604 compressed objects within 17 object streams
+ 398 named destinations out of 1000 (max. 500000)
  1072 words of extra memory for PDF output out of 10000 (max. 10000000)
 
