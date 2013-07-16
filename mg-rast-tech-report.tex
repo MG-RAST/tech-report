@@ -406,7 +406,7 @@ We note that FragGeneScan is trained for prokaryotes only. While it will identif
 MG-RAST builds clusters of proteins at the 90\% identity level using the uclust \cite{UCLUST} implementation in QIIME \cite{QIIME} preserving the relative abundances. These clusters greatly reduce the computational burden of comparing all pairs of short reads, while clustering at 90\% identity preserves sufficient biological signals.
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Protein identification}
-Once created, a representative (the longest sequence) for each cluster is subjected to similarity analysis. Instead of BLAST we use sBLAT, an implementation of the BLAT algorithm \cite{BLAT}, which we parallelized using OpenMP \cite{OPENMP} for this work.
+Once created, a representative (the longest sequence) for each cluster is subjected to similarity analysis. Instead of BLAST we use sBLAT, an implementation of the BLAT algorithm \cite{BLAT}, which we parallelized using OpenMPI \cite{OPENMPI} for this work.
 
 Once the similarities are computed, we present reconstructions of the species content of the sample based on the similarity results. We reconstruct the putative species composition of the sample by looking at the phylogenetic origin of the database sequences hit by the similarity searches.
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
