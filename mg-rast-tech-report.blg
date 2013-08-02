@@ -3,83 +3,44 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: mg-rast-tech-report.aux
 The style file: plain.bst
 Database file #1: mg-rast-tech-report.bib
-Too many commas in name 1 of "Nicholas J. Loman, Raju V Misra, Timothy J. Dallman, Chrystala Constantinidou, Saheer E Gharbia, John Wain, Mark J. Pallen" for entry LOMAN
-while executing---line 1049 of file plain.bst
-Too many commas in name 1 of "Nicholas J. Loman, Raju V Misra, Timothy J. Dallman, Chrystala Constantinidou, Saheer E Gharbia, John Wain, Mark J. Pallen" for entry LOMAN
-while executing---line 1049 of file plain.bst
-Too many commas in name 1 of "Nicholas J. Loman, Raju V Misra, Timothy J. Dallman, Chrystala Constantinidou, Saheer E Gharbia, John Wain, Mark J. Pallen" for entry LOMAN
-while executing---line 1049 of file plain.bst
-Too many commas in name 1 of "Nicholas J. Loman, Raju V Misra, Timothy J. Dallman, Chrystala Constantinidou, Saheer E Gharbia, John Wain, Mark J. Pallen" for entry LOMAN
-while executing---line 1049 of file plain.bst
-Too many commas in name 1 of "Kottmann R, Gray T, Murphy S, Kagan L, Kravitz S, Lombardot T, Field D, Glöckner FO; Genomic Standards Consortium" for entry GCDML
-while executing---line 1049 of file plain.bst
-Too many commas in name 1 of "Kottmann R, Gray T, Murphy S, Kagan L, Kravitz S, Lombardot T, Field D, Glöckner FO; Genomic Standards Consortium" for entry GCDML
-while executing---line 1049 of file plain.bst
-Too many commas in name 1 of "Kottmann R, Gray T, Murphy S, Kagan L, Kravitz S, Lombardot T, Field D, Glöckner FO; Genomic Standards Consortium" for entry GCDML
-while executing---line 1049 of file plain.bst
-Too many commas in name 1 of "Kottmann R, Gray T, Murphy S, Kagan L, Kravitz S, Lombardot T, Field D, Glöckner FO; Genomic Standards Consortium" for entry GCDML
-while executing---line 1049 of file plain.bst
-Too many commas in name 1 of "Kottmann R, Gray T, Murphy S, Kagan L, Kravitz S, Lombardot T, Field D, Glöckner FO; Genomic Standards Consortium" for entry GCDML
-while executing---line 1049 of file plain.bst
-Too many commas in name 1 of "Kottmann R, Gray T, Murphy S, Kagan L, Kravitz S, Lombardot T, Field D, Glöckner FO; Genomic Standards Consortium" for entry GCDML
-while executing---line 1090 of file plain.bst
-Too many commas in name 1 of "Kottmann R, Gray T, Murphy S, Kagan L, Kravitz S, Lombardot T, Field D, Glöckner FO; Genomic Standards Consortium" for entry GCDML
-while executing---line 1090 of file plain.bst
-Too many commas in name 1 of "Kottmann R, Gray T, Murphy S, Kagan L, Kravitz S, Lombardot T, Field D, Glöckner FO; Genomic Standards Consortium" for entry GCDML
-while executing---line 1090 of file plain.bst
-Too many commas in name 1 of "Kottmann R, Gray T, Murphy S, Kagan L, Kravitz S, Lombardot T, Field D, Glöckner FO; Genomic Standards Consortium" for entry GCDML
-while executing---line 1090 of file plain.bst
-Too many commas in name 1 of "Kottmann R, Gray T, Murphy S, Kagan L, Kravitz S, Lombardot T, Field D, Glöckner FO; Genomic Standards Consortium" for entry GCDML
-while executing---line 1090 of file plain.bst
-Too many commas in name 1 of "Nicholas J. Loman, Raju V Misra, Timothy J. Dallman, Chrystala Constantinidou, Saheer E Gharbia, John Wain, Mark J. Pallen" for entry LOMAN
-while executing---line 1090 of file plain.bst
-Too many commas in name 1 of "Nicholas J. Loman, Raju V Misra, Timothy J. Dallman, Chrystala Constantinidou, Saheer E Gharbia, John Wain, Mark J. Pallen" for entry LOMAN
-while executing---line 1090 of file plain.bst
-Too many commas in name 1 of "Nicholas J. Loman, Raju V Misra, Timothy J. Dallman, Chrystala Constantinidou, Saheer E Gharbia, John Wain, Mark J. Pallen" for entry LOMAN
-while executing---line 1090 of file plain.bst
-Too many commas in name 1 of "Nicholas J. Loman, Raju V Misra, Timothy J. Dallman, Chrystala Constantinidou, Saheer E Gharbia, John Wain, Mark J. Pallen" for entry LOMAN
-while executing---line 1090 of file plain.bst
-Warning--there's a number but no volume in LOMAN
-Warning--there's a number but no volume in FGS
 You've used 44 entries,
             2118 wiz_defined-function locations,
-            773 strings with 17195 characters,
-and the built_in function-call counts, 24422 in all, are:
-= -- 2011
-> -- 2354
-< -- 1
-+ -- 951
-- -- 892
-* -- 2421
-:= -- 4421
-add.period$ -- 130
+            773 strings with 16879 characters,
+and the built_in function-call counts, 24035 in all, are:
+= -- 1987
+> -- 2310
+< -- 0
++ -- 933
+- -- 874
+* -- 2381
+:= -- 4361
+add.period$ -- 131
 call.type$ -- 44
-change.case$ -- 577
+change.case$ -- 568
 chr.to.int$ -- 0
-cite$ -- 46
-duplicate$ -- 483
-empty$ -- 1097
-format.name$ -- 892
-if$ -- 4546
+cite$ -- 44
+duplicate$ -- 469
+empty$ -- 1080
+format.name$ -- 874
+if$ -- 4466
 int.to.chr$ -- 0
 int.to.str$ -- 44
-missing$ -- 43
-newline$ -- 221
+missing$ -- 42
+newline$ -- 222
 num.names$ -- 88
-pop$ -- 527
+pop$ -- 510
 preamble$ -- 1
-purify$ -- 534
+purify$ -- 525
 quote$ -- 0
-skip$ -- 319
+skip$ -- 311
 stack$ -- 0
-substring$ -- 901
-swap$ -- 52
-text.length$ -- 1
+substring$ -- 903
+swap$ -- 44
+text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 174
-warning$ -- 2
+warning$ -- 0
 while$ -- 126
 width$ -- 46
 write$ -- 477
-(There were 18 error messages)

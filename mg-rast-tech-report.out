@@ -32,40 +32,40 @@
 \BOOKMARK [2][-]{subsection.2.7.1}{Metadata}{section.2.7}% 32
 \BOOKMARK [2][-]{subsection.2.7.2}{Publishing}{section.2.7}% 33
 \BOOKMARK [2][-]{subsection.2.7.3}{Sharing}{section.2.7}% 34
-\BOOKMARK [2][-]{subsection.2.7.4}{Identifiers}{section.2.7}% 35
-\BOOKMARK [2][-]{subsection.2.7.5}{Linking to MG-RAST}{section.2.7}% 36
-\BOOKMARK [0][-]{chapter.3}{MG-RAST v3 web interface}{}% 37
-\BOOKMARK [1][-]{section.3.1}{Technical details}{chapter.3}% 38
-\BOOKMARK [2][-]{subsection.3.1.1}{Browser requirements}{section.3.1}% 39
-\BOOKMARK [2][-]{subsection.3.1.2}{Downloading figures}{section.3.1}% 40
-\BOOKMARK [1][-]{section.3.2}{Sitemap for MG-RAST}{chapter.3}% 41
-\BOOKMARK [1][-]{section.3.3}{Upload page}{chapter.3}% 42
-\BOOKMARK [1][-]{section.3.4}{Browse page \205 Metadata-enabled data discovery}{chapter.3}% 43
-\BOOKMARK [1][-]{section.3.5}{Project page}{chapter.3}% 44
-\BOOKMARK [1][-]{section.3.6}{Overview page}{chapter.3}% 45
-\BOOKMARK [2][-]{subsection.3.6.1}{Technical part of the Overview page \205 Details on sequencing and analysis}{section.3.6}% 46
-\BOOKMARK [2][-]{subsection.3.6.2}{Biological part of the Overview page }{section.3.6}% 47
-\BOOKMARK [1][-]{section.3.7}{Download page}{chapter.3}% 48
-\BOOKMARK [1][-]{section.3.8}{Search Page}{chapter.3}% 49
-\BOOKMARK [1][-]{section.3.9}{Analysis page}{chapter.3}% 50
-\BOOKMARK [2][-]{subsection.3.9.1}{Normalization}{section.3.9}% 51
-\BOOKMARK [2][-]{subsection.3.9.2}{Rarefaction}{section.3.9}% 52
-\BOOKMARK [2][-]{subsection.3.9.3}{KEGG mapper}{section.3.9}% 53
-\BOOKMARK [2][-]{subsection.3.9.4}{Recruitment plots}{section.3.9}% 54
-\BOOKMARK [2][-]{subsection.3.9.5}{Bar charts}{section.3.9}% 55
-\BOOKMARK [2][-]{subsection.3.9.6}{Tree diagram}{section.3.9}% 56
-\BOOKMARK [2][-]{subsection.3.9.7}{Heatmap/Dendrogram}{section.3.9}% 57
-\BOOKMARK [2][-]{subsection.3.9.8}{Ordination}{section.3.9}% 58
-\BOOKMARK [2][-]{subsection.3.9.9}{Table}{section.3.9}% 59
-\BOOKMARK [2][-]{subsection.3.9.10}{Workbench}{section.3.9}% 60
-\BOOKMARK [0][-]{chapter.4}{User Manual}{}% 61
-\BOOKMARK [1][-]{section.4.1}{Privacy, Identifiers, Sharing, and Publication}{chapter.4}% 62
-\BOOKMARK [1][-]{section.4.2}{Uploading to MG-RAST}{chapter.4}% 63
-\BOOKMARK [2][-]{subsection.4.2.1}{Assembled data with read abundance information}{section.4.2}% 64
-\BOOKMARK [2][-]{subsection.4.2.2}{Steps for submission via the web interface}{section.4.2}% 65
-\BOOKMARK [2][-]{subsection.4.2.3}{Cmd-line uploader}{section.4.2}% 66
-\BOOKMARK [2][-]{subsection.4.2.4}{Managing the Inbox}{section.4.2}% 67
-\BOOKMARK [2][-]{subsection.4.2.5}{Generating metadata for the submission}{section.4.2}% 68
+\BOOKMARK [2][-]{subsection.2.7.4}{Anonymous sharing with reviewers}{section.2.7}% 35
+\BOOKMARK [2][-]{subsection.2.7.5}{Identifiers}{section.2.7}% 36
+\BOOKMARK [2][-]{subsection.2.7.6}{Linking to MG-RAST}{section.2.7}% 37
+\BOOKMARK [0][-]{chapter.3}{MG-RAST v3 web interface}{}% 38
+\BOOKMARK [1][-]{section.3.1}{Technical details}{chapter.3}% 39
+\BOOKMARK [2][-]{subsection.3.1.1}{Browser requirements}{section.3.1}% 40
+\BOOKMARK [2][-]{subsection.3.1.2}{Downloading figures}{section.3.1}% 41
+\BOOKMARK [1][-]{section.3.2}{Sitemap for MG-RAST}{chapter.3}% 42
+\BOOKMARK [1][-]{section.3.3}{Upload page}{chapter.3}% 43
+\BOOKMARK [1][-]{section.3.4}{Browse page \205 Metadata-enabled data discovery}{chapter.3}% 44
+\BOOKMARK [1][-]{section.3.5}{Project page}{chapter.3}% 45
+\BOOKMARK [1][-]{section.3.6}{Overview page}{chapter.3}% 46
+\BOOKMARK [2][-]{subsection.3.6.1}{Technical part of the Overview page \205 Details on sequencing and analysis}{section.3.6}% 47
+\BOOKMARK [2][-]{subsection.3.6.2}{Biological part of the Overview page }{section.3.6}% 48
+\BOOKMARK [1][-]{section.3.7}{Download page}{chapter.3}% 49
+\BOOKMARK [1][-]{section.3.8}{Search Page}{chapter.3}% 50
+\BOOKMARK [1][-]{section.3.9}{Analysis page}{chapter.3}% 51
+\BOOKMARK [2][-]{subsection.3.9.1}{Normalization}{section.3.9}% 52
+\BOOKMARK [2][-]{subsection.3.9.2}{Rarefaction}{section.3.9}% 53
+\BOOKMARK [2][-]{subsection.3.9.3}{KEGG mapper}{section.3.9}% 54
+\BOOKMARK [2][-]{subsection.3.9.4}{Recruitment plots}{section.3.9}% 55
+\BOOKMARK [2][-]{subsection.3.9.5}{Bar charts}{section.3.9}% 56
+\BOOKMARK [2][-]{subsection.3.9.6}{Tree diagram}{section.3.9}% 57
+\BOOKMARK [2][-]{subsection.3.9.7}{Heatmap/Dendrogram}{section.3.9}% 58
+\BOOKMARK [2][-]{subsection.3.9.8}{Ordination}{section.3.9}% 59
+\BOOKMARK [2][-]{subsection.3.9.9}{Table}{section.3.9}% 60
+\BOOKMARK [2][-]{subsection.3.9.10}{Workbench}{section.3.9}% 61
+\BOOKMARK [0][-]{chapter.4}{User Manual}{}% 62
+\BOOKMARK [1][-]{section.4.1}{Privacy, Identifiers, Sharing, and Publication}{chapter.4}% 63
+\BOOKMARK [1][-]{section.4.2}{Uploading to MG-RAST}{chapter.4}% 64
+\BOOKMARK [2][-]{subsection.4.2.1}{Steps for submission via the web interface}{section.4.2}% 65
+\BOOKMARK [2][-]{subsection.4.2.2}{Cmd-line uploader}{section.4.2}% 66
+\BOOKMARK [2][-]{subsection.4.2.3}{Managing the Inbox}{section.4.2}% 67
+\BOOKMARK [2][-]{subsection.4.2.4}{Generating metadata for the submission}{section.4.2}% 68
 \BOOKMARK [1][-]{section.4.3}{Working with Projects and Collections}{chapter.4}% 69
 \BOOKMARK [1][-]{section.4.4}{Understanding Datasets}{chapter.4}% 70
 \BOOKMARK [1][-]{section.4.5}{Drilling Down with the Workbench}{chapter.4}% 71
@@ -76,7 +76,7 @@
 \BOOKMARK [2][-]{subsection.4.8.2}{FTP server}{section.4.8}% 76
 \BOOKMARK [2][-]{subsection.4.8.3}{Downloads}{section.4.8}% 77
 \BOOKMARK [0][-]{chapter.5}{Putting It All in Perspective}{}% 78
-\BOOKMARK [1][-]{section.5.1}{MG-RAST" A community resource}{chapter.5}% 79
+\BOOKMARK [1][-]{section.5.1}{MG-RAST, a community resource}{chapter.5}% 79
 \BOOKMARK [1][-]{section.5.2}{Future Work}{chapter.5}% 80
 \BOOKMARK [2][-]{subsection.5.2.1}{Roadmap}{section.5.2}% 81
 \BOOKMARK [0][-]{appendix.A}{The downloadable files for each data set}{}% 82
@@ -84,9 +84,9 @@
 \BOOKMARK [0][-]{appendix.C}{Tools and data used by MG-RAST}{}% 84
 \BOOKMARK [1][-]{section.C.1}{Databases}{appendix.C}% 85
 \BOOKMARK [2][-]{subsection.C.1.1}{Protein databases}{section.C.1}% 86
-\BOOKMARK [2][-]{subsection.C.1.2}{Ribosomal RNA databases:}{section.C.1}% 87
+\BOOKMARK [2][-]{subsection.C.1.2}{Ribosomal RNA databases}{section.C.1}% 87
 \BOOKMARK [1][-]{section.C.2}{Software}{appendix.C}% 88
-\BOOKMARK [2][-]{subsection.C.2.1}{Bioinformatics codes:}{section.C.2}% 89
-\BOOKMARK [2][-]{subsection.C.2.2}{Web/UI tools:}{section.C.2}% 90
-\BOOKMARK [2][-]{subsection.C.2.3}{Behind the scenes:}{section.C.2}% 91
-\BOOKMARK [2][-]{appendix*.15}{Glossary and Acronyms}{section.C.2}% 92
+\BOOKMARK [2][-]{subsection.C.2.1}{Bioinformatics codes}{section.C.2}% 89
+\BOOKMARK [2][-]{subsection.C.2.2}{Web/UI tools}{section.C.2}% 90
+\BOOKMARK [2][-]{subsection.C.2.3}{Behind the scenes}{section.C.2}% 91
+\BOOKMARK [2][-]{appendix*.17}{Glossary and Acronyms}{section.C.2}% 92
