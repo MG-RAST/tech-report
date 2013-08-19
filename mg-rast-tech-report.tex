@@ -78,6 +78,9 @@ for version 3.3.6 -- rev. 1
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Introduction}
 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Motivation}
 
 \begin{figure*}
 \begin{center}
@@ -110,7 +113,7 @@ use of next-generation technology applied directly to environmental samples
 \noindent
 Each of these methods has strengths and weaknesses (see \cite{THOMASREVIEW}), as do the various sequencing technologies (see \cite{LOMAN}).
 
-To support user-driven analysis of all types of metagenomic data, we have provided MG-RAST \cite{MG-RAST} (\url{http://metagenomics.anl.gov}). MG-RAST enables researchers to study the function and composition of microbial communities.
+To support user-driven analysis of all types of metagenomic data, we have provided MG-RAST \cite{MG-RAST} to enable researchers to study the function and composition of microbial communities.
 The MG-RAST portal offers automated quality control, annotation, comparative analysis, and archiving services.
 At the time of writing (\date{\today}) MG-RAST has completed the analysis of over 25 terabasepairs of DNA data in over 78,000 datasets contributed by thousands of researchers worldwide.
 
@@ -126,7 +129,11 @@ Using shotgun data (or metatranscriptomic data) to derive the functional complem
 Based on sequence similarity searches, identifying the organisms encoding specific functions.
 
 \end{itemize}
-
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\section{URL}
+\label{section:MG-RAST-URL}
+\url{http://metagenomics.anl.gov/}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
@@ -187,41 +194,6 @@ The current team is listed below.
 \item Folker Meyer
 \end{itemize}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection*{Contacting the MG-RAST team and help desk}
-
-The MG-RAST project uses a ticket system to manage interactions with users.
-Mark D'Souza is managing the help desk interaction with the users.
-To email him, please use the email address for the MG-RAST project shown in Figure \ref{fig:mgrastemail}.
-
-\begin{figure*}
-\begin{center}
-\includegraphics[width=3in]{Images/mgrastemail.png}
-\end{center}
-\caption{
-The email address for the MG-RAST project. Note that this is inserted into the document as an image, you will have to type it.
-}
-\label{fig:mgrastemail}
-\end{figure*}
-
-We recommend including as much detail as possible into your emails to the help-desk, details like account names, MG-RAST identifiers will help us identify any issues and speed up resolving them. 
-
-Below is an example of the types of details we would like to receive:
-\begin{itemize}
-\item your name 
-\item your account name for MG-RAST, please do NOT include your password
-\item a clear text description of your problem
-\item any MG-RAST identifiers (those are the 444xxxx.3 numbers)
-\item any project numbers
-\item the browser and which version you are using, if the problem relates to the web site
-\item what platform your data was created on
-\item if your data was a failure in the web site, what time the failure occurred
-\item the URL and name of the page you were viewing
-\item screenshot(s) of the problem
-
-\end{itemize}
-
-
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Past members of the MG-RAST team}
 The following people were associated with MG-RAST in the past:
 
@@ -234,7 +206,10 @@ The following people were associated with MG-RAST in the past:
 \item    Daniela Bartels, 2007-2011
 \item    Yekaterina Dribinsky, 2011
 \end{itemize}
-
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Contacting the MG-RAST team and help desk}
+See Section \ref{section:contact-mgrast}.
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
@@ -704,7 +679,7 @@ By default, a user's data is not visible to others; the user needs to explicitly
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{MG-RAST v3 web interface}
 
-The MG-RAST system provides a rich web user interface that covers all aspects of the metagenome analysis, from data upload to ordination analysis. The web interface can also be used for data discovery. Metagenomic datasets can be easily selected individually or on the basis of filters such as technology (including read length), quality, sample type, and keyword, with dynamic filtering of results based on similarity to known reference proteins or taxonomy. For example, a user might want to perform a search such as ``phylum eq `actinobacteria' and function in â€œKEGG pathway Lysine Biosynthesisâ€ and sample in `Ocean' " to extract sets of reads matching the appropriate functions and taxa across metagenomes. The results can be displayed in familiar formats, including bar charts, trees that incorporate abundance information, heatmaps, or principal components analyses, or exported in tabular form. The raw or processed data can be recovered via download pages. Metabolic reconstructions based on mapping to KEGG pathways are also provided.
+The MG-RAST system provides a rich web user interface that covers all aspects of the metagenome analysis, from data upload to ordination analysis. The web interface can also be used for data discovery. Metagenomic datasets can be easily selected individually or on the basis of filters such as technology (including read length), quality, sample type, and keyword, with dynamic filtering of results based on similarity to known reference proteins or taxonomy. For example, a user might want to perform a search such as ``phylum eq `actinobacteria' and function in `KEGG pathway Lysine Biosynthesis'â and sample in `Ocean' " to extract sets of reads matching the appropriate functions and taxa across metagenomes. The results can be displayed in familiar formats, including bar charts, trees that incorporate abundance information, heatmaps, or principal components analyses, or exported in tabular form. The raw or processed data can be recovered via download pages. Metabolic reconstructions based on mapping to KEGG pathways are also provided.
 
 Sample selection is crucial for understanding large-scale patterns when multiple metagenomes are compared. Accordingly, MG-RAST supports MIxS and MIMARKS (Yilmaz, 2011) (as well as domain-specific plug-ins for specialized environments not extending the minimal GSC standards); several projects, including TerraGenome, HMP, TARA, and EMP, use these GSC standards, enabling standardized queries that integrate new samples into these massive datasets. An example query using the metadata browser, enabling the user to interrogate the existing pool of public datasets for a biome of interest (e.g., hot springs) and performing comparisons and a search for organisms encoding a specific gene function (e.g., beta-lactamase or aldo/keto reductase) is given in
 Figure \ref{fig:quad-chart-analysis-example}.
@@ -1167,7 +1142,7 @@ Selection of sample and parameters. This dialog allows the selection of multiple
 Data visualization and comparison. Depending on the selected profile type, the profiles for the metagenomes can be visualized and compared by using barcharts, trees, spreadsheet-like tables, heatmaps, PCoA, rarefaction plots, circular recruitment plot, and KEGG maps.
 \end{enumerate}
 
-%The analysis page offers several hit classification schemes that are explained in \ref{section:hit-types}.
+%The analysis page offers several hit classification schemes that are explained in Section \ref{section:hit-types}.
 
 The data selection dialogue provides access to data sets in four ways. The four categories can be selected from a pulldown menu.
 
@@ -1595,7 +1570,37 @@ An important limitation with the current implementation is that data sent to the
 \chapter{User Manual}
 
 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\section{URL}
+\url{http://metagenomics.anl.gov/}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\section{Account}
+The analyses of all public datasets in MG-RAST can be viewed in entirety without an MG-RAST account. An account is required to submit sequence data
+for analysis or view the analyses of datasets which have been shared with you.
 
+\subsection{Account registration}
+Use the ``Register'' link on the front page of the website to request an account with MG-RAST, you will need to enter a unique login name and email address
+along with other minimal information. Use an email address you use regularly as it will be used to communicate with you when necessary. After registering
+you will receive an automated email with a temporary password after your account has been authorized, usually within a day.
+
+If you forget your password you can request a new password on the MG-RAST website using your login and registered email address, a new password will
+be generated and sent by email to this address.
+
+\subsection{Account webkey}
+\label{section:webkey}
+The webkey is a unique string of text, e.g. ``b8Dvg2d5DCp7KsWKBPzY2GS4i'' associated with your account which is used by MG-RAST for identification
+purposes. Your webkey is valid for a limited time period after which it expires and will not work anymore. 
+
+The MG-RAST website provides two locations where you can generate a new webkey:
+
+\begin{enumerate}
+\item Log in to MG-RAST and go to the Account Management page. Press the button under ÒPreferencesÓ to go the the Manage Preferences page where the Web Services section displays your current webkey with its termination date. Click on the ``generate new key'' button to generate a new key and then click the ``set preferences'' button.
+\item Log in to MG-RAST and go to the Upload page and click on the ``generate webkey'' button in the ``upload files'' tab and then click on the ``generate new key'' button.
+\end{enumerate}
+
+Note that generating a new webkey will invalidate your old webkey and your new webkey will be valid until the termination date displayed on the page.
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Privacy, Identifiers, Sharing, and Publication}
@@ -1604,10 +1609,10 @@ Data in MG-RAST is private unless published to everyone or shared with specific 
 can make a dataset public and this requires explicit action on their part, MG-RAST does not make data public without this action.
 Owners can grant anonymous access to manuscript reviewers  (see Section \ref{metadata_publishing_sharing}).
 
-Once data is submitted to the pipeline, a unique identifier is assigned (see \ref{section:identifier} for details).
+Once data is submitted to the pipeline, a unique identifier is assigned (see Section \ref{section:identifier} for details).
 
 The web interface allows sharing and publication of data, requiring the presence of minimal metadata
-(see \ref{section:metadata}). Data can be shared or made public only after the computation has finished.
+(see Section \ref{section:metadata}). Data can be shared or made public only after the computation has finished.
 
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
@@ -1812,8 +1817,7 @@ curl -H "auth: webkey" -X POST -F "upload=@/path_to_file/
 metagenome.fasta" "http://api.metagenomics.anl.gov/
 inbox/upload" > curl_output.txt
 \end{verbatim}
-where you need to substitute ``webkey'' with the unique string of text generated by MG-RAST for your account. Your webkey is valid for a limited time period and ensures that the uploads you perform from the command line are recognized as belonging to your MG-RAST account and are placed in the correct inbox. You can generate a new web key on the account management page of the website.
-
+where you need to substitute ``webkey'' (see Section \ref{section:webkey}) with the unique string of text generated by MG-RAST for your account. Your webkey is valid for a limited time period and ensures that the uploads you perform from the command line are recognized as belonging to your MG-RAST account and are placed in the correct inbox.
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1916,9 +1920,7 @@ We use simple spreadsheets to capture metadata, with a minimal number of require
 A filled-out version of the spreadsheet is available at \url{ftp://ftp.metagenomics.anl.gov/data/misc/metadata/MGRAST_MetaData_template_example.xlsx}.
 
 In Figure \ref{fig:project-spreadsheet} we show the template tab for project and the required field labels (in red) (in essence, your contact information).
-Figure 4.5
-\ref{fig:project-spreadsheet-multiple-tabs}
-shows the various tabs in the spreadsheet.
+Figure \ref{fig:project-spreadsheet-multiple-tabs} shows the various tabs in the spreadsheet.
 
 \begin{figure*}[ht]
 \begin{center}
@@ -2195,7 +2197,7 @@ If you are trying to analyze a metatranscriptome, reducing the amount of ribosom
 
 One of the new features of MGRAST v3 is the workbench. It is the main mechanism for exchanging subsets of data between analysis views. It also allows you to download the FASTA files of a selection of proteins.
 
-When you initially go to the Analysis page (see \ref{section:analysis-page}), your workbench will be empty. It is displayed as the leftmost tab in the data tabular view. So how do you get data into the workbench? There are two simple ways to select data subsets: from any generated table or from the drilldown of a barchart.
+When you initially go to the Analysis page (see Section \ref{section:analysis-page}), your workbench will be empty. It is displayed as the leftmost tab in the data tabular view. So how do you get data into the workbench? There are two simple ways to select data subsets: from any generated table or from the drilldown of a barchart.
 
 Try this example: Start by selecting the lean and obese mouse cecum samples (MG-RAST IDs 4440463.3 and 4440464.3) \cite{OBESEMICE} in the data selection and creating a table. To do so, go to the Analysis page, and select the analysis view Organism Classification. Expand the metagenome selection by clicking the plus symbol next to metagenomes. Select public from the dropdown-box (to view only public data sets), and type ``mouse'' into the filter box. Select the two samples, and click the button with the right arrow, then the ok button. The default data visualization is ``table,'' so you can click the ``generate'' button (Figure \ref{fig:analysis-page-selecting-lean-and-obese}).
 
@@ -2330,10 +2332,8 @@ upload                      &  Y                    &  T     & N & Unless specif
 \end{tabular}
 \end{table}
 
-
-
 Access to private or shared data requires either password access via the web interface or a webkey generated for access via the API.
-All of the data files available on the website whoudl be available via the urls returned by
+All of the data files available on the website would be available via the urls returned by
 a query to
 http://api.metagenomics.anl.gov/analysisset/mgm4450212.3.
 This returns a JSON data structure with urls for all the data files. For
@@ -2346,7 +2346,7 @@ in the auth field in the GET request.
 
 
 In general, we preserve the inputs and outputs for every stage of the pipeline for download and to ensure reproducibility.
-An example of why this is useful is the use of dereplicated reads for error estimation by DRISEE (see \ref{section:DRISEE}) or the LCA (see \ref{section:LCA}) algorithm being used to reinterpret the similarities for a given cluster.
+An example of why this is useful is the use of dereplicated reads for error estimation by DRISEE (see Section \ref{section:DRISEE}) or the LCA (see Section \ref{section:LCA}) algorithm being used to reinterpret the similarities for a given cluster.
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Data products on the website}
@@ -2418,6 +2418,42 @@ using a specific example (MG-RAST ID: 4465825.3),
 we list the data products available on the download page for each metagenome.
 
 The general paradigm is to make all files available that are generated during the automated analysis. In addition, the user-submitted data and metadata are made available.
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Contacting the MG-RAST team and help desk}
+\label{section:contact-mgrast}
+
+The MG-RAST project uses a ticket system to manage interactions with users, please use the email address for the MG-RAST project shown in Figure \ref{fig:mgrastemail}.
+
+\begin{figure*}
+\begin{center}
+\includegraphics[width=3in]{Images/mgrastemail.png}
+\end{center}
+\caption{
+The email address for the MG-RAST project. Note that it was inserted into this document as an image and can not be copied as text, you will have to type it.
+}
+\label{fig:mgrastemail}
+\end{figure*}
+
+We recommend including as much detail as possible into your emails to the help-desk, details like account names, MG-RAST identifiers will help us identify any issues and speed up resolving them. 
+
+Below are examples of the types of details we would like to receive:
+\begin{itemize}
+\item your name 
+\item your account name for MG-RAST (please do NOT include your password)
+\item a clear text description of your problem
+\item any MG-RAST identifiers (those are the 444xxxx.3 numbers)
+\item any project numbers
+\item the browser and which version you are using, if the problem relates to the web site
+\item what platform your data was created on
+\item if your data was a failure in the web site, what time the failure occurred
+\item the URL and name of the page you were viewing
+\item screenshot(s) of the problem
+
+\end{itemize}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2837,7 +2873,7 @@ MG-RAST uses a number of protein and ribosomal RNA databases integrated into the
 \subsection{Web/UI tools}
 \begin{itemize}
   \item    Krona \cite{KRONA} (Ondov et. al. BMC Bioinformatics, 2011, Vol. 12, 385)
-  \item    RaphaÃ«l JavaScript Library (Dmitry Baranovskiy)
+  \item    Raphael JavaScript Library (Dmitry Baranovskiy)
  \item     jQuery
   \item    Circos (Krzywinski et al., Genome Res. 2009, Vol. 19)
   \item    cURL
@@ -2847,7 +2883,7 @@ MG-RAST uses a number of protein and ribosomal RNA databases integrated into the
   \item    Perl
   \item    Python
   \item    R
-  \item    Googleâ€™s V8  JavaScript engine
+  \item    Google's V8  JavaScript engine
 \item      Node.js
  \item     nginx
  \item     OpenStack

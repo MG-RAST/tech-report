@@ -1,7 +1,10 @@
-\contentsline {chapter}{\numberline {1}Introduction}{5}{chapter.1}
-\contentsline {section}{\numberline {1.1}Version history}{7}{section.1.1}
-\contentsline {section}{\numberline {1.2}Comparison of versions 2 and 3}{7}{section.1.2}
-\contentsline {section}{\numberline {1.3}The MG-RAST team}{9}{section.1.3}
+\contentsline {chapter}{\numberline {1}Introduction}{6}{chapter.1}
+\contentsline {section}{\numberline {1.1}Motivation}{6}{section.1.1}
+\contentsline {section}{\numberline {1.2}URL}{8}{section.1.2}
+\contentsline {section}{\numberline {1.3}Version history}{8}{section.1.3}
+\contentsline {section}{\numberline {1.4}Comparison of versions 2 and 3}{8}{section.1.4}
+\contentsline {section}{\numberline {1.5}The MG-RAST team}{10}{section.1.5}
+\contentsline {section}{\numberline {1.6}Contacting the MG-RAST team and help desk}{11}{section.1.6}
 \contentsline {chapter}{\numberline {2}Under the hood: The MG-RAST technology platform and pipeline}{12}{chapter.2}
 \contentsline {section}{\numberline {2.1}Data model}{12}{section.2.1}
 \contentsline {section}{\numberline {2.2}Details on the new MG-RAST pipeline}{14}{section.2.2}
@@ -67,38 +70,43 @@
 \contentsline {subsection}{\numberline {3.9.9}Table}{61}{subsection.3.9.9}
 \contentsline {subsection}{\numberline {3.9.10}Workbench}{64}{subsection.3.9.10}
 \contentsline {chapter}{\numberline {4}User Manual}{65}{chapter.4}
-\contentsline {section}{\numberline {4.1}Privacy, Identifiers, Sharing, and Publication}{65}{section.4.1}
-\contentsline {section}{\numberline {4.2}Uploading to MG-RAST}{65}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Steps for submission via the web interface}{66}{subsection.4.2.1}
-\contentsline {subsubsection}{\numberline {4.2.1.1}Prepare data}{66}{subsubsection.4.2.1.1}
-\contentsline {subsubsection}{\numberline {4.2.1.2}Upload files}{67}{subsubsection.4.2.1.2}
-\contentsline {subsubsection}{\numberline {4.2.1.3}Submission}{70}{subsubsection.4.2.1.3}
-\contentsline {subsection}{\numberline {4.2.2}Cmd-line uploader}{71}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}Managing the Inbox}{71}{subsection.4.2.3}
-\contentsline {subsubsection}{\numberline {4.2.3.1}File-processing options in the Inbox}{71}{subsubsection.4.2.3.1}
-\contentsline {subsubsection}{\numberline {4.2.3.2}Directory management operations for the Inbox}{73}{subsubsection.4.2.3.2}
-\contentsline {subsection}{\numberline {4.2.4}Generating metadata for the submission}{73}{subsection.4.2.4}
-\contentsline {section}{\numberline {4.3}Working with Projects and Collections}{79}{section.4.3}
-\contentsline {section}{\numberline {4.4}Understanding Datasets}{83}{section.4.4}
-\contentsline {section}{\numberline {4.5}Drilling Down with the Workbench}{84}{section.4.5}
-\contentsline {section}{\numberline {4.6}Downloads from the Workbench}{88}{section.4.6}
-\contentsline {section}{\numberline {4.7}Viewing Evidence}{90}{section.4.7}
-\contentsline {section}{\numberline {4.8}MG-RAST Output}{90}{section.4.8}
-\contentsline {subsection}{\numberline {4.8.1}Data products on the website}{91}{subsection.4.8.1}
-\contentsline {subsection}{\numberline {4.8.2}FTP server}{92}{subsection.4.8.2}
-\contentsline {subsection}{\numberline {4.8.3}Downloads}{92}{subsection.4.8.3}
-\contentsline {chapter}{\numberline {5}Putting It All in Perspective}{94}{chapter.5}
-\contentsline {section}{\numberline {5.1}MG-RAST, a community resource}{94}{section.5.1}
-\contentsline {section}{\numberline {5.2}Future Work}{95}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Roadmap}{96}{subsection.5.2.1}
-\contentsline {chapter}{\numberline {A}The downloadable files for each data set}{98}{appendix.A}
-\contentsline {chapter}{\numberline {B}Terms of Service}{102}{appendix.B}
-\contentsline {chapter}{\numberline {C}Tools and data used by MG-RAST}{104}{appendix.C}
-\contentsline {section}{\numberline {C.1}Databases}{104}{section.C.1}
-\contentsline {subsection}{\numberline {C.1.1}Protein databases}{104}{subsection.C.1.1}
-\contentsline {subsection}{\numberline {C.1.2}Ribosomal RNA databases}{105}{subsection.C.1.2}
-\contentsline {section}{\numberline {C.2}Software}{105}{section.C.2}
-\contentsline {subsection}{\numberline {C.2.1}Bioinformatics codes}{105}{subsection.C.2.1}
-\contentsline {subsection}{\numberline {C.2.2}Web/UI tools}{105}{subsection.C.2.2}
-\contentsline {subsection}{\numberline {C.2.3}Behind the scenes}{106}{subsection.C.2.3}
-\contentsline {subsection}{Glossary and Acronyms}{111}{appendix*.17}
+\contentsline {section}{\numberline {4.1}URL}{65}{section.4.1}
+\contentsline {section}{\numberline {4.2}Account}{65}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Account registration}{65}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Account webkey}{66}{subsection.4.2.2}
+\contentsline {section}{\numberline {4.3}Privacy, Identifiers, Sharing, and Publication}{66}{section.4.3}
+\contentsline {section}{\numberline {4.4}Uploading to MG-RAST}{66}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Steps for submission via the web interface}{67}{subsection.4.4.1}
+\contentsline {subsubsection}{\numberline {4.4.1.1}Prepare data}{67}{subsubsection.4.4.1.1}
+\contentsline {subsubsection}{\numberline {4.4.1.2}Upload files}{68}{subsubsection.4.4.1.2}
+\contentsline {subsubsection}{\numberline {4.4.1.3}Submission}{71}{subsubsection.4.4.1.3}
+\contentsline {subsection}{\numberline {4.4.2}Cmd-line uploader}{72}{subsection.4.4.2}
+\contentsline {subsection}{\numberline {4.4.3}Managing the Inbox}{72}{subsection.4.4.3}
+\contentsline {subsubsection}{\numberline {4.4.3.1}File-processing options in the Inbox}{72}{subsubsection.4.4.3.1}
+\contentsline {subsubsection}{\numberline {4.4.3.2}Directory management operations for the Inbox}{74}{subsubsection.4.4.3.2}
+\contentsline {subsection}{\numberline {4.4.4}Generating metadata for the submission}{76}{subsection.4.4.4}
+\contentsline {section}{\numberline {4.5}Working with Projects and Collections}{80}{section.4.5}
+\contentsline {section}{\numberline {4.6}Understanding Datasets}{81}{section.4.6}
+\contentsline {section}{\numberline {4.7}Drilling Down with the Workbench}{85}{section.4.7}
+\contentsline {section}{\numberline {4.8}Downloads from the Workbench}{88}{section.4.8}
+\contentsline {section}{\numberline {4.9}Viewing Evidence}{88}{section.4.9}
+\contentsline {section}{\numberline {4.10}MG-RAST Output}{90}{section.4.10}
+\contentsline {subsection}{\numberline {4.10.1}Data products on the website}{92}{subsection.4.10.1}
+\contentsline {subsection}{\numberline {4.10.2}FTP server}{93}{subsection.4.10.2}
+\contentsline {subsection}{\numberline {4.10.3}Downloads}{93}{subsection.4.10.3}
+\contentsline {section}{\numberline {4.11}Contacting the MG-RAST team and help desk}{94}{section.4.11}
+\contentsline {chapter}{\numberline {5}Putting It All in Perspective}{96}{chapter.5}
+\contentsline {section}{\numberline {5.1}MG-RAST, a community resource}{96}{section.5.1}
+\contentsline {section}{\numberline {5.2}Future Work}{97}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Roadmap}{98}{subsection.5.2.1}
+\contentsline {chapter}{\numberline {A}The downloadable files for each data set}{100}{appendix.A}
+\contentsline {chapter}{\numberline {B}Terms of Service}{104}{appendix.B}
+\contentsline {chapter}{\numberline {C}Tools and data used by MG-RAST}{106}{appendix.C}
+\contentsline {section}{\numberline {C.1}Databases}{106}{section.C.1}
+\contentsline {subsection}{\numberline {C.1.1}Protein databases}{106}{subsection.C.1.1}
+\contentsline {subsection}{\numberline {C.1.2}Ribosomal RNA databases}{107}{subsection.C.1.2}
+\contentsline {section}{\numberline {C.2}Software}{107}{section.C.2}
+\contentsline {subsection}{\numberline {C.2.1}Bioinformatics codes}{107}{subsection.C.2.1}
+\contentsline {subsection}{\numberline {C.2.2}Web/UI tools}{107}{subsection.C.2.2}
+\contentsline {subsection}{\numberline {C.2.3}Behind the scenes}{108}{subsection.C.2.3}
+\contentsline {subsection}{Glossary and Acronyms}{113}{appendix*.16}
