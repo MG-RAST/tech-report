@@ -344,7 +344,7 @@ pre {
     <div class="container">
       <div class="row">
         <div class="span3 docs-sidebar hidden-phone hidden-tablet">
-          <ul class="nav nav-list docs-sidenav affix" style="top: 70px; width: 228px; left: 50px; background-color: #FFFFFF; border-radius: 6px; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067); padding: 0;">
+          <ul class="nav nav-list docs-sidenav affix" style="top: 70px; width: 350px; left: 50px; background-color: #FFFFFF; border-radius: 6px; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067); padding: 0;">
 ~;
 
 # navigation
