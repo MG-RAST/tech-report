@@ -9,27 +9,18 @@ use Getopt::Long;
 
 sub usage {
   print "texreport2html.pl >>> create HTML version of the MG-RAST technical manual\n";
-  print "texreport2html.pl -input <input file> -output <output directory>\n";
+  print "texreport2html.pl -input <input file>\n";
 }
 
 my $input = "";
-my $output = "";
 
-GetOptions ( 'input=s' => \$input,
-	     'output=s' => \$output );
+GetOptions ( 'input=s' => \$input );
 
-unless ($input and $output) {
-  &usage();
-  exit 0;
+unless ($input) {
+  $input = "mg-rast-tech-report.tex";
 }
 
 my ($basename) = $input =~ /^(.+)\.tex$/;
-
-# check if the output directory exists
-if (! -d $output) {
-  print "ERROR: Output directory does not exist\n";
-  exit 1;
-}
 
 # hold the data of the document
   my $doc = { authors => [],
@@ -285,7 +276,9 @@ my $html = qq~
 <html>
   <head>
     <title>~.$doc->{title}.qq~ - ~.$doc->{subtitle}.qq~</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.min.css">
     <script src="js/jquery.min.js"></script>
     <style>
 .docs-sidenav > li:first-child > a {
@@ -338,7 +331,8 @@ pre {
 }
     </style>
   </head>
-  <body style="margin-bottom: 100px; margin-top: 60px;" data-target=".docs-sidebar" data-spy="scroll" data-offset="60">
+  <body style="padding-bottom: 100px; padding-top: 60px;" data-target=".docs-sidebar" data-spy="scroll" data-offset="62">
+    <div style="margin-top: -60px;" class="visible-phone visible-tablet hidden-desktop"></div>
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
 	<div class="container" style="width: 100%; padding-left: 10px;">
@@ -347,8 +341,10 @@ pre {
 	</div>
       </div>
     </div>
-    <div class="docs-sidebar">
-    <ul class="nav nav-list docs-sidenav affix" style="top: 70px; width: 228px; left: 50px; background-color: #FFFFFF; border-radius: 6px; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067); padding: 0;">
+    <div class="container">
+      <div class="row">
+        <div class="span3 docs-sidebar hidden-phone hidden-tablet">
+          <ul class="nav nav-list docs-sidenav affix" style="top: 70px; width: 228px; left: 50px; background-color: #FFFFFF; border-radius: 6px; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067); padding: 0;">
 ~;
 
 # navigation
@@ -366,8 +362,8 @@ if ($doc->{bib}) {
 
 $counter = 0;
 $html .= qq~</ul></div>
-    <div class="container">
-      <h1>~.$doc->{title}.qq~ - ~.$doc->{subtitle}.qq~</h1>~;
+        <div class="span9">
+          <h1>~.$doc->{title}.qq~ - ~.$doc->{subtitle}.qq~</h1>~;
 
 # paragraphs
 my $first = 1;
@@ -518,10 +514,12 @@ if ($doc->{bib}) {
 
 # script
 $html .= qq~
+        </div>
+      </div>
     </div>
     <script src="js/bootstrap.min.js"></script>
     <script>
-    jQuery('#docs-sidebar').scrollspy({ offset: 0 });
+    jQuery('#docs-sidebar').scrollspy();
     jQuery('.glossary').each(function(i){
       jQuery(this).popover( { trigger: "hover" } );
     });
@@ -533,7 +531,7 @@ $html .= qq~
 </html>
 ~;
 
-if (open(FH, ">$output/".$basename.".html")) {
+if (open(FH, ">".$basename.".html")) {
   print FH $html;
   close FH;
 } else {
@@ -543,17 +541,12 @@ if (open(FH, ">$output/".$basename.".html")) {
 
 print "done.\n";
 
-
-# \gls -> glossary
-# \cite -> citation
-# \ref -> a href label
-
 sub clean {
   my ($line) = @_;
   
   chomp $line;
   $line =~ s/^\s+//;
-  my $scroll = ' onclick="location.hash=this.getAttribute(\'href\');window.scrollBy(0,-80);return false;"';
+  my $scroll = ' onclick="location.hash=this.getAttribute(\'href\');window.scrollBy(0,-60);return false;"';
   $line =~ s/\\ref\{(\w+\:)([^\}]+)\}/<a href="#$1$2\"$scroll>$2<\/a>/g;
   $line =~ s/\\ref\{([^\}]+)\}/<a href="#$1\"$scroll>$1<\/a>/g;
   $line =~ s/\\url\{([^\}]+)\}/<a href="$1\" target=_blank>$1<\/a>/g;
