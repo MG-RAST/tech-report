@@ -9,15 +9,47 @@ use Getopt::Long;
 
 sub usage {
   print "texreport2html.pl >>> create HTML version of the MG-RAST technical manual\n";
-  print "texreport2html.pl -input <input file>\n";
+  print "texreport2html.pl -input <input file> [-insert_includes <boolean>]\n";
 }
 
 my $input = "";
+my $insert_includes = 0;
 
-GetOptions ( 'input=s' => \$input );
+GetOptions ( 'input=s' => \$input,
+	     'insert_includes=s' => \$insert_includes );
 
 unless ($input) {
   $input = "mg-rast-tech-report.tex";
+}
+
+# check for inclusions
+if (open(FH, "<$input")) {
+  if (open(FT, ">$input.tmp")) {
+    while (my $l = <FH>) {
+      if ($insert_includes) {
+	if (my ($f) = $l =~ /^\\include\{([^\}]+)\}/) {
+	  if (open(FI, "<$f.tex")) {
+	    while (my $li = <FI>) {
+	      print FT $li;
+	    }
+	    close FI;
+	  } else {
+	    print STDERR "could not open include file $f.tex: $@\nskipping...\n";
+	  }
+	}
+      }
+      print FT $l;
+    }
+    close FT;
+  } else {
+    print STDERR "Could not open temp file: $@\n";
+    close FH;
+    exit 1;
+  }
+  close FH;
+} else {
+  print STDERR "Could not open input file: $@\n";
+  exit 1;
 }
 
 my ($basename) = $input =~ /^(.+)\.tex$/;
@@ -72,7 +104,7 @@ if (-f $basename.".bib" && open(FH, "<".$basename.".bib")) {
 }
 
 # check if we can open the input file
-if (open(FH, "<$input")) {
+if (open(FH, "<$input.tmp")) {
 
   # read the document into memory
   my $curr = "";
@@ -265,6 +297,7 @@ if (open(FH, "<$input")) {
     
   }
   close FH;
+  unlink "$input.tmp";
   
 } else {
   print "ERROR: Could not open tex file ($input) - $@\n";
