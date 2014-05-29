@@ -1,0 +1,169 @@
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\chapter{API --- The MG-RAST Application Programming Interface}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+% 
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\section{Introduction}
+
+%Metagenomic sequencing has produced significant amounts of data in recent years. For example, as of summer 2013, MG-RAST has been used to annotate over 110,000 data sets totaling over 43 terabases. With metagenomic sequencing finding even wider adoption in the scientific community, he existing web-based analysis tools and infrastructure in MG-RAST provide limited capability for comparative analysis (i.e., number of datasets). Moreover, although the system provides many analysis tools, it is not comprehensive. By opening MG-RAST up via a web services API (application programmers interface) we have enabled unprecedented access to MG-RAST data as well as provided a mechanism for the use of third-party analysis tools with MG-RAST data. This RESTful API makes all data and data objects created by the MG-RAST pipeline accessible as JSON objects.
+
+%As part of the DOE Systems Biology knowledgebase project (KBase, \begin{small}\url{http://kbase.us}\end{small})  we have implemented a web services API for MG-RAST. This API complements the existing MG-RAST web interface and constitutes the basis of KBase’s microbial community capabilities. The API exposes a comprehensive collection of data to programmers. The new API, which uses a RESTful implementation, is compatible with most programming environments and should be easy to use for third parties. The API provides comprehensive access to sequence data, quality control results, annotations, and many other data types. Whenever possible, we have employed standards to expose data and metadata. We provide several code examples in a number of languages both to show both the versatility of the approach and to provide a starting point for users.
+
+%We present an API that exposes the data in MG-RAST for consumption by third parties, greatly enhancing the utility of the MG-RAST service.
+
+The MG-RAST pipeline normalizes all samples by applying a uniform pipeline with the appropriate quality control mechanisms for the various data sources. Uniform processing and robust sequence quality control enables comparison across experimental systems and, to some extent, across sequencing platforms. With the inclusion of standardized metadata [REFERENCE] MG-RAST has enabled meta-analysis available through its web-based user interface. The MG-RAST website provides an easy-to-use way to upload data, perform analyses, download data, and create and share projects. As with most GUIs, however, there are limitations to what can be done, for example, regarding the number of samples processed in a single analysis, access to complete metadata, and easy access to raw data and quality metrics for each sample.
+
+The MG-RAST web services API exposes all data to (authenticated) programmers, enabling access to available data and functionality through software applications. The API uses a RESTful implementation, is compatible with most programming environments and should be easy to use for third parties. The API provides comprehensive access to sequence data, quality control results, annotations, and many other data types. Whenever possible, we have employed standards to expose data and metadata. Several code examples in a number of languages are available at [REFERENCE THE GITHUB SITE] to illustrate the versatility of the approach and to provide a starting point for users.
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\section{Design and Implementation}
+The MG-RAST API enables programmatic access to data and analyses in MG-RAST without requiring local installations and relying on the maintenance of the data products in a central location. API users can authenticate against the service, upload their data, download results, and perform extensive comparisons of data sets. The MG-RAST API uses JSON (Javascript Object Notation, a widely used standard) as its data format. We chose to use the Representational State Transfer (REST) [3] architecture. The system focuses on the underlying components of a web services architecture, their interactions, and the data used for their operation. REST has several key advantages for system scalability. Unlike more traditional remote procedure call methods, REST APIs make the semantics of requests visible at the HTTP protocol layer, hence making the system easier to scale, optimize, and harden through the use of HTTP level appliances providing security, caching, and proxy capabilities. REST APIs also have useful properties in terms of client adoption. They have a minimal number of prerequisites; and any language with HTTP and JSON support or command line utilities such as "curl" can easily integrate with the design.
+
+The MG-RAST RESTful API supports introspection and versioning. In order to access a specific version of the API, the version number must be added to the base URL. Calling the base URL of the API without any options returns a list and description of available resources; calling a resource without any options returns a description of the resource and its request options with example calls.
+
+Users are provided access to these MG-RAST resources as well as to analysis results being produced (public and the users’ own data). Table 2 lists the high-level objects that can be accessed; in addition, users can upload sequence and metadata into their own private MG-RAST staging area. Some objects (e.g., metagenome, metadata, project, M5nr) will seem intuitive, while others are different from what most users would expect (e.g., download, annotation, matrix). We have designed these additional objects to allow rapid access to sets of sequences or analysis results related for a data set (download), annotated sequences or BLAT results for a data set (annotation), and abundance information for many data sets (matrix).
+
+The API can be accessed via HTTP by using curl, a web browser, programing-language-specific libraries, or command line scripts. Scripts and examples are available on github (https://github.com/MG-RAST/MG-RAST-Tools) .  
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\section{URL}
+http://api.metagenomics.anl.gov/1/
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\section{Examples}
+The API provides index-driven access to data subsets using the following data types as indices into the data: functions, functional hierarchy data, and taxonomic data. Whenever possible we have employed standards to expose data and metadata, such as the BIOM [5] standard for encoding abundance profiles.
+
+The API call is composed from the API URL, path parameters and optional query parameters, e.g.
+
+\begin{small}\url{http://api.metagenomics.anl.gov/1/annotation/sequence/mgm4447943.3?evalue=10\&type=organism\&source=SwissProt}\end{small}
+
+for the annotation resource with path parameters 'sequence' and the MG-RAST metagenome ID 'mgm4447943.3' and optional parameters evalue, type and source.
+
+
+Next we demonstrate a number of straightforward use cases for the more traditional objects.
+
+\begin{table}
+\caption{Top-level resources available through the MG-RAST-API}
+\centering
+\renewcommand{\arraystretch}{1.3}
+\renewcommand\tabcolsep{10pt}
+%\begin{tabular}{ l l }
+\begin{tabular}{ p{3cm} p{12cm} }
+  \hline
+  \hline
+  \textbf{Resource/Object} & \textbf{Description} \\
+  \hline
+   \textbf{annotation} & taxonomic and functional annotations made by comparison with the M5nr database \\
+   \textbf{compute} & resource to compute PCoA , heatmap, and normalization for a set of input metagenomes \\
+   \textbf{download} & download results of the MG-RAST pipeline \\
+   \textbf{inbox} & upload and listing of data in the staging area prior to execution of the MG-RAST pipeline \\
+   \textbf{library} & library information for uploaded metagenome provided by the user \\
+   \textbf{matrix} & abundance profiles in BIOM (5) format for a list of metagenomes \\
+   \textbf{M5nr} & access M5 nonredundant protein database used for annotation of metagenomic sequences \\
+   \textbf{metadata} & creation, export, and validation of metadata templates and spreadsheets \\
+   \textbf{metagenome} & container for sample, library, project, and precomputed data for an uploaded metagenomic sequence file \\
+   \textbf{profile} & returns a single data object in BIOM format \\
+   \textbf{project} & project summary for metagenome provided by user \\
+   \textbf{sample} & sample information provided by user \\
+   \textbf{search} & search MG-RAST by MG-ID, metadata, function, or taxonomy; or implement a more complex search. \\
+   \textbf{validation} & validates templates for correct structure and data \\
+  \hline
+  \hline
+\end{tabular}
+\label{table:upload_speeds}
+\end{table}
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\subsection{Annotation}
+MG-RAST enables users to extract data based on functional or taxonomic annotations. The following example produces a file with sequences annotated as proteases (using SEED annotations) from all samples from marine environments. The reads are labeled with both the originating data set and the read identifier, as well as the underlying similarity result.
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\subsection{Download}
+Download allows users to extract analysis result files from MG-RAST. The following example below shows how to download BLAT [6] results for a given metagenome.
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\subsection{Inbox}
+The inbox is a staging area where users can upload metadata and sequence files and manage their data. This requires a MG-RAST account and user authentication. An authentication token can be created through the user preferences in MG-RAST.
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\subsection{Matrix}
+Users can retrieve abundance profiles based on functional or taxonomic profiles. Default output format is BIOM. 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\subsection{M5nr}
+As mentioned earlier, we use a M5-based nonredundant database to perform annotations. Here is an example of extracting the UniProt database entry record for a given sequence in a metagenome. Using the M5nr, we identify the UniProt database record most similar to the sequence of a given feature.
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\subsection{Metagenome}
+Users can access a metagenome, such as 4440026.3, from the command line as shown in the following example.
+
+MG-RAST enables users to directly retrieve sample, library, and project information, allowing different granularity of the data being retrieved.
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\subsection{Project}
+Users can retrieve project information by using project ID and output as a JSON formatted file.
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\subsection{Sample}
+Available information about individual samples, including IDs and metadata, can be accessed as shown in the following example.
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\subsection{Search}
+Using the search object, users can search data they want to retrieve. Queries can be made for IDs, metadata, function, and taxonomy. Complex queries are supported.
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\subsection{Access Control}
+In MG-RAST, all data is initially private. Users who submit data can decide to share that data with other users (by typing in an email address for the users) or make the data publicly available. Both actions require the provision of standard-compliant minimal metadata by the submitting user. While all data sets receive a unique identifier, the data might not be available to anyone but the submitter. The API provides access to public and nonpublic data, requiring users to submit authentication tokens for access to private data. 
+ 
+Authentication tokens can be obtained via the MG-RAST web interface and are valid for up to 14 days. Below is an example of how to use the tokens in three different scenarios. Users can invalidate a token at any time by generating a new one. Note that accessing a remote site through an XMHttpRequest requires support for Cross-Origin Resource Sharing (CORS) compliance and Preflight Request.  CORS requires the remote site to accept the local site’s origin (AccessControl AllowOrigin). For Preflight Requests, if an HTTP request from a browser adds a custom header to the request (in the example “AUTH”), the browser first makes an OPTIONS request to the largest server, inquiring whether AccessControlAllowHeaders allows this header and whether AccessControlAllowMethod allows the request method (GET/POST).  
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\section{Discussion and Future Directions}
+RESTful web services provide access to the data products in MG-RAST. While MG-RAST is open source (github), third parties who are interested in the comparative analysis provided by MG-RAST must either download and install all analysis products or (worse) repeat the analysis. In a time of rapidly decreasing data generation cost [7] and rising data analysis cost [8], both reanalysis and local transfer of data products do not appear to be viable options.
+
+We anticipate that with the provision of these comprehensive web services, a significant number of users will create their own submission of data retrieval pipelines feeding into or reading from MG-RAST. 
+
+While the MG-RAST pipeline must be optimized with each release in order to keep pace with the growing body of sequence data (within one major release, we do not alter the pipeline other than bug fixes), many uses cases are conceivable that apply more computationally expensive approaches (e.g., determining protein subfamily assignments using more expensive algorithms such as Pfam [9], InterPro [10], or FAT-CAT [11]) or other approaches for mapping metagenomic protein fragments to (precomputed) trees. We note that the relatively noisy nature of most shotgun metagenomic data (with or without assembly) casts some doubt over many sequence analyses that attempt to extract weak signals from the sequences. The rare biosphere debate [12] has demonstrated that without the use of denoising techniques or accounting for the noise in the sequence data, diversity estimates for amplicon samples will be inflated. The data-set-wide quality estimates computed by MG-RAST [13] allow users to exclude certain data sets in their (meta)analyses.
+
+Although using a web services interface lightens the installation burden, having to transfer the data across the internet creates significant overhead, thus presenting a drawback. Analyzing usage patterns, however, we have found that typically only a small subset of the computed data for each data set is actually accessed by most users. The organization of the data and the data products reflects that pattern. The abundance profiles summarize abundance of taxa, functions (in various namespaces), and functional hierarchies while retaining the ability for the user to set cutoffs (e-value, alignment length, and percent identity). This structure enables decision making in the presentation layer by users or providers of web interfaces. Together with index-supported subset retrieval, this provides the tools needed by most users to perform their comparisons and drill down to their area of choice.
+
+From an end-user perspective, the overhead caused by the internet transfer is more than compensated by the “filtering” performed by MG-RAST, frequently making the upload of the metagenomic sequence data the single biggest data transfer, since the downloads for the abundance profile are significantly smaller than the uploaded sequences. This is an interesting observation since the various data analysis steps add to the volume of the data: typically the on-disk footprint is about 10 times the size of the uploaded sequence data. 
+
+We have chosen JSON [14] for encoding for the data because it is the current default solution for web service interfaces. This differs from the API to the servers [15], which implements an RPC-style interface. The style we chose, however, is a better fit for the data and volumes being handled by MG-RAST. In addition, it allows caching and proxying, providing additional flexibility for future solutions implemented on top of the MG-RAST API.
+
+Accessing MG-RAST via a RESTful API adds significant value by enabling third-party code to utilize the MG-RAST analyses. We have provided multiple examples that add new functionality to the existing service. As with the companion API for the SEED-based systems RAST and SEED, we expect a significant number of users to seize the opportunity to access the growing number of metagenomes and analysis results stored in MG-RAST.
+
+
+We will create a repository of user-contributed scripts that utilize MG-RAST as part of the contrib branch in the MG-RAST github repository.
+The emerging DOE Systems Biology Knowledgebase (KBase; http://kbase.us) has adopted the MG-RAST pipeline as its first automated analysis workflow for microbial community data. A version of this API is available to access microbial community data within KBase.
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\section{Availability and Requirements}
+• Project name: MG-RAST REST API
+• Project home page: http://api.metagenomics.anl.gov/api.html
+• Project source: 
+https://github.com/MG-RAST/MG-RAST
+https://github.com/MG-RAST/MG-RAST-Tools
+• Operating system(s): Platform independent
+• Programming language: Language independent
+• Other requirements: none
+• Any restrictions to use by non-academics: no limitations
+
+
