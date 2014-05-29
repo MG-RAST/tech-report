@@ -24,7 +24,7 @@ my ($basename) = $input =~ /^(.+)\.tex$/;
 
 # hold the data of the document
   my $doc = { authors => [],
-	      affiliations => {},
+	      affiliations => [],
 	      glossary => {},
 	      title => "",
 	      subtitle => "",
@@ -49,6 +49,7 @@ if (-f $basename.".bib" && open(FH, "<".$basename.".bib")) {
 		    order => $counter };
       while (my $el = <FH>) {
 	chomp $el;
+	$el =~ s/``/"/g;
 	$el =~ s/^[\s\t]+//;
 	if ($el) {
 	  my ($key, $val) = $el =~ /^(\w+)\s*=\s*[\{\"]{1}(.+)[\}\"]{1}[,\}]?\s*$/;
@@ -90,7 +91,7 @@ if (open(FH, "<$input")) {
 	    push(@{$doc->{authors}}, { name => $name, affils => [ split(/,/, $affils) ] });
 	} elsif ($cmd eq "affil") {
 	    my ($num, $name) = $line =~ /^\\affil\[(\d+)\]\{(.+)\}$/;
-	    $doc->{affiliations}->{$num} = $name;
+	    push(@{$doc->{affiliations}}, "<sup>$num</sup>$name");
 	} elsif ($cmd eq "date") {
 	    my ($date) = $line =~ /^\\date\{(.+)\}$/;
 	    $doc->{date} = $date;
@@ -214,7 +215,7 @@ if (open(FH, "<$input")) {
 	    my $table = { rows => [] };
 	    while ($line !~ /\\end\{table\}/) {
 	      $line = <FH>;
-	      $line = &clean($line);
+	      $line = &clean($line,1);
 	      next unless $line;
 	      if ($line =~ /\\caption/) {
 		( $table->{caption} ) = $line =~ /\\caption\{([^\}]+)\}/;
@@ -337,7 +338,7 @@ pre {
       <div class="navbar-inner">
 	<div class="container" style="width: 100%; padding-left: 10px;">
           <img src="Images/MGRAST_logo.png" style="float: left; background: black; margin-left: -10px; height: 55px;">
-    	  <a class="brand" href="#" style="color: white; cursor: default; margin-top: 8px; margin-left: 30px;">~.$doc->{subtitle}.qq~</a>
+    	  <a class="brand" href="#" style="color: white; cursor: default; margin-top: 8px; margin-left: 30px;">~.$doc->{title}.qq~</a>
 	</div>
       </div>
     </div>
@@ -363,7 +364,7 @@ if ($doc->{bib}) {
 $counter = 0;
 $html .= qq~</ul></div>
         <div class="span9">
-          <h1>~.$doc->{title}.qq~ - ~.$doc->{subtitle}.qq~</h1>~;
+          <h1 style="text-align: center;">~.$doc->{title}.qq~</h1><h3 style="text-align: center;">~.$doc->{subtitle}.qq~</h3><p>~.join(" ", @{$doc->{authors}}).qq~</p><p style='float: right;'>~.join(" ", @{$doc->{affiliations}}).qq~</p>~;
 
 # paragraphs
 my $first = 1;
@@ -435,7 +436,7 @@ foreach my $p (@{$doc->{paragraphs}}) {
     for (my $i=0; $i<scalar(@$firstrow); $i++) {
       my $align = "";
       if ($p->{table}->{alignment}) {
-	  $align = " style='text-align: ".($p->{table}->{alignment}->[$i] eq "l" ? "left" : ($p->{table}->{alignment}->[$i] eq "r" ? "right" : "center"))."'";
+	  $align = " style='text-align: ".($p->{table}->{alignment}->[$i] ? ($p->{table}->{alignment}->[$i] eq "l" ? "left" : ($p->{table}->{alignment}->[$i] eq "r" ? "right" : "center")) : "left")."'";
       }
       $html .= "<th$align>".$firstrow->[$i]."</th>";
     }
@@ -445,7 +446,7 @@ foreach my $p (@{$doc->{paragraphs}}) {
       for (my $i=0; $i<scalar(@$row); $i++) {
 	my $align = "";
 	if ($p->{table}->{alignment}) {
-	  $align = " style='text-align: ".($p->{table}->{alignment}->[$i] eq "l" ? "left" : ($p->{table}->{alignment}->[$i] eq "r" ? "right" : "center"))."'";
+	  $align = " style='text-align: ".($p->{table}->{alignment}->[$i] ? ($p->{table}->{alignment}->[$i] eq "l" ? "left" : ($p->{table}->{alignment}->[$i] eq "r" ? "right" : "center")) : "left")."'";
 	}
 	$html .= "<td$align>".$row->[$i]."</td>";
       }
@@ -542,7 +543,7 @@ if (open(FH, ">".$basename.".html")) {
 print "done.\n";
 
 sub clean {
-  my ($line) = @_;
+  my ($line,$istable) = @_;
   
   chomp $line;
   $line =~ s/^\s+//;
@@ -552,19 +553,54 @@ sub clean {
   $line =~ s/\\url\{([^\}]+)\}/<a href="$1\" target=_blank>$1<\/a>/g;
   $line =~ s/\\texttt\{([^\}]+)\}/<span class="mono">$1<\/span>/g;
   $line =~ s/\\textit\{([^\}]+)\}/<i>$1<\/i>/g;
+  $line =~ s/\\textsuperscript\{([^\}]+)\}/<sup>$1<\/sup>/g;
   $line =~ s/\\textbf\{([^\}]+)\}/<b>$1<\/b>/g;
+  $line =~ s/\\begin\{small\}//g;
+  $line =~ s/\\end\{small\}//g;
   $line =~ s/\\textrm\{([^\}]+)\}/$1/g;
   $line =~ s/\{\\bf ([^\}]+)\}/<b>$1<\/b>/g;
   $line =~ s/--/&hyphen;/g;
   $line =~ s/\$(.)\$/$1/g;
+  $line =~ s/``/"/g;
+  $line =~ s/\\bfseries//g;
+  $line =~ s/\\noindent//g;
   $line =~ s/\$(\d+)\$/$1/g;
   $line =~ s/\$(\d+)\^\{([^\}]+)\}\$/$1<sup>$2<\/sup>/g;
   $line =~ s/\$(\w)_(\w)\$/$1<sub>$2<\/sub>/g;
+  $line =~ s/\$\{([^\}]+)\}\$/<b>$1<\/b>/g;
+  
+  if ($line =~ /\% author name/) {
+    my ($author) = $line =~ /\{([^\}]+)\}/;
+    push(@{$doc->{authors}}, $author);
+    $line = "";
+  }
+
+  if ($line =~ /\% affiliation/) {
+    my ($affiliation) = $line =~ /\{([^\}]+)\}/;
+    push(@{$doc->{affiliations}}, $affiliation);
+    $line = "";
+  }
+
+  if (! $istable) {
+    $line =~ s/\\\\.*//;
+  }
+  $line =~ s/\{\\large([^\}]+)\}/<h4>$1<\/h4>/g;
+  $line =~ s/([^\\]{1})\%.+/$1/;
+
   $line = &special($line);
   my ($math) = $line =~ /\$\$(.+)\$\$/;
   if ($math) {
     $math = &math($math);
     $line =~ s/\$\$(.+)\$\$/$math/;
+  }
+
+  if ($line =~ /\{\\Huge([^\}]+)\}/) {
+    $line = "";
+    if ($doc->{title}) {
+      $doc->{subtitle} .= $1;
+    } else {
+      $doc->{title} = $1;
+    }
   }
 
   # this should not be in the document!
@@ -616,17 +652,25 @@ sub special {
   $line =~ s/\\"\{(\w)\}/&$1uml;/g;
   $line =~ s/\$(\d+)\^(\d+)\$/$1<sup>$2<\/sup>/g;
   $line =~ s/\{?\$(\d*)\\(\w+)\$\}?/$1&$2;/g;
-  
+  while (my ($math) = $line =~ /\\begin\{math\}(.*?)\\end\{math\}/) {
+    $math = &math($math, 1);
+    $line =~ s/\\begin\{math\}(.*?)\\end\{math\}/$math/;
+  }
+
   return $line;
 }
 
 sub math {
-  my ($line) = @_;
+  my ($line, $nodiv) = @_;
 
+  $line =~ s/\\,//g;
+  $line =~ s/\\frac\{([^\}]+)\}\{([^\}]+)\}/$1 \/ $2/g;
   $line =~ s/\\sum/<sub><span class="sigma">&Sigma;<\/span><\/sub>/g;
   $line =~ s/\\log/log/g;
-  $line =~ s/_(\w)/<sub>$1<\/sub>/g;
+#  $line =~ s/_(\w)/<sub>$1<\/sub>/g;
   $line =~ s/\^\{([^\}]+)\}/<sup>$1<\/sup>/g;
+  $line =~ s/\\sigma/&sigma;/g;
+  $line =~ s/\\mu/&mu;/g;
 
-  return "<div class='math'>".$line."</div>";
+  return $nodiv ? $line : "<div class='math'>".$line."</div>";
 }
