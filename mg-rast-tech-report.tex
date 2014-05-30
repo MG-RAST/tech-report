@@ -2283,15 +2283,12 @@ upload                      &  Y                    &  T     & N & Unless specif
 Access to private or shared data requires either password access via the web interface or a webkey generated for access via the API.
 All of the data files available on the website would be available via the urls returned by
 a query to
-http://api.metagenomics.anl.gov/analysisset/mgm4450212.3.
-This returns a JSON data structure with urls for all the data files. For
-instance,
+http://api.metagenomics.anl.gov/1/download/mgm4450212.3
+This returns a JSON data structure with urls for all the data files. For instance, the file
 900.abundance.organism.gz
 can be retrieved from
-http://api.metagenomics.anl.gov/analysisset/mgm4450212.3-900-5.
-Note: This is a public job; the private jobs can be accessed by providing the webkey
-in the auth field in the GET request.
-
+http://api.metagenomics.anl.gov/1/download/mgm4450212.3?file=900.5
+Note: This is a public job which requires no authorization; private jobs can be accessed by providing your valid account webkey in the auth field in the GET request.
 
 In general, we preserve the inputs and outputs for every stage of the pipeline for download and to ensure reproducibility.
 An example of why this is useful is the use of dereplicated reads for error estimation by DRISEE (see Section \ref{section:DRISEE}) or the LCA (see Section \ref{section:LCA}) algorithm being used to reinterpret the similarities for a given cluster.
@@ -2839,7 +2836,7 @@ No.   Such a search is too computationally expensive. But you can find public me
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Where is the table of reads with the annotation for each read?}
-MG-RAST versions 1 and 2 had this type of output, but MG-RAST v3 does not.   MG-RAST version 3 has been optimized for large (Gbase+) datasets, and per-read annotation for large datasets is extremely bulky and difficult to interpret.  The per-read annotations can be derived from the data products on the download page, but it requires joining three tables.
+MG-RAST versions 1 and 2 had this type of output, but MG-RAST v3 does not.   MG-RAST version 3 has been optimized for large (Gbase+) datasets, and per-read annotation for large datasets is extremely bulky and difficult to interpret. The per-read annotations are not stored in a file on the server, but can be downloaded using the MG-RAST API.
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Where can I download the results of the metagenome analysis?}
