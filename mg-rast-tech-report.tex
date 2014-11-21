@@ -11,6 +11,11 @@
 \usepackage{glossaries}
 \usepackage[toc,page]{appendix}
 
+\usepackage{listings}
+\lstset{
+   breaklines=true,
+   basicstyle=\ttfamily
+}
 \linespread{1.1}
 
 \setcounter{secnumdepth}{6}
@@ -34,8 +39,8 @@
 \parbox[b]{0.8\textwidth}{ % Paragraph box which restricts text to less than the width of the page
 {\noindent\Huge\bfseries MG-RAST Manual}\\[0.8\baselineskip] 
 {\noindent\Huge\bfseries for version 3.3.6,}\\[0.8\baselineskip] % Title
-{\noindent\Huge\bfseries revision 9}\\[2\baselineskip] % Title
-{\large \textit{May 5, 2014}}\\[4\baselineskip] % Tagline or further description
+{\noindent\Huge\bfseries revision 10}\\[2\baselineskip] % Title
+{\large \textit{November 15, 2014}}\\[4\baselineskip] % Tagline or further description
 {\textbf{Andreas Wilke\textsuperscript{1,2},}}\\    % author name
 {\textbf{Elizabeth M. Glass\textsuperscript{1,2},}}\\    % author name
 {\textbf{Jared Bischof\textsuperscript{2,1},}}\\    % author name
@@ -132,6 +137,8 @@
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Motivation}
 
+The National Human Genome Research Institute (NHGRI), a division of the National Institutes of Health, publishes information (see Figure \ref{fig:cost_per_megabase}) describing the development of computing costs and DNA sequencing costs over time \cite{NHGRI_COST}. The dramatic gap between the shrinking costs of sequencing and the more or less stable costs of computing is a major challenge for biomedical researchers trying to use next-generation DNA sequencing platforms to obtain information on microbial communities. Wilkening \textit{et al.} \cite{MGCLOUD} provide a real currency cost for the analysis of 100 gigabasepairs of DNA sequence data using BLASTX on Amazon's \gls{EC2} service: \$300,000.\footnote{This includes only the computation cost, no data transfer cost, and was computed using 2009 prices.} A more recent study by University of Maryland researchers \cite{CLOVR} estimates the computation for a terabase of DNA shotgun data using their CLOVR metagenome analysis pipeline at over \$5 million per terabase.
+
 \begin{figure*}
 \begin{center}
  \includegraphics[width=4in]{Images/cost_per_megabase.png}
@@ -140,8 +147,6 @@
 \caption{Chart showing shrinking cost for DNA sequencing. This comparison with Moore's law roughly describing the development of computing costs highlights the growing gap between sequence data and the available analysis resources. Source: NHGRI \cite{NHGRI_COST}
 }
 \end{figure*}
-
-The National Human Genome Research Institute (NHGRI), a division of the National Institutes of Health, publishes information (see Figure \ref{fig:cost_per_megabase}) describing the development of computing costs and DNA sequencing costs over time \cite{NHGRI_COST}. The dramatic gap between the shrinking costs of sequencing and the more or less stable costs of computing is a major challenge for biomedical researchers trying to use next-generation DNA sequencing platforms to obtain information on microbial communities. Wilkening \textit{et al.} \cite{MGCLOUD} provide a real currency cost for the analysis of 100 gigabasepairs of DNA sequence data using BLASTX on Amazon's \gls{EC2} service: \$300,000.\footnote{This includes only the computation cost, no data transfer cost, and was computed using 2009 prices.} A more recent study by University of Maryland researchers \cite{CLOVR} estimates the computation for a terabase of DNA shotgun data using their CLOVR metagenome analysis pipeline at over \$5 million per terabase.
 
 Nevertheless, the growth in data enabled by next-generation sequencing platforms also provides an exciting opportunity for studying microbial communities: ~99\% of the microbes in which have not yet been cultured \cite{MGREVIEW}. Cultivation-free methods (often summarized as metagenomics) offer novel insights into the biology of the vast majority of life on Earth \cite{THOMASREVIEW}.
 
@@ -221,7 +226,7 @@ If you use our service, please cite: \\
 \noindent
 The Metagenomics RAST server --- A public resource for the automatic phylogenetic and functional analysis of metagenomes \\
 \noindent
-F. Meyer, D. Paarmann, M. D'Souza, R. Olson , E. M. Glass, M. Kubal, T. Paczian , A. Rodriguez , R. Stevens, A. Wilke, J. Wilkening, and R. A. Edwards \\
+F. Meyer, D. Paarmann, M. D'Souza, R. Olson , E. M. Glass, M. Kubal, T. Paczian, A. Rodriguez, R. Stevens, A. Wilke, J. Wilkening, and R. A. Edwards \\
 \noindent
 BMC Bioinformatics 2008, 9:386 \\
 \noindent
@@ -708,7 +713,7 @@ The presence of metadata enables discovery by end users using contextual metadat
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{MG-RAST v3 web interface}
 
-The MG-RAST system provides a rich web user interface that covers all aspects of the metagenome analysis, from data upload to ordination analysis. The web interface can also be used for data discovery. Metagenomic datasets can be easily selected individually or on the basis of filters such as technology (including read length), quality, sample type, and keyword, with dynamic filtering of results based on similarity to known reference proteins or taxonomy. For example, a user might want to perform a search such as ``phylum eq `actinobacteria' and function in `KEGG pathway Lysine Biosynthesis'â and sample in `Ocean' " to extract sets of reads matching the appropriate functions and taxa across metagenomes. The results can be displayed in familiar formats, including bar charts, trees that incorporate abundance information, heatmaps, or principal components analyses, or exported in tabular form. The raw or processed data can be recovered via download pages. Metabolic reconstructions based on mapping to KEGG pathways are also provided.
+The MG-RAST system provides a rich web user interface that covers all aspects of the metagenome analysis, from data upload to ordination analysis. The web interface can also be used for data discovery. Metagenomic datasets can be easily selected individually or on the basis of filters such as technology (including read length), quality, sample type, and keyword, with dynamic filtering of results based on similarity to known reference proteins or taxonomy. For example, a user might want to perform a search such as ``phylum eq `actinobacteria' and function in `KEGG pathway Lysine Biosynthesis'â and sample in `Ocean'" to extract sets of reads matching the appropriate functions and taxa across metagenomes. The results can be displayed in familiar formats, including bar charts, trees that incorporate abundance information, heatmaps, or principal components analyses, or exported in tabular form. The raw or processed data can be recovered via download pages. Metabolic reconstructions based on mapping to KEGG pathways are also provided.
 
 Sample selection is crucial for understanding large-scale patterns when multiple metagenomes are compared. Accordingly, MG-RAST supports MIxS and MIMARKS (Yilmaz, 2011) (as well as domain-specific plug-ins for specialized environments not extending the minimal GSC standards); several projects, including TerraGenome, HMP, TARA, and EMP, use these GSC standards, enabling standardized queries that integrate new samples into these massive datasets. An example query using the metadata browser, enabling the user to interrogate the existing pool of public datasets for a biome of interest (e.g., hot springs) and performing comparisons and a search for organisms encoding a specific gene function (e.g., beta-lactamase or aldo/keto reductase) is given in
 Figure \ref{fig:quad-chart-analysis-example}.
@@ -818,7 +823,7 @@ The navigation toolkit provides easy access to the web pages listed in Section \
 Data and metadata can be uploaded in the form of spreadsheets along with the sequence data by using both the ftp and the http protocols. The web uploader will automatically split larger files and allow parallel uploads.
 
 MG-RAST supports datasets that are augmented with rich metadata using the standards and technology developed by the GSC.
-Each user has a temporary storage location inside the MG-RAST system. This inbox provides temporary storage for data and metadata to be submitted to the system. Using the inbox, users can extract compressed files, convert a number of vendor specific formats to MG-RAST submission-compliant formats, and obtain an \gls{MD5} checksum for verifying that transmission to MG-RAST has not altered the data.
+Each user has a temporary storage location inside the MG-RAST system. This inbox provides temporary storage for data and metadata to be submitted to the system. Using the inbox, users can extract compressed files, convert a number of vendor specific formats to MG-RAST submission-compliant formats, join paired-end reads, and obtain an \gls{MD5} checksum for verifying that transmission to MG-RAST has not altered the data.
 
 The web uploader has been optimized for large datasets of over 100 gigabasepairs, often resulting in file sizes in excess of 150 GB.
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1165,7 +1170,7 @@ Selection of sample and parameters. This dialog allows the selection of multiple
 
 \item \textbf{Data visualization}
 
-Data visualization and comparison. Depending on the selected profile type, the profiles for the metagenomes can be visualized and compared by using barcharts, trees, spreadsheet-like tables, heatmaps, PCoA, rarefaction plots, circular recruitment plot, and KEGG maps.
+Data visualization and comparison. Depending on the selected profile type, the profiles for the metagenomes can be visualized and compared using barcharts, trees, spreadsheet-like tables, heatmaps, PCoA, rarefaction plots, circular recruitment plot, and KEGG maps.
 \end{enumerate}
 
 %The analysis page offers several hit classification schemes that are explained in Section \ref{section:hit-types}.
@@ -1479,7 +1484,7 @@ Abundance tables serve as the basis for all comparative analysis tools in MG-RAS
 
 Consider the following example showing how to use
 the taxonomic information derived from an analysis of protein similarities found for the data set 4447970.3.
-We use the best hit classification, \gls{SEED}, $10^{-5}$, 60\% identity, and a minimal alignment length of 15 amino acids. We select table output. The results are shown in Figure \ref{fig:analysis-page-table}.
+We use the best hit classification, \gls{SEED} database, $10^{-5}$ evalue, 60\% identity, and a minimal alignment length of 15 amino acids. We select table output. The results are shown in Figure \ref{fig:analysis-page-table}.
 
 The following control elements are connected to the table:
 \begin{itemize}
@@ -2525,6 +2530,11 @@ Below are examples of the types of details we would like to receive:
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\include{mg-rast-api-chapter}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{FAQ}
 The answers to some of these Frequently Asked Questions can be found elsewhere in this manual, they are listed here for users who would like  a quick answer to a simple question. Other sections of the manual will generally contain more detail than the answers in this chapter. Some answers are just links to relevant sections in other chapters.
 % %%%%%%%%%%%	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2977,11 +2987,6 @@ We maintain a rough roadmap for future version of MG-RAST.
 
 This work used the Magellan machine (U.S.Department of Energy, Office of Science, 
 Advanced Scientific Computing Research, under contract  DE-AC02-06CH11357) at Argonne National Laboratory, and the PADS resource (National Science Foundation grant OCI-0821678) at the Argonne National Laboratory/University of Chicago Computation Institute. This work was supported in part by the U.S. Dept. of Energy under Contract DE-AC02-06CH11357, the Sloan Foundation (SLOAN \#2010-12), NIH NIAID (HHSN272200900040C), and the NIH Roadmap HMP program (1UH2DK083993-01).
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\include{mg-rast-api-chapter}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
