@@ -1,2 +1,15 @@
+<<<<<<< HEAD
 *.log
 *.synctex.gz
+=======
+# temporary latex files
+*.aux
+*.toc
+*.log
+*.lof
+*.ist
+*.glo
+*.tmp
+*.glg
+*.gls
+>>>>>>> upstream/master

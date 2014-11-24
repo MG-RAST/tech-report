@@ -1,112 +1,181 @@
-\contentsline {chapter}{\numberline {1}Introduction}{6}{chapter.1}
-\contentsline {section}{\numberline {1.1}Motivation}{6}{section.1.1}
-\contentsline {section}{\numberline {1.2}URL}{8}{section.1.2}
-\contentsline {section}{\numberline {1.3}Version history}{8}{section.1.3}
-\contentsline {section}{\numberline {1.4}Comparison of versions 2 and 3}{8}{section.1.4}
-\contentsline {section}{\numberline {1.5}The MG-RAST team}{10}{section.1.5}
-\contentsline {section}{\numberline {1.6}Contacting the MG-RAST team and help desk}{11}{section.1.6}
-\contentsline {chapter}{\numberline {2}Under the hood: The MG-RAST technology platform and pipeline}{12}{chapter.2}
-\contentsline {section}{\numberline {2.1}Data model}{12}{section.2.1}
-\contentsline {section}{\numberline {2.2}Details on the new MG-RAST pipeline}{14}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Preprocessing}{14}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}Dereplication}{17}{subsection.2.2.2}
-\contentsline {subsection}{\numberline {2.2.3}DRISEE}{17}{subsection.2.2.3}
-\contentsline {subsection}{\numberline {2.2.4}Screening}{17}{subsection.2.2.4}
-\contentsline {subsection}{\numberline {2.2.5}Gene calling}{17}{subsection.2.2.5}
-\contentsline {subsection}{\numberline {2.2.6}AA clustering}{18}{subsection.2.2.6}
-\contentsline {subsection}{\numberline {2.2.7}Protein identification}{18}{subsection.2.2.7}
-\contentsline {subsection}{\numberline {2.2.8}Annotation mapping}{18}{subsection.2.2.8}
-\contentsline {subsection}{\numberline {2.2.9}Abundance profiles}{18}{subsection.2.2.9}
-\contentsline {section}{\numberline {2.3}The rRNA pipeline}{20}{section.2.3}
-\contentsline {subsection}{\numberline {2.3.1}rRNA detection}{20}{subsection.2.3.1}
-\contentsline {subsection}{\numberline {2.3.2}rRNA clustering}{20}{subsection.2.3.2}
-\contentsline {subsection}{\numberline {2.3.3}rRNA identification}{20}{subsection.2.3.3}
-\contentsline {section}{\numberline {2.4}Quality assessment}{21}{section.2.4}
-\contentsline {subsection}{\numberline {2.4.1}DRISEE}{21}{subsection.2.4.1}
-\contentsline {subsection}{\numberline {2.4.2}Kmer profiles}{21}{subsection.2.4.2}
-\contentsline {subsection}{\numberline {2.4.3}Nucleotide histograms}{22}{subsection.2.4.3}
-\contentsline {section}{\numberline {2.5}Best hit, representative hit, and lowest common ancestor interpretation}{23}{section.2.5}
-\contentsline {subsection}{\numberline {2.5.1}Best hit}{23}{subsection.2.5.1}
-\contentsline {subsection}{\numberline {2.5.2}Representative hit}{24}{subsection.2.5.2}
-\contentsline {subsection}{\numberline {2.5.3}Lowest Common Ancestor (LCA)}{24}{subsection.2.5.3}
-\contentsline {subsection}{\numberline {2.5.4}Comparison of methods}{24}{subsection.2.5.4}
-\contentsline {section}{\numberline {2.6}Numbers of annotations vs. number of reads}{25}{section.2.6}
-\contentsline {section}{\numberline {2.7}Metadata, Publishing, and Sharing}{25}{section.2.7}
-\contentsline {subsection}{\numberline {2.7.1}Metadata}{25}{subsection.2.7.1}
-\contentsline {subsection}{\numberline {2.7.2}Publishing}{26}{subsection.2.7.2}
-\contentsline {subsection}{\numberline {2.7.3}Sharing}{26}{subsection.2.7.3}
-\contentsline {subsection}{\numberline {2.7.4}Anonymous sharing with reviewers}{26}{subsection.2.7.4}
-\contentsline {subsection}{\numberline {2.7.5}Identifiers}{28}{subsection.2.7.5}
-\contentsline {subsection}{\numberline {2.7.6}Linking to MG-RAST}{28}{subsection.2.7.6}
-\contentsline {chapter}{\numberline {3}MG-RAST v3 web interface}{29}{chapter.3}
-\contentsline {section}{\numberline {3.1}Technical details}{31}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}Browser requirements}{31}{subsection.3.1.1}
-\contentsline {subsection}{\numberline {3.1.2}Downloading figures}{31}{subsection.3.1.2}
-\contentsline {section}{\numberline {3.2}Sitemap for MG-RAST}{31}{section.3.2}
-\contentsline {section}{\numberline {3.3}Upload page}{32}{section.3.3}
-\contentsline {section}{\numberline {3.4}Browse page -- Metadata-enabled data discovery}{33}{section.3.4}
-\contentsline {section}{\numberline {3.5}Project page}{33}{section.3.5}
-\contentsline {section}{\numberline {3.6}Overview page}{36}{section.3.6}
-\contentsline {subsection}{\numberline {3.6.1}Technical part of the Overview page -- Details on sequencing and analysis}{36}{subsection.3.6.1}
-\contentsline {subsubsection}{\numberline {3.6.1.1}Metagenome quality control}{38}{subsubsection.3.6.1.1}
-\contentsline {subsubsection}{\numberline {3.6.1.2}Source hits distribution}{38}{subsubsection.3.6.1.2}
-\contentsline {subsubsection}{\numberline {3.6.1.3}Other statistics }{41}{subsubsection.3.6.1.3}
-\contentsline {subsection}{\numberline {3.6.2}Biological part of the Overview page }{41}{subsection.3.6.2}
-\contentsline {subsubsection}{\numberline {3.6.2.1}Rank abundance}{42}{subsubsection.3.6.2.1}
-\contentsline {subsubsection}{\numberline {3.6.2.2}Rarefaction}{42}{subsubsection.3.6.2.2}
-\contentsline {subsubsection}{\numberline {3.6.2.3}Alpha diversity}{43}{subsubsection.3.6.2.3}
-\contentsline {subsubsection}{\numberline {3.6.2.4}Functional categories}{44}{subsubsection.3.6.2.4}
-\contentsline {section}{\numberline {3.7}Download page}{44}{section.3.7}
-\contentsline {section}{\numberline {3.8}Search Page}{44}{section.3.8}
-\contentsline {section}{\numberline {3.9}Analysis page}{46}{section.3.9}
-\contentsline {subsection}{\numberline {3.9.1}Normalization}{49}{subsection.3.9.1}
-\contentsline {subsection}{\numberline {3.9.2}Rarefaction}{51}{subsection.3.9.2}
-\contentsline {subsection}{\numberline {3.9.3}KEGG mapper}{51}{subsection.3.9.3}
-\contentsline {subsection}{\numberline {3.9.4}Recruitment plots}{53}{subsection.3.9.4}
-\contentsline {subsection}{\numberline {3.9.5}Bar charts}{54}{subsection.3.9.5}
-\contentsline {subsection}{\numberline {3.9.6}Tree diagram}{57}{subsection.3.9.6}
-\contentsline {subsection}{\numberline {3.9.7}Heatmap/Dendrogram}{59}{subsection.3.9.7}
-\contentsline {subsection}{\numberline {3.9.8}Ordination}{61}{subsection.3.9.8}
-\contentsline {subsection}{\numberline {3.9.9}Table}{61}{subsection.3.9.9}
-\contentsline {subsection}{\numberline {3.9.10}Workbench}{64}{subsection.3.9.10}
-\contentsline {chapter}{\numberline {4}User Manual}{65}{chapter.4}
-\contentsline {section}{\numberline {4.1}URL}{65}{section.4.1}
-\contentsline {section}{\numberline {4.2}Account}{65}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Account registration}{65}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Account webkey}{66}{subsection.4.2.2}
-\contentsline {section}{\numberline {4.3}Privacy, Identifiers, Sharing, and Publication}{66}{section.4.3}
-\contentsline {section}{\numberline {4.4}Uploading to MG-RAST}{66}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}Steps for submission via the web interface}{67}{subsection.4.4.1}
-\contentsline {subsubsection}{\numberline {4.4.1.1}Prepare data}{67}{subsubsection.4.4.1.1}
-\contentsline {subsubsection}{\numberline {4.4.1.2}Upload files}{68}{subsubsection.4.4.1.2}
-\contentsline {subsubsection}{\numberline {4.4.1.3}Submission}{71}{subsubsection.4.4.1.3}
-\contentsline {subsection}{\numberline {4.4.2}Cmd-line uploader}{72}{subsection.4.4.2}
-\contentsline {subsection}{\numberline {4.4.3}Managing the Inbox}{72}{subsection.4.4.3}
-\contentsline {subsubsection}{\numberline {4.4.3.1}File-processing options in the Inbox}{72}{subsubsection.4.4.3.1}
-\contentsline {subsubsection}{\numberline {4.4.3.2}Directory management operations for the Inbox}{74}{subsubsection.4.4.3.2}
-\contentsline {subsection}{\numberline {4.4.4}Generating metadata for the submission}{76}{subsection.4.4.4}
-\contentsline {section}{\numberline {4.5}Working with Projects and Collections}{80}{section.4.5}
-\contentsline {section}{\numberline {4.6}Understanding Datasets}{81}{section.4.6}
-\contentsline {section}{\numberline {4.7}Drilling Down with the Workbench}{85}{section.4.7}
-\contentsline {section}{\numberline {4.8}Downloads from the Workbench}{88}{section.4.8}
-\contentsline {section}{\numberline {4.9}Viewing Evidence}{88}{section.4.9}
-\contentsline {section}{\numberline {4.10}MG-RAST Output}{90}{section.4.10}
-\contentsline {subsection}{\numberline {4.10.1}Data products on the website}{92}{subsection.4.10.1}
-\contentsline {subsection}{\numberline {4.10.2}FTP server}{93}{subsection.4.10.2}
-\contentsline {subsection}{\numberline {4.10.3}Downloads}{93}{subsection.4.10.3}
-\contentsline {section}{\numberline {4.11}Contacting the MG-RAST team and help desk}{94}{section.4.11}
-\contentsline {chapter}{\numberline {5}Putting It All in Perspective}{96}{chapter.5}
-\contentsline {section}{\numberline {5.1}MG-RAST, a community resource}{96}{section.5.1}
-\contentsline {section}{\numberline {5.2}Future Work}{97}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Roadmap}{98}{subsection.5.2.1}
-\contentsline {chapter}{\numberline {A}The downloadable files for each data set}{100}{appendix.A}
-\contentsline {chapter}{\numberline {B}Terms of Service}{104}{appendix.B}
-\contentsline {chapter}{\numberline {C}Tools and data used by MG-RAST}{106}{appendix.C}
-\contentsline {section}{\numberline {C.1}Databases}{106}{section.C.1}
-\contentsline {subsection}{\numberline {C.1.1}Protein databases}{106}{subsection.C.1.1}
-\contentsline {subsection}{\numberline {C.1.2}Ribosomal RNA databases}{107}{subsection.C.1.2}
-\contentsline {section}{\numberline {C.2}Software}{107}{section.C.2}
-\contentsline {subsection}{\numberline {C.2.1}Bioinformatics codes}{107}{subsection.C.2.1}
-\contentsline {subsection}{\numberline {C.2.2}Web/UI tools}{107}{subsection.C.2.2}
-\contentsline {subsection}{\numberline {C.2.3}Behind the scenes}{108}{subsection.C.2.3}
-\contentsline {subsection}{Glossary and Acronyms}{113}{appendix*.16}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}Brief description}{3}{section.1.2}
+\contentsline {section}{\numberline {1.3}URL}{4}{section.1.3}
+\contentsline {section}{\numberline {1.4}Citing MG-RAST}{4}{section.1.4}
+\contentsline {section}{\numberline {1.5}Version history}{4}{section.1.5}
+\contentsline {section}{\numberline {1.6}Comparison of versions 2 and 3}{5}{section.1.6}
+\contentsline {section}{\numberline {1.7}The MG-RAST team}{5}{section.1.7}
+\contentsline {section}{\numberline {1.8}Contacting the MG-RAST team and help desk}{7}{section.1.8}
+\contentsline {chapter}{\numberline {2}Under the hood: The MG-RAST technology platform and pipeline}{8}{chapter.2}
+\contentsline {section}{\numberline {2.1}Data model}{8}{section.2.1}
+\contentsline {section}{\numberline {2.2}Details on the new MG-RAST pipeline}{11}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Preprocessing}{11}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Dereplication}{11}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}DRISEE}{12}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.4}Screening}{12}{subsection.2.2.4}
+\contentsline {subsection}{\numberline {2.2.5}Gene calling}{12}{subsection.2.2.5}
+\contentsline {subsection}{\numberline {2.2.6}AA clustering}{13}{subsection.2.2.6}
+\contentsline {subsection}{\numberline {2.2.7}Protein identification}{13}{subsection.2.2.7}
+\contentsline {subsection}{\numberline {2.2.8}Annotation mapping}{13}{subsection.2.2.8}
+\contentsline {subsection}{\numberline {2.2.9}Abundance profiles}{13}{subsection.2.2.9}
+\contentsline {section}{\numberline {2.3}The rRNA pipeline}{15}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}rRNA detection}{15}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}rRNA clustering}{15}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.3}rRNA identification}{15}{subsection.2.3.3}
+\contentsline {section}{\numberline {2.4}Quality assessment}{16}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}DRISEE}{16}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}Kmer profiles}{17}{subsection.2.4.2}
+\contentsline {subsection}{\numberline {2.4.3}Nucleotide histograms}{17}{subsection.2.4.3}
+\contentsline {section}{\numberline {2.5}Best hit, representative hit, and lowest common ancestor interpretation}{18}{section.2.5}
+\contentsline {subsection}{\numberline {2.5.1}Best hit}{19}{subsection.2.5.1}
+\contentsline {subsection}{\numberline {2.5.2}Representative hit}{19}{subsection.2.5.2}
+\contentsline {subsection}{\numberline {2.5.3}Lowest Common Ancestor (LCA)}{19}{subsection.2.5.3}
+\contentsline {subsection}{\numberline {2.5.4}Comparison of methods}{19}{subsection.2.5.4}
+\contentsline {section}{\numberline {2.6}Numbers of annotations vs. number of reads}{20}{section.2.6}
+\contentsline {section}{\numberline {2.7}Metadata}{20}{section.2.7}
+\contentsline {chapter}{\numberline {3}MG-RAST v3 web interface}{22}{chapter.3}
+\contentsline {section}{\numberline {3.1}Technical details}{24}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Browser requirements}{24}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Downloading figures}{24}{subsection.3.1.2}
+\contentsline {section}{\numberline {3.2}Sitemap for MG-RAST}{24}{section.3.2}
+\contentsline {section}{\numberline {3.3}Navigation}{25}{section.3.3}
+\contentsline {section}{\numberline {3.4}Upload page}{25}{section.3.4}
+\contentsline {section}{\numberline {3.5}Browse page -- Metadata-enabled data discovery}{26}{section.3.5}
+\contentsline {section}{\numberline {3.6}Project page}{28}{section.3.6}
+\contentsline {section}{\numberline {3.7}Overview page}{28}{section.3.7}
+\contentsline {subsection}{\numberline {3.7.1}Technical part of the Overview page -- Details on sequencing and analysis}{28}{subsection.3.7.1}
+\contentsline {subsubsection}{\numberline {3.7.1.1}Metagenome quality control}{33}{subsubsection.3.7.1.1}
+\contentsline {subsubsection}{\numberline {3.7.1.2}Source hits distribution}{33}{subsubsection.3.7.1.2}
+\contentsline {subsubsection}{\numberline {3.7.1.3}Other statistics }{34}{subsubsection.3.7.1.3}
+\contentsline {subsection}{\numberline {3.7.2}Biological part of the Overview page }{34}{subsection.3.7.2}
+\contentsline {subsubsection}{\numberline {3.7.2.1}Rank abundance}{34}{subsubsection.3.7.2.1}
+\contentsline {subsubsection}{\numberline {3.7.2.2}Rarefaction}{35}{subsubsection.3.7.2.2}
+\contentsline {subsubsection}{\numberline {3.7.2.3}Alpha diversity}{35}{subsubsection.3.7.2.3}
+\contentsline {subsubsection}{\numberline {3.7.2.4}Functional categories}{37}{subsubsection.3.7.2.4}
+\contentsline {section}{\numberline {3.8}Download page}{37}{section.3.8}
+\contentsline {section}{\numberline {3.9}Search Page}{37}{section.3.9}
+\contentsline {section}{\numberline {3.10}Analysis page}{39}{section.3.10}
+\contentsline {subsection}{\numberline {3.10.1}Normalization}{42}{subsection.3.10.1}
+\contentsline {subsection}{\numberline {3.10.2}Rarefaction}{43}{subsection.3.10.2}
+\contentsline {subsection}{\numberline {3.10.3}KEGG mapper}{45}{subsection.3.10.3}
+\contentsline {subsection}{\numberline {3.10.4}Recruitment plots}{45}{subsection.3.10.4}
+\contentsline {subsection}{\numberline {3.10.5}Bar charts}{46}{subsection.3.10.5}
+\contentsline {subsection}{\numberline {3.10.6}Tree diagram}{47}{subsection.3.10.6}
+\contentsline {subsection}{\numberline {3.10.7}Heatmap/Dendrogram}{52}{subsection.3.10.7}
+\contentsline {subsection}{\numberline {3.10.8}Ordination}{54}{subsection.3.10.8}
+\contentsline {subsection}{\numberline {3.10.9}Table}{54}{subsection.3.10.9}
+\contentsline {subsection}{\numberline {3.10.10}Workbench}{56}{subsection.3.10.10}
+\contentsline {chapter}{\numberline {4}User Manual}{57}{chapter.4}
+\contentsline {section}{\numberline {4.1}URL}{57}{section.4.1}
+\contentsline {section}{\numberline {4.2}Account}{57}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Account registration}{57}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Account webkey}{57}{subsection.4.2.2}
+\contentsline {section}{\numberline {4.3}Uploading to MG-RAST}{58}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Steps for submission via the web interface}{58}{subsection.4.3.1}
+\contentsline {subsubsection}{\numberline {4.3.1.1}Prepare data}{59}{subsubsection.4.3.1.1}
+\contentsline {subsubsection}{\numberline {4.3.1.2}Upload files}{60}{subsubsection.4.3.1.2}
+\contentsline {subsubsection}{\numberline {4.3.1.3}Submission}{62}{subsubsection.4.3.1.3}
+\contentsline {subsection}{\numberline {4.3.2}Cmd-line uploader}{63}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}Managing the Inbox}{63}{subsection.4.3.3}
+\contentsline {subsubsection}{\numberline {4.3.3.1}File-processing options in the Inbox}{65}{subsubsection.4.3.3.1}
+\contentsline {subsubsection}{\numberline {4.3.3.2}Directory management operations for the Inbox}{65}{subsubsection.4.3.3.2}
+\contentsline {subsection}{\numberline {4.3.4}Generating metadata for the submission}{66}{subsection.4.3.4}
+\contentsline {section}{\numberline {4.4}Working with Projects and Collections}{70}{section.4.4}
+\contentsline {section}{\numberline {4.5}Understanding Datasets}{71}{section.4.5}
+\contentsline {section}{\numberline {4.6}Drilling Down with the Workbench}{75}{section.4.6}
+\contentsline {section}{\numberline {4.7}Downloads from the Workbench}{78}{section.4.7}
+\contentsline {section}{\numberline {4.8}Viewing Evidence}{78}{section.4.8}
+\contentsline {section}{\numberline {4.9}MG-RAST Output}{80}{section.4.9}
+\contentsline {subsection}{\numberline {4.9.1}Data products on the website}{82}{subsection.4.9.1}
+\contentsline {subsection}{\numberline {4.9.2}FTP server}{83}{subsection.4.9.2}
+\contentsline {subsection}{\numberline {4.9.3}Downloads}{83}{subsection.4.9.3}
+\contentsline {section}{\numberline {4.10}Identifiers and Linking to MG-RAST}{84}{section.4.10}
+\contentsline {subsection}{\numberline {4.10.1}Identifiers}{84}{subsection.4.10.1}
+\contentsline {subsection}{\numberline {4.10.2}Linking to MG-RAST}{84}{subsection.4.10.2}
+\contentsline {section}{\numberline {4.11}Privacy, Sharing, and Publication}{85}{section.4.11}
+\contentsline {subsection}{\numberline {4.11.1}Privacy}{85}{subsection.4.11.1}
+\contentsline {subsection}{\numberline {4.11.2}Sharing}{85}{subsection.4.11.2}
+\contentsline {subsubsection}{\numberline {4.11.2.1}Sharing with individual users}{85}{subsubsection.4.11.2.1}
+\contentsline {subsubsection}{\numberline {4.11.2.2}Anonymous sharing with reviewers}{85}{subsubsection.4.11.2.2}
+\contentsline {subsection}{\numberline {4.11.3}Publishing}{87}{subsection.4.11.3}
+\contentsline {section}{\numberline {4.12}Contacting the MG-RAST team and help desk}{88}{section.4.12}
+\contentsline {chapter}{\numberline {5}API --- The MG-RAST Application Programming Interface}{90}{chapter.5}
+\contentsline {section}{\numberline {5.1}URLs}{90}{section.5.1}
+\contentsline {section}{\numberline {5.2}Introduction}{90}{section.5.2}
+\contentsline {section}{\numberline {5.3}Design and Implementation}{91}{section.5.3}
+\contentsline {section}{\numberline {5.4}Examples}{94}{section.5.4}
+\contentsline {chapter}{\numberline {6}FAQ}{97}{chapter.6}
+\contentsline {section}{\numberline {6.1}General}{97}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}What is MG-RAST?}{97}{subsection.6.1.1}
+\contentsline {subsection}{\numberline {6.1.2}What kinds of data sets does MG-RAST analyze?}{97}{subsection.6.1.2}
+\contentsline {subsection}{\numberline {6.1.3}How many metagenomes can I submit?}{98}{subsection.6.1.3}
+\contentsline {subsection}{\numberline {6.1.4}Can I use MG-RAST as a repository for my metagenomic data?}{98}{subsection.6.1.4}
+\contentsline {subsection}{\numberline {6.1.5}Who should I contact with questions or problems with MG-RAST?}{98}{subsection.6.1.5}
+\contentsline {subsection}{\numberline {6.1.6}How should I link to MG-RAST in a publication?}{98}{subsection.6.1.6}
+\contentsline {subsection}{\numberline {6.1.7}Who should I cite when I use this service?}{98}{subsection.6.1.7}
+\contentsline {subsection}{\numberline {6.1.8}Is MG-RAST open source and can I install it locally?}{99}{subsection.6.1.8}
+\contentsline {subsection}{\numberline {6.1.9}Who should I cite when I use this service?}{99}{subsection.6.1.9}
+\contentsline {subsection}{\numberline {6.1.10}Is MG-RAST open source and can I install it locally?}{99}{subsection.6.1.10}
+\contentsline {subsection}{\numberline {6.1.11}Where can I find version 3.1.2?}{99}{subsection.6.1.11}
+\contentsline {section}{\numberline {6.2}Accounts}{100}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Why do I need to register for this service?}{100}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}I have forgotten my password, what should I do?}{100}{subsection.6.2.2}
+\contentsline {subsection}{\numberline {6.2.3}Can I change my account information?}{100}{subsection.6.2.3}
+\contentsline {section}{\numberline {6.3}Upload and Submission}{100}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}Can I upload files to my inbox through the MG-RAST API?}{100}{subsection.6.3.1}
+\contentsline {subsection}{\numberline {6.3.2}What type of sequence files should I upload?}{100}{subsection.6.3.2}
+\contentsline {subsection}{\numberline {6.3.3}What type of sequence files should I NOT upload?}{101}{subsection.6.3.3}
+\contentsline {subsection}{\numberline {6.3.4}How do I prepare my metadata for upload?}{101}{subsection.6.3.4}
+\contentsline {subsection}{\numberline {6.3.5}Will my metadata file in .xls format work OK?}{102}{subsection.6.3.5}
+\contentsline {subsection}{\numberline {6.3.6}How are the projects listed on the upload page during submission selected?}{102}{subsection.6.3.6}
+\contentsline {subsection}{\numberline {6.3.7}How much time will it take to upload my data to MG-RAST?}{102}{subsection.6.3.7}
+\contentsline {subsection}{\numberline {6.3.8}Do I need to compress my files before uploading to MG-RAST?}{102}{subsection.6.3.8}
+\contentsline {subsection}{\numberline {6.3.9}What does the 'Join paired-ends' function do?}{103}{subsection.6.3.9}
+\contentsline {subsection}{\numberline {6.3.10}What does the �assembled� pipeline option do?}{103}{subsection.6.3.10}
+\contentsline {subsection}{\numberline {6.3.11}Can I use the coverage information in my Velvet sequence file?}{104}{subsection.6.3.11}
+\contentsline {section}{\numberline {6.4}Job processing}{104}{section.6.4}
+\contentsline {subsection}{\numberline {6.4.1}How long does it take to analyze a metagenome?}{104}{subsection.6.4.1}
+\contentsline {subsection}{\numberline {6.4.2}How is the job processing priority assigned?}{104}{subsection.6.4.2}
+\contentsline {section}{\numberline {6.5}Analysis pipeline}{105}{section.6.5}
+\contentsline {subsection}{\numberline {6.5.1}How is the dereplication step performed?}{105}{subsection.6.5.1}
+\contentsline {subsection}{\numberline {6.5.2}What does the �demultiplex� function do?}{105}{subsection.6.5.2}
+\contentsline {section}{\numberline {6.6}Analysis results}{105}{section.6.6}
+\contentsline {subsection}{\numberline {6.6.1}What annotations does MG-RAST display?}{105}{subsection.6.6.1}
+\contentsline {subsection}{\numberline {6.6.2}Why don�t the numbers of annotations add up to the number of reads?}{105}{subsection.6.6.2}
+\contentsline {subsection}{\numberline {6.6.3}Is the alignment length in amino acids or in nucleotides?}{105}{subsection.6.6.3}
+\contentsline {subsection}{\numberline {6.6.4}Why am I seeing RNA similarities in my shotgun dataset?}{106}{subsection.6.6.4}
+\contentsline {subsection}{\numberline {6.6.5}Why am I seeing protein similarities in my RNA dataset?}{106}{subsection.6.6.5}
+\contentsline {subsection}{\numberline {6.6.6}Why don�t you suppress the false positives?}{106}{subsection.6.6.6}
+\contentsline {subsection}{\numberline {6.6.7}What do all those symbols in the similarities table mean?}{106}{subsection.6.6.7}
+\contentsline {subsection}{\numberline {6.6.8}Can I run a BLAST search against all public metagenomes?}{106}{subsection.6.6.8}
+\contentsline {section}{\numberline {6.7}Download}{106}{section.6.7}
+\contentsline {subsection}{\numberline {6.7.1}Where is the table of reads with the annotation for each read?}{106}{subsection.6.7.1}
+\contentsline {subsection}{\numberline {6.7.2}Where can I download the results of the metagenome analysis?}{107}{subsection.6.7.2}
+\contentsline {subsection}{\numberline {6.7.3}How do I download everything?}{107}{subsection.6.7.3}
+\contentsline {section}{\numberline {6.8}Privacy}{107}{section.6.8}
+\contentsline {subsection}{\numberline {6.8.1}Who can access my uploaded data?}{107}{subsection.6.8.1}
+\contentsline {subsection}{\numberline {6.8.2}Will my private jobs ever be deleted?}{107}{subsection.6.8.2}
+\contentsline {subsection}{\numberline {6.8.3}How do I make a job public?}{107}{subsection.6.8.3}
+\contentsline {subsection}{\numberline {6.8.4}Will my public jobs ever be deleted?}{108}{subsection.6.8.4}
+\contentsline {section}{\numberline {6.9}Webkey}{108}{section.6.9}
+\contentsline {subsection}{\numberline {6.9.1}What is an MG-RAST webkey?}{108}{subsection.6.9.1}
+\contentsline {subsection}{\numberline {6.9.2}How do I generate a webkey?}{108}{subsection.6.9.2}
+\contentsline {chapter}{\numberline {7}Putting It All in Perspective}{109}{chapter.7}
+\contentsline {section}{\numberline {7.1}MG-RAST, a community resource}{109}{section.7.1}
+\contentsline {section}{\numberline {7.2}Future Work}{110}{section.7.2}
+\contentsline {subsection}{\numberline {7.2.1}Roadmap}{111}{subsection.7.2.1}
+\contentsline {chapter}{Appendices}{113}{section*.16}
+\contentsline {chapter}{\numberline {A}The downloadable files for each data set}{114}{Appendix.1.A}
+\contentsline {chapter}{\numberline {B}Terms of Service}{118}{Appendix.1.B}
+\contentsline {chapter}{\numberline {C}Tools and data used by MG-RAST}{120}{Appendix.1.C}
+\contentsline {section}{\numberline {C.1}Databases}{120}{section.1.C.1}
+\contentsline {subsection}{\numberline {C.1.1}Protein databases}{120}{subsection.1.C.1.1}
+\contentsline {subsection}{\numberline {C.1.2}Ribosomal RNA databases}{120}{subsection.1.C.1.2}
+\contentsline {section}{\numberline {C.2}Software}{121}{section.1.C.2}
+\contentsline {subsection}{\numberline {C.2.1}Bioinformatics codes}{121}{subsection.1.C.2.1}
+\contentsline {subsection}{\numberline {C.2.2}Web/UI tools}{121}{subsection.1.C.2.2}
+\contentsline {subsection}{\numberline {C.2.3}Behind the scenes}{121}{subsection.1.C.2.3}
+\contentsline {chapter}{List of Figures}{123}{section*.17}
+\contentsline {chapter}{Glossary}{128}{section*.19}
+\contentsline {chapter}{Bibliography}{129}{section*.20}
