@@ -1,0 +1,102 @@
+%mg-rast-api-examples
+
+\chapter{Example scripts using the MG-RAST REST API}
+\label{API-Examples}. %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+
+\section{Introduction}
+As part of the RESTful API (see chapter \ref{API}), we are providing a collection of example scripts. 
+
+Each script has comments in the source code as well as a help function. This document provides a brief overview of the available scripts and their intended purpose.  Please see the help associated with all of the individual files for a complete list of options and more details.
+
+We believe these scripts to be the best starting point for many users, he we attempt to provide a listing of the most important tools.
+
+
+\subsection{URLs}
+The Examples are located on github at:
+\begin{small}
+\begin{verbatim}
+https://github.com/MG-RAST/MG-RAST-Tools
+\end{verbatim}
+This is the base directory for the rest of this chapter, go here to find the tools and examples described below:
+\begin{verbatim}
+https://github.com/MG-RAST/MG-RAST-Tools/tree/master/tools/bin
+\end{verbatim}
+\end{small}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Download DNA sequence for a function -- mg-get-sequences-for-function.py}
+
+This script will retrieve sequences and annotation for a given function or functional class.
+
+The output is a tab-delimited list of: m5nr id, dna sequence, semicolon seperated list of annotations, sequence id.
+
+\textbf{Example:}
+\begin{lstlisting}
+
+    mg-get-sequences-for-function --id "mgm4441680.3" --name "Central carbohydrate metabolism" --level level2 --source Subsystems --evalue 10
+\end{lstlisting}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Download DNA sequences for a taxon or taxonomic group-- mg-get-sequences-for-taxon.py}
+
+This script will retrieve sequences and annotation for a given taxon or taxonomic group.
+
+The output is a tab-delimited list of: m5nr id, dna sequence, semicolon seperated list of annotations, sequence id
+
+\textbf{Example:}
+\begin{lstlisting}
+    mg-get-sequences-for-taxon --id "mgm4441680.3" --name Lachnospiraceae --level family --source RefSeq --evalue 8
+\end{lstlisting}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Download sequences annotated with function and taxonomy -- mg-get-annotation-set.py}
+
+Retrieve functional annotations for given metagenome and organism.
+
+The output is a tab-delimited list of annotations: feature list, function, abundance for function, avg evalue for function, organism.
+
+\textbf{Example:}
+\begin{lstlisting}
+    mg-get-annotation-set --id "mgm4441680.3" --top 5 --level genus --source SEED
+\end{lstlisting}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Download the n most abundant functions for a metagenome -- mg-abundant-functions.py}
+
+    Retrieve the top n abundant functions for metagenome.
+
+The output is a tab-delimited list of function and abundance sorted by abundance (largest first). 'top' option controls number of rows returned.
+
+
+\textbf{Example:}
+\begin{lstlisting}
+    mg-abundant-functions --id "mgm4441680.3" --level level3 --source Subsystems --top 20 --evalue 8
+\end{lstlisting}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Download and translate similarities into different namespaces e.g. SEED or GenBank -- m5nr-tools.pl}
+
+MG-RAST computes similarities against a non-redundant database \cite{M5NR} and later translates them into any of the supported namespaces. As a result you can view your annotations (or indeed the similarity results) in each of these namespaces. Sometimes this can lead to new features and or differences becoming visible that would otherwise be obscured.
+
+m5nr-tools can translate accession ids, md5 checksums, or protein sequence into annotations. 
+One option for output is a blast m8 formatted file.
+
+
+\textbf{Example:}
+\begin{lstlisting}
+m5nr-tools --api http://kbase.us/services/communities/1 --option annotation --source RefSeq --md5 0b95101ffea9396db4126e4656460ce5,068792e95e38032059ba7d9c26c1be78,0b96c92ce600d8b2427eedbc221642f1
+\end{lstlisting}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Download multiple abundance profiles for comparison --  mg-compare-functions}
+
+Retrieve matrix of functional abundance profiles for multiple metagenomes.
+The output is either  tab-delimited table of functional abundance profiles, metagenomes in columns and functions in rows or BIOM format of functional abundance profiles.
+
+\textbf{Example:}
+\begin{lstlisting}
+    mg-compare-functions --ids "mgm4441679.3,mgm4441680.3,mgm4441681.3,mgm4441682.3" --level level2 --source KO --format text --evalue 8
+\end{lstlisting}
+
+
+
+
+
