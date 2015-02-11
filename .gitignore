@@ -1,4 +1,5 @@
-# temporary latex files
+*.log
+*.synctex.gz
 *.aux
 *.toc
 *.log
