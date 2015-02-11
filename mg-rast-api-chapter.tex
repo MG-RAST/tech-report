@@ -3,6 +3,7 @@
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \chapter{API --- The MG-RAST Application Programming Interface}
+\label{API}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
@@ -35,7 +36,7 @@ https://github.com/MG-RAST/MG-RAST-Tools
 
 %Metagenomic sequencing has produced significant amounts of data in recent years. For example, as of summer 2013, MG-RAST has been used to annotate over 110,000 data sets totaling over 43 terabases. With metagenomic sequencing finding even wider adoption in the scientific community, he existing web-based analysis tools and infrastructure in MG-RAST provide limited capability for comparative analysis (i.e., number of datasets). Moreover, although the system provides many analysis tools, it is not comprehensive. By opening MG-RAST up via a web services API (application programmers interface) we have enabled unprecedented access to MG-RAST data as well as provided a mechanism for the use of third-party analysis tools with MG-RAST data. This RESTful API makes all data and data objects created by the MG-RAST pipeline accessible as JSON objects.
 
-%As part of the DOE Systems Biology knowledgebase project (KBase, \begin{small}\url{http://kbase.us}\end{small})  we have implemented a web services API for MG-RAST. This API complements the existing MG-RAST web interface and constitutes the basis of KBase’s microbial community capabilities. The API exposes a comprehensive collection of data to programmers. The new API, which uses a RESTful implementation, is compatible with most programming environments and should be easy to use for third parties. The API provides comprehensive access to sequence data, quality control results, annotations, and many other data types. Whenever possible, we have employed standards to expose data and metadata. We provide several code examples in a number of languages both to show both the versatility of the approach and to provide a starting point for users.
+%As part of the DOE Systems Biology knowledgebase project (KBase, \begin{small}\url{http://kbase.us}\end{small})  we have implemented a web services API for MG-RAST. This API complements the existing MG-RAST web interface and constitutes the basis of KBase's microbial community capabilities. The API exposes a comprehensive collection of data to programmers. The new API, which uses a RESTful implementation, is compatible with most programming environments and should be easy to use for third parties. The API provides comprehensive access to sequence data, quality control results, annotations, and many other data types. Whenever possible, we have employed standards to expose data and metadata. We provide several code examples in a number of languages both to show both the versatility of the approach and to provide a starting point for users.
 
 %We present an API that exposes the data in MG-RAST for consumption by third parties, greatly enhancing the utility of the MG-RAST service.
 
@@ -46,6 +47,8 @@ As with most GUIs, however, there are limitations to what can be done, for examp
 The MG-RAST API enables programmatic access to data and analyses in MG-RAST without requiring local installations. Using the API, users can authenticate against the service, submit their data, download results, and perform extensive comparisons of data sets. The API uses the Representational State Transfer (REST) [3] architecture which allows download of data in ASCII format, allowing users to query the system via URLs and returning MG-RAST data objects in their native format (e.g. similarity tables or sequence files). For structured data (e.g. metadata or project information) the MG-RAST API uses JSON (Javascript Object Notation, a widely used standard) as its data format. 
 
 This allows users to use simple tools to download data files or view the JSON in their web browsers using one of the many available JSON viewers. In addition many programming languages have libraries for convenient HTTP interaction and JSON conversions. The API has a minimal number of prerequisites; and any language with HTTP and JSON support or command line utilities such as ``curl" can easily integrate with the design. 
+
+If you are not a programmer or you are not willing to spend the time learning the API, the Example scripts (see chapter \ref{API-Examples}.) 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 

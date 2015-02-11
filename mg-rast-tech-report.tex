@@ -3,6 +3,7 @@
 \usepackage{graphicx}
 \usepackage{times}
 \usepackage{mdframed}
+\usepackage{listing}
 % \usepackage{authblk}
 \usepackage{float}
 \usepackage{cite}
@@ -10,6 +11,7 @@
 \usepackage{hyperref}
 \usepackage{glossaries}
 \usepackage[toc,page]{appendix}
+\usepackage[utf8]{inputenc}
 
 \usepackage{listings}
 \lstset{
@@ -38,22 +40,19 @@
 \hspace*{0.04\textwidth} % Whitespace between the vertical line and title page text
 \parbox[b]{0.8\textwidth}{ % Paragraph box which restricts text to less than the width of the page
 {\noindent\Huge\bfseries MG-RAST Manual}\\[0.8\baselineskip] 
-{\noindent\Huge\bfseries for version 3.3.6,}\\[0.8\baselineskip] % Title
-{\noindent\Huge\bfseries revision 10}\\[2\baselineskip] % Title
+{\noindent\Huge\bfseries for version 3.5,}\\[0.8\baselineskip] % Title
+{\noindent\Huge\bfseries revision 1}\\[2\baselineskip] % Title
 {\large \textit{November 15, 2014}}\\[4\baselineskip] % Tagline or further description
 {\textbf{Andreas Wilke\textsuperscript{1,2},}}\\    % author name
 {\textbf{Elizabeth M. Glass\textsuperscript{1,2},}}\\    % author name
 {\textbf{Jared Bischof\textsuperscript{2,1},}}\\    % author name
 {\textbf{Daniel Braithwaite\textsuperscript{1,2},}}\\    % author name
-{\textbf{Mark D'Souza\textsuperscript{2,1},}}\\    % author name
 {\textbf{Wolfgang Gerlach\textsuperscript{2,1},}}\\    % author name
 {\textbf{Travis Harrison\textsuperscript{2,1},}}\\    % author name
 {\textbf{Kevin Keegan\textsuperscript{1,2},}}\\    % author name
-{\textbf{Hunter Matthews\textsuperscript{1,2},}}\\    % author name
 {\textbf{Tobias Paczian\textsuperscript{2,1},}}\\    % author name
 {\textbf{Wei Tang\textsuperscript{1,2},}}\\    % author name
-{\textbf{William L. Trimble\textsuperscript{2,1},}}\\    % author name
-{\textbf{Narayan Desai\textsuperscript{1,2} and}}\\    % author name
+{\textbf{William L. Trimble\textsuperscript{2,1} and }}\\    % author name
 {\textbf{Folker Meyer\textsuperscript{1,2}}}\\[3\baselineskip]    % author name
 {\noindent \textsuperscript{1}Argonne National Laboratory}\\   % affiliation
 {\noindent \textsuperscript{2}University of Chicago}\\[\baselineskip] % affiliation
@@ -191,7 +190,7 @@ MG-RAST users can upload raw sequence data in fastq, fasta and sff format; the s
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \section{Brief description}
 \label{section:brief-description}
-The MG-RAST pipeline performs quality control, protein prediction, clustering and similarity-based annotation on nucleic acid sequence datasets using a number of bioinformatics tools (see Section \ref{section:bioinformatics-codes}.  MG-RAST was built to analyze large shotgun metagenomic data sets ranging in size from megabases to terabases.  We also support amplicon (16s, 18s, ITS, …) sequence datasets and metatranscriptome (RNA-seq) sequence datasets.   The current MG-RAST pipeline is not capable of predicting coding regions from eukaryotes and thus will be of limited use for eukaryotic shotgun metagenomes and/or the eukaryotic subsets of shotgun metagenomes.
+The MG-RAST pipeline performs quality control, protein prediction, clustering and similarity-based annotation on nucleic acid sequence datasets using a number of bioinformatics tools (see Section \ref{section:bioinformatics-codes}.  MG-RAST was built to analyze large shotgun metagenomic data sets ranging in size from megabases to terabases.  We also support amplicon (16S, 18S, and ITS) sequence datasets and metatranscriptome (RNA-seq) sequence datasets.   The current MG-RAST pipeline is not capable of predicting coding regions from eukaryotes and thus will be of limited use for eukaryotic shotgun metagenomes and/or the eukaryotic subsets of shotgun metagenomes.
 
 Data on MG-RAST is private to the submitting user unless shared with other users or made public by the user. We strongly encourage the eventual release of data and require metadata (``data describing data'') for data sharing or publication. Data submitted with metadata will be given priority for the computational queue.
 
@@ -283,15 +282,12 @@ The current team is listed below.
 \item Elizabeth M. Glass
 \item Jared Bischof
 \item Daniel Braithwaite
-\item Mark D'Souza
 \item Wolfgang Gerlach
 \item Travis Harrison
 \item Kevin Keegan
-\item Hunter Matthews
 \item Tobias Paczian
 \item Wei Tang
 \item William L. Trimble
-\item Narayan Desai
 \item Folker Meyer
 \end{itemize}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -307,7 +303,10 @@ The following people were associated with MG-RAST in the past:
 \item    Bob Olson, 2007-2009
 \item    Daniela Bartels, 2007-2011
 \item    Yekaterina Dribinsky, 2011
-\item   Jared Wilkening, 2007-2013
+\item    Jared Wilkening, 2007-2013
+\item    Mark D'Souza 2007-2014
+\item    Hunter Matthews 2009-2014
+\item    Narayan Desai 2011-2014
 \end{itemize}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -535,7 +534,7 @@ The high-level COG and EGGNOG categories are as follows.
 \item Poorly Characterized
 \end{enumerate}
 
-We note that for most metagenomes the coverage of each of the four namespaces is quite different. The ``source hits distribution" (see Section \ref{section:source-hits-distribution}) provides information on how many sequences per dataset
+We note that for most metagenomes the coverage of each of the four namespaces is quite different. The ``source hits distribution'' (see Section \ref{section:source-hits-distribution}) provides information on how many sequences per dataset
 were found for each database.
 \end{itemize}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
@@ -591,11 +590,11 @@ Users can download DRISEE values as a tab-separated file. The first line of the 
 
 kmer digests are an annotation-independent method for describing sequence datasets that can support inferences about genome size and coverage. Here the Overview page presents several visualizations, evaluated at k=15:
 %Three visualizations provided of the kmer spectrum are 
-the kmer spectrum, kmer rank abundance, and ranked kmer consumed. All three graphs represent the same spectrum, but in different ways. The kmer spectrum plots the number of distinct kmers against kmer coverage; the kmer coverage is equivalent to number of observations of each kmer. The kmer rank abundance plots the relationship between kmer coverage and the kmer rank‚ answering the question ``What is the coverage of the nth most-abundant kmer?". Ranked kmer consumed plots the largest fraction of the data explained by the nth most-abundant kmers only.
+the kmer spectrum, kmer rank abundance, and ranked kmer consumed. All three graphs represent the same spectrum, but in different ways. The kmer spectrum plots the number of distinct kmers against kmer coverage; the kmer coverage is equivalent to number of observations of each kmer. The kmer rank abundance plots the relationship between kmer coverage and the kmer rank---answering the question ``What is the coverage of the nth most-abundant kmer?''. Ranked kmer consumed plots the largest fraction of the data explained by the nth most-abundant kmers only.
 
 \subsection{Nucleotide histograms}
 
-Nucleotide histograms are graphs showing the fraction of base pairs of each type (A, C, G, T, or ambiguous base ``N") at each position starting from the beginning of each read.
+Nucleotide histograms are graphs showing the fraction of base pairs of each type (A, C, G, T, or ambiguous base ``N'') at each position starting from the beginning of each read.
 
 Amplicon datasets (see Figure \ref{fig:nucleotide-hist-amplicon}) should show biased distributions of bases at each position, reflecting both conservation and variability in the recovered sequences:
 
@@ -705,7 +704,7 @@ The metadata describe the origins of samples and provide details on the generati
 
 Once uploaded, the metadata spreadsheets are validated automatically, and users are informed of any problems.
 
-The presence of metadata enables discovery by end users using contextual metadata. Users can perform searches such as ``retrieve soil samples from the continental U.S.A.'' If the users have added additional metadata (domain specific extension), additional queries are enabled: for example, ``restrict the results to soils with a specific pH".
+The presence of metadata enables discovery by end users using contextual metadata. Users can perform searches such as ``retrieve soil samples from the continental U.S.A.'' If the users have added additional metadata (domain specific extension), additional queries are enabled: for example, ``restrict the results to soils with a specific pH''.
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
@@ -713,7 +712,7 @@ The presence of metadata enables discovery by end users using contextual metadat
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{MG-RAST v3 web interface}
 
-The MG-RAST system provides a rich web user interface that covers all aspects of the metagenome analysis, from data upload to ordination analysis. The web interface can also be used for data discovery. Metagenomic datasets can be easily selected individually or on the basis of filters such as technology (including read length), quality, sample type, and keyword, with dynamic filtering of results based on similarity to known reference proteins or taxonomy. For example, a user might want to perform a search such as ``phylum eq `actinobacteria' and function in `KEGG pathway Lysine Biosynthesis'‚ and sample in `Ocean'" to extract sets of reads matching the appropriate functions and taxa across metagenomes. The results can be displayed in familiar formats, including bar charts, trees that incorporate abundance information, heatmaps, or principal components analyses, or exported in tabular form. The raw or processed data can be recovered via download pages. Metabolic reconstructions based on mapping to KEGG pathways are also provided.
+The MG-RAST system provides a rich web user interface that covers all aspects of the metagenome analysis, from data upload to ordination analysis. The web interface can also be used for data discovery. Metagenomic datasets can be easily selected individually or on the basis of filters such as technology (including read length), quality, sample type, and keyword, with dynamic filtering of results based on similarity to known reference proteins or taxonomy. For example, a user might want to perform a search such as ``phylum eq `actinobacteria' and function in `KEGG pathway Lysine Biosynthesis' and sample in ``Ocean'' to extract sets of reads matching the appropriate functions and taxa across metagenomes. The results can be displayed in familiar formats, including bar charts, trees that incorporate abundance information, heatmaps, or principal components analyses, or exported in tabular form. The raw or processed data can be recovered via download pages. Metabolic reconstructions based on mapping to KEGG pathways are also provided.
 
 Sample selection is crucial for understanding large-scale patterns when multiple metagenomes are compared. Accordingly, MG-RAST supports MIxS and MIMARKS (Yilmaz, 2011) (as well as domain-specific plug-ins for specialized environments not extending the minimal GSC standards); several projects, including TerraGenome, HMP, TARA, and EMP, use these GSC standards, enabling standardized queries that integrate new samples into these massive datasets. An example query using the metadata browser, enabling the user to interrogate the existing pool of public datasets for a biome of interest (e.g., hot springs) and performing comparisons and a search for organisms encoding a specific gene function (e.g., beta-lactamase or aldo/keto reductase) is given in
 Figure \ref{fig:quad-chart-analysis-example}.
@@ -725,7 +724,7 @@ One key aspect of the MG-RAST approach is the creation of smart data products en
 \includegraphics[width=6in]{Images/quad-chart-analysis-example.png}
 \end{center}
 \caption{
-(a) Using the web interface for a search of metagenomes for microbial mats in hotsprings (GSC-MIMS-Keywords Biome=``hotspring; microbial mat"), we find 6 metagenomes (refs: 4443745.3, 4443746.3, 4443747.3, 4443749.3, 4443750.3, 4443762.3). (b) Initial comparison reveals some differences in protein functional class abundance (using \gls{SEED} subsystens level 1). (c) From the PCoA plot using normalized counts of functional \gls{SEED} \gls{Subsystem}--based functional annotations (level 2) and Bray-Curtis as metric, we attempt to find differences between two similar datasets (MG-RAST-IDs: 444749.3, 4443762.3). (d) Using exported tables with functional annotations and taxonomic mapping, we analyze the distribution of organisms observed to contain beta-lactamase and plot the abundance per species for two distinct samples.
+(a) Using the web interface for a search of metagenomes for microbial mats in hotsprings (GSC-MIMS-Keywords Biome=``hotspring; microbial mat''), we find 6 metagenomes (refs: 4443745.3, 4443746.3, 4443747.3, 4443749.3, 4443750.3, 4443762.3). (b) Initial comparison reveals some differences in protein functional class abundance (using \gls{SEED} subsystens level 1). (c) From the PCoA plot using normalized counts of functional \gls{SEED} \gls{Subsystem}--based functional annotations (level 2) and Bray-Curtis as metric, we attempt to find differences between two similar datasets (MG-RAST-IDs: 444749.3, 4443762.3). (d) Using exported tables with functional annotations and taxonomic mapping, we analyze the distribution of organisms observed to contain beta-lactamase and plot the abundance per species for two distinct samples.
 }
 \label{fig:quad-chart-analysis-example}
 \end{figure*}
@@ -1073,7 +1072,7 @@ A more detailed functional analysis, allowing the user to manipulate parameters 
 \includegraphics[width=6in]{Images/subsystems-functions-piechart.png}
 \end{center}
 \caption{
-The \gls{Subsystem}s function piechart, showing reads classified into SEED subsystem level-one functions. In contrast to the COG, eggNOG, and KEGG classification schemes, there are over 20 top-level subsystem categories, creating a more highly resolved ``fingerprint" for the metagenome.
+The \gls{Subsystem}s function piechart, showing reads classified into SEED subsystem level-one functions. In contrast to the COG, eggNOG, and KEGG classification schemes, there are over 20 top-level subsystem categories, creating a more highly resolved ``fingerprint'' for the metagenome.
 }
 \label{fig:subsystems-functions-piechart}
 \end{figure*}
@@ -1122,7 +1121,7 @@ Figure \ref{fig:search-page-sorted-results} shows the results from Figure \ref{f
 \begin{center}
 \includegraphics[width=6in]{Images/search-page-unsorted-results.png}
 \end{center}
-\caption{Searching for ``oral health" returns 11 data sets for two projects. }
+\caption{Searching for ``oral health'' returns 11 data sets for two projects. }
 \label{fig:search-page-unsorted-results}
 \end{figure}
 
@@ -1234,7 +1233,7 @@ standardized\_i = (normalized\_i - mean(normalized\_i)) / stddev(normalized\_i)
 \end{math}
 \end{small}
 
-More about these procedures is available in a number of texts. We recommend Terry Speed's ``Statistical Analysis of Gene Expression in Microarray Data" \cite{1584883278}.
+More about these procedures is available in a number of texts. We recommend Terry Speed's ``Statistical Analysis of Gene Expression in Microarray Data'' \cite{1584883278}.
 
 When data exhibit a nonnormal, normal, or unknown distribution, nonparametric tests (e.g., Man-Whitney or Kurskal-Wallis) should be used. Boxplots are easy to use, and the MG-RAST analysis page provides boxplots of the standardized abundance values for checking the comparability of samples (Figure \ref{fig:boxplots}).
 
@@ -1601,7 +1600,7 @@ purposes. Your webkey is valid for a limited time period after which it expires 
 The MG-RAST website provides two locations where you can generate a new webkey:
 
 \begin{enumerate}
-\item Log in to MG-RAST and go to the Account Management page. Press the button under “Preferences” to go the the Manage Preferences page where the Web Services section displays your current webkey with its termination date. Click on the ``generate new key'' button to generate a new key and then click the ``set preferences'' button.
+\item Log in to MG-RAST and go to the Account Management page. Press the button under ``Preferences'' to go the the Manage Preferences page where the Web Services section displays your current webkey with its termination date. Click on the ``generate new key'' button to generate a new key and then click the ``set preferences'' button.
 \item Log in to MG-RAST and go to the Upload page and click on the ``generate webkey'' button in the ``upload files'' tab and then click on the ``generate new key'' button.
 \end{enumerate}
 
@@ -1706,7 +1705,7 @@ Fast Ethernet &	100 Mbit/s &1.33 minutes\\
 \noindent
 {\bf Verifying the integrity of the uploaded files.}
 
-When the upload of your files has completed, you will be prompted with the \gls{MD5}-sum of each file. You should generate an MD5 sum for each uploaded file on your machine, paste it into the appropriate box in the prompt, and click the ``check" button (see Figure 4.1). A popup will show you whether there is a match; additionally the check button will turn green upon success and red upon failure. Click the ``Close" button if you have completed the checks or if you wish to skip this step.
+When the upload of your files has completed, you will be prompted with the \gls{MD5}-sum of each file. You should generate an MD5 sum for each uploaded file on your machine, paste it into the appropriate box in the prompt, and click the ``check'' button (see Figure 4.1). A popup will show you whether there is a match; additionally the check button will turn green upon success and red upon failure. Click the ``Close'' button if you have completed the checks or if you wish to skip this step.
 
 \begin{figure*}[ht]
 \begin{center}
@@ -1718,7 +1717,7 @@ Dialogue requesting the user to put in a locally generated \gls{MD5} checksum fo
 \label{fig:upload-page-md5-verification}
 \end{figure*}
 
-Checking the integrity especially of large files is important because it will give you immediate feedback about whether your upload was successful. If not detected at upload time, a damaged file will lead to errors later in the pipeline, wasting both valuable compute cycles and, even more important, your time. To generate an \gls{MD5} sum of your file, you can use the ``md5" shell command on a Mac, the ``md5sum" shell command on Unix systems, or the freely available md5-sum tools on Windows (e.g., from http://www.winmd5.com/).
+Checking the integrity especially of large files is important because it will give you immediate feedback about whether your upload was successful. If not detected at upload time, a damaged file will lead to errors later in the pipeline, wasting both valuable compute cycles and, even more important, your time. To generate an \gls{MD5} sum of your file, you can use the ``md5'' shell command on a Mac, the ``md5sum'' shell command on Unix systems, or the freely available md5-sum tools on Windows (e.g., from http://www.winmd5.com/).
 
 \noindent
 {\bf File filters in place for uploaded files.}
@@ -1795,7 +1794,7 @@ This is the final step after which the analysis pipeline takes over and the proc
 \end{itemize}
 
 \noindent
-You can monitor the progress of your jobs in ``My Data Summary" on the Browse Metagenomes page.
+You can monitor the progress of your jobs in ``My Data Summary'' on the Browse Metagenomes page.
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Cmd-line uploader}
@@ -1981,15 +1980,15 @@ e.g. air, dust, volcanic soil, saliva, blood, dairy product, surface water, piec
 \end{itemize}
 
 \subparagraph*{Library section}
-The library section captures technical data on the preparation and sequencing done. You should choose the library tab to fill out (``metagenome'' for shotgun sequencing, ``mimarks-survey'' for amplicon or ``metatranscriptome") based on the type of sequencing done. These are separated as different sequencing techniques involving different metadata fields. Each row describes one library for one sample. The required fields are colored red.
+The library section captures technical data on the preparation and sequencing done. You should choose the library tab to fill out (``metagenome'' for shotgun sequencing, ``mimarks-survey'' for amplicon or ``metatranscriptome'') based on the type of sequencing done. These are separated as different sequencing techniques involving different metadata fields. Each row describes one library for one sample. The required fields are colored red.
 
 The \textbf{sample\_name} value in the library sheet must exactly match one of the values used in the sample sheet.
 
 The \textbf{file\_name} field holds the filename of the sequence file uploaded, or the filename to use for creating the demultiplexed file if you uploaded a multiplexed sequence file and have barcode sequences in the spreadsheet. This is used for mapping sequence files to metadata.
 
-The \textbf{metagenome\_name} field holds the name of the metagenome you are submitting. If the file\_name field is empty, the metagenome\_name will be used to map metadata to sequence files, in this case it would need to match the uploaded sequence filename without the file extension, e.g. a sequence file ``test-sequence.fasta" would be mapped to the metadata in the row which has the metagenome\_name value ``test-sequence".
+The \textbf{metagenome\_name} field holds the name of the metagenome you are submitting. If the file\_name field is empty, the metagenome\_name will be used to map metadata to sequence files, in this case it would need to match the uploaded sequence filename without the file extension, e.g. a sequence file ``test-sequence.fasta'' would be mapped to the metadata in the row which has the metagenome\_name value ``test-sequence''.
 
-The \textbf{investigation\_type} field is required to be ``metagenome'' for shotgun metagenome samples, ``mimarks-survey'' for amplicon studies or ``metatrascriptome", reflecting which tab was filled out.
+The \textbf{investigation\_type} field is required to be ``metagenome'' for shotgun metagenome samples, ``mimarks-survey'' for amplicon studies or ``metatrascriptome'', reflecting which tab was filled out.
 
 The type of sequencing instrument used is another required field. Values are, for example, Sanger, pyrosequencing, ABI-solid, 454, Illumina, assembled, other.
 
@@ -2029,7 +2028,7 @@ Collections provide an efficient way to create multiple sets of metagenomes for 
 \includegraphics[width=6in]{Images/collections-total-list1.png}
 \end{center}
 \caption{
-View of the browse table with the collection column enabled. Clicking on the ``..." at the right end of the table allows expanding the table columns.
+View of the browse table with the collection column enabled. Clicking on the ``...'' at the right end of the table allows expanding the table columns.
 }
 \label{fig:collections-total-list1}
 \end{figure*}
@@ -2106,7 +2105,7 @@ Saving a collection}
 \label{fig:Collections-how-to-save}
 \end{figure*}
 
-Step 6: Once the collection is added, the new collection will appear in the list of collections (in ``Your Data Summary").
+Step 6: Once the collection is added, the new collection will appear in the list of collections (in ``Your Data Summary'').
 
 \begin{figure*}[ht]
 \begin{center}
@@ -2535,6 +2534,14 @@ Below are examples of the types of details we would like to receive:
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{mg-rast-api-examples}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \chapter{FAQ}
 The answers to some of these Frequently Asked Questions can be found elsewhere in this manual, they are listed here for users who would like  a quick answer to a simple question. Other sections of the manual will generally contain more detail than the answers in this chapter. Some answers are just links to relevant sections in other chapters.
 % %%%%%%%%%%%	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2548,7 +2555,7 @@ The MG-RAST server is an open source system for annotation and comparative analy
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{What kinds of data sets does MG-RAST analyze?}
-MG-RAST is designed to annotate a large set of nucleotide sequences–not a complete genome and not amino acid sequences. The RAST server should be used if you want to annotate complete, or nearly complete prokaryotic genomes. Version 3.2 accepts reads of length 75bp and up, and is capable of handling sequences of several dozen kilobases. For whole metagenome shotgun data we use a gene prediction step that is not suitable for eukaryotes, for that reason do not expect MG-RAST v3.2 to work with eukaryotic data sets or for the eukaryotic subsets of your data.
+MG-RAST is designed to annotate a large set of nucleotide sequences, not a complete genome and not amino acid sequences. The RAST server should be used if you want to annotate complete, or nearly complete prokaryotic genomes. Version 3.2 accepts reads of length 75bp and up, and is capable of handling sequences of several dozen kilobases. For whole metagenome shotgun data we use a gene prediction step that is not suitable for eukaryotes, for that reason do not expect MG-RAST v3.2 to work with eukaryotic data sets or for the eukaryotic subsets of your data.
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{How many metagenomes can I submit?}
@@ -2641,7 +2648,7 @@ curl -H "auth: webkey" -X POST -F "upload=@/path_to_file/metagenome.fasta"
 \end{small}
 
 \noindent
-where you need to substitute `webkey' with the unique string of text generated by MG-RAST for your account. Your webkey is valid for a limited time period and ensures that the uploads you perform from the command line are recognized as belonging to your MG-RAST account and placed in the correct inbox.
+where you need to substitute ``webkey'' with the unique string of text generated by MG-RAST for your account. Your webkey is valid for a limited time period and ensures that the uploads you perform from the command line are recognized as belonging to your MG-RAST account and placed in the correct inbox.
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsection{What type of sequences should I upload?}
@@ -2723,12 +2730,14 @@ It is not required that you compress your files before uploading to MG-RAST, but
 Compressing your sequence data using Zip or gzip before it is uploaded will reduce the time required for the upload. The compression rate depends on the nature of the sequences, typical compression rates for uploaded sequence data that we have observed is between 30-35\%. This means the time taken for the upload may be reduced by a third or even more. On a slow connection where uploading 1GB takes over an hour this could be a considerable reduction in time. In addition, the shortened time will also reduce the chance of a failed upload if something goes wrong.
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{What does the 'Join paired-ends' function do?}
-The `Join paired-ends' function on the Upload page allows users to merge two fastq files which represent paired end reads from the same sequencing run. The fastq-join utility (\url{http://code.google.com/p/ea-utils/wiki/FastqJoin}) is used to merge mate-pairs with a minimum overlap setting of 8bp and a maximum difference of 10\% (parameters: -m 8 -p 10).  There is an option to retain or remove the pairs which do not overlap — the `remove' option drops paired reads for which no overlap is found and the `retain' option will keep non-overlapping paired reads in your output file as separate individual (non-joined) sequences.  There is also an option to include an index file (if you have one) that contains the barcode for each mate-pair.  If this file is included, the barcodes will be reverse-complemented and then prepended to the output sequences.
+\subsection{What does the ``Join paired-ends'' function do?}
+The `Join paired-ends' function on the Upload page allows users to merge two fastq files which represent paired end reads from the same sequencing run. The fastq-join utility (\url{http://code.google.com/p/ea-utils/wiki/FastqJoin}) is used to merge mate-pairs with a minimum overlap setting of 8bp and a maximum difference of 10\% (parameters: -m 8 -p 10).  There is an option to retain or remove the pairs which do not overlap---the `remove' option drops paired reads for which no overlap is found and the `retain' option will keep non-overlapping paired reads in your output file as separate individual (non-joined) sequences.  There is also an option to include an index file (if you have one) that contains the barcode for each mate-pair.  If this file is included, the barcodes will be reverse-complemented and then prepended to the output sequences.
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{What does the “assembled” pipeline option do?}
-The “assembled” pipeline option allows users to submit sequence data under a slightly altered analysis pipeline that is more appropriate for assembled sequences. Your assembled contigs should be uploaded in FASTA format and should include the abundance of each contig in your dataset with the following format:
+\subsection{What does the ``assembled'' pipeline option do?}
+The ``assembled'' pipeline option allows users to submit sequence data under a slightly altered analysis pipeline that is more appropriate for assembled sequences. Your assembled contigs should be uploaded in FASTA format and should include the abundance of each contig in your dataset with the following format:
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{small}
 \begin{verbatim}
@@ -2807,11 +2816,14 @@ MG-RAST assigns a priority to each dataset which will influence the order in whi
 The dereplication step is performed to remove replicates which can be produced during sequencing. MG-RAST identifies two reads as replicates if they have 100\% identity over the first 50 basepairs. This step is optional and you should skip it for amplicon data.
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{What does the “demultiplex” function do?}
+\subsection{What does the ``demultiplex'' function do?}
 The `demultiplex' function on the Upload page gives users the ability to demultiplex a multiplexed sequence file. The user enters the multiplexed sequence file and a bar codes file. A process is then run that separates out sequences, based upon bar codes, into separate sequence files. The separate sequence files are then turned into separate jobs in MG-RAST upon submission..
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{How is the job processing priority assigned?}
+MG-RAST assigns a priority to each dataset which will influence the order in which datasets are selected for processing as well as the processing speed for individual stages in the analysis pipeline. The priority of processing a dataset is based on its usefulness to the scientific community and is estimated using a combination of the amount of metadata supplied and the length of time before the dataset will be made public. The highest priority is given to datasets with complete metadata that will be made public immediately.
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Analysis results}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2825,7 +2837,7 @@ The `demultiplex' function on the Upload page gives users the ability to demulti
 At the moment, the annotations provided by MG-RAST are annotations produced by the MG-RAST v3.2 analysis pipeline. Different pipelines (and different pipeline strategies) may produce different results, and the results of different annotation strategies are notoriously different to reconcile. Some users have reported and published using annotations that differ from those produced by MG-RAST; we provide the MG-RAST annotations. While in theory the various annotation tools and approaches do similar things (annotating reads based on similarity to sequences in the public databases), the various approaches can provide significantly different descriptions, particularly at the species level.
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Why don’t the numbers of annotations add up to the number of reads?}
+\subsection{Why don't the numbers of annotations add up to the number of reads?}
 See Section \ref{section:annotation_numbers}.
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2838,10 +2850,11 @@ MG-RAST identifies sequences similar to known RNA sequences in shotgun data and 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Why am I seeing protein similarities in my RNA dataset?}
-These are called ``false positives''.   We fall back on human judgment when computers give results that don’t make sense.
+These are called ``false positives''.   We fall back on human judgment when computers give results that don't make sense.
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Why don’t you suppress the false positives?}
+\subsection{Why don't you suppress the false positives?}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 If we suppress protein similarities when we think a dataset is RNA, we will sometimes make mistakes, and suppress protein similarities on a dataset that is, say, a metatranscriptome, for which the protein similarities are the principal objective.   These might be called ``false negatives'', and our users don't want that.
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -3013,7 +3026,7 @@ A FASTA formatted file containing the sequences which were accepted and will be 
 A FASTA formatted file containing the sequences which were rejected and will not be passed on to the next stage of the analysis pipeline.
 Dereplication
 
-The optional dereplication step removes redundant ``technical replicate" sequences from the metagenomic sample. Technical replicates are identified by binning reads with identical first 50 base-pairs. One copy of each 50-base-pair identical bin is retained.
+The optional dereplication step removes redundant ``technical replicate'' sequences from the metagenomic sample. Technical replicates are identified by binning reads with identical first 50 base-pairs. One copy of each 50-base-pair identical bin is retained.
 
 \textbf{passed, DNA} (4465825.3.150.dereplication.passed.fna)
 
@@ -3064,7 +3077,7 @@ The columns making up each line in this file are:
 
 \textbf{RNA similarities}
 
-The two files labelled ``expand" are comma- and semicolon- delimited files that provide the mappings from md5s to function and md5s to taxonomy:
+The two files labelled ``expand'' are comma- and semicolon- delimited files that provide the mappings from md5s to function and md5s to taxonomy:
 
 \textbf{annotated, Sims} (4465825.3.450.rna.expand.lca)
 
