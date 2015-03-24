@@ -12,6 +12,7 @@
 \usepackage{glossaries}
 \usepackage[toc,page]{appendix}
 \usepackage[utf8]{inputenc}
+\usepackage{gensymb}  % to provide \degree
 
 \usepackage{listings}
 \lstset{
@@ -1970,7 +1971,7 @@ Five fields must be completed.
 \item Country --
 e.g. United States of America, Netherlands, Australia, Uruguay
 \item Latitude and longitude -- 
-e.g. [106.84517, -104.60667], [28° 42.306′N, 88° 24.099′W], [45.30 N, 73.35 W]
+e.g. [106.84517, -104.60667], [28\degree 42.306$'$N, 88\degree 24.099$'$W], [45.30 N, 73.35 W]
 \item Biome --
 e.g. small lake biome, urban biome, mangrove biome. This term must be one of the terms from the bioportal ontology (\url{http://bioportal.bioontology.org/ontologies/1069?p=terms&conceptid=ENVO\%3A00000428}). Terms that are not listed on this site are not valid.
 \item Feature --
@@ -3275,6 +3276,7 @@ MG-RAST uses a number of protein and ribosomal RNA databases integrated into the
   \item    Perl
   \item    Python
   \item    R
+  \item    Go
   \item    Google's V8  JavaScript engine
 \item      Node.js
  \item     nginx

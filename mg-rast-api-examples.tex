@@ -22,6 +22,7 @@ This is the base directory for the rest of this chapter, go here to find the too
 \begin{verbatim}
 https://github.com/MG-RAST/MG-RAST-Tools/tree/master/tools/bin
 \end{verbatim}
+Each script has a verbose help option (--help) to list all options and explain their usage.
 \end{small}
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -34,7 +35,7 @@ The output is a tab-delimited list of: m5nr id, dna sequence, semicolon seperate
 \textbf{Example:}
 \begin{lstlisting}
 
-    mg-get-sequences-for-function --id "mgm4441680.3" --name "Central carbohydrate metabolism" --level level2 --source Subsystems --evalue 10
+    mg-get-sequences-for-function.py --id "mgm4441680.3" --name "Central carbohydrate metabolism" --level level2 --source Subsystems --evalue 10
 \end{lstlisting}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Download DNA sequences for a taxon or taxonomic group-- mg-get-sequences-for-taxon.py}
@@ -45,7 +46,7 @@ The output is a tab-delimited list of: m5nr id, dna sequence, semicolon seperate
 
 \textbf{Example:}
 \begin{lstlisting}
-    mg-get-sequences-for-taxon --id "mgm4441680.3" --name Lachnospiraceae --level family --source RefSeq --evalue 8
+    mg-get-sequences-for-taxon.py --id "mgm4441680.3" --name Lachnospiraceae --level family --source RefSeq --evalue 8
 \end{lstlisting}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Download sequences annotated with function and taxonomy -- mg-get-annotation-set.py}
@@ -56,7 +57,7 @@ The output is a tab-delimited list of annotations: feature list, function, abund
 
 \textbf{Example:}
 \begin{lstlisting}
-    mg-get-annotation-set --id "mgm4441680.3" --top 5 --level genus --source SEED
+    mg-get-annotation-set.py --id "mgm4441680.3" --top 5 --level genus --source SEED
 \end{lstlisting}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -69,7 +70,7 @@ The output is a tab-delimited list of function and abundance sorted by abundance
 
 \textbf{Example:}
 \begin{lstlisting}
-    mg-abundant-functions --id "mgm4441680.3" --level level3 --source Subsystems --top 20 --evalue 8
+    mg-abundant-functions.py --id "mgm4441680.3" --level level3 --source Subsystems --top 20 --evalue 8
 \end{lstlisting}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Download and translate similarities into different namespaces e.g. SEED or GenBank -- m5nr-tools.pl}
@@ -82,7 +83,7 @@ One option for output is a blast m8 formatted file.
 
 \textbf{Example:}
 \begin{lstlisting}
-m5nr-tools --api http://kbase.us/services/communities/1 --option annotation --source RefSeq --md5 0b95101ffea9396db4126e4656460ce5,068792e95e38032059ba7d9c26c1be78,0b96c92ce600d8b2427eedbc221642f1
+m5nr-tools.pl --api "http://api.metagenomics.anl.gov/1" --option annotation --source RefSeq --md5 0b95101ffea9396db4126e4656460ce5,068792e95e38032059ba7d9c26c1be78,0b96c92ce600d8b2427eedbc221642f1
 \end{lstlisting}
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -93,7 +94,7 @@ The output is either  tab-delimited table of functional abundance profiles, meta
 
 \textbf{Example:}
 \begin{lstlisting}
-    mg-compare-functions --ids "mgm4441679.3,mgm4441680.3,mgm4441681.3,mgm4441682.3" --level level2 --source KO --format text --evalue 8
+    mg-compare-functions.py --ids "mgm4441679.3,mgm4441680.3,mgm4441681.3,mgm4441682.3" --level level2 --source KO --format text --evalue 8
 \end{lstlisting}
 
 
