@@ -1130,7 +1130,8 @@ Selection of an MG-RAST analysis scheme, that is, selection of a particular taxo
 
 We note that when choosing the LCA annotations, not all downstream tools are available. The reason is that for the LCA annotations not all sequences will be annotated to the same level: classifications are returned on different taxonomic levels.
 
-Functional annotations can be grouped into mappings to functional hierarchies or can be displayed without a hierarchy. In addition, the recruitment plot displays the recruitment of protein sequences against a reference genome.
+Functional annotations can be grouped into mappings to functional hierarchies or can be displayed without a hierarchy. 
+%In addition, the recruitment plot displays the recruitment of protein sequences against a reference genome.
 
 Each selected data type has data selections and data visualizations specific for it.
 
@@ -1140,7 +1141,7 @@ Selection of sample and parameters. This dialog allows the selection of multiple
 
 \item \textbf{Data visualization}
 
-Data visualization and comparison. Depending on the selected profile type, the profiles for the metagenomes can be visualized and compared using barcharts, trees, spreadsheet-like tables, heatmaps, PCoA, rarefaction plots, circular recruitment plot, and KEGG maps.
+Data visualization and comparison. Depending on the selected profile type, the profiles for the metagenomes can be visualized and compared using barcharts, trees, spreadsheet-like tables, heatmaps, PCoA, rarefaction plots, and KEGG maps.
 \end{enumerate}
 
 %The analysis page offers several hit classification schemes that are explained in Section \ref{section:hit-types}.
@@ -1182,7 +1183,8 @@ The use of MG-RAST identifiers (e.g., 4447971.3) is possible in the text field u
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Normalization}
 
-Normalization refers to a transformation that attempts to reshape an underlying distribution. A large number of biological variables exhibit a log-normal distribution, meaning that when the data is transformed with a log transformation, the values exhibit a normal distribution. Log transformation of the counts data makes a normalized data product that is more likely to satisfy the assumptions  of additional downstream tests such as ANOVA or t-tests.
+Normalization refers to a transformation that attempts to reshape an underlying distribution. MG-RAST now uses DEseq, which is an R package to analyse count data from high-throughput sequencing assays. DESeq, as it has been shown to outperform other methods of normalization - in particular, those that use any sort of linear scaling.
+
 
 Standardization is a transformation applied to each distribution in a group of distributions so that all distributions exhibit the same mean and the same standard deviation. This removes some aspects of intersample variability and can make data more comparable. This sort of procedure is analogous to commonly practiced scaling procedures but is more robust in that it controls for both scale and location.
 
@@ -1284,45 +1286,45 @@ Metagenomes can be assigned into one of two groups, and those groups can be visu
 \end{figure}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Recruitment plots}
-\label{section:recruitment-plots}
+%\subsection{Recruitment plots}
+%\label{section:recruitment-plots}
 
-The recruitment page allows mapping of protein sequences in a single metagenome onto the complete genome sequences that are represented in the M5nr.
-Once the metagenome is selected, the page will provide a list of genomes, sorted by the number of hits per genome, from which the user can choose a genome to display (see Figure \ref{fig:analysis-page-recruitment-plot-genome-selection}).
+%The recruitment page allows mapping of protein sequences in a single metagenome onto the complete genome sequences that are represented in the M5nr.
+%Once the metagenome is selected, the page will provide a list of genomes, sorted by the number of hits per genome, from which the user can choose a genome to display (see Figure \ref{fig:analysis-page-recruitment-plot-genome-selection}).
 
-\begin{figure}
-\begin{center}
-\includegraphics[width=6in]{Images/analysis-page-recruitment-plot-genome-selection.png}
-\end{center}
-\caption{
-Selection of a genome for display, sorted by number of hits per genome.
-}
-\label{fig:analysis-page-recruitment-plot-genome-selection}
-\end{figure}
+%\begin{figure}
+%\begin{center}
+%\includegraphics[width=6in]{Images/analysis-page-recruitment-plot-genome-selection.png}
+%\end{center}
+%\caption{
+%Selection of a genome for display, sorted by number of hits per genome.
+%}
+%\label{fig:analysis-page-recruitment-plot-genome-selection}
+%\end{figure}
 
-A circular genome plot or a table will be printed. See Figure \ref{fig:analysis-page-recruitment-plot-example}
-for an example. The following elements are contained in the figure:
+%A circular genome plot or a table will be printed. See Figure \ref{fig:analysis-page-recruitment-plot-example}
+%for an example. The following elements are contained in the figure:
 
-\begin{itemize}
-\item outmost circle: forward strand genes (red: protein, black: RNA)
-\item 2nd circle: contigs for the reference genome
-\item 3rd circle: reverse strand genes (red: protein, black: RNA)
-\item innermost circle: abundance information (color coded for e-value)
-\end{itemize}
+%\begin{itemize}
+%\item outmost circle: forward strand genes (red: protein, black: RNA)
+%\item 2nd circle: contigs for the reference genome
+%\item 3rd circle: reverse strand genes (red: protein, black: RNA)
+%\item innermost circle: abundance information (color coded for e-value)
+%\end{itemize}
 
-\begin{figure}
-\begin{center}
-\includegraphics[width=6in]{Images/analysis-page-recruitment-plot-example.png}
-\end{center}
-\caption{
-Example recruitment plot with the parameters from the previous figure for \textit{Actinomyces viscosus} C505.
-}
-\label{fig:analysis-page-recruitment-plot-example}
-\end{figure}
+%\begin{figure}
+%\begin{center}
+%\includegraphics[width=6in]{Images/analysis-page-recruitment-plot-example.png}
+%\end{center}
+%\caption{
+%Example recruitment plot with the parameters from the previous figure for \textit{Actinomyces viscosus} C505.
+%}
+%\label{fig:analysis-page-recruitment-plot-example}
+%\end{figure}
 
-The table view has the same information as the circular view and can easily be downloaded into a local spreadsheet. We use RefSeq\cite{REFSEQ} identifiers for the table as well as RefSeq functions because the underlying contig information is present in the GenBank\cite{GENBANK} downloads.
+%The table view has the same information as the circular view and can easily be downloaded into a local spreadsheet. We use RefSeq\cite{REFSEQ} %identifiers for the table as well as RefSeq functions because the underlying contig information is present in the GenBank\cite{GENBANK} downloads.
 
-The recruitment plot uses the best hit approach.
+%The recruitment plot uses the best hit approach.
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Bar charts}
@@ -2452,6 +2454,9 @@ An example is \texttt{128}.
 \subsection{Linking to MG-RAST}
 \label{section:linkin}
 Because future versions of MG-RAST may change, we provide a link-in mechanism as a stable way of linking to MG-RAST. To link to datasets or projects in MG-RAST, users should always use the \texttt{linkin.cgi}, especially in publications.
+
+Note: You must make the data set PUBLIC before you can publicly share the link. It will not work for others until you do.
+
 Note: Do not use the URL that is displayed in the browser when browsing the site.
 
 \begin{figure*}[ht]
