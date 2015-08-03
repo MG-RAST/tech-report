@@ -1720,6 +1720,7 @@ In this first step, data is uploaded into your private inbox on the MG-RAST serv
 
 From the inbox data needs to be submitted to the annotation pipeline. Once files are  uploaded, the inbox allows a set of operations to be performed:
 
+
 %\being{itemize}
 %\item barcoded sequence data, once uploaded, can be demultiplexed (see Figure TOBEADDED1)
 %\item paired ends can be merged (see Figure TOBEADDED2)
@@ -1966,10 +1967,10 @@ where you need to substitute ``webkey'' (see Section \ref{section:webkey}) with 
 \subsection{Generating metadata for the submission}
 \label{section:generating_metadata}
 
-MG-RAST uses questionnaires to capture metadata for each project with one or more samples. Users download and fill out the questionnaire and then submit it.
-Questionnaires are validated
-automatically by MG-RAST
-for completeness and compliance with the controlled vocabularies for certain fields.
+MG-RAST uses questionnaires to capture metadata for each project with one or more samples. Users have two options, they can download and fill out the questionnaire and then submit it or use our online editor, MetaZen \url{
+http://v3-web.metagenomics.anl.gov/Html/mgmainv3.html?mgpage=metazen}.
+Questionnaires are validated automatically by MG-RAST for completeness and compliance with the controlled vocabularies for certain fields.
+
 
 MG-RAST has implemented the use of Minimum Information about any (X) Sequence (MIxS)\cite{MIENS} developed by the Genomic Standards Consortium. In addition to the minimal checklists, more detailed data can be captured in optional environmental packages.
 
@@ -2089,6 +2090,55 @@ You can fill out one or more environmental metadata packages.  Currently we prov
 \end{itemize}
 
 We strongly encourage users to submit rich metadata, but we understand the effort required in providing it. Using the environmental packages (which were designed and are used by practitioners in the respective field) should make it reasonably simple to report the essential metadata required to analyze the data. If there is no environmental package to report metadata for your specific sample, please contact MG-RAST staff: we will work with the GSC\cite{GSC} to create the required questionnaire.
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Using MetaZen}
+\label{section:using_metazen}
+
+MG-RAST uses a simple spreadsheet with 12 mandatory terms. MetaZen designed to help you fill out your metadata spreadsheet. The metadata you provide, helps us to analyze your data more accurately and helps make MG-RAST a more useful analysis resource for everyone.
+
+This tool will help you get started on completing your metadata spreadsheet by filling in any information that is common across all of your samples and/or libraries. This tool currently only allows users to enter one environmental package for your samples and all samples must have been sequenced by the same number of sequencing technologies with the same number of replicates. This information is entered in tab 2. 
+
+Note: If your project deviates from this convention, you must either produce multiple separate metadata spreadsheets or generate your spreadsheet and then edit the appropriate fields manually.
+
+Metazen’s online form allows users to either use an existing project, or add in new information to start a new project (Figure \ref{fig:metazen_form}).  Users will expand each tab and fill in their metadata information. One of the benefits to using this form is that it provides compliant ENVO terms to select from to describe your sample, without the cumbersome task of looking them up outside of MG-RAST. Figure \ref{fig:metazen_expanded} shows an example of this for entering in environmental information.  
+
+The first tab is for project information where you enter the project name and description as well as PI information, information for the technical contact and cross-references to different analysis tools so that your dataset can be linked across these resources. 
+
+What you enter in the second tab (sample set information) will dictate what the next tabs will be. 
+Note: You must submit the information here before proceeding with the rest of the form. 
+Enter the information about your set of samples. First, indicate the total number of samples in your set. Second, tell us which environmental package your samples belong to. Then, indicate how many times each of your samples was sequenced by each sequencing method.  Each entry of more than zero for number of shotgun, metatranscriptome or amplicon libraries will produce an additional tab to fill out about your sample (Figure \ref{fig:metazen_step2}.  Once you add or change information into this form you will need to press the button “show library input forms” to update subsequent tabs.
+
+Note: It is allowable to indicate here if your samples were sequenced using more than one sequencing method.
+
+Once the data has been entered, click on “download excel spreadsheet” to download your filled sheet. You can now use this for upload and submission to MG-RAST.
+
+\begin{figure*}
+\begin{center}
+\includegraphics[width=6in]{Images/metazen_form.png}
+\end{center} 
+\caption{The Metazen form for filling out metadata allows users to fill in data online and add data to existing projects or start new ones. Tabs are expandable and reveal forms for the various required metadata sections.}
+\label{fig:metazen_form}
+\end{figure*}
+
+\begin{figure*}
+\begin{center}
+\includegraphics[width=6in]{Images/metazen_expanded.png}
+\end{center} 
+\caption{The Metazen form for filling out metadata allows users to fill in data using standard nomenclature.}
+\label{fig:metazen_expanded}
+\end{figure*}
+
+\begin{figure*}
+\begin{center}
+\includegraphics[width=6in]{Images/metazen_step2.png}
+\end{center} 
+\caption{The second tab in the Metazen form must be filled out before moving further down the forms. Selecting the number of libraries (other than zero) adds forms for those libraries. Click on the “show library input forms” button to display them. If no libraries are entered, then only the default tabs for environment and sample information are provided.}
+\label{fig:metazen_step2}
+\end{figure*}
+
+
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
