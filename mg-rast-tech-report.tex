@@ -794,7 +794,7 @@ Data and metadata can be uploaded in the form of spreadsheets along with the seq
 
 MG-RAST supports datasets that are augmented with rich metadata using the standards and technology developed by the GSC.
 Each user has a temporary storage location inside the MG-RAST system. This inbox provides temporary storage for data and metadata to be submitted to the system. Using the inbox, users can extract compressed files, convert a number of vendor specific formats to MG-RAST submission-compliant formats, join paired-end reads, and obtain an \gls{MD5} checksum for verifying that transmission to MG-RAST has not altered the data.
-%LIZMARLAND
+
 The web uploader has been optimized for large datasets of over 100 gigabasepairs, often resulting in file sizes in excess of 150 GB.  For more detailed information on how to navigate and use the upload page, see Section \ref{section:Uploading_to_MG-RAST}.  
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1676,31 +1676,31 @@ The barcode file should be in plain text ASCII.
 %If the sequencing facility generated the libraries and did not demultiplex them for you, make sure to get the barcodes corresponding to each of your samples. The barcode file should be in plain text ASCII (see Figure \ref{fig:barcode_example}, a downloadable example can be found at: <TOBI TO ADD URL>. 
 
 Each line of the file should contain a single barcode sequence followed by a tab and then a unique filename, with as many lines as necessary for the barcodes in the sequence file you are submitting.  Additional columns are ignored. 
-
-%See the example in figure \ref{fig:barcode_example}.
-
-%\begin{figure*}[h]
-%\begin{center} 
-
 \begin{verbatim}
-#SampleID	BarcodeSequence	LinkerPrimerSequence	Description
-1	 TCCCTTGTCTCC	GTGTGYCAGCMGCCGCGGTAA 	1
-9	 ACGAGACTGATT	GTGTGYCAGCMGCCGCGGTAA	 9
-17	GCTGTACGGATT	GTGTGYCAGCMGCCGCGGTAA	 17
-25	ATCACCAGGTGT	GTGTGYCAGCMGCCGCGGTAA 	25
+Example:
+ACTCTCGTG    sample_1
+CAGACATCT    sample_2
+GTAGATCAC    sample_3
 \end{verbatim}
 
-%\end{center} 
-%\label{fig:barcode_example} 
-%\caption{An example barcode file}
-%\end{figure*}
-
-The barcode file typically will be provided by whoever created the amplicons, in many cases that is the sequencing center.  We note that we use the same format as the popular QIIME (\cite{QIIME}) software package. 
+The barcode file typically will be provided by whoever created the amplicons, in many cases that is the sequencing center.  
 \end{itemize} % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \subsubsection{Uploading data}
 In this first step, data is uploaded into your private inbox on the MG-RAST server, this area is write-only and only accessible to you. Data in the inbox cannot be read or re-exported, its sole purpose is to serve as a starting point for the pipeline.
+
+When an upload is started it can be aborted or paused. Pausing will cause the current chunk to complete and then pause the upload. Abort will interrupt the upload immediately. A paused upload can be resumed by clicking the resume button in the upload dialog. Aborted uploads can be resumed or deleted just like other incomplete uploads by clicking the resume button in the top bar.
+
+When an upload completes (that is not an archived file), an automatic md5 check will be calculated and the result presented to the user. In the case of an archive file uploaded, the user has to produce the checksum of the local file themselves and can paste it into a check field for validation. A note will be displayed to the user to calculate the md5sum on the uncompressed file. Archived files will be decompressed automatically.
+
+At upload:
+\begin{itemize}
+\item Sequence files will automatically trigger sequence stats calculation
+\item Sequence files with calculated stats will display those stats upon selection
+\item Sequence files will show buttons for demultiplexing and joining of paired ends
+\item Barcode files will automatically show a button for demultiplexing
+\end{itemize}
 
 \begin{figure*}
 \begin{center} 
@@ -1718,7 +1718,7 @@ In this first step, data is uploaded into your private inbox on the MG-RAST serv
 \caption{Once selected from the file browser you can start the upload and observe progress in the right side pane.}
 \end{figure*}
 
-From the inbox data needs to be submitted to the annotation pipeline. Once files are  uploaded, the inbox allows a set of operations to be performed:
+From the inbox data needs to be submitted to the annotation pipeline. Once files are uploaded, the inbox allows a set of operations to be performed.
 
 
 %\being{itemize}
@@ -1775,9 +1775,9 @@ Fast Ethernet &	100 Mbit/s &1.33 minutes\\
 \item In rare cases network devices have been presenting problems for the upload. Some institutions have not anticipated the use of the http protocol to transfer large data sets. In these cases the best option is to find another network location for the transfer.
 \end{itemize}
 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\noindent
-{\bf File filters in place for uploaded files.}
+\subsubsection{File filters in place for uploaded files.}
 
 Since MG-RAST has been designed to work with metagenomic and metatranscriptomic datasets, there is a filter in place trying to identify
 datasets not suitable for MG-RAST. Those datasets will be colored red in the inbox listing and cannot be submitted.
