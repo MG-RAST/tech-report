@@ -1893,33 +1893,91 @@ The following upload instructions are for all file types supported by MG-RAST.
 The mg-inbox command line tool allows upload of sequence and metadata files and management of the user’s upload area, the inbox. In order to operate on the inbox the user has to authenticate with an MG-RAST token. The token can be retrieved from the “Account Management” --$>$ “Manage personal preferences” --$>$ “Web Services” --$>$ “authentication key” page via MG-RAST Web site.
 
 \begin{enumerate}
-\item Make sure you have python installed on your system. -- \url{https://pip.pypa.io/en/latest/installing.html}
+\item Make sure you have python installed on your system.
+\begin{small}
+\begin{lstlisting}
+  https://pip.pypa.io/en/latest/installing.html
+\end{lstlisting}
+\end{small}
 \item Go to the directory where you have your files to upload.
-\item Download the upload script “mg-inbox.py” from \url{ftp://ftp.metagenomics.anl.gov/tools/upload/}
-\begin{verbatim}
- Type "get mg-inbox.py"
- exit
-\end{verbatim}
-\item Checkout the help options for “mg-inbox.py”
-\begin{verbatim}
- Type “python mg-inbox.py --help”. 
-\end{verbatim}
- If you received an error message that you are missing certain python libraries, you will need to install them before you can run the script. To install python libraries use pip install $<$lib-name$>$ to install the missing libraries. (Note: The error message from running “python mg-inbox.py --help” will provide the “lib-name” you are missing. You may have a few libraries to install.)
 
-\item First you need to login. The login option takes a user name and password on the command line and writes a login file after successful login. For example:
+\item Download the upload script
+\begin{small}
 \begin{lstlisting}
- python mg-inbox.py login --token <myToken>
- python mg-inbox.py view all
+  ftp://ftp.metagenomics.anl.gov/tools/upload/mg-inbox.py
 \end{lstlisting}
+\end{small}
+\item Checkout the help options for “mg-inbox.py”. If you received an error message that you are missing certain python libraries, you will need to install them before you can run the script. To install python libraries use pip install $<$lib-name$>$ to install the missing libraries.
+Note: The error message from running “python mg-inbox.py --help” will provide the “lib-name” you are missing. You may have a few libraries to install.
+\begin{small}
+\begin{lstlisting}
+  python mg-inbox.py --help
+\end{lstlisting}
+\end{small}
+\item First you need to login. The login option takes a user token and writes a login file after successful login. For example:
+\begin{small}
+\begin{lstlisting}
+  python mg-inbox.py login --token <myToken>
+  python mg-inbox.py view all
+\end{lstlisting}
+\end{small}
 \item You can upload a file into your inbox with
+\begin{small}
 \begin{lstlisting}
- python <path_to_script>/mg-inbox.py upload <path_to_file>/<mySequenceFile>
+  python mg-inbox.py upload <path_to_file>/<file_name>
 \end{lstlisting}
-\item You can examine the content of your inbox with 
+\end{small}
+\item If you have a compressed file to upload, supports gzip or bzip2
+\begin{small}
 \begin{lstlisting}
- python mg-inbox.py view all
+  python mg-inbox.py --gzip upload <path_to_file>/<gzip_file>
+  python mg-inbox.py --bzip2 upload <path_to_file>/<bzip2_file>
 \end{lstlisting}
+\end{small}
+\item If you have an archive file containing multiple files to upload, supports: .zip, .tar, .tar.gz, .tar.bz2
+\begin{small}
+\begin{lstlisting}
+  python mg-inbox.py upload-archive <path_to_file>/<archive_file>
+\end{lstlisting}
+\end{small}
+\item You can examine the content of your inbox with
+\begin{small}
+\begin{lstlisting}
+  python mg-inbox.py view all
+\end{lstlisting}
+\end{small}
+
 \item You can submit your sequence files from the Upload page on the MG-RAST web site (cmd-line option coming soon).
+\end{enumerate}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{REST API uploader}
+
+The following upload instructions are for using the MG-RAST REST API with the curl program. In order to operate the API the user has to authenticate with an MG-RAST token. The token can be retrieved from the “Account Management” --$>$ “Manage personal preferences” --$>$ “Web Services” --$>$ “authentication key” page via MG-RAST Web site.
+
+\begin{enumerate}
+\item 
+\item You can upload a file into your inbox with
+\begin{small}
+\begin{lstlisting}
+  curl -X POST -H "auth: <myToken>" -F "upload=@<path_to_file>/<file_name>" "http://api.metagenomics.anl.gov/inbox"
+\end{lstlisting}
+\end{small}
+\item If you have a compressed file to upload, supports gzip or bzip2
+\begin{small}
+\begin{lstlisting}
+  curl -X POST -H "auth: <myToken>" -F "upload=@<path_to_file>/<gzip_file>" -F "compression=gzip" "http://api.metagenomics.anl.gov/inbox"
+  curl -X POST -H "auth: <myToken>" -F "upload=@<path_to_file>/<gzip_file>" -F "compression=bzip2" "http://api.metagenomics.anl.gov/inbox"
+\end{lstlisting}
+\end{small}
+\item If you have an archive file containing multiple files to upload do the following two steps, supports: .zip, .tar, .tar.gz, .tar.bz2
+\begin{small}
+\begin{lstlisting}
+  1. curl -X POST -H "auth: <myToken>" -F "upload=@<path_to_file>/<archive_file>" "http://api.metagenomics.anl.gov/inbox"
+  2. curl -X POST -H "auth: <myToken>" -F "format=<one of: zip, tar, tar.gz, tar.bz2>" "http://api.metagenomics.anl.gov/inbox/unpack/<uploaded_file_id>"
+\end{lstlisting}
+\end{small}
 \end{enumerate}
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
