@@ -43,7 +43,7 @@
 {\noindent\Huge\bfseries MG-RAST Manual}\\[0.8\baselineskip] 
 {\noindent\Huge\bfseries for version 3.6,}\\[0.8\baselineskip] % Title
 {\noindent\Huge\bfseries revision 2}\\[2\baselineskip] % Title
-{\large \textit{August 11, 2015}}\\[4\baselineskip] % Tagline or further description
+{\large \textit{August 26, 2015}}\\[4\baselineskip] % Tagline or further description
 {\textbf{Andreas Wilke\textsuperscript{1,2},}}\\    % author name
 {\textbf{Elizabeth M. Glass\textsuperscript{1,2},}}\\    % author name
 {\textbf{Jared Bischof\textsuperscript{2,1},}}\\    % author name
@@ -1903,21 +1903,22 @@ The mg-inbox command line tool allows upload of sequence and metadata files and 
 \item Checkout the help options for “mg-inbox.py”
 \begin{verbatim}
  Type “python mg-inbox.py --help”. 
- If you received an error message that you are missing certain python libraries, you will need to install them before you can run the script. To install python libraries use pip install $<$lib-name$>$ to install the missing libraries. (Note: The error message from running “python mg-inbox.py --help” will provide the “lib-name” you are missing. You may have a few libraries to install.)
 \end{verbatim}
+ If you received an error message that you are missing certain python libraries, you will need to install them before you can run the script. To install python libraries use pip install $<$lib-name$>$ to install the missing libraries. (Note: The error message from running “python mg-inbox.py --help” will provide the “lib-name” you are missing. You may have a few libraries to install.)
+
 \item First you need to login. The login option takes a user name and password on the command line and writes a login file after successful login. For example:
-\begin{verbatim} 
+\begin{lstlisting}
  python mg-inbox.py login --token <myToken>
  python mg-inbox.py view all
-\end{verbatim}
+\end{lstlisting}
 \item You can upload a file into your inbox with
-\begin{verbatim}
+\begin{lstlisting}
  python <path_to_script>/mg-inbox.py upload <path_to_file>/<mySequenceFile>
-\end{verbatim}
+\end{lstlisting}
 \item You can examine the content of your inbox with 
-\begin{verbatim}
+\begin{lstlisting}
  python mg-inbox.py view all
-\end{verbatim}
+\end{lstlisting}
 \item You can submit your sequence files from the Upload page on the MG-RAST web site (cmd-line option coming soon).
 \end{enumerate}
 
