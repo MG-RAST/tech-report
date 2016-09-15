@@ -1,0 +1,300 @@
+\ifglsentryexists{DNA}{}%
+{%
+\gls@defglossaryentry{DNA}%
+{%
+name={DNA},%
+sort={DNA},%
+type={main},%
+first={DNA},%
+firstplural={DNAs},%
+text={DNA},%
+plural={DNAs},%
+description={Deoxyribonucleic acid},%
+descriptionplural={Deoxyribonucleic acid},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{RNA}{}%
+{%
+\gls@defglossaryentry{RNA}%
+{%
+name={RNA},%
+sort={RNA},%
+type={main},%
+first={RNA},%
+firstplural={RNAs},%
+text={RNA},%
+plural={RNAs},%
+description={Ribonucleic acid},%
+descriptionplural={Ribonucleic acid},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{ADR}{}%
+{%
+\gls@defglossaryentry{ADR}%
+{%
+name={ADR},%
+sort={ADR},%
+type={main},%
+first={ADR},%
+firstplural={ADRs},%
+text={ADR},%
+plural={ADRs},%
+description={Artificial duplicate read},%
+descriptionplural={Artificial duplicate read},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{JSON}{}%
+{%
+\gls@defglossaryentry{JSON}%
+{%
+name={JSON},%
+sort={JSON},%
+type={main},%
+first={JSON},%
+firstplural={JSONs},%
+text={JSON},%
+plural={JSONs},%
+description={JavaScript Object Notation},%
+descriptionplural={JavaScript Object Notation},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{EC2}{}%
+{%
+\gls@defglossaryentry{EC2}%
+{%
+name={EC2},%
+sort={EC2},%
+type={main},%
+first={EC2},%
+firstplural={EC2s},%
+text={EC2},%
+plural={EC2s},%
+description={Amazon Elastic Compute Cloud},%
+descriptionplural={Amazon Elastic Compute Cloud},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{rRNA}{}%
+{%
+\gls@defglossaryentry{rRNA}%
+{%
+name={rRNA},%
+sort={rRNA},%
+type={main},%
+first={rRNA},%
+firstplural={rRNAs},%
+text={rRNA},%
+plural={rRNAs},%
+description={ribosomal ribonucleic acid},%
+descriptionplural={ribosomal ribonucleic acid},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{16s}{}%
+{%
+\gls@defglossaryentry{16s}%
+{%
+name={16s},%
+sort={16s},%
+type={main},%
+first={16s},%
+firstplural={16ss},%
+text={16s},%
+plural={16ss},%
+description={16S ribosomal RNA (or 16S rRNA) is a component of the 30S small subunit of prokaryotic ribosomes},%
+descriptionplural={16S ribosomal RNA (or 16S rRNA) is a component of the 30S small subunit of prokaryotic ribosomes},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{SEED}{}%
+{%
+\gls@defglossaryentry{SEED}%
+{%
+name={SEED},%
+sort={SEED},%
+type={main},%
+first={SEED},%
+firstplural={SEEDs},%
+text={SEED},%
+plural={SEEDs},%
+description={The SEED effort led by Ross Overbeek is a systematic annotation effort for prokaryotic genomes using Subsystems},%
+descriptionplural={The SEED effort led by Ross Overbeek is a systematic annotation effort for prokaryotic genomes using Subsystems},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{Subsystem}{}%
+{%
+\gls@defglossaryentry{Subsystem}%
+{%
+name={Subsystem},%
+sort={Subsystem},%
+type={main},%
+first={Subsystem},%
+firstplural={Subsystems},%
+text={Subsystem},%
+plural={Subsystems},%
+description={A subsystem is a set of functional roles that an annotator has decided should be thought of as related. Frequently, subsystems represent the collection of functional roles that make up a metabolic pathway, a complex (e.g., the ribosome), or a class of proteins (e.g., two-component signal-transduction proteins within Staphylococcus aureus). Construction of a large set of curated populated subsystems is at the center of the SEED annotation efforts},%
+descriptionplural={A subsystem is a set of functional roles that an annotator has decided should be thought of as related. Frequently, subsystems represent the collection of functional roles that make up a metabolic pathway, a complex (e.g., the ribosome), or a class of proteins (e.g., two-component signal-transduction proteins within Staphylococcus aureus). Construction of a large set of curated populated subsystems is at the center of the SEED annotation efforts},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{MD5}{}%
+{%
+\gls@defglossaryentry{MD5}%
+{%
+name={MD5},%
+sort={MD5},%
+type={main},%
+first={MD5},%
+firstplural={MD5s},%
+text={MD5},%
+plural={MD5s},%
+description={The MD5 message-digest algorithm is a widely used cryptographic hash function that produces a 128-bit (16-byte) hash value. Specified in RFC 1321, MD5 has been utilized in a wide variety of security applications, and is also commonly used to check data integrity},%
+descriptionplural={The MD5 message-digest algorithm is a widely used cryptographic hash function that produces a 128-bit (16-byte) hash value. Specified in RFC 1321, MD5 has been utilized in a wide variety of security applications, and is also commonly used to check data integrity},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%

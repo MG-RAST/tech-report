@@ -42,8 +42,8 @@
 \parbox[b]{0.8\textwidth}{ % Paragraph box which restricts text to less than the width of the page
 {\noindent\Huge\bfseries MG-RAST Manual}\\[0.8\baselineskip] 
 {\noindent\Huge\bfseries for version 3.6,}\\[0.8\baselineskip] % Title
-{\noindent\Huge\bfseries revision 1}\\[2\baselineskip] % Title
-{\large \textit{August 11, 2015}}\\[4\baselineskip] % Tagline or further description
+{\noindent\Huge\bfseries revision 3}\\[2\baselineskip] % Title
+{\large \textit{October 2nd, 2015}}\\[4\baselineskip] % Tagline or further description
 {\textbf{Andreas Wilke\textsuperscript{1,2},}}\\    % author name
 {\textbf{Elizabeth M. Glass\textsuperscript{1,2},}}\\    % author name
 {\textbf{Jared Bischof\textsuperscript{2,1},}}\\    % author name
@@ -52,7 +52,6 @@
 {\textbf{Travis Harrison\textsuperscript{2,1},}}\\    % author name
 {\textbf{Kevin Keegan\textsuperscript{1,2},}}\\    % author name
 {\textbf{Tobias Paczian\textsuperscript{2,1},}}\\    % author name
-{\textbf{Wei Tang\textsuperscript{1,2},}}\\    % author name
 {\textbf{William L. Trimble\textsuperscript{2,1} and }}\\    % author name
 {\textbf{Folker Meyer\textsuperscript{1,2}}}\\[3\baselineskip]    % author name
 {\noindent \textsuperscript{1}Argonne National Laboratory}\\   % affiliation
@@ -201,6 +200,20 @@ F. Meyer, D. Paarmann, M. D'Souza, R. Olson , E. M. Glass, M. Kubal, T. Paczian,
 BMC Bioinformatics 2008, 9:386 \\
 \noindent
 \begin{small}\url{http://www.biomedcentral.com/1471-2105/ 9/386}\end{small}.
+
+\section{Citing the MG-RAST API}
+If you use our API , please cite: \\
+\noindent
+A RESTful API for Accessing Microbial Community Data for MG-RAST\\
+\noindent
+  A. Wilke,   J. Bischof,  T. Harrison,  T. Brettin,   M. D'Souza,  W. Gerlach,     H. Matthews,  T. Paczian,   J. Wilkening,     E. M. Glass,    N. Desai,
+    F. Meyer \\
+\noindent
+PLOS Comp Biology 2015, DOI: 10.1371/journal.pcbi.1004008\\
+\noindent
+\begin{small}\url{http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004008}\end{small}.
+
+
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
@@ -219,6 +232,9 @@ Version 2.0 used BLASTX analysis for both gene prediction and functional classif
 \subsection*{Version 3}
 While version 2 of MG-RAST was widely used, it was limited to datasets smaller than a few hundred megabases, and comparison of samples was limited to pairwise comparisons. Version 3 is not based on \gls{SEED} technology; instead, it uses the SEED subsystems as a preferred data source.
 Starting with version 3, MG-RAST moved to github.
+\subsubsection*{Version 3.6}
+With version 3.6 MG-RAST was containerized,  moving from a bare metal infrastructure to a set of docker containers running in a Fleet/SystemD/etcD environment. 
+
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
@@ -1591,7 +1607,7 @@ We suggest uploading raw data (in FASTQ or SFF format) and letting MG-RAST perfo
 this approach will allow us to identify any issues with the sequencing run. Frequently, local quality control will identify some
 issues but mask others.
 
-Compressing large files will reduce the upload time and the chances of a failed upload. Users can upload gzip (.gz) and bzip2 (.bz2) or Zip (.zip) files, as well as tar archives compressed with gzip (.tar.gz) or bzip2 (.tar.bz2). Note that the size of Zip files should be under 4 GB in size.
+Compressing large files will reduce the upload time and the chances of a failed upload. Users can upload gzip (.gz) and bzip2 (.bz2) or Zip (.zip) files, as well as tar archives compressed with gzip (.tar.gz) or bzip2 (.tar.bz2). 
 
 It is not necessary to assemble data prior to upload to MG-RAST. The system has been optimized for short reads and can handle uploads of many hundreds of gigabytes.
 
@@ -1884,6 +1900,7 @@ The mg-inbox command line tool allows upload of sequence and metadata files and 
 \end{lstlisting}
 \end{small}
 \item Go to the directory where you have your files to upload.
+
 \item Download the upload script
 \begin{small}
 \begin{lstlisting}
@@ -1929,6 +1946,7 @@ Note: The error message from running “python mg-inbox.py --help” will provid
   python mg-inbox.py view all
 \end{lstlisting}
 \end{small}
+
 \item You can submit your sequence files from the Upload page on the MG-RAST web site (cmd-line option coming soon).
 \end{enumerate}
 
@@ -3206,8 +3224,19 @@ We maintain a rough roadmap for future version of MG-RAST.
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Acknowledgments}
 
+This project is funded by the NIH grant R01AI123037 and by NSF grant 1645609
+
 This work used the Magellan machine (U.S.Department of Energy, Office of Science, 
-Advanced Scientific Computing Research, under contract  DE-AC02-06CH11357) at Argonne National Laboratory, and the PADS resource (National Science Foundation grant OCI-0821678) at the Argonne National Laboratory/University of Chicago Computation Institute. This work was supported in part by the U.S. Dept. of Energy under Contract DE-AC02-06CH11357, the Sloan Foundation (SLOAN \#2010-12), NIH NIAID (HHSN272200900040C), and the NIH Roadmap HMP program (1UH2DK083993-01).
+Advanced Scientific Computing Research, under contract  DE-AC02-06CH11357) at Argonne National Laboratory, and the PADS resource (National Science Foundation grant OCI-0821678) at the Argonne National Laboratory/University of Chicago Computation Institute. 
+
+In the past the following sources contributed to MG-RAST development:
+\begin{itemize}
+\item U.S. Dept. of Energy under Contract DE-AC02-06CH11357
+\item Sloan Foundation (SLOAN \#2010-12), 
+\item NIH NIAID (HHSN272200900040C), 
+\item  NIH Roadmap HMP program (1UH2DK083993-01).
+ \end{itemize}
+ 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
