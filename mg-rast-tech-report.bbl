@@ -77,6 +77,16 @@ D.~Field, L.~Amaral-Zettler, G.~Cochrane, J.R. Cole, P.~Dawyndt, G.M. Garrity,
 \newblock The {G}enomic {S}tandards {C}onsortium.
 \newblock {\em PLOS Biology}, 9(6):e1001088, 2011.
 
+\bibitem{SKYPORT}
+Wolfgang Gerlach, Wei Tang, Kevin Keegan, Travis Harrison, Andreas Wilke, Jared
+  Bischof, Mark D'Souza, Scott Devoid, Daniel Murphy-Olson, Narayan Desai, and
+  Folker Meyer.
+\newblock Skyport: Container-based execution environment management for
+  multi-cloud scientific workflows.
+\newblock In {\em Proceedings of the 5th International Workshop on
+  Data-Intensive Computing in the Clouds}, DataCloud '14, pages 25--32,
+  Piscataway, NJ, USA, 2014. IEEE Press.
+
 \bibitem{ADRS}
 V.~Gomez-Alvarez, T.K. Teal, and T.M. Schmidt.
 \newblock Systematic artifacts in metagenomes from complex microbial
@@ -273,6 +283,14 @@ A.~Wilke, J.~Wilkening, E.M. Glass, N.~Desai, and F.~Meyer.
   analysis pipeline to the cloud.
 \newblock {\em Concurrency and Computation: Practice and Experience},
   23(17):2250–2257, 2011.
+
+\bibitem{SHOCK}
+Andreas Wilke, Wolfgang Gerlach, Travis Harrison, Tobias Paczian, Wei Tang,
+  William~L. Trimble, Jared Wilkening, Narayan Desai, and Folker Meyer.
+\newblock Shock: Active storage for multicloud streaming data analysis.
+\newblock In Ioan Raicu, Omer~F. Rana, and Rajkumar Buyya, editors, {\em 2nd
+  {IEEE/ACM} International Symposium on Big Data Computing, {BDC} 2015,
+  Limassol, Cyprus, December 7-10, 2015}, pages 68--72. {IEEE}, 2015.
 
 \bibitem{MGCLOUD}
 J.~Wilkening, A.~Wilke, N.~Desai, and F.~Meyer.
