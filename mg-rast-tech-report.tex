@@ -42,7 +42,7 @@
 \parbox[b]{0.8\textwidth}{ % Paragraph box which restricts text to less than the width of the page
 {\noindent\Huge\bfseries MG-RAST Manual}\\[0.8\baselineskip] 
 {\noindent\Huge\bfseries for version 4,}\\[0.8\baselineskip] % Title
-{\noindent\Huge\bfseries revision 0}\\[2\baselineskip] % Title
+{\noindent\Huge\bfseries revision 1}\\[2\baselineskip] % Title
 {\large \textit{October 3nd, 2016}}\\[4\baselineskip] % Tagline or further description
 {\textbf{Andreas Wilke\textsuperscript{1,2},}}\\    % author name
 {\textbf{Wolfgang Gerlach\textsuperscript{2,1},}}\\    % author name
@@ -490,7 +490,7 @@ Identification of protein coding and rRNA features (aka ``genes'')
 \item Feature annotation:\\
 Identification of putative functions and taxonomic origins for each of the features
 
-\textbf{TRAVIS: DID WE EVER INCLUDE THE CONSENSUS FOR LONG CONTIGS}
+%\textbf{TRAVIS: DID WE EVER INCLUDE THE CONSENSUS FOR LONG CONTIGS}
 
 \item Profile generation:\\
 Creation of multiple on disk representations of the information obtained above.
@@ -552,8 +552,7 @@ The previous version of MG-RAST used similarity-based gene predictions, an appro
 We note that FragGeneScan is trained for prokaryotes only. While it will identify proteins for eukaryotic sequences, the results should be viewed as more or less random.
 
 \subsection*{rRNA detection}
-\textbf{NEEDS UPDATE}
-An initial BLAT \cite{BLAT} search against a reduced RNA database efficiently identifies RNA. The reduced database is a 90\% identity clustered version of the SILVA database and is used to rapidly identify sequences with similarities to ribosomal RNA.
+An initial search using vsearch \cite{VSEARCH} against a reduced RNA database efficiently identifies ribosomal RNA. The reduced database is a 90\% identity clustered version of the SILVA, Greengenes and RDP databases and is used to rapidly identify sequences with similarities to ribosomal RNA.
 
 
 
@@ -561,12 +560,18 @@ An initial BLAT \cite{BLAT} search against a reduced RNA database efficiently id
 
 \section{Feature annotation}
 
+\subsection{Protein filtering}
+We indentify possibly protein coding regions overlapping ribosomal RNAs and exclude them from further processing.
+
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{AA clustering}
-\textbf{NEEDS UPDATE}
-MG-RAST builds clusters of proteins at the 90\% identity level using the uclust \cite{UCLUST} implementation in QIIME \cite{QIIME} preserving the relative abundances. These clusters greatly reduce the computational burden of comparing all pairs of short reads, while clustering at 90\% identity preserves sufficient biological signals.
+MG-RAST builds clusters of proteins at the 90\% identity level using the cd-hit \cite{cd-hit} preserving the relative abundances. These clusters greatly reduce the computational burden of comparing all pairs of short reads, while clustering at 90\% identity preserves sufficient biological signals.
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
 \subsection*{Protein identification}
 Once created, a representative (the longest sequence) for each cluster is subjected to similarity analysis. Instead of BLAST we use sBLAT, an implementation of the BLAT algorithm \cite{BLAT}, which we parallelized using OpenMP \cite{OPENMP} for this work.
 
@@ -580,8 +585,8 @@ Once the similarities are computed, we present reconstructions of the species co
 
 
 \subsection*{rRNA clustering}
-The rRNA-similar reads are then clustered at 97\% identity, and the longest sequence is picked as the cluster representative.
-\textbf{NEEDS UPDATE}
+The rRNA-similar reads are then clustered at 97\% identity using cd-hit, and the longest sequence is picked as the cluster representative.
+
 \subsection*{rRNA identification}
  A BLAT similarity search for the longest cluster representative is performed against the M5rna database which integrates SILVA\cite{SILVA}, Greengenes\cite{GREENGENES}, and RDP\cite{RDP}.
 
@@ -1020,6 +1025,10 @@ The download symbol, providing access to the API call and the data in a variety 
 
 
 The Overview page provides the MG-RAST ID for a data set, a unique identifier that is usable as accession number for publications. Additional information such as the name of the submitting PI and organization and a user-provided metagenome name are displayed at the top of the page as well. A static URL for linking to the system that will be stable across changes to the MG-RAST web interface is provided as additional information (Figure \ref{fig:metagenome-overview}).
+
+\textbf{Please note:} Until the data is released to the public, temporary identifiers are made available that will be replaced by permanent valid IDs at the time of data release.  The temporary identifiers are long numbers used to represent the data sets until they are public.
+Do not use temporary identifiers in publications as they are designed to change over time. An example for a temporary ID is \texttt{4fbfe5d4216d676d343733343339372e33}. A valid MG-RAST identifier is \texttt{mgm4447101.3}. Both the API and the web site work with temporary IDs and MG-RAST IDs.
+
 
 We point the readers attention to the download symbols next to each figure and or table, providing access to the data and API calls underlying each display item.
 
@@ -1602,7 +1611,7 @@ After loading all profiles, the analysis parameter widget is displayed.
 \label{fig:v4-analysis-page-parameters-initial}
 \end{figure*}
 
-TBA
+
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{Evalue, percent identity, length and minimum abundance filters}
 
@@ -1637,6 +1646,45 @@ Adding one or more filters will limit the scope of the sequences analyzed to e.g
 Adding a domain level filter for Bacteria. The filter is displayed as a blue box and is clearly labeled.
 }
 \label{fig:v4-analysis-page-domain-filter}
+\end{figure*}
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{*Example: Display abundance for functional category filtered by taxonomic entities}
+
+A key feature of the version 4.0 web interface is the ability to filter results. Here we demonstrate filtering results down to the domain Bacteria (Figure \ref{fig:v4-Analysis-page-filtering-for-Bacteria-settings}). After the filtering we select COG functional annotations using COG level 2 (Figure \ref{fig:v4-Analysis-page-COG-Level2-for-Bacteria-settings}).
+
+
+\begin{figure*}
+\begin{center}
+\includegraphics[width=4in]{Images/v4-Analysis-page-filtering-for-Bacteria-settings.png}
+\end{center}
+\caption{
+The parameter widget allows creation of a Filter for taxonomic units, in this case we use RefSeq annotation to filter at the domain level for Bacteria.}
+\label{fig:v4-Analysis-page-filtering-for-Bacteria-settings}
+\end{figure*}
+
+
+\begin{figure*}
+\begin{center}
+\includegraphics[width=4in]{Images/v4-Analysis-page-COG-Level2-for-Bacteria-settings.png}
+\end{center}
+\caption{
+After creating a filter for Bacteria only (using RefSeq taxonomic annotations) we select COG functional annotations using COG level 2.
+}
+\label{fig:v4-Analysis-page-COG-Level2-for-Bacteria-settings}
+\end{figure*}
+
+
+\begin{figure*}
+\begin{center}
+\includegraphics[width=4in]{Images/v4-Analysis-page-COG-Level2-for-Bacteria-results.png}
+\end{center}
+\caption{
+COG level 2 abundance filtered for Bacteria.
+The results for the settings shown in Figure \ref{fig:v4-Analysis-page-COG-Level2-for-Bacteria-settings}
+}
+\label{fig:v4-Analysis-page-COG-Level2-for-Bacteria-results}
 \end{figure*}
 
 
@@ -2639,7 +2687,7 @@ where you need to substitute ``webkey'' with the unique string of text generated
 With paired reads (e.g. R1 and R2) the reads can be merged prior to submission, in this case the metadata should only refer to the new merged reads. 
 
 You only need to include metadata for the R1 and R2 reads separately if you choose to treat the second read (R2) as a technical replicate. The mate pair merging can be handled by the Web UI by the submission script we provide in the MG-RAST tools repository.
-
+TBA
 
 \subsection*{What type of sequence files should I upload?}
 Your sequence data can be in FASTA, FASTQ or SFF format. These are recognized by the file name extension with valid extensions for the appropriate formats .fasta, .fna, .fastq, .fq, and .sff and FASTA and FASTQ files need to be in plain text ASCII.
