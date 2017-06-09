@@ -42,8 +42,8 @@
 \parbox[b]{0.8\textwidth}{ % Paragraph box which restricts text to less than the width of the page
 {\noindent\Huge\bfseries MG-RAST Manual}\\[0.8\baselineskip] 
 {\noindent\Huge\bfseries for version 4,}\\[0.8\baselineskip] % Title
-{\noindent\Huge\bfseries revision 1}\\[2\baselineskip] % Title
-{\large \textit{October 3nd, 2016}}\\[4\baselineskip] % Tagline or further description
+{\noindent\Huge\bfseries revision 2}\\[2\baselineskip] % Title
+{\large \textit{June 7th, 2017}}\\[4\baselineskip] % Tagline or further description
 {\textbf{Andreas Wilke\textsuperscript{1,2},}}\\    % author name
 {\textbf{Wolfgang Gerlach\textsuperscript{2,1},}}\\    % author name
 {\textbf{Travis Harrison\textsuperscript{2,1},}}\\    % author name
@@ -801,6 +801,41 @@ Nucleotide histogram with contamination.
 \section{Best hit, representative hit, and lowest common ancestor profiles}
 \label{section:hit-types}
 
+Mapping the similarities between the predicted protein coding and rRNA sequences to the databases results 
+in files that map the predicted sequences against database entries (``SIM files'').  In some cases sequences are identical between different database records, 
+e.g. version of E. coli might share identical proteins and it becomes impossible to determine the ``correct'' organism name.
+
+In those cases, the translation of those SIMS (that are against an anonymous database, with merely MD5 hashes used as identifiers; see M5NR) can be done in several different ways.
+
+\begin{itemize}
+\item best hit -- using one organisms 
+\item represenative hit -- we pick a random member of the group of idential sequences, the strain you know to be in the sample might not be the representative, the counts are correct, no inflation.
+(this will ensure that your favorite strain is also listed, but leads to an inflation in the counts)
+\end{itemize}
+
+Figures \ref{fig:UI-analysis-representative-hit} and \ref{fig:UI-analysis-best-hit} show the effects of using the best and representative hit strategies.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=4in]{Images/v402-UI-Analysis-best-hit-selected.png}
+\end{center}
+\caption{
+Selecting best hit for mapping data from study mgp128 against Subsystems.
+}
+\label{fig:UI-analysis-representative-hit}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=4in]{Images/v402-UI-Analysis-representative-hit-selected.png}
+\end{center}
+\caption{
+Selecting representative hit for mapping data from study mgp128 against Subsystems  leads to inflated numbers.
+}
+\label{fig:UI-analysis-best-hit}
+
+
+\end{figure}
 MG-RAST searches the nonredundant M5nr and M5rna databases in which each sequence is unique. These two databases are built from multiple sequence database sources, and the individual sequences may occur multiple times in different strains and species (and sometimes genera) with 100\% identity. In these circumstances, choosing the ``right'' taxonomic information is not a straightforward process.
 
 To optimally serve a number of different use cases, we have implemented three methods--best hit, representative hit, and lowest common ancestor---for 
