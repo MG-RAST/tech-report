@@ -102,7 +102,7 @@
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Motivation}
 
-MG-RAST provides Science as a Service for environmental DNA at \url{http://metagenomics.anl.gov/}.
+MG-RAST provides Science as a Service for environmental DNA at \url{http://mg-rast.org/}.
 
 
 The National Human Genome Research Institute (NHGRI), a division of the National Institutes of Health, publishes information (see Figure \ref{fig:cost_per_megabase}) describing the development of computing costs and DNA sequencing costs over time \cite{NHGRI_COST}. The dramatic gap between the shrinking costs of sequencing and the more or less stable costs of computing is a major challenge for biomedical researchers trying to use next-generation DNA sequencing platforms to obtain information on microbial communities. Wilkening \textit{et al.} \cite{MGCLOUD} provide a real currency cost for the analysis of 100 gigabasepairs of DNA sequence data using BLASTX on Amazon's \gls{EC2} service: \$300,000.\footnote{This includes only the computation cost, no data transfer cost, and was computed using 2009 prices.} A more recent study by University of Maryland researchers \cite{CLOVR} estimates the computation for a terabase of DNA shotgun data using their CLOVR metagenome analysis pipeline at over \$5 million per terabase.
@@ -190,7 +190,7 @@ The publication ``Metagenomics-a guide from sampling to data analysis'' (PMID 22
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \section{URL}
 \label{section:MG-RAST-URL}
-\url{http://metagenomics.anl.gov/}
+\url{http://mg-rast.org/}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
@@ -1740,14 +1740,14 @@ All questions, comments or problems regarding MG-RAST should be directed to our 
 \subsection*{How should I link to MG-RAST in a publication?}
 You can provide a stable link to an MG-RAST job or project using the following URLs:
 
-\begin{small}\texttt{http://metagenomics.anl.gov/linkin.cgi?metagenome=}\end{small}
+\begin{small}\texttt{http://mg-rast.org/linkin.cgi?metagenome=}\end{small}
 
-\begin{small}\texttt{http://metagenomics.anl.gov/linkin.cgi?project=}\end{small}
+\begin{small}\texttt{http://mg-rast.org/linkin.cgi?project=}\end{small}
 
 \noindent
 For example, for the metagenome ID 4440283.3 the URL is:
 
-\begin{small}\url{http://metagenomics.anl.gov/linkin.cgi?metagenome=4440283.3}\end{small}
+\begin{small}\url{http://mg-rast.org/linkin.cgi?metagenome=4440283.3}\end{small}
 
 \noindent
 This URL provides a stable method of linking to your data which does not require the viewer to have an MG-RAST account. Please do not use the URL you see when you are browsing the site.
@@ -1778,9 +1778,9 @@ Note: Do not use the URL that is displayed in the browser when browsing the site
 
 \begin{figure*}[ht]
 
-\texttt{http://metagenomics.anl.gov/linkin.cgi?metagenome=}
+\texttt{http://mg-rast.org/linkin.cgi?metagenome=}
 
-\texttt{http://metagenomics.anl.gov/linkin.cgi?project=}
+\texttt{http://mg-rast.org/linkin.cgi?project=}
 
 \caption{Stable URLs provided by the \texttt{linkin.cgi} mechanism for linking to MG-RAST.}
 \label{fig:linkin.cgi}
@@ -1788,9 +1788,9 @@ Note: Do not use the URL that is displayed in the browser when browsing the site
 \end{figure*}
 
 For example, for the public dataset with metagenome ID \texttt{4440283.3} the URL is:
-\url{http://metagenomics.anl.gov/linkin.cgi?metagenome=4440283.3}.
+\url{http://mg-rast.org/linkin.cgi?metagenome=4440283.3}.
 For the public project with project ID  \texttt{128} the URL is:
-\url{http://metagenomics.anl.gov/linkin.cgi?project=128}.
+\url{http://mg-rast.org/linkin.cgi?project=128}.
 
 These URLs provides a stable method of linking to data that does not require the viewer to have an MG-RAST account. 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
@@ -1861,10 +1861,10 @@ Metadata: MG-RAST requires that you enter metadata for the project, samples and 
 If you have already entered metadata, e.g. during submission, and want to make changes, you can download this file with the existing metadata prefilled from the project page with the `Export Metadata' link.
 
 If you have not entered metadata for your project, download the latest metadata template file from:
-\url{ftp://ftp.metagenomics.anl.gov/data/misc/metadata/}
+\url{ftp://ftp.mg-rast.org/data/misc/metadata/}
 The first sheet is a README containing some important tips for entering the metadata. The second row in each sheet in the template contains some explanation and instructions for each column. The columns marked with red headers are required.
 
-You can enter your data directly into the template, a better route would be to use the tool we built to facilitate metadata entry -- MetaZen: \url{http://metagenomics.anl.gov/metazen.cgi}.
+You can enter your data directly into the template, a better route would be to use the tool we built to facilitate metadata entry -- MetaZen: \url{http://mg-rast.org/metazen.cgi}.
 MetaZen will step you through the data entry and then give you a pre-filled excel spreadsheet to download which you can then edit further if necessary.
 
 Once you have the metadata file ready, upload with the `Upload Metadata' link on the project page.
@@ -1877,11 +1877,11 @@ Final step: Make the project public from the project page (project page blue bar
 \end{enumerate}
 
 The link for a public project which should be used in a publication is listed near the top of the project page, e.g.:
-\url{http://metagenomics.anl.gov/metagenomics.cgi?page=MetagenomeProject&project=128}
+\url{http://mg-rast.org/metagenomics.cgi?page=MetagenomeProject&project=128}
 where 128 is the MG-RAST project ID.
 
 The link for individual public metagenomes which should be used in a publication is listed near the top of the metagenome overview page, e.g.:
-\url{http: //metagenomics.anl.gov/linkin.cgi?metagenome=4440283.3}
+\url{http: //mg-rast.org/linkin.cgi?metagenome=4440283.3}
 where 4440283.3 is the MG-RAST metagenome ID.
 
 The publication to cite for MG-RAST is at \url{http://www.biomedcentral.com/1471-2105/9/386}.
@@ -2061,7 +2061,7 @@ Barcoding reads allows multiplexing multiple samples into a single sequence file
 
 The barcode file should be in plain text ASCII.
 
-If the sequencing facility generated the libraries and did not demultiplex them for you, make sure to get the barcodes corresponding to each of your samples. The barcode file should be in plain text ASCII, a downloadable example can be found at: \url{ftp://ftp.metagenomics.anl.gov/data/manual/example/}. 
+If the sequencing facility generated the libraries and did not demultiplex them for you, make sure to get the barcodes corresponding to each of your samples. The barcode file should be in plain text ASCII, a downloadable example can be found at: \url{ftp://ftp.mg-rast.org/data/manual/example/}. 
 
 Each line of the file should contain a single barcode sequence followed by a tab and then a unique filename, with as many lines as necessary for the barcodes in the sequence file you are submitting.  Additional columns are ignored. 
 \begin{verbatim}
@@ -2276,7 +2276,7 @@ The mg-inbox command line tool allows upload of sequence and metadata files and 
 \item Download the upload script
 \begin{small}
 \begin{lstlisting}
-  ftp://ftp.metagenomics.anl.gov/tools/upload/mg-inbox.py
+  ftp://ftp.mg-rast.org/tools/upload/mg-inbox.py
 \end{lstlisting}
 \end{small}
 \item Checkout the help options for “mg-inbox.py”. If you received an error message that you are missing certain python libraries, you will need to install them before you can run the script. To install python libraries use pip install $<$lib-name$>$ to install the missing libraries.
@@ -2335,21 +2335,21 @@ We strongly suggest that you use the scripts we provide, instead of the native R
 \item You can upload a file into your inbox with
 \begin{small}
 \begin{lstlisting}
-  curl -X POST -H "auth: <myToken>" -F "upload=@<path_to_file>/<file_name>" "http://api.metagenomics.anl.gov/inbox"
+  curl -X POST -H "auth: <myToken>" -F "upload=@<path_to_file>/<file_name>" "https://api.mg-rast.org/inbox"
 \end{lstlisting}
 \end{small}
 \item If you have a compressed file to upload, supports gzip or bzip2
 \begin{small}
 \begin{lstlisting}
-  curl -X POST -H "auth: <myToken>" -F "upload=@<path_to_file>/<gzip_file>" -F "compression=gzip" "http://api.metagenomics.anl.gov/inbox"
-  curl -X POST -H "auth: <myToken>" -F "upload=@<path_to_file>/<gzip_file>" -F "compression=bzip2" "http://api.metagenomics.anl.gov/inbox"
+  curl -X POST -H "auth: <myToken>" -F "upload=@<path_to_file>/<gzip_file>" -F "compression=gzip" "https://api.mg-rast.org/inbox"
+  curl -X POST -H "auth: <myToken>" -F "upload=@<path_to_file>/<gzip_file>" -F "compression=bzip2" "https://api.mg-rast.org/inbox"
 \end{lstlisting}
 \end{small}
 \item If you have an archive file containing multiple files to upload do the following two steps, supports: .zip, .tar, .tar.gz, .tar.bz2
 \begin{small}
 \begin{lstlisting}
-  1. curl -X POST -H "auth: <myToken>" -F "upload=@<path_to_file>/<archive_file>" "http://api.metagenomics.anl.gov/inbox"
-  2. curl -X POST -H "auth: <myToken>" -F "format=<one of: zip, tar, tar.gz, tar.bz2>" "http://api.metagenomics.anl.gov/inbox/unpack/<uploaded_file_id>"
+  1. curl -X POST -H "auth: <myToken>" -F "upload=@<path_to_file>/<archive_file>" "https://api.mg-rast.org/inbox"
+  2. curl -X POST -H "auth: <myToken>" -F "format=<one of: zip, tar, tar.gz, tar.bz2>" "https://api.mg-rast.org/inbox/unpack/<uploaded_file_id>"
 \end{lstlisting}
 \end{small}
 \end{enumerate}
@@ -2442,15 +2442,15 @@ We strongly suggest that you use the scripts we provide, instead of the native R
 \label{section:generating_metadata}
 
 MG-RAST uses questionnaires to capture metadata for each project with one or more samples. Users have two options, they can download and fill out the questionnaire and then submit it or use our online editor, MetaZen \url{
-http://v3-web.metagenomics.anl.gov/Html/mgmainv3.html?mgpage=metazen}.
+http://v3-web.mg-rast.org/Html/mgmainv3.html?mgpage=metazen}.
 Questionnaires are validated automatically by MG-RAST for completeness and compliance with the controlled vocabularies for certain fields.
 
 
 MG-RAST has implemented the use of Minimum Information about any (X) Sequence (MIxS)\cite{MIENS} developed by the Genomic Standards Consortium. In addition to the minimal checklists, more detailed data can be captured in optional environmental packages.
 
-We use simple spreadsheets to capture metadata, with a minimal number of required fields (in red in the spreadsheets) and a number of optional fields. The spreadsheet is separated into multiple tabs representing the different metadata categories. The MG-RAST metadata spreadsheet template is available on the MG-RAST upload page or at \url{ftp://ftp.metagenomics.anl.gov/data/misc/metadata/MGRAST_MetaData_template_1.3.xlsx}.
+We use simple spreadsheets to capture metadata, with a minimal number of required fields (in red in the spreadsheets) and a number of optional fields. The spreadsheet is separated into multiple tabs representing the different metadata categories. The MG-RAST metadata spreadsheet template is available on the MG-RAST upload page or at \url{ftp://ftp.mg-rast.org/data/misc/metadata/MGRAST_MetaData_template_1.3.xlsx}.
 
-A filled-out version of the spreadsheet is available at \url{ftp://ftp.metagenomics.anl.gov/data/misc/metadata/MGRAST_MetaData_template_example.xlsx}.
+A filled-out version of the spreadsheet is available at \url{ftp://ftp.mg-rast.org/data/misc/metadata/MGRAST_MetaData_template_example.xlsx}.
 
 In Figure \ref{fig:project-spreadsheet} we show the template tab for project and the required field labels (in red) (in essence, your contact information).
 Figure \ref{fig:project-spreadsheet-multiple-tabs} shows the various tabs in the spreadsheet.
@@ -2620,7 +2620,7 @@ Yes.  You can upload files to your user inbox using the MG-RAST API with the com
 \begin{small}
 \begin{verbatim}
 curl -H "auth: webkey" -X POST -F "upload=@/path_to_file/metagenome.fasta"
-          "http://api.metagenomics.anl.gov/1/inbox/" > curl_output.txt
+          "https://api.mg-rast.org/1/inbox/" > curl_output.txt
 \end{verbatim}
 \end{small}
 
