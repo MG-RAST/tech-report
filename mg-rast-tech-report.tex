@@ -40,14 +40,14 @@
 \rule{1pt}{\textheight} % Vertical line
 \hspace*{0.04\textwidth} % Whitespace between the vertical line and title page text
 \parbox[b]{0.8\textwidth}{ % Paragraph box which restricts text to less than the width of the page
-{\noindent\Huge\bfseries MG-RAST Manual}\\[0.8\baselineskip] 
+{\noindent\Huge\bfseries MG-RAST Manual}\\[0.8\baselineskip]
 {\noindent\Huge\bfseries for version 4,}\\[0.8\baselineskip] % Title
-{\noindent\Huge\bfseries revision 0}\\[2\baselineskip] % Title
-{\large \textit{October 3nd, 2016}}\\[4\baselineskip] % Tagline or further description
+{\noindent\Huge\bfseries revision 5}\\[2\baselineskip] % Title
+{\large \textit{July 13th, 2018}}\\[4\baselineskip] % Tagline or further description
+{\large \url{https://mg-rast.org}}\\[4\baselineskip] % Tagline or further description
 {\textbf{Andreas Wilke\textsuperscript{1,2},}}\\    % author name
 {\textbf{Wolfgang Gerlach\textsuperscript{2,1},}}\\    % author name
 {\textbf{Travis Harrison\textsuperscript{2,1},}}\\    % author name
-{\textbf{Tobias Paczian\textsuperscript{2,1},}}\\    % author name
 {\textbf{William L. Trimble\textsuperscript{2,1} and }}\\    % author name
 {\textbf{Folker Meyer\textsuperscript{1,2}}}\\[3\baselineskip]    % author name
 {\noindent \textsuperscript{1}Argonne National Laboratory}\\   % affiliation
@@ -92,17 +92,17 @@
 \dictentry{MD5}{The MD5 message-digest algorithm is a widely used cryptographic hassh function that produces a 128-bit (16-byte) hash value. Specified in RFC 1321, MD5 has been utilized in a wide variety of security applications, and is also commonly used to check data integrity}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Introduction}
 \setcounter{page}{1}
 \pagenumbering{arabic}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Motivation}
 
-MG-RAST provides Science as a Service for environmental DNA at \url{http://mg-rast.org/}.
+MG-RAST provides Science as a Service for environmental DNA ("metagenomic sequences") at \url{https://mg-rast.org}.% or \url{https://metagenomics.anl.gov}.
 
 
 The National Human Genome Research Institute (NHGRI), a division of the National Institutes of Health, publishes information (see Figure \ref{fig:cost_per_megabase}) describing the development of computing costs and DNA sequencing costs over time \cite{NHGRI_COST}. The dramatic gap between the shrinking costs of sequencing and the more or less stable costs of computing is a major challenge for biomedical researchers trying to use next-generation DNA sequencing platforms to obtain information on microbial communities. Wilkening \textit{et al.} \cite{MGCLOUD} provide a real currency cost for the analysis of 100 gigabasepairs of DNA sequence data using BLASTX on Amazon's \gls{EC2} service: \$300,000.\footnote{This includes only the computation cost, no data transfer cost, and was computed using 2009 prices.} A more recent study by University of Maryland researchers \cite{CLOVR} estimates the computation for a terabase of DNA shotgun data using their CLOVR metagenome analysis pipeline at over \$5 million per terabase.
@@ -128,7 +128,7 @@ use of Sanger sequencing (frequently) instead of more cost-efficient next-genera
 \item Amplicon metagenomics (single gene studies, \gls{16s} rDNA):
 next-generation sequencing of PCR amplified ribosomal genes providing a single reference gene--based view of microbial community ecology
 
-\item Shotgun metagenomics: 
+\item Shotgun metagenomics:
 use of next-generation technology applied directly to environmental samples
 
 \item Metatranscriptomics:
@@ -157,12 +157,12 @@ Using shotgun data (or metatranscriptomic data) to derive the functional complem
 Based on sequence similarity searches, identifying the organisms encoding specific functions.
 \end{itemize}
 
-The system supports the analysis of the prokaryotic content of samples, analysis of viruses and eukaryotic sequences is not currently supported, due to software limitations. 
+The system supports the analysis of the prokaryotic content of samples, analysis of viruses and eukaryotic sequences is not currently supported, due to software limitations.
 
 MG-RAST users can upload raw sequence data in fastq, fasta and sff format; the sequences will be normalized (quality controlled) and processed and summaries automatically generated. The server provides several methods to access the different data types, including phylogenetic and metabolic reconstructions, and the ability to compare the metabolism and annotations of one or more metagenomes, individually or in groups. Access to the data is password protected unless the owner has made it public, and all data generated by the automated pipeline is available for download in variety of common formats.
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Brief description}
 \label{section:brief-description}
 The MG-RAST pipeline performs quality control, protein prediction, clustering and similarity-based annotation on nucleic acid sequence datasets using a number of bioinformatics tools (see Section \ref{section:bioinformatics-codes}.  MG-RAST was built to analyze large shotgun metagenomic data sets ranging in size from megabases to terabases.  We also support amplicon (16S, 18S, and ITS) sequence datasets and metatranscriptome (RNA-seq) sequence datasets.   The current MG-RAST pipeline is not capable of predicting coding regions from eukaryotes and thus will be of limited use for eukaryotic shotgun metagenomes and/or the eukaryotic subsets of shotgun metagenomes.
@@ -176,7 +176,7 @@ You must choose quality control filtering options at the time you submit your jo
 
 The MG-RAST pipeline assigns an accession number and puts the data in a queue for computation.  The similarity search step is computationally expensive. Small jobs can complete as fast as hours, while large jobs can spend a week waiting in line for computational resources.
 
-MG-RAST performs a protein similarity search between predicted proteins and database proteins (for shotgun) and a nucleic-acid similarity search (for reads similar to 16S and 18S sequences). 
+MG-RAST performs a protein similarity search between predicted proteins and database proteins (for shotgun) and a nucleic-acid similarity search (for reads similar to 16S and 18S sequences).
 %These databases are searched.  refer  appendix
 
 MG-RAST presents the annotations via the tools on the analysis page which prepare, compare, display, and export the results on the website. The download page offers the input data, data at intermediate stages of filtering, the similarity search output, and summary tables of functions and organisms detected.
@@ -186,14 +186,15 @@ MG-RAST can compare thousands of data sets run through a consistent annotation p
 
 The publication ``Metagenomics-a guide from sampling to data analysis'' (PMID 22587947) in Microbial Informatics and Experimentation, 2012 is a good review of best practices for experiment design for further reading.
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{URL}
 \label{section:MG-RAST-URL}
-\url{http://mg-rast.org/}
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\url{https://mg-rast.org/}
+\url{http://metagenomics.anl.gov/}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Citing MG-RAST}
 \label{section:MG-RAST-citation}
 
@@ -220,9 +221,9 @@ PLOS Comp Biology 2015, DOI: 10.1371/journal.pcbi.1004008\\
 
 
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Version history}
 
 \subsection*{Version 1}
@@ -236,7 +237,7 @@ Version 2.0 used BLASTX analysis for both gene prediction and functional classif
 While version 2 of MG-RAST was widely used, it was limited to datasets smaller than a few hundred megabases, and comparison of samples was limited to pairwise comparisons. Version 3 is not based on \gls{SEED} technology; instead, it uses the SEED subsystems as a preferred data source.
 Starting with version 3, MG-RAST moved to github.
 \subsubsection*{Version 3.6}
-With version 3.6 MG-RAST was containerized,  moving from a bare metal infrastructure to a set of docker containers running in a Fleet/SystemD/etcD environment. 
+With version 3.6 MG-RAST was containerized,  moving from a bare metal infrastructure to a set of docker containers running in a Fleet/SystemD/etcD environment.
 
 \subsubsection*{Version 4}
 Version 4.0 brings a new web interface, fully relying on the API for data access and moves the bulk of the data stored from Postgres to Cassandra.
@@ -244,7 +245,9 @@ The new web interface moves the data visualization burden from the web server to
 
 In version 4.0 we have moved the changed the backend store for profiles. While previous version stored a pre-computed mapping of observed abundances to functional or taxonomic categories, this is now computed on the fly. The number of profiles stored is reduced to the MD5 and LCA profiles. The API has been augmented to allow dynamic mapping to categories, to provide the required bandwidth we have migrated the profile store from Postgres to Cassandra.
 
-The web interface of the previous version predated the API, the user interface for version 4.0 now uses the API. The web interface has been re-written in JavaScript/HTML5. Unlike previous version the web interface now is executed on the client (inside the browser) and now supports any recent browser.
+The web interface of the previous version predated the API, the user interface for version 4.0 now uses the API. The web interface has been re-written in JavaScript/HTML5. Unlike previous version the web interface now is executed on the client (inside the browser) and now soupports any recent browser.
+
+With version 4.04 we are switching the main web site to be mg-rast.org and are also turning on https by default. For a limited time, the unencrypted access protocols will remain available. We encourage all users to upgrade their bookmarks and also install upgraded versions of the CRAN package and/or the python tool suite. We also switched the similarity tool to Diamond\cite{DIAMOND}.
 
 \subsection*{Comparison of versions 2 and 3}
 Version 3 added the ability to analyze massive amounts of Illumina reads by introducing a significant number of changes to the pipeline and the underlying platform technology. In version 3 we introduced the notion of the API as the central component of the system.
@@ -283,7 +286,7 @@ Scaling to the new workload required changes in two areas: the underlying infras
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{The MG-RAST team}
 MG-RAST was started by Rob Edwards and Folker Meyer in 2007.
 The MG-RAST team has significantly expanded in the past few years.
@@ -292,12 +295,11 @@ The  team is listed below.
 \item Andreas Wilke
 \item Wolfgang Gerlach
 \item Travis Harrison
-\item Tobias Paczian
 \item William L. Trimble
 \item Folker Meyer
 \end{itemize}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{MG-RAST alumni}
 The following people were associated with MG-RAST in the past:
 
@@ -314,28 +316,31 @@ The following people were associated with MG-RAST in the past:
 \item    Hunter Matthews 2009-2014
 \item    Narayan Desai, 2011-2014
 \item    Wei Tang,  2012-2015
+\item  Daniel Braithwaite, 2012-2015
 \item   Elizabeth M. Glass, 2008-2016
 \item  Jared Bischof, 2010-2016
 \item Kevin Keegan, 2009-2016
-\item  Daniel Braithwaite, 2012-2015
+
+\item Tobias Paczian 2007 - 2018
+
 
 \end{itemize}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Under the hood: The MG-RAST technology platform}
 
 \section{The backend}
 
-While originally MG-RAST data was stored in a shared filesystem and a MySQL database, the backend store evolved with growing popularity and demand. 
+While originally MG-RAST data was stored in a shared filesystem and a MySQL database, the backend store evolved with growing popularity and demand.
 
 Currently a number of data stores are used to provide the underpinning for various parts of the MG-RAST API.
 
@@ -346,8 +351,8 @@ An approximate mapping of stores to functions in version 4.0 is provided in tabl
 \begin{tabular}{ l | c | c }
 Function & data store  & comment\\
   \hline
-Search  & Apache SOLR & \\
-Profiles & Cassandra & \\
+Search  & Apache, SOLR and elastic search & \\
+Profiles & Cassandra and SHOCK & \\
 M5NR   & Cassandra & \\
 Authentication & MySQL \\
 Project             & MySQL  & \\
@@ -362,7 +367,7 @@ Files                & SHOCK & \\
 \end{table}
 
 
-The backend infrastructure and the overall system layout is shown in figure \ref{fig:2016-production}. 
+The backend infrastructure and the overall system layout is shown in figure \ref{fig:2016-production}.
 
 \begin{figure*}
 \begin{center}
@@ -379,18 +384,18 @@ As of version 3.6 the majority of the services are provisioned as containers, pr
 
 \section{The supporting technologies: Skyport, AWE and SHOCK}
 
-One key aspect of scaling MG-RAST to large numbers of modern NGS datasets is the use of cloud computing\footnote{We use the term \textit{cloud} as a shortcut for Infrastructure as a Service (IaaS).}, which decouples MG-RAST from its previous dedicated hardware resources. 
+One key aspect of scaling MG-RAST to large numbers of modern NGS datasets is the use of cloud computing\footnote{We use the term \textit{cloud} as a shortcut for Infrastructure as a Service (IaaS).}, which decouples MG-RAST from its previous dedicated hardware resources.
 
 We use AWE \cite{AWE} an efficient, open source resource manager to execute the MG-RAST workflow. We expanded AWE to work with Linux containers forming the Skyport system \cite{SKYPORT}. AWE and Skyport use RESTful interfaces thus allowing the addition of clients without the need to add firewall exceptions and/or massive system reconfiguration.
 
-The main MG-RAST data store is the the SHOCK data management system \cite{SHOCK} developed alongside AWE. SHOCK like AWE relies on a RESTful interface instead of a more traditional shared file system. 
+The main MG-RAST data store is the the SHOCK data management system \cite{SHOCK} developed alongside AWE. SHOCK like AWE relies on a RESTful interface instead of a more traditional shared file system.
 
 When we introduced the technologies described above to replace a shared file system (Sun NFS mounted on several hundred nodes), we saw a speed up of a factor of 750x on identical hardware.
 
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Data model}
 
 The MG-RAST data model (see Figure \ref{fig:data-model}) has changed dramatically in order to handle the size of modern next-generation sequencing datasets. In particular, we have made a number of choices that reduce the computational and storage burden.
@@ -455,11 +460,11 @@ Analysis database schema: static objects (blue) and per metagenome (variable) ob
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
@@ -490,7 +495,7 @@ Identification of protein coding and rRNA features (aka ``genes'')
 \item Feature annotation:\\
 Identification of putative functions and taxonomic origins for each of the features
 
-\textbf{TRAVIS: DID WE EVER INCLUDE THE CONSENSUS FOR LONG CONTIGS}
+%\textbf{TRAVIS: DID WE EVER INCLUDE THE CONSENSUS FOR LONG CONTIGS}
 
 \item Profile generation:\\
 Creation of multiple on disk representations of the information obtained above.
@@ -520,18 +525,18 @@ Below we describe each step of the pipeline in some detail. All datasets generat
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Preprocessing}
 After upload, data is preprocessed by using SolexaQA \cite{SOLEXAQA} to trim low-quality regions from FASTQ data. Platform-specific approaches are used for 454 data submitted in FASTA format: reads more than than two standard deviations away from the mean read length are discarded following \cite{HUSEPYRO}. All sequences submitted to the system are available, but discarded reads will not be analyzed further.
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Dereplication}
 For shotgun metagenome and shotgun metatranscriptome datasets we perform a dereplication step.
 We use a simple k-mer approach to rapidly identify all 20 character prefix identical sequences.
 This step is required in order to remove Artificial Duplicate Reads (\gls{ADR}s) \cite{ADRS}. Instead of simply discarding the ADRs, we set them aside and use them later for error estimation.
 
 We note that dereplication is not suitable for amplicon datasets that are likely to share common prefixes.
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{DRISEE}
 \label{section:DRISEE}
 MG-RAST v3 uses DRISEE (Duplicate Read Inferred Sequencing Error Estimation) \cite{DRISEE} to analyze the sets of Artificial Duplicate Reads (\gls{ADR}s) \cite{ADRS} and determine the degree of variation among prefix-identical sequences derived from the same template. See Section \ref{DRISEEDETAIL} for details.
@@ -544,7 +549,7 @@ Note that this option will remove all reads similar to the human genome and rend
 
 \section{Feature identification}
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Protein coding gene calling}
 
 The previous version of MG-RAST used similarity-based gene predictions, an approach that is significantly more expensive computationally than de novo gene prediction. After an in-depth investigation of tool performance \cite{TRIMBLE_SHORT}, we have moved to a machine learning approach: FragGeneScan \cite{FGS}. Using this approach, we can now predict coding regions in DNA sequences of 75 bp and longer. Our novel approach also enables the analysis of user-provided assembled contigs.
@@ -552,41 +557,51 @@ The previous version of MG-RAST used similarity-based gene predictions, an appro
 We note that FragGeneScan is trained for prokaryotes only. While it will identify proteins for eukaryotic sequences, the results should be viewed as more or less random.
 
 \subsection*{rRNA detection}
-\textbf{NEEDS UPDATE}
-An initial BLAT \cite{BLAT} search against a reduced RNA database efficiently identifies RNA. The reduced database is a 90\% identity clustered version of the SILVA database and is used to rapidly identify sequences with similarities to ribosomal RNA.
+An initial search using vsearch \cite{VSEARCH} against a reduced RNA database efficiently identifies ribosomal RNA. The reduced database is a 90\% identity clustered version of the SILVA, Greengenes and RDP databases and is used to rapidly identify sequences with similarities to ribosomal RNA.
 
 
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Feature annotation}
 
+\subsection{Protein filtering}
+We indentify possibly protein coding regions overlapping ribosomal RNAs and exclude them from further processing.
+
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{AA clustering}
-\textbf{NEEDS UPDATE}
-MG-RAST builds clusters of proteins at the 90\% identity level using the uclust \cite{UCLUST} implementation in QIIME \cite{QIIME} preserving the relative abundances. These clusters greatly reduce the computational burden of comparing all pairs of short reads, while clustering at 90\% identity preserves sufficient biological signals.
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+MG-RAST builds clusters of proteins at the 90\% identity level using the cd-hit \cite{cd-hit} preserving the relative abundances. These clusters greatly reduce the computational burden of comparing all pairs of short reads, while clustering at 90\% identity preserves sufficient biological signals.
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
 \subsection*{Protein identification}
-Once created, a representative (the longest sequence) for each cluster is subjected to similarity analysis. Instead of BLAST we use sBLAT, an implementation of the BLAT algorithm \cite{BLAT}, which we parallelized using OpenMP \cite{OPENMP} for this work.
+Once created, a representative (the longest sequence) for each cluster is subjected to similarity analysis.
+
+For rRNA similarities, instead of BLAST we use sBLAT, an implementation of the BLAT algorithm \cite{BLAT}, which we parallelized using OpenMP \cite{OPENMP} for this work.
+
+As of version 4.04 we have migrated to DIAMOND\cite{DIAMOND} to compute protein similarities against M5nr \cite{M5NR}. During computation protein and rRNA sequences are represented only via a sequenced derived identifier (an MD5 checksum). Once the computation completes, we generate a number of representations of the observed similarities for various purposes.
+
 
 Once the similarities are computed, we present reconstructions of the species content of the sample based on the similarity results. We reconstruct the putative species composition of the sample by looking at the phylogenetic origin of the database sequences hit by the similarity searches.
 
- Sequence similarity searches are computed against a protein database derived from the M5nr \cite{M5NR}, which provides nonredundant integration of many databases: GenBank,\cite{GENBANK}, \gls{SEED} \cite{SUBSYSTEMS}, IMG \cite{IMG}, UniProt \cite{UNIPROT}, KEGG \cite{KEGG}, and eggNOGs \cite{EGGNOG}. 
+ Sequence similarity searches are computed against a protein database derived from the M5nr \cite{M5NR}, which provides nonredundant integration of many databases: GenBank,\cite{GENBANK}, \gls{SEED} \cite{SUBSYSTEMS}, IMG \cite{IMG}, UniProt \cite{UNIPROT}, KEGG \cite{KEGG}, and eggNOGs \cite{EGGNOG}.
 
 
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \subsection*{rRNA clustering}
-The rRNA-similar reads are then clustered at 97\% identity, and the longest sequence is picked as the cluster representative.
-\textbf{NEEDS UPDATE}
+The rRNA-similar reads are then clustered at 97\% identity using cd-hit, and the longest sequence is picked as the cluster representative.
+
 \subsection*{rRNA identification}
  A BLAT similarity search for the longest cluster representative is performed against the M5rna database which integrates SILVA\cite{SILVA}, Greengenes\cite{GREENGENES}, and RDP\cite{RDP}.
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Profile generation}
 In the final stage, the data computed so far is integrated into a number of data products. The most important one are the abundance profiles.
@@ -613,7 +628,7 @@ Sequence data can be downloaded via the API and web interface as Fasta (or FastQ
 \item JSON \\
 Metadata and Tables and other structured data can be downloaded via the APi or the web site in JSON format.
 \item Spreadsheet\\
-Metadata and Tables can be downloaded as spreadsheets via the web interface. 
+Metadata and Tables can be downloaded as spreadsheets via the web interface.
 \item SVG and PNG\\
 Images can be downloaded via the web site interface in SVG and PNG formast.
 \item BIOM v1\\
@@ -641,7 +656,7 @@ Details on the individual files are in Appendix \ref{chapter:downloads}.
 
 
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Abundance profiles}
 
 Abundance profiles are the primary data product that MG-RAST's user interface uses to display information on the datasets.
@@ -665,7 +680,7 @@ The SEED subsystems\cite{SUBSYSTEMS} represent an independent reannotation effor
 Subsystems represent a four-level hierarchy:
 \begin{enumerate}
 \item Subsystem level 1 -- highest level
-\item Subsystem level 2 -- 
+\item Subsystem level 2 --
 \item Subsystem level 3 -- similar to a KEGG pathway
 \item Subsystem level 4 -- actual functional assignment to the feature in question
 \end{enumerate}
@@ -708,11 +723,11 @@ We note that for most metagenomes the coverage of each of the four namespaces is
 were found for each database.
 \end{itemize}
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{DRISEE profile}
 \label{DRISEEDETAIL}
 
-DRISEE \cite{DRISEE} is a method for measuring sequencing error in whole-genome shotgun metagenomic sequence data that is independent of sequencing technology and overcomes many of the shortcomings of Phred. It utilizes artificial duplicate reads (ADRs) to generate internal sequence standards from which an overall assessment of sequencing error in a sample is derived. 
+DRISEE \cite{DRISEE} is a method for measuring sequencing error in whole-genome shotgun metagenomic sequence data that is independent of sequencing technology and overcomes many of the shortcomings of Phred. It utilizes artificial duplicate reads (ADRs) to generate internal sequence standards from which an overall assessment of sequencing error in a sample is derived.
 The current implementation of DRISEE is not suitable for amplicon sequencing data or other samples that may contain natural duplicated sequences (e.g., eukaryotic DNA where gene duplication and other forms of highly repetitive sequences are common) in high abundance.
 \
 %DRISEE values are normally reported as percent error.
@@ -725,19 +740,19 @@ $$Total \,\, DRISEE \,\, Error = \frac{base\_errors}{total\_bases} * 100$$
 \end{small}
 
 \noindent where ${base\_errors}$ refers to the sum of DRISEE-detected errors and ${total\_bases}$ refers to the sum of all bases considered by DRISEE.
-Beneath the Total DRISEE Error, a barchart indicates the error for the sample (the red vertical bar) as well as the minimum (barchart initial value), maximum (barchart final value), mean \begin{math}(\mu)\end{math}, mean +/- one standard deviation (\begin{math}\sigma\end{math}), and mean +/- two standard deviations (\begin{math}2\sigma\end{math}) Total DRISEE Errors observed among all samples in MG-RAST for which a DRISEE profile has been computed. 
+Beneath the Total DRISEE Error, a barchart indicates the error for the sample (the red vertical bar) as well as the minimum (barchart initial value), maximum (barchart final value), mean \begin{math}(\mu)\end{math}, mean +/- one standard deviation (\begin{math}\sigma\end{math}), and mean +/- two standard deviations (\begin{math}2\sigma\end{math}) Total DRISEE Errors observed among all samples in MG-RAST for which a DRISEE profile has been computed.
 
 The DRISEE plot presents a more detailed view of the DRISEE profile; the DRISEE percent error is displayed per base. Individual errors (A,T,C,G, and N substitution rates as well as the InDel rate) are presented as well as a cumulative total.
 
 Users can download DRISEE values as a tab-separated file. The first line of the file contains headers for the values in the second line. The second line contains DRISEE percent error values for A substitutions (A\_err), T substitutions (T\_err), C substitutions (C\_err), G substitutions (G\_err), N substitutions (N\_err), insertions and deletions (InDel\_err), and the Total DRISEE Error. The third line indicates headers for all remaining lines. Rows 4 and 4+ present the DRISEE counts for the indexed position across all considered bins of ADRs. Column values represent the number of reads that match an A,T,C,G,N, or InDel at the indicated position relative to the appropriate consensus sequence followed by the number of reads that do not match an A,T,C,G,N, or InDel.
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Kmer profiles}
 
 kmer digests are an annotation-independent method for describing sequence datasets that can support inferences about genome size and coverage. Here the Overview page presents several visualizations, evaluated at k=15:
-%Three visualizations provided of the kmer spectrum are 
+%Three visualizations provided of the kmer spectrum are
 the kmer spectrum, kmer rank abundance, and ranked kmer consumed. All three graphs represent the same spectrum, but in different ways. The kmer spectrum plots the number of distinct kmers against kmer coverage; the kmer coverage is equivalent to number of observations of each kmer. The kmer rank abundance plots the relationship between kmer coverage and the kmer rank---answering the question ``What is the coverage of the nth most-abundant kmer?''. Ranked kmer consumed plots the largest fraction of the data explained by the nth most-abundant kmers only.
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Nucleotide histograms}
 
 Nucleotide histograms are graphs showing the fraction of base pairs of each type (A, C, G, T, or ambiguous base ``N'') at each position starting from the beginning of each read.
@@ -789,42 +804,77 @@ Nucleotide histogram with contamination.
 }
 \label{fig:nucleotide-with-contamination}
 \end{figure}
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Best hit, representative hit, and lowest common ancestor profiles}
 \label{section:hit-types}
 
+Mapping the similarities between the predicted protein coding and rRNA sequences to the databases results
+in files that map the predicted sequences against database entries (``SIM files'').  In some cases sequences are identical between different database records,
+e.g. version of E. coli might share identical proteins and it becomes impossible to determine the ``correct'' organism name.
+
+In those cases, the translation of those SIMS (that are against an anonymous database, with merely MD5 hashes used as identifiers; see M5NR) can be done in several different ways.
+
+\begin{itemize}
+\item best hit -- using one organisms
+\item represenative hit -- we pick a random member of the group of idential sequences, the strain you know to be in the sample might not be the representative, the counts are correct, no inflation.
+(this will ensure that your favorite strain is also listed, but leads to an inflation in the counts)
+\end{itemize}
+
+Figures \ref{fig:UI-analysis-representative-hit} and \ref{fig:UI-analysis-best-hit} show the effects of using the best and representative hit strategies.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=4in]{Images/v402-UI-Analysis-best-hit-selected.png}
+\end{center}
+\caption{
+Selecting best hit for mapping data from study mgp128 against Subsystems.
+}
+\label{fig:UI-analysis-representative-hit}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=4in]{Images/v402-UI-Analysis-representative-hit-selected.png}
+\end{center}
+\caption{
+Selecting representative hit for mapping data from study mgp128 against Subsystems  leads to inflated numbers.
+}
+\label{fig:UI-analysis-best-hit}
+
+
+\end{figure}
 MG-RAST searches the nonredundant M5nr and M5rna databases in which each sequence is unique. These two databases are built from multiple sequence database sources, and the individual sequences may occur multiple times in different strains and species (and sometimes genera) with 100\% identity. In these circumstances, choosing the ``right'' taxonomic information is not a straightforward process.
 
-To optimally serve a number of different use cases, we have implemented three methods--best hit, representative hit, and lowest common ancestor---for 
+To optimally serve a number of different use cases, we have implemented three methods--best hit, representative hit, and lowest common ancestor---for
 end users to determine the number of hits
 (occurrences of the input sequence in the database)
 reported for a given sequence in their dataset.
 %Details about the three different classification functions implemented are given below.
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Best hit}
 
 The best hit classification reports the functional and taxonomic annotation of the best hit in the M5nr for each feature. In those cases where the similarity search yields multiple same-scoring hits for a feature, we do not choose any single ``correct'' label. For this reason we have decided to double count all annotations with identical match properties and leave determination of truth to our users. While this approach aims to inform about the functional and taxonomic potential of a microbial community by preserving all information, subsequent analysis can be biased because of a single feature having multiple annotations, leading to inflated hit counts. For users looking for a specific species or function in their results, the best hit classification is likely what is wanted.
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Representative hit}
 
 The representative hit classification selects a single, unambiguous annotation for each feature. The annotation is based on the first hit in the homology search and the first annotation for that hit in our database. This approach makes counts additive across functional and taxonomic levels and thus allows, for example, the comparison of functional and taxonomic profiles of different metagenomes.
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Lowest Common Ancestor (LCA)}
 \label{section:LCA}
 To avoid the problem of multiple taxonomic annotations for a single feature, we provide taxonomic annotations based on the widely used LCA method introduced by MEGAN \cite{MEGAN}. In this method all hits are collected that have a bit score close to the bit score of the best hit. The taxonomic annotation of the feature is then determined by computing the LCA of all species in this set. This replaces all taxonomic annotations from ambiguous hits with a single higher-level annotation in the NCBI taxonomy tree.
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Comparison of methods}
 Users should be aware that the number of hits might be inflated if the best hit filter is used or that a favorite species might be missing despite a similar sequence similarity result if the representative hit filter is used (in fact, even if a 100\% identical match to a favorite species exists).
 
 One way to consider both the best hit and representative hit is that they overinterpret the available evidence. With the LCA classifier function, on the other hand, any input sequence is classified only down to a trustworthy taxonomic level. While naively this seems to be the best function to choose in all cases because it classifies sequences to varying depths, the approach causes problems for downstream analysis tools that might rely on everything being classified to the same level.
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Numbers of annotations vs. number of reads}
 \label{section:annotation_numbers}
@@ -837,7 +887,7 @@ The final step that is not one-to-one is the annotation process itself. Sequence
 Also note: Hits refer to the number of unique database sequences that were found in the similarity search, {\bf not} the number of reads. The hit count can be smaller than the number of reads because of clustering or larger due to double counting.
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Metadata}
 \label{section:metadata}
@@ -854,14 +904,14 @@ Once uploaded, the metadata spreadsheets are validated automatically, and users 
 The presence of metadata enables discovery by end users using contextual metadata. Users can perform searches such as ``retrieve soil samples from the continental U.S.A.'' If the users have added additional metadata (domain specific extension), additional queries are enabled: for example, ``restrict the results to soils with a specific pH''.
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{The version 4.0 web interface}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 The MG-RAST system provides a rich web user interface that covers all aspects of the metagenome analysis, from data upload to ordination analysis. The web interface can also be used for data discovery.  \textbf{Metadata} enables data discovery MG-RAST supports the widely used MIxS and MIMARKS Standards (Yilmaz, 2011) (as well as domain-specific plug-ins for specialized environments extending the minimal GSC standards). \\
@@ -898,9 +948,9 @@ Figure \ref{fig:quad-chart-analysis-example} shows a sample analysis with MG-RAS
 
 \section{The ``My Data'' page}
 
-After login the user is directed to their personal ``My Data" page (see figure \ref{fig:v4-mydata}), their personal MG-RAST homepage. 
+After login the user is directed to their personal ``My Data" page (see figure \ref{fig:v4-mydata}), their personal MG-RAST homepage.
 
-This page is provides information on data sets currently being processed, data sets owned by the user as well as any upcoming tasks for the users (i.e. release data to the public after the expiration of the quarantine period). 
+This page is provides information on data sets currently being processed, data sets owned by the user as well as any upcoming tasks for the users (i.e. release data to the public after the expiration of the quarantine period).
 
 \begin{figure}[H]
 \begin{center}
@@ -926,7 +976,7 @@ The search page lists all available metagenomic data sets and allows filtering. 
 
 The basic function of the Search page is to find data sets that (1) contain a search string in the metadata (dataset name, project name, project description, GSC metadata), (2) contain specific functions (e.g., SEED functional roles, SEED subsystems, or GenBank annotations), or (3) contain specific organisms. The default search uses all three kinds of data.
 
-In addition to a Google-like search that searches all data fields, we provide specialized searches in one of the three data types. 
+In addition to a Google-like search that searches all data fields, we provide specialized searches in one of the three data types.
 
 We note that due to data visibility (see \ref{section:data-visibility}) not all data sets are visible to all users.
 
@@ -942,7 +992,7 @@ The search page.
 
 The search page has two components, the output widget (see figure \ref{fig:v4-search}) and the refinement widget.
 
-The refinement widget allows filtering, the creation of saved searches and the creation of collections. 
+The refinement widget allows filtering, the creation of saved searches and the creation of collections.
 
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1021,6 +1071,47 @@ The download symbol, providing access to the API call and the data in a variety 
 
 The Overview page provides the MG-RAST ID for a data set, a unique identifier that is usable as accession number for publications. Additional information such as the name of the submitting PI and organization and a user-provided metagenome name are displayed at the top of the page as well. A static URL for linking to the system that will be stable across changes to the MG-RAST web interface is provided as additional information (Figure \ref{fig:metagenome-overview}).
 
+\textbf{Please note:} Until the data is released to the public, temporary identifiers are made available that will be replaced by permanent valid IDs at the time of data release.  The temporary identifiers are long numbers used to represent the data sets until they are public.
+Do not use temporary identifiers in publications as they are designed to change over time. An example for a temporary ID is \texttt{4fbfe5d4216d676d343733343339372e33}. A valid MG-RAST identifier is \texttt{mgm4447101.3}. Both the API and the web site work with temporary IDs and MG-RAST IDs.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+
+The results on the Overview page (e.g. link) represent a quick summary of the biological and technical
+content of each data set. In the past we use a relatively simple approach (best-hit) to compute the biological
+information. Our reasoning was based on the fact that the “real” meaningful data was presented via the Analysis Page.
+
+With version 4.04 we are now presenting an updated Overview page, results on this page are based on the lowest common
+ancestor (LCA) algorithm (see Figure \ref{fig:lca}). The LCA (or most recent common ancestor) for a given DNA sequence is
+computed by evaluating the set of similarities observed when matching the sequence against a number
+of databases.
+
+To put this in very simple language, when faced with uncertainty about which species to choose
+(e.g. when faced with a protein shared by many E. coli species), the MG-RAST Overview page will
+display a genus level result Escherichia (one level up from species). Likewise if no decision can be
+made between Escherichia and Shigella (both genera), the LCA will be set to Enterobacteriaceae.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=3in]{Images/lca-figure.png}
+\end{center}
+\caption{
+Determining the LCA.
+}
+\label{fig:lca}
+\end{figure}
+
+Faced with a decision between multiple strain level hits (purple and orange) for different species, the LCA algorithm will pick higher (genus) level entity.
+
+We note that this will change results for some data sets and cause the analysis pages to look differently, the underlying sequence analysis however is not affected, we merely set a new default value for the generation of overview graphs on this page.
+
+Repeat: The scientific results (presented via the Analysis page) for download or comparison are not affected.
+
+Additional reading: {\url https://en.wikipedia.org/wiki/Most\_recent\_common\_ancestor}.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
 We point the readers attention to the download symbols next to each figure and or table, providing access to the data and API calls underlying each display item.
 
 
@@ -1038,10 +1129,10 @@ Top of the metagenome Overview page.
 We provide an automatically generated paragraph of text describing the submitted data and the results computed by the pipeline. By means of the project information we display additional information provided by the data submitters at the time of submission or later.
 
 \subsection*{Sequence and feature breakdown}
-One of the first places to look at for each data set are the function and feature breakdown at the top of each overview page. 
+One of the first places to look at for each data set are the function and feature breakdown at the top of each overview page.
 
 The pie charts at the top of the overview page (Figure \ref{fig:classification-pie-chart}) classify the submitted sequences submitted into several categories according to their QC results, sequences are classified as having failed QC (grey), containing at least one feature (purple) and unknown if they do not contain any recognized feature (red).
-In addition the predicted features are broken up into unknown protein (yellow), annotated protein (green) and ribosomal RNA (blue) in a second pie chart. 
+In addition the predicted features are broken up into unknown protein (yellow), annotated protein (green) and ribosomal RNA (blue) in a second pie chart.
 
 
 \begin{figure}
@@ -1075,7 +1166,7 @@ All metadata stored for a specific dataset is available in MG-RAST; we merely di
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{Functional and taxonomic breakdowns}
 
-A number of pie charts are computed, represening a breakdown of the data into different taxonomic ranks 
+A number of pie charts are computed, represening a breakdown of the data into different taxonomic ranks
 (domain, phylum, class, order, family, genus) an the top levels of the four supported controlled annotation namespaces (Subsystems, Kegg Orthologues (KOGS), COGs and Eggnogs (NOGS)).
 
 
@@ -1147,7 +1238,7 @@ The species-level annotations are from all the annotation source databases used 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{Functional categories}
 
-This section contains four pie charts providing a breakdown of the functional categories for KEGG \cite{KEGG}, COG \cite{COG}, \gls{SEED} \gls{Subsystem}s \cite{SUBSYSTEMS}, and eggNOGs \cite{EGGNOG}. 
+This section contains four pie charts providing a breakdown of the functional categories for KEGG \cite{KEGG}, COG \cite{COG}, \gls{SEED} \gls{Subsystem}s \cite{SUBSYSTEMS}, and eggNOGs \cite{EGGNOG}.
 The relative abundance of sequences per functional category can be downloaded as a spreadsheet, and users can browse the functional breakdowns via the Krona tool \cite{KRONA} integrated in the page.
 
 A more detailed functional analysis, allowing the user to manipulate parameters for sequence similarity matches, is available from the Analysis page.
@@ -1198,7 +1289,7 @@ A library page.
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1424,7 +1515,7 @@ Figure \ref{fig:analysis-page-bar-chart} shows the bar chart visualization optio
 %\includegraphics[width=4in]{Images/analysis-page-tree-additional-bar-charts.png}
 %\end{center}
 %\caption{
-%Tree diagram provision for detailed information: 
+%Tree diagram provision for detailed information:
 %clicking on a node in the tree diagram will display addition information to the right of the tree display.
 %}
 %\label{fig:analysis-page-tree-additional-bar-charts}
@@ -1597,16 +1688,16 @@ This option allows extending the table to display (or hide) additional columns.
 \includegraphics[width=6in]{Images/v4-analysis-page-parameters-initial.png}
 \end{center}
 \caption{
-After loading all profiles, the analysis parameter widget is displayed. 
+After loading all profiles, the analysis parameter widget is displayed.
 }
 \label{fig:v4-analysis-page-parameters-initial}
 \end{figure*}
 
-TBA
+
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{Evalue, percent identity, length and minimum abundance filters}
 
-As shown in Figure \ref{fig:v4-analysis-page-evalue-filter} MG-RAST can changed the parameters for annotation transfer at analysis time. As each data and each analysis is different, we cannot provide a default parameter set for transferring annotations from the sequence databases to the features predicted for the environmental sequence data. 
+As shown in Figure \ref{fig:v4-analysis-page-evalue-filter} MG-RAST can changed the parameters for annotation transfer at analysis time. As each data and each analysis is different, we cannot provide a default parameter set for transferring annotations from the sequence databases to the features predicted for the environmental sequence data.
 
 Instead we provide a tool that puts the user at the helm, providing the means to filter the sequences down by selecting only those matching certain criteria.
 
@@ -1618,7 +1709,7 @@ Instead we provide a tool that puts the user at the helm, providing the means to
 By changing the e-value, minimum required percent identity or
 alignment length the annotations to the features loaded, can be
 modified. We note that the number of hits listed below the filter is
-reduced and the display is adjusted instanteneously. 
+reduced and the display is adjusted instanteneously.
 }
 \label{fig:v4-analysis-page-evalue-filter}
 \end{figure*}
@@ -1640,9 +1731,48 @@ Adding a domain level filter for Bacteria. The filter is displayed as a blue box
 \end{figure*}
 
 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{*Example: Display abundance for functional category filtered by taxonomic entities}
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+A key feature of the version 4.0 web interface is the ability to filter results. Here we demonstrate filtering results down to the domain Bacteria (Figure \ref{fig:v4-Analysis-page-filtering-for-Bacteria-settings}). After the filtering we select COG functional annotations using COG level 2 (Figure \ref{fig:v4-Analysis-page-COG-Level2-for-Bacteria-settings}).
+
+
+\begin{figure*}
+\begin{center}
+\includegraphics[width=4in]{Images/v4-Analysis-page-filtering-for-Bacteria-settings.png}
+\end{center}
+\caption{
+The parameter widget allows creation of a Filter for taxonomic units, in this case we use RefSeq annotation to filter at the domain level for Bacteria.}
+\label{fig:v4-Analysis-page-filtering-for-Bacteria-settings}
+\end{figure*}
+
+
+\begin{figure*}
+\begin{center}
+\includegraphics[width=4in]{Images/v4-Analysis-page-COG-Level2-for-Bacteria-settings.png}
+\end{center}
+\caption{
+After creating a filter for Bacteria only (using RefSeq taxonomic annotations) we select COG functional annotations using COG level 2.
+}
+\label{fig:v4-Analysis-page-COG-Level2-for-Bacteria-settings}
+\end{figure*}
+
+
+\begin{figure*}
+\begin{center}
+\includegraphics[width=4in]{Images/v4-Analysis-page-COG-Level2-for-Bacteria-results.png}
+\end{center}
+\caption{
+COG level 2 abundance filtered for Bacteria.
+The results for the settings shown in Figure \ref{fig:v4-Analysis-page-COG-Level2-for-Bacteria-settings}
+}
+\label{fig:v4-Analysis-page-COG-Level2-for-Bacteria-results}
+\end{figure*}
+
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Viewing Evidence}
 
@@ -1662,7 +1792,7 @@ BLAT hit details with alignment.
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \include{mg-rast-api-chapter}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1674,16 +1804,178 @@ BLAT hit details with alignment.
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Standard operating procedures SOPs for MG-RAST}
+
+\section{SOP - Metagenome submission, publication and submission to INSDC via MG-RAST }
+MG-RAST can be used to host data for public access. There are three interfaces for uploading and publishing data, the Web interface, intended for most users, command line scripts, intended for programmers, and the native RESTful API, recommended for experienced programmers.
+
+When data is published in MG-RAST, it can also be released to the INSDC databases. This tutorial covers both use cases.
+
+We note that MG-RAST provides temporary IDs and permanent public identifiers. The permanent identifiers are assigned at the time data is made public. Permanent MG-RAST identifiers begin with “mgm” (e.g. “mgm4449249.3”) for data sets and mgp (e.g.”mgp128”) for projects/studies.
+
+The following data types are supported:
+
+\begin{itemize}
+
+\item    Shotgun metagenomes (“raw” and assembled)
+\item    Metatranscriptome data (“raw” and assembled)
+\item    Ribosomal amplicon data (16s, 18s, ITS amplicons)
+\item    Metabarcoding data (e.g. cytochrome C amplicons; basically all non ribosomal amplicons)
+
+\end{itemize}
+
+PLEASE NOTE: We strongly prefer raw data over assembled data, if you submit assembled data, please submit the raw reads in parallel. If you perform local optimization e.g. adapter removal or quality clipping, please submit the raw data as well.
+
+\subsubsection{Audience:}
+
+This document is intended for experienced to very experienced users and programmers. We recommend that most users not use the RESTful API. There is also a document describing data publication and INSDC submission via the web UI.
+
+\subsubsection{Requirements:}
+
+An access token for the MG-RAST API, this can be obtained from the MG-RAST web page (http://mg-rast.org) in the user section.
+
+You will need a working python interpreter and the command line scripts and example data can be found in https://github.com/MG-RAST/MG-RAST-Tools:
+
+    Scripts: MG-RAST-Tools/tools/bin
+    Data: MG-RAST-Tools/examples/sop/data
+
+Change into MG-RAST-Tools/examples/sop/data and call:
+
+\begin{lstlisting}
+sh get_test_data.sh
+\end{lstlisting}
+to add additional example data.
+
+Either download the repository as a zipped archive from https://github.com/MG-RAST/MG-RAST-Tools/archive/master.zip or use the git command line tool:
+
+\begin{lstlisting}
+git clone http://github.com/MG-RAST/MG-RAST-Tools.git
+\end{lstlisting}
+We tested up to the following parameters:
+
+\begin{itemize}
+\item    max. size per file: 10GB
+\item    max. project size: 200 metagenomes
+\end{itemize}
+
+While there is no reason to assume the software will not work with larger numbers of files or larger files, we did not test for that.
+
+
+\subsection{SOP:}
+
+Upload and submit sequence data and metadata to MG-RAST using the command mg-submit.py Note: This is an asynchronous process that may take some time depending on the size and number of datasets. (Note: We recommend that novice users try the web frontend; the cmd-line is primarily intended for programmers) The metadata in this example is in Microsoft Excel format, there is also an option of using JSON formatted data. Please note: We have observed multiple problems with spreadsheets that were converted from older version of Excel or “compatible” tools e.g. OpenOffice.
+
+
+Example:
+\begin{lstlisting}
+mg-submit.py submit simple  ....  --metadata
+\end{lstlisting}
+Verify the results and obtain a temporary identifier E.g. by using the WebUI at http://mg-rast.org -- you can also use that to publish the data and trigger submission to INSDC.
+
+Publish your project in MG-RAST and obtain a stable and public MG-RAST project identifier
+
+Note: once the data is made public the data is read only, but metadata can be improved
+
+Example:
+\begin{lstlisting}
+mg-project make-public $temporary_ID
+\end{lstlisting}
+Trigger release to INSDC/ submit to EBI
+
+Note: Metadata updates are automatically synced with INSDC databases within 48 hours.
+
+Example:
+\begin{lstlisting}
+mg-project submit-ebi $PROJECT_ID
+\end{lstlisting}
+Check status of release to INSDC/ submission to EBI
+
+Note: This is an asynchronous process that may take some time depending on the size and number of datasets.
+
+
+Example:
+\begin{lstlisting}
+mg-project status-ebi $PROJECT_ID
+\end{lstlisting}
+
+We include a sample submission below:
+\begin{small}
+\begin{verbatim}
+From within the MG-RAST-Tool repository directory
+
+# Retrieve repository and setup environment
+git clone http://github.com/MG-RAST/MG-RAST-Tools.git
+cd MG-RAST-Tools
+
+# Path to scripts for this example
+PATH=$PATH:`pwd`/tools/bin
+
+# set environment variables
+source set_env.sh
+
+# Set credentials, obtain token from your user preferences in the UI
+mg-submit.py login --token
+
+# Create metadata spreadsheet. Make sure you map your samples to your
+# sequence files
+# Upload metagenomes and metadata to MG-RAST
+
+mg-submit.py submit simple \
+           examples/sop/data/sample_1.fasta.gz \
+           examples/sop/data/sample_2.fasta.gz \
+           --metadata examples/sop/data/metadata.xlsx
+
+# Output
+> Temp Project ID: ed2102aa666d676d343735323836382e33
+> Submission ID: 77a1a1a5-4cbd-4673-86bf-f87c9096c3e1
+
+# Remember IDs for later use
+SUBMISSION_ID=77a1a1a5-4cbd-4673-86bf-f87c9096c3e1
+TEMP_ID=mgp128
+
+# Check if project is finished
+mg-submit.py status $SUBMISSION_ID
+
+# Output
+> Submission: 77a1a1a5-4cbd-4673-86bf-f87c9096c3e1 Status: in-progress
+
+
+# Make project public in MG-RAST
+mg-project.py make-public $TEMP_ID
+
+# Output
+> # Your project is public.
+> Project ID: mgp128
+> URL: https://mg-rast.org/linkin.cgi?project=mgp128
+PROJECT_ID=mgp128
+
+# Release project to INSDC archives
+mg-project.py submit-ebi $PROJECT_ID
+
+# Output
+> # Your Project mgp128 has been submitted
+> Submission ID: 0cf7d811-1d43-4554-ab97-3cb1f5ceb6aa
+
+# Check if project is finished
+mg-project.py status-ebi $PROJECT_ID
+
+# Output
+> Completed
+> ENA Study Accession: ERP104408
+\end{verbatim}
+\end{small}
+
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{FAQ -- Frequently asked questions about MG-RAST}
 The answers to some of these Frequently Asked Questions can be found elsewhere in this manual, they are listed here for users who would like  a quick answer to a simple question. Other sections of the manual will generally contain more detail than the answers in this chapter. Some answers are just links to relevant sections in other chapters.
 % %%%%%%%%%%%	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{General}
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{What is MG-RAST?}
 The MG-RAST server is an open source system for annotation and comparative analysis of metagenomes. Users can upload raw sequence data in fasta format; the sequences will be normalized and processed and summaries automatically generated. The server provides several methods to access the different data types, including phylogenetic and metabolic reconstructions, and the ability to compare the metabolism and annotations of one or more metagenomes and genomes. In addition, the server offers a comprehensive search capability. Access to the data is password protected, and all data generated by the automated pipeline is available for download in a variety of common formats.
@@ -1704,11 +1996,11 @@ The email address for the MG-RAST project. Note that it was inserted into this d
 \label{fig:mgrastemail}
 \end{figure*}
 
-We recommend including as much detail as possible into your emails to the help-desk, details like account names, MG-RAST identifiers will help us identify any issues and speed up resolving them. 
+We recommend including as much detail as possible into your emails to the help-desk, details like account names, MG-RAST identifiers will help us identify any issues and speed up resolving them.
 
 Below are examples of the types of details we would like to receive:
 \begin{itemize}
-\item your name 
+\item your name
 \item your account name for MG-RAST (please do NOT include your password or webkey)
 \item a clear text description of your problem
 \item any MG-RAST identifiers (those are the 444xxxx.3 numbers)
@@ -1723,7 +2015,7 @@ Below are examples of the types of details we would like to receive:
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{What kinds of data sets does MG-RAST analyze?}
 MG-RAST is designed to annotate a large set of nucleotide sequences, not a complete genome and not amino acid sequences. The RAST server should be used if you want to annotate complete, or nearly complete prokaryotic genomes. Version 3.2 accepts reads of length 75bp and up, and is capable of handling sequences of several dozen kilobases. For whole metagenome shotgun data we use a gene prediction step that is not suitable for eukaryotes, for that reason do not expect MG-RAST v3.2 to work with eukaryotic data sets or for the eukaryotic subsets of your data.
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{How many metagenomes can I submit?}
 We do not restrict user submission of samples. However, the computation required is massive and samples are processed on a first-come, first-serve basis. MG-RAST v3 is over 200 times faster than the previous version. We will also provide a CLOUD client (shortly after the initial release) that connects to MG-RAST and will allow you to add processing power to your jobs in MG-RAST.
@@ -1734,7 +2026,7 @@ MG-RAST has become an unofficial repository for metagenomic data, providing a me
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Who should I contact with questions or problems with MG-RAST?}
-All questions, comments or problems regarding MG-RAST should be directed to our support team using either the letter symbol in the navigation toolbox or via email to: \begin{small}\texttt{mg-rast at mcs.anl.gov}\end{small}.
+All questions, comments or problems regarding MG-RAST should be directed to our support team using either the letter symbol in the navigation toolbox or via email to: \begin{small}\texttt{help at mg-rast.org}\end{small}.
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{How should I link to MG-RAST in a publication?}
@@ -1756,8 +2048,8 @@ This URL provides a stable method of linking to your data which does not require
 Note that by default your data is not visible to others, you will need to explicitly grant permission for it to be visible to anyone on the internet by making it public through the MG-RAST website.
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Identifiers}
 \label{section:identifier}
 MG-RAST automatically assigns a unique identifier to every dataset submitted. Upon completion of the automated pipeline, datasets can be viewed via the web interface by using the identifiers.
@@ -1766,8 +2058,8 @@ An example is \texttt{4440283.3}.
 
 In addition to individual datasets, projects (groups of datasets) can be addressed with simple numerical project identifiers.
 An example is \texttt{128}.
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Linking to MG-RAST}
 \label{section:linkin}
 Because future versions of MG-RAST may change, we provide a link-in mechanism as a stable way of linking to MG-RAST. To link to datasets or projects in MG-RAST, users should always use the \texttt{linkin.cgi}, especially in publications.
@@ -1778,9 +2070,9 @@ Note: Do not use the URL that is displayed in the browser when browsing the site
 
 \begin{figure*}[ht]
 
-\texttt{http://mg-rast.org/linkin.cgi?metagenome=}
+\texttt{https://mg-rast.org/linkin.cgi?metagenome=}
 
-\texttt{http://mg-rast.org/linkin.cgi?project=}
+\texttt{https://mg-rast.org/linkin.cgi?project=}
 
 \caption{Stable URLs provided by the \texttt{linkin.cgi} mechanism for linking to MG-RAST.}
 \label{fig:linkin.cgi}
@@ -1792,13 +2084,13 @@ For example, for the public dataset with metagenome ID \texttt{4440283.3} the UR
 For the public project with project ID  \texttt{128} the URL is:
 \url{http://mg-rast.org/linkin.cgi?project=128}.
 
-These URLs provides a stable method of linking to data that does not require the viewer to have an MG-RAST account. 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+These URLs provides a stable method of linking to data that does not require the viewer to have an MG-RAST account.
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Privacy}
 \label{section:data-visibility}
@@ -1806,11 +2098,11 @@ By default, a user's data is not visible to others; the user needs to explicitly
 Owners can grant anonymous access to manuscript reviewers  (see Section \ref{section:reviewer_sharing}).
 
 The web interface allows sharing and publication of data, requiring the presence of minimal metadata
-(see Section \ref{section:metadata}) for data that is made public. 
+(see Section \ref{section:metadata}) for data that is made public.
 Data can be shared or made public only after the computation has finished.
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{Sharing with individual users}
 \label{section:user_sharing}
 Data and analyses can be shared with individual users. To share data, users simply enter their email address via clicking the \texttt{Sharing} link on the Metagenome Overview page. The dialogue shown in Figure \ref{fig:sharing} will allow entering email addresses.
@@ -1843,7 +2135,7 @@ Data sets shared in MG-RAST by users (orange dots), shown as connecting edges.
 \subsubsection*{Anonymous sharing with reviewers}
 \label{section:reviewer_sharing}
 To grant manuscript reviewers access to a project while preserving their anonymity click on the 'Create Reviewer Access Token' button on the project page. This button is visible only to the owner of a project by clicking on the 'Share Project' link. It will generate a token that can be sent to the publisher to pass on to reviewers. When a reviewer receives the token from the publisher they need to use the included link to access MG-RAST. If necessary the reviewer will need to register for an account and their account will have anonymous access to the project. The number of reviewers who have accessed the project is displayed to the owner in the list of users the project is shared with, but the identity of the reviewers is not disclosed. The owner of the project can revoke the token at any time to disable access.
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Publishing}
 \label{section:publishing}
@@ -1852,7 +2144,7 @@ MG-RAST provides a mechanism to make data and analyses publicly accessible. All 
 The following checklist describes the process of making MG-RAST datasets and projects public:
 
 \begin{enumerate}
-\item 
+\item
 Ownership of the datasets: To make a dataset public your account needs to be labelled as the owner in MG-RAST.
 \item
 Ownership of the project: Your account should be the owner of the project as well, this is usually just the account that was used to create the project.
@@ -1895,14 +2187,14 @@ See Section \ref{section:MG-RAST-citation}.
 MG-RAST is indeed open source. We make the current stable versions available on github: \url{https://github.com/MG-RAST/}
 However MG-RAST is a complex system to install (note: we have not been funded to create a readily installable version) and even more complex to operate. We advise against attempting to create a private installation and can not provide any help installing MG-RAST locally.
 
-If you are a biologist worried about runtime of your jobs, there is a way to run your jobs on computational resources provided by you that will significantly help. Please contact us at our usual address mg-rast at mcs.anl.gov to inquire about ways of setting this up.
+If you are a biologist worried about runtime of your jobs, there is a way to run your jobs on computational resources provided by you that will significantly help. Please contact us at our usual address mg-rast at mg-rast.org to inquire about ways of setting this up.
 
-If you are a bioinformatician and want to contribute code or test alternatives for individual steps, we are currently preparing a system that will make all components of MG-RAST easily accessible. This is not currently sea-worthy. Same as with the biologists, please contact us at mg-rast at mcs.anl.gov for details.
+If you are a bioinformatician and want to contribute code or test alternatives for individual steps, we are currently preparing a system that will make all components of MG-RAST easily accessible. This is not currently sea-worthy. Same as with the biologists, please contact us at help at mg-rast.org for details.
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Accounts}
@@ -1914,8 +2206,8 @@ for analysis or view the analyses of datasets which have been shared with you.
 
 As scientist typically will switch employers every few years we encourage users to provide two email addresses, the primary email address could be your work email, the secondary your private email. By providing a second email address you can avoid losing access to your account if and when you switch employers and your work email is no longer available.
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Account registration}
 Use the ``Register'' link on the front page of the website to request an account with MG-RAST, you will need to enter a unique login name and email address
 along with other minimal information. Use an email address you use regularly as it will be used to communicate with you when necessary. After registering
@@ -1923,8 +2215,8 @@ you will receive an automated email with a temporary password after your account
 
 If you forget your password you can request a new password on the MG-RAST website using your login and registered email address, a new password will
 be generated and sent by email to this address.
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Account webkey}
 \label{section:webkey}
 The webkey is a unique string of text, e.g. ``b8Dvg2d5DCp7KsWKBPzY2GS4i'' associated with your account which is used by MG-RAST for identification
@@ -1948,7 +2240,7 @@ If you do not plan to submit data for analysis to MG-RAST and only want to brows
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{I have forgotten my password, what should I do?}
-In the navigation toolbox (top right corner of the webpage) there is a 'Forgot?' link displayed. Click on this and enter your login and the email address you registered with MG-RAST. A changed password will be sent by email to this address. For security purposes you should login and change this new password as soon as you receive the email. 
+In the navigation toolbox (top right corner of the webpage) there is a 'Forgot?' link displayed. Click on this and enter your login and the email address you registered with MG-RAST. A changed password will be sent by email to this address. For security purposes you should login and change this new password as soon as you receive the email.
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Can I change my account information?}
@@ -1971,7 +2263,7 @@ Yes, you can change or modify your password, email address, name and funding sou
 \section{Upload and Submission}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\label{section:Uploading_to_MG-RAST} 
+\label{section:Uploading_to_MG-RAST}
 
 MG-RAST was designed to allow users to upload sequence data directly from next-generation sequencing machines. Data can be in FASTA, FASTQ, or SFF format.
 
@@ -1979,13 +2271,13 @@ We suggest uploading raw data (in FASTQ or SFF format) and letting MG-RAST perfo
 this approach will allow us to identify any issues with the sequencing run. Frequently, local quality control will identify some
 issues but mask others.
 
-Compressing large files will reduce the upload time and the chances of a failed upload. Users can upload gzip (.gz) and bzip2 (.bz2) or Zip (.zip) files, as well as tar archives compressed with gzip (.tar.gz) or bzip2 (.tar.bz2). 
+Compressing large files will reduce the upload time and the chances of a failed upload. Users can upload gzip (.gz) and bzip2 (.bz2) or Zip (.zip) files, as well as tar archives compressed with gzip (.tar.gz) or bzip2 (.tar.bz2).
 
 It is not necessary to assemble data prior to upload to MG-RAST. The system has been optimized for short reads and can handle uploads of many hundreds of gigabytes.
 
 Assembled data can be uploaded to MG-RAST and read abundance information for contigs can be imported as well from FASTA files.
 The ``assembled'' option for the pipeline will attempt to retrieve read abundance information from the FASTA sequence files.
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Data submission via the web interface}
 
@@ -1993,18 +2285,18 @@ To start uploading data to MG-RAST through the website, click on the green up ar
 
 The page has three stages (see Figure \ref{fig:submission_stages}). The first “Upload” to upload, manipulate, and collect all the files required for a submission, and “Submit,” to create the MG-RAST job(s), set analysis parameters, and start the analysis. The last is “Progress”, where you can monitor your job status.
 \begin{figure*}
-\begin{center} 
-\includegraphics[width=4in]{Images/submission_stages.png} 
-\end{center} 
-\label{fig:submission_stages} 
+\begin{center}
+\includegraphics[width=4in]{Images/submission_stages.png}
+\end{center}
+\label{fig:submission_stages}
 \caption{The flow for MG-RAST submissions via the web interface}
 \end{figure*}
 
 \begin{figure*}
-\begin{center} 
-\includegraphics[width=4in]{Images/upload_button.png} 
-\end{center} 
-\label{fig:upload_button} 
+\begin{center}
+\includegraphics[width=4in]{Images/upload_button.png}
+\end{center}
+\label{fig:upload_button}
 \caption{The MG-RAST upload page with its three main stages}
 \end{figure*}
 
@@ -2013,13 +2305,13 @@ Starting with version 3.6 of MG-RAST, the web upload page will provide significa
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{Data requirements for upload}
 
-Files larger than 50 MB should be compressed before upload, using gzip (preferable), bzip2 or Zip (less than 4 GB in size). Compression will reduce the time taken for the upload of the file, which in turn reduces the chance that the upload will fail. The requirements for submission are sequence information (required), metadata (strongly recommended) and barcode information (for multiplexed datasets only). 
+Files larger than 50 MB should be compressed before upload, using gzip (preferable), bzip2 or Zip (less than 4 GB in size). Compression will reduce the time taken for the upload of the file, which in turn reduces the chance that the upload will fail. The requirements for submission are sequence information (required), metadata (strongly recommended) and barcode information (for multiplexed datasets only).
 
 We note that priority will be giving to data that has compete GSC metadata and has been marked for eventual release to the public. The data release is under user control, MG-RAST staff will not release the data for the user.
 
-To ensure files are uploaded properly, MG-RAST performs automatic MD5\footnote{An MD5 checksum is a widely used way to create a digital fingerprint for a file. Think of it as a kind of checksum, if the fingerprint changed, so did the file. The fingerprints are easy to compare. There are many tools out there for creating MD5 checksums, google is your friend.} checking on client and server side (for most files) to ensure that files are received correctly by MG-RAST.  This is an important part of data hygiene as files may get corrupted in flight. The new interface (from version 3.6 onwards), will check the integrity and will give you immediate feedback about whether your upload was successful.  If not detected at upload time, a damaged file will lead to errors later in the pipeline, wasting both valuable compute cycles and, even more importantly, your time. 
+To ensure files are uploaded properly, MG-RAST performs automatic MD5\footnote{An MD5 checksum is a widely used way to create a digital fingerprint for a file. Think of it as a kind of checksum, if the fingerprint changed, so did the file. The fingerprints are easy to compare. There are many tools out there for creating MD5 checksums, google is your friend.} checking on client and server side (for most files) to ensure that files are received correctly by MG-RAST.  This is an important part of data hygiene as files may get corrupted in flight. The new interface (from version 3.6 onwards), will check the integrity and will give you immediate feedback about whether your upload was successful.  If not detected at upload time, a damaged file will lead to errors later in the pipeline, wasting both valuable compute cycles and, even more importantly, your time.
 
-All files uploaded to MG-RAST should be named using only alphanumeric and .\_ characters without spaces. As of version 3.6, the upload system ensures that files are compliant with the mandatory naming scheme,  using only alphanumeric and .-characters without spaces. In addition, there is no need to extract/uncompress files after upload. MG-RAST does this automatically along with checking metadata and sequence file format and nomenclature compliance. 
+All files uploaded to MG-RAST should be named using only alphanumeric and .\_ characters without spaces. As of version 3.6, the upload system ensures that files are compliant with the mandatory naming scheme,  using only alphanumeric and .-characters without spaces. In addition, there is no need to extract/uncompress files after upload. MG-RAST does this automatically along with checking metadata and sequence file format and nomenclature compliance.
 
 Advanced options provides the option to change chunk size. Chunked uploading allows us to break a large file into small chunks, and send these pieces to the upload server one-by-one. If an upload fails, we need only resume from the last successful chunk and allows for resuming uploads. As a rule, the larger the file and the faster your connection, the larger the chunk size should be. Set the size lower if your connection is slow. We have a default setting that works well for most data sets and connection speeds. If you are encountering upload failure (outside of formatting issues), try a smaller chunk size.
 
@@ -2057,13 +2349,13 @@ We note that a good strategy is to copy an existing metadata file and modify the
 
 \item {\bf Barcode file}
 
-Barcoding reads allows multiplexing multiple samples into a single sequence file. Barcode files allow demultiplexing those files. Consequently, Barcode files are required only for sequence data which will be demultiplexed on the MG-RAST website. In many cases (typically for shotgun metagenomes) the demultiplexing will have already been done by the sequencing center. If you have demultiplexed sequence data, you do not need to enter the barcodes associated with your samples in a Barcode file. While suitable for all kinds of barcodes and sequence data, we expect the built-in demultiplexing to be used mostly for custom barcoded amplicon sequences. 
+Barcoding reads allows multiplexing multiple samples into a single sequence file. Barcode files allow demultiplexing those files. Consequently, Barcode files are required only for sequence data which will be demultiplexed on the MG-RAST website. In many cases (typically for shotgun metagenomes) the demultiplexing will have already been done by the sequencing center. If you have demultiplexed sequence data, you do not need to enter the barcodes associated with your samples in a Barcode file. While suitable for all kinds of barcodes and sequence data, we expect the built-in demultiplexing to be used mostly for custom barcoded amplicon sequences.
 
 The barcode file should be in plain text ASCII.
 
-If the sequencing facility generated the libraries and did not demultiplex them for you, make sure to get the barcodes corresponding to each of your samples. The barcode file should be in plain text ASCII, a downloadable example can be found at: \url{ftp://ftp.mg-rast.org/data/manual/example/}. 
+If the sequencing facility generated the libraries and did not demultiplex them for you, make sure to get the barcodes corresponding to each of your samples. The barcode file should be in plain text ASCII, a downloadable example can be found at: \url{ftp://ftp.mg-rast.org/data/manual/example/}.
 
-Each line of the file should contain a single barcode sequence followed by a tab and then a unique filename, with as many lines as necessary for the barcodes in the sequence file you are submitting.  Additional columns are ignored. 
+Each line of the file should contain a single barcode sequence followed by a tab and then a unique filename, with as many lines as necessary for the barcodes in the sequence file you are submitting.  Additional columns are ignored.
 \begin{verbatim}
 Example:
 ACTCTCGTG    sample_1
@@ -2071,7 +2363,7 @@ CAGACATCT    sample_2
 GTAGATCAC    sample_3
 \end{verbatim}
 
-The barcode file typically will be provided by whoever created the amplicons, in many cases that is the sequencing center.  
+The barcode file typically will be provided by whoever created the amplicons, in many cases that is the sequencing center.
 \end{itemize} % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -2091,18 +2383,18 @@ At upload:
 \end{itemize}
 
 \begin{figure*}
-\begin{center} 
-\includegraphics[width=4in]{Images/upload_inbox.png} 
-\end{center} 
-\label{fig:upload_inbox} 
+\begin{center}
+\includegraphics[width=4in]{Images/upload_inbox.png}
+\end{center}
+\label{fig:upload_inbox}
 \caption{The main elements of the file browser explained. The left side pane shows a list of uploaded files. The top bar provides available actions. Users can select files to view information and whether the file passes formatting check.}
 \end{figure*}
 
 \begin{figure*}
-\begin{center} 
+\begin{center}
 \includegraphics[width=4in]{Images/upload_progress.png}
 \end{center}
-\label{fig:upload_progress} 
+\label{fig:upload_progress}
 \caption{Once selected from the file browser you can start the upload and observe progress in the right side pane.}
 \end{figure*}
 
@@ -2112,21 +2404,21 @@ From the inbox data needs to be submitted to the annotation pipeline. Once files
 %\being{itemize}
 %\item barcoded sequence data, once uploaded, can be demultiplexed (see Figure TOBEADDED1)
 %\item paired ends can be merged (see Figure TOBEADDED2)
-    %\item files can be deleted 
+    %\item files can be deleted
 %\end{itemize}
 
 
 %\begin{figure*}
-%\begin{center} 
-%\includegraphics[width=4in]{Images/to_be_added1.png} 
-%\end{center} \label{fig:TOBEADDED1} 
+%\begin{center}
+%\includegraphics[width=4in]{Images/to_be_added1.png}
+%\end{center} \label{fig:TOBEADDED1}
 %\caption{Barcoded sequence data can be de-multiplex by ...}
 %\end{figure*}
 
 %\begin{figure*}
-%\begin{center} 
-%\includegraphics[width=4in]{Images/to_be_added2.png} 
-%\end{center} \label{fig:TOBEADDED2} 
+%\begin{center}
+%\includegraphics[width=4in]{Images/to_be_added2.png}
+%\end{center} \label{fig:TOBEADDED2}
 %\caption{Paired end files can be merged by clicking on the merge-mate pair button.}
 %\end{figure*}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2224,19 +2516,19 @@ In the second step, data needs to be submitted for processing. At submission tim
 \item The sooner you choose to make your data public, the higher your priority in the queue will be.
 \end{itemize}
 
-The submission step provides a visual aid to identify completed tasks (the bars on the page are turning from blue (open) to green (done), see Figures \ref{fig:submission_open} and \ref{fig:submission_done}). 
+The submission step provides a visual aid to identify completed tasks (the bars on the page are turning from blue (open) to green (done), see Figures \ref{fig:submission_open} and \ref{fig:submission_done}).
 
 \begin{figure*}
-\begin{center} 
-\includegraphics[width=4in]{Images/submission_open.png} 
-\end{center} \label{fig:submission_open} 
+\begin{center}
+\includegraphics[width=4in]{Images/submission_open.png}
+\end{center} \label{fig:submission_open}
 \caption{The submit page with none of the fields filled out.}
 \end{figure*}
 
 \begin{figure*}
-\begin{center} 
-\includegraphics[width=4in]{Images/submission_done.png} 
-\end{center} \label{fig:submission_done} 
+\begin{center}
+\includegraphics[width=4in]{Images/submission_done.png}
+\end{center} \label{fig:submission_done}
 \caption{The submit page with all bars in green indicating that the respective sections have been filled out.}
 \end{figure*}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2245,9 +2537,9 @@ The submission step provides a visual aid to identify completed tasks (the bars 
 Once data is submitted, you can monitor its progress.
 
 \begin{figure*}
-\begin{center} 
-\includegraphics[width=4in]{Images/submission_pipeline_view.png} 
-\end{center} \label{fig:submission_pipeline_view} 
+\begin{center}
+\includegraphics[width=4in]{Images/submission_pipeline_view.png}
+\end{center} \label{fig:submission_pipeline_view}
 \caption{The jobs you have submitted are listed with their current status. A green dot indicates the stage has completed successfully, blue indicates that the current stage is in progress. Queued stages will produce an orange dot, green indicates a completed stage and red indicates error state. Gray dots will show for all stages waiting for other stages to complete.}
 \end{figure*}
 
@@ -2256,7 +2548,7 @@ Depending on your priority (assigned based on available metadata and how public 
 You will receive an email once a given data set has finished processing.
 
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Cmd-line uploader}
 
@@ -2331,7 +2623,7 @@ The following upload instructions are for using the MG-RAST REST API with the cu
 We strongly suggest that you use the scripts we provide, instead of the native REST API.
 
 \begin{enumerate}
-\item 
+\item
 \item You can upload a file into your inbox with
 \begin{small}
 \begin{lstlisting}
@@ -2375,9 +2667,9 @@ We strongly suggest that you use the scripts we provide, instead of the native R
 %}
 %\label{fig:Inbox}
 %\end{figure*}
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsubsection{File-processing options in the Inbox}
-%The following file-processing options are available. 
+%The following file-processing options are available.
 %\begin{itemize}
 %\item unpack selected --
 %unpacks selected zip, gzip, bzip2 files and tar archives compressed with gzip or bzip2.
@@ -2408,7 +2700,7 @@ We strongly suggest that you use the scripts we provide, instead of the native R
 %testseq\_no\_MID\_tag.fasta containing reads that do not match either of the two.
 %
 %We note that demultiplexing for Illumina needs to be done outside the MG-RAST system. Illumina barcodes work differently from 454 barcodes.
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsubsection{Directory management operations for the Inbox}
 %The following operations are available for managing the directory.
 
@@ -2436,13 +2728,12 @@ We strongly suggest that you use the scripts we provide, instead of the native R
 %}
 %\label{fig:Inbox-File-Information}
 %\end{figure*}
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Generating metadata for the submission}
 \label{section:generating_metadata}
 
-MG-RAST uses questionnaires to capture metadata for each project with one or more samples. Users have two options, they can download and fill out the questionnaire and then submit it or use our online editor, MetaZen \url{
-http://v3-web.mg-rast.org/Html/mgmainv3.html?mgpage=metazen}.
+MG-RAST uses questionnaires to capture metadata for each project with one or more samples. Users have two options, they can download and fill out the questionnaire and then submit it or use our online editor, MetaZen.
 Questionnaires are validated automatically by MG-RAST for completeness and compliance with the controlled vocabularies for certain fields.
 
 
@@ -2517,7 +2808,7 @@ Five fields must be completed.
 \begin{itemize}
 \item Country --
 e.g. United States of America, Netherlands, Australia, Uruguay
-\item Latitude and longitude -- 
+\item Latitude and longitude --
 e.g. [106.84517, -104.60667], [28\degree 42.306$'$N, 88\degree 24.099$'$W], [45.30 N, 73.35 W]
 \item Biome --
 e.g. small lake biome, urban biome, mangrove biome. This term must be one of the terms from the bioportal ontology (\url{http://bioportal.bioontology.org/ontologies/1069?p=terms&conceptid=ENVO\%3A00000428}). Terms that are not listed on this site are not valid.
@@ -2572,16 +2863,16 @@ We strongly encourage users to submit rich metadata, but we understand the effor
 
 MG-RAST uses a simple spreadsheet with 12 mandatory terms. MetaZen designed to help you fill out your metadata spreadsheet. The metadata you provide, helps us to analyze your data more accurately and helps make MG-RAST a more useful analysis resource for everyone.
 
-This tool will help you get started on completing your metadata spreadsheet by filling in any information that is common across all of your samples and/or libraries. This tool currently only allows users to enter one environmental package for your samples and all samples must have been sequenced by the same number of sequencing technologies with the same number of replicates. This information is entered in tab 2. 
+This tool will help you get started on completing your metadata spreadsheet by filling in any information that is common across all of your samples and/or libraries. This tool currently only allows users to enter one environmental package for your samples and all samples must have been sequenced by the same number of sequencing technologies with the same number of replicates. This information is entered in tab 2.
 
 Note: If your project deviates from this convention, you must either produce multiple separate metadata spreadsheets or generate your spreadsheet and then edit the appropriate fields manually.
 
-Metazen’s online form allows users to either use an existing project, or add in new information to start a new project (Figure \ref{fig:metazen_form}).  Users will expand each tab and fill in their metadata information. One of the benefits to using this form is that it provides compliant ENVO terms to select from to describe your sample, without the cumbersome task of looking them up outside of MG-RAST. Figure \ref{fig:metazen_expanded} shows an example of this for entering in environmental information.  
+Metazen’s online form allows users to either use an existing project, or add in new information to start a new project (Figure \ref{fig:metazen_form}).  Users will expand each tab and fill in their metadata information. One of the benefits to using this form is that it provides compliant ENVO terms to select from to describe your sample, without the cumbersome task of looking them up outside of MG-RAST. Figure \ref{fig:metazen_expanded} shows an example of this for entering in environmental information.
 
-The first tab is for project information where you enter the project name and description as well as PI information, information for the technical contact and cross-references to different analysis tools so that your dataset can be linked across these resources. 
+The first tab is for project information where you enter the project name and description as well as PI information, information for the technical contact and cross-references to different analysis tools so that your dataset can be linked across these resources.
 
-What you enter in the second tab (sample set information) will dictate what the next tabs will be. 
-Note: You must submit the information here before proceeding with the rest of the form. 
+What you enter in the second tab (sample set information) will dictate what the next tabs will be.
+Note: You must submit the information here before proceeding with the rest of the form.
 Enter the information about your set of samples. First, indicate the total number of samples in your set. Second, tell us which environmental package your samples belong to. Then, indicate how many times each of your samples was sequenced by each sequencing method.  Each entry of more than zero for number of shotgun, metatranscriptome or amplicon libraries will produce an additional tab to fill out about your sample (Figure \ref{fig:metazen_step2}.  Once you add or change information into this form you will need to press the button “show library input forms” to update subsequent tabs.
 
 Note: It is allowable to indicate here if your samples were sequenced using more than one sequencing method.
@@ -2591,7 +2882,7 @@ Once the data has been entered, click on “download excel spreadsheet” to dow
 \begin{figure*}
 \begin{center}
 \includegraphics[width=6in]{Images/metazen_form.png}
-\end{center} 
+\end{center}
 \caption{The Metazen form for filling out metadata allows users to fill in data online and add data to existing projects or start new ones. Tabs are expandable and reveal forms for the various required metadata sections.}
 \label{fig:metazen_form}
 \end{figure*}
@@ -2599,7 +2890,7 @@ Once the data has been entered, click on “download excel spreadsheet” to dow
 \begin{figure*}
 \begin{center}
 \includegraphics[width=6in]{Images/metazen_expanded.png}
-\end{center} 
+\end{center}
 \caption{The Metazen form for filling out metadata allows users to fill in data using standard nomenclature.}
 \label{fig:metazen_expanded}
 \end{figure*}
@@ -2607,7 +2898,7 @@ Once the data has been entered, click on “download excel spreadsheet” to dow
 \begin{figure*}
 \begin{center}
 \includegraphics[width=6in]{Images/metazen_step2.png}
-\end{center} 
+\end{center}
 \caption{The second tab in the Metazen form must be filled out before moving further down the forms. Selecting the number of libraries (other than zero) adds forms for those libraries. Click on the “show library input forms” button to display them. If no libraries are entered, then only the default tabs for environment and sample information are provided.}
 \label{fig:metazen_step2}
 \end{figure*}
@@ -2636,16 +2927,16 @@ where you need to substitute ``webkey'' with the unique string of text generated
 
 \subsection*{How do I handle the metadata for paired end reads?}
 
-With paired reads (e.g. R1 and R2) the reads can be merged prior to submission, in this case the metadata should only refer to the new merged reads. 
+With paired reads (e.g. R1 and R2) the reads can be merged prior to submission, in this case the metadata should only refer to the new merged reads.
 
 You only need to include metadata for the R1 and R2 reads separately if you choose to treat the second read (R2) as a technical replicate. The mate pair merging can be handled by the Web UI by the submission script we provide in the MG-RAST tools repository.
-
+TBA
 
 \subsection*{What type of sequence files should I upload?}
 Your sequence data can be in FASTA, FASTQ or SFF format. These are recognized by the file name extension with valid extensions for the appropriate formats .fasta, .fna, .fastq, .fq, and .sff and FASTA and FASTQ files need to be in plain text ASCII.
 Compressing large files will reduce the upload time and the chances of a failed upload, you can use gzip (.gz), bzip2 (.bz2) Zip (.zip less than 4 GB in size) as well as tar archives compressed with gzip (.tar.gz) or bzip2 (.tar.bz2), rar files are not accepted.
 We suggest you upload raw data (in FASTQ or SFF format) and let MG-RAST perform the quality control step, see Section \ref{section:mgrast_pipeline_details} for details.
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{What type of sequence files should I NOT upload?}
 MG-RAST will not analyze the following:
@@ -2745,12 +3036,12 @@ where `n' is the coverage or abundance of each contig.
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Can I use the coverage information in my Velvet sequence file?}
 Yes, coverage information can be included in the header lines of FASTA-formatted files, for the exact format see the FAQ entry on the assembled pipeline.
- 
+
 \noindent
 The following unix command:
 
 \noindent
-\begin{small} 
+\begin{small}
 \begin{verbatim}
 cat contigs.fa |
    sed 's/_cov_\([0-9]*\).[0-9]*/_[cov=\1]/;' > Assembly-formatted-for-MGRAST.fa
@@ -2763,9 +3054,9 @@ should transform Velvet's default FASTA output into MG-RAST's preferred output.
 \noindent
 Adding one more term:
 \noindent
-\begin{small} 
+\begin{small}
 \begin{verbatim}
-cat contigs.fa | 
+cat contigs.fa |
      sed 's/_cov_\([0-9]*\).[0-9]*/_[cov=\1]/;
           s/NODE/Assembly-and-sample-name/' > Assembly-formatted-for-MGRAST.fa
 \end{verbatim}
@@ -2820,7 +3111,7 @@ MG-RAST assigns a priority to each dataset which will influence the order in whi
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{What annotations does MG-RAST display?}
 At the moment, the annotations provided by MG-RAST are annotations produced by the MG-RAST v3.2 analysis pipeline. Different pipelines (and different pipeline strategies) may produce different results, and the results of different annotation strategies are notoriously different to reconcile. Some users have reported and published using annotations that differ from those produced by MG-RAST; we provide the MG-RAST annotations. While in theory the various annotation tools and approaches do similar things (annotating reads based on similarity to sequences in the public databases), the various approaches can provide significantly different descriptions, particularly at the species level.
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Why don't the numbers of annotations add up to the number of reads?}
 See Section \ref{section:annotation_numbers}.
@@ -2844,7 +3135,7 @@ If we suppress protein similarities when we think a dataset is RNA, we will some
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{What do all those symbols in the similarities table mean?}
-The MG-RAST system was designed to annotate large datasets;  the similarities output is designed for the convenience of the MG-RAST system and not the end user.   MG-RAST uses 32-character symbols like this \texttt{28614b98db4f4efc13b8b20b21ee9b95} (md5 protein identifiers) as the labels for protein sequences, regardless of database. 
+The MG-RAST system was designed to annotate large datasets;  the similarities output is designed for the convenience of the MG-RAST system and not the end user.   MG-RAST uses 32-character symbols like this \texttt{28614b98db4f4efc13b8b20b21ee9b95} (md5 protein identifiers) as the labels for protein sequences, regardless of database.
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection*{Can I run a BLAST search against all public metagenomes?}
@@ -2906,7 +3197,7 @@ See Section \ref{section:webkey}.
 See Section \ref{section:webkey}.
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Putting It All in Perspective}
 
@@ -2968,27 +3259,27 @@ We maintain a rough roadmap for future version of MG-RAST.
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection*{version 5.0}
 \begin{itemize}
-\item provide federated SHOCK system 
+\item provide federated SHOCK system
 \item provide an assembly based pipeline
 \end{itemize}
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section*{Acknowledgments}
 
 This project is funded by the NIH grant R01AI123037 and by NSF grant 1645609
 
-This work used the Magellan machine (U.S.Department of Energy, Office of Science, 
-Advanced Scientific Computing Research, under contract  DE-AC02-06CH11357) at Argonne National Laboratory, and the PADS resource (National Science Foundation grant OCI-0821678) at the Argonne National Laboratory/University of Chicago Computation Institute. 
+This work used the Magellan machine (U.S.Department of Energy, Office of Science,
+Advanced Scientific Computing Research, under contract  DE-AC02-06CH11357) at Argonne National Laboratory, and the PADS resource (National Science Foundation grant OCI-0821678) at the Argonne National Laboratory/University of Chicago Computation Institute.
 
 In the past the following sources contributed to MG-RAST development:
 \begin{itemize}
 \item U.S. Dept. of Energy under Contract DE-AC02-06CH11357
-\item Sloan Foundation (SLOAN \#2010-12), 
-\item NIH NIAID (HHSN272200900040C), 
+\item Sloan Foundation (SLOAN \#2010-12),
+\item NIH NIAID (HHSN272200900040C),
 \item  NIH Roadmap HMP program (1UH2DK083993-01).
  \end{itemize}
- 
+
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -3180,7 +3471,7 @@ Blat output filtered to take only the best hit from each data source.
 \end{mdframed}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Terms of Service}
 
@@ -3197,7 +3488,7 @@ Blat output filtered to take only the best hit from each data source.
 \end{itemize}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{Tools and data used by MG-RAST}
 The MG-RAST team is happy to acknowledge the use of the following great software and data products:
