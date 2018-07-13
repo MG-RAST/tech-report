@@ -36,6 +36,11 @@ A.~Bolotin, B.~Quinquis, A.~Sorokin, and S.D. Ehrlich.
   have spacers of extrachromosomal origin.
 \newblock {\em Microbiology}, 151(Pt 8):2551--61, 2005.
 
+\bibitem{DIAMOND}
+Benjamin Buchfink, Chao Xie, and Daniel~H Huson.
+\newblock Fast and sensitive protein alignment using diamond.
+\newblock {\em Nature methods}, 12(1):59--60, 2015.
+
 \bibitem{QIIME}
 J.G. Caporaso, J.~Kuczynski, J.~Stombaugh, K.~Bittinger, F.D. Bushman, E.K.
   Costello, N.~Fierer, A.G. Pena, J.K. Goodrich, J.I. Gordon, G.A. Huttley,

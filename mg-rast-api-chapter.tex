@@ -16,12 +16,12 @@
 \section{URLs}
 \begin{small}
 \begin{verbatim}
-http://api.metagenomics.anl.gov/
+https://api.mg-rast.org/
 \end{verbatim}
 \end{small} Further documentation, with a complete parameter listing for all resources available is at:
 \begin{small}
 \begin{verbatim}
-http://api.metagenomics.anl.gov/api.html
+https://api,mg-rast.org/api.html
 \end{verbatim}
 \end{small} Github repository of script tools, examples, and contributed code for using the MG-RAST API:
 \begin{small}
@@ -36,7 +36,6 @@ https://github.com/MG-RAST/MG-RAST-Tools
 
 %Metagenomic sequencing has produced significant amounts of data in recent years. For example, as of summer 2013, MG-RAST has been used to annotate over 110,000 data sets totaling over 43 terabases. With metagenomic sequencing finding even wider adoption in the scientific community, he existing web-based analysis tools and infrastructure in MG-RAST provide limited capability for comparative analysis (i.e., number of datasets). Moreover, although the system provides many analysis tools, it is not comprehensive. By opening MG-RAST up via a web services API (application programmers interface) we have enabled unprecedented access to MG-RAST data as well as provided a mechanism for the use of third-party analysis tools with MG-RAST data. This RESTful API makes all data and data objects created by the MG-RAST pipeline accessible as JSON objects.
 
-%As part of the DOE Systems Biology knowledgebase project (KBase, \begin{small}\url{http://kbase.us}\end{small})  we have implemented a web services API for MG-RAST. This API complements the existing MG-RAST web interface and constitutes the basis of KBase's microbial community capabilities. The API exposes a comprehensive collection of data to programmers. The new API, which uses a RESTful implementation, is compatible with most programming environments and should be easy to use for third parties. The API provides comprehensive access to sequence data, quality control results, annotations, and many other data types. Whenever possible, we have employed standards to expose data and metadata. We provide several code examples in a number of languages both to show both the versatility of the approach and to provide a starting point for users.
 
 %We present an API that exposes the data in MG-RAST for consumption by third parties, greatly enhancing the utility of the MG-RAST service.
 
@@ -64,14 +63,14 @@ The MG-RAST API covers most of the functionality available through the MG-RAST w
 Each query to the API is represented as a URI beginning with 
 \begin{small}
 \begin{verbatim}
-http://api.metagenomics.anl.gov/
+http://api.mg-rast.org/
 \end{verbatim}
 \end{small} and has a defined structure to pass the requests and parameters to the API server. These URI queries can be used from the command line, e.g. using curl, in a browser, or incorporated in a shell script or program.
 
 Each URI has the form:
 \begin{small}
 \begin{verbatim}
-http://api.metagenomics.anl.gov/{version}/{resourcepath}?{querystring}
+http://api.mg-rast.org/{version}/{resourcepath}?{querystring}
 \end{verbatim}
 \end{small} where
 
@@ -99,7 +98,7 @@ is used to filter the results obtained for the resource, this is optional.
 For example, in:
 \begin{small}
 \begin{lstlisting}
-http://api.metagenomics.anl.gov/1/annotation/sequence/mgm4447943.3?evalue=10&type=organism&source=SwissProt
+http://api.mg-rast.org/1/annotation/sequence/mgm4447943.3?evalue=10&type=organism&source=SwissProt
 \end{lstlisting}
 \end{small} the resource path 
 
@@ -129,26 +128,26 @@ All public data in MG-RAST is available without an auth\_key. All API queries fo
 The auth\_key can be included in the query string like:
 \begin{small}
 \begin{lstlisting}
-http://api.metagenomics.anl.gov/1/annotation/sequence/mgm4447943.3?evalue=10&type=organism&source=SwissProt&auth_key=j6FNL61ekNarTgqupMma6eMx5
+http://api.mg-rast.org/1/annotation/sequence/mgm4447943.3?evalue=10&type=organism&source=SwissProt&auth_key=j6FNL61ekNarTgqupMma6eMx5
 \end{lstlisting}
 \end{small} or in a request using curl like:
 \begin{small}
 \begin{lstlisting}
-curl -X GET -H "auth: j6FNL61ekNarTgqupMma6eMx5" "http://api.metagenomics.anl.gov/1/annotation/sequence/mgm4447943.3?evalue=10&type=organism&source=SwissProt"
+curl -X GET -H "auth: j6FNL61ekNarTgqupMma6eMx5" "http://api.mg-rast.org/1/annotation/sequence/mgm4447943.3?evalue=10&type=organism&source=SwissProt"
 \end{lstlisting}
 \end{small} Note that for the curl command the quotes are necessary for the query to be passed to the API correctly.
 
 If an optional parameter passed through the query string has a list of values only the first will be used. When multiple values are required, e.g. for multiple md5 checksum values, they can be passed to the API like:
 \begin{small}
 \begin{lstlisting}
-curl -X POST -d '{"data":["000821a2e2f63df1a3873e4b280002a8","15bf1950bd9867099e72ea6516e3d602"]}' "http://api.metagenomics.anl.gov//m5nr/md5"
+curl -X POST -d '{"data":["000821a2e2f63df1a3873e4b280002a8","15bf1950bd9867099e72ea6516e3d602"]}' "http://api.mg-rast.org/m5nr/md5"
 \end{lstlisting}
 \end{small}
 
 In some cases, the data requested is in the form of a list with a large number of entries. In these cases the `limit' and `offset' parameters can be used to step through the list, e.g.
 \begin{small}
 \begin{lstlisting}
-http://api.metagenomics.anl.gov/1/project?order=name&limit=20&offset=100
+https://api.mg-rast.org/1/project?order=name&limit=20&offset=100
 \end{lstlisting}
 \end{small} will limit the number of entries returned to 20 with an offset of 100. If these parameters are not provided default values of \texttt{limit=10} and \texttt{offset=0} are used. The returned JSON structure will contain the `next' and `prev' (previous) URIs to simplify stepping through the list.
 
@@ -199,7 +198,7 @@ The API provides index-driven access to data subsets using the following data ty
 \textbf{annotation}
 \begin{small}
 \begin{lstlisting}
-http://api.metagenomics.anl.gov/1/annotation/sequence/mgm4440036.3?type=function&filter=protease&source=Subsystems
+https://api.mg-rast.org/1/annotation/sequence/mgm4440036.3?type=function&filter=protease&source=Subsystems
 \end{lstlisting}
 \end{small} Retrieve the reads from a metagenome with ID mgm4440036.3 which were annotated as  protease in SEED Subsystems.
 
@@ -207,12 +206,12 @@ http://api.metagenomics.anl.gov/1/annotation/sequence/mgm4440036.3?type=function
 \textbf{download}
 \begin{small}
 \begin{lstlisting}
-http://api.metagenomics.anl.gov/1/download/mgm4447943.3
+https://api.mg-rast.org/1/download/mgm4447943.3
 \end{lstlisting}
 \end{small} Retrieve information formatted as a JSON object about all the files available for download for metagenome mgm4447943.3 with information about the files and sequence statistics where applicable. Each file listed has a URL included which can be used to download the file, e.g.
 \begin{small}
 \begin{lstlisting}
-http://api.metagenomics.anl.gov/1/download/mgm4447943.3?file=650.1
+https://api.mg-rast.org/1/download/mgm4447943.3?file=650.1
 \end{lstlisting}
 \end{small} will download the protein.sims file containing the BLAT similarities.
 
@@ -220,7 +219,7 @@ http://api.metagenomics.anl.gov/1/download/mgm4447943.3?file=650.1
 \textbf{inbox}
 \begin{small}
 \begin{lstlisting}
-curl -X POST -H "auth: auth_key" -F "upload=@sequences.fastq" "http://api.metagenomics.anl.gov/1/inbox"
+curl -X POST -H "auth: auth_key" -F "upload=@sequences.fastq" "https://api.mg-rast.org/1/inbox"
 \end{lstlisting}
 \end{small}
 Upload the file 'sequences.fastq' to your inbox. This API call requires user authentication using the auth\_key described above. It can not be used in a browser, but needs to be run from the command line or from a script.
@@ -229,7 +228,7 @@ Upload the file 'sequences.fastq' to your inbox. This API call requires user aut
 \textbf{matrix}
 \begin{small}
 \begin{lstlisting}
-http://api.metagenomics.anl.gov/matrix/organism?group_level=family&source=SEED&evalue=5&id=mgm4440442.5&id=mgm4440026.3
+https://api.mg-rast.org/matrix/organism?group_level=family&source=SEED&evalue=5&id=mgm4440442.5&id=mgm4440026.3
 \end{lstlisting}
 \end{small}
 Retrieve the taxonomic abundance profile on family level for 2 metagenomes based on SEED assignments with an evalue cutoff of 1e-5.
@@ -238,14 +237,14 @@ Retrieve the taxonomic abundance profile on family level for 2 metagenomes based
 \textbf{metagenome}
 \begin{small}
 \begin{lstlisting}
-http://api.metagenomics.anl.gov/1/metagenome/mgm4440026.3
+https://api.mg-rast.org/1/metagenome/mgm4440026.3
 \end{lstlisting}
 \end{small} List analysis submission parameters and other details for a metagenome.
 \newline
 The metagenome resource can also be used to search metadata, function and taxonomy.  
 \begin{small}
 \begin{lstlisting}
-http://api.metagenomics.anl.gov/metagenome?function=dnaA&organism=coli&biome=marine&match=all&order=created
+https://api.mg-rast.org/metagenome?function=dnaA&organism=coli&biome=marine&match=all&order=created
 \end{lstlisting}
 \end{small} This call will find all marine metagenomes with reads annotated as dnaA and have taxonomic assignment containing the text `coli', the results will be ordered based on creation date for the metagenome.
 
@@ -253,7 +252,7 @@ http://api.metagenomics.anl.gov/metagenome?function=dnaA&organism=coli&biome=mar
 \textbf{project}
 \begin{small}
 \begin{lstlisting}
-http://api.metagenomics.anl.gov/project/mgp31?verbosity=full
+https://api.mg-rast.org/project/mgp31?verbosity=full
 \end{lstlisting}
 \end{small} Retrieve available information about the project with ID mgp31.
 
@@ -261,7 +260,7 @@ http://api.metagenomics.anl.gov/project/mgp31?verbosity=full
 \textbf{sample}
 \begin{small}
 \begin{lstlisting}
-http://api.metagenomics.anl.gov/1/sample/mgs12326?verbosity=full
+https://api.mg-rast.org/1/sample/mgs12326?verbosity=full
 \end{lstlisting}
 \end{small} Retrieve available information about individual samples, including IDs and metadata.
 
@@ -269,22 +268,22 @@ http://api.metagenomics.anl.gov/1/sample/mgs12326?verbosity=full
 \textbf{metadata}
 \begin{small}
 \begin{lstlisting}
-http://api.metagenomics.anl.gov//metadata/template
+https://api.mg-rast.org//metadata/template
 \end{lstlisting}
 \end{small} Retrieve the static template for metadata object relationships and types used by MG-RAST.
 \begin{small}
 \begin{lstlisting}
-http://api.metagenomics.anl.gov//metadata/export/mgp128
+https://api.mg-rast.org//metadata/export/mgp128
 \end{lstlisting}
 \end{small} Retrieve all metadata for project mgp128.
 \begin{small}
 \begin{lstlisting}
-http://api.metagenomics.anl.gov/metadata/cv
+https://api.mg-rast.org/metadata/cv
 \end{lstlisting}
 \end{small} Retrieve a set of lists of all our controlled metadata terms, including the ontologies.
 \begin{small}
 \begin{lstlisting}
-http://api.metagenomics.anl.gov/metadata/ontology?name=biome&version=2013-04-27
+https://api.mg-rast.org/metadata/ontology?name=biome&version=2013-04-27
 \end{lstlisting}
 \end{small} Retrieve a more detailed list (with relationships) for a specific version of the ontology.
 
@@ -292,7 +291,7 @@ http://api.metagenomics.anl.gov/metadata/ontology?name=biome&version=2013-04-27
 \textbf{m5nr}
 \begin{small}
 \begin{lstlisting}
-http://api.metagenomics.anl.gov/1/m5nr/md5/ffc62262a18b38671c3e337150ef535f?source=SwissProt
+https://api.mg-rast.org/1/m5nr/md5/ffc62262a18b38671c3e337150ef535f?source=SwissProt
 \end{lstlisting}
 \end{small} Retrieve the UniProt ID for a given sequence identifier.
 
