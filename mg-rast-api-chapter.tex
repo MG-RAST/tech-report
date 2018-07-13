@@ -1,18 +1,18 @@
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \chapter{API --- The MG-RAST Application Programming Interface}
 \label{API}
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% 
+%
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{URLs}
 \begin{small}
 \begin{verbatim}
@@ -29,9 +29,9 @@ https://api,mg-rast.org/api.html
 https://github.com/MG-RAST/MG-RAST-Tools
 \end{verbatim}
 \end{small}
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 
 %Metagenomic sequencing has produced significant amounts of data in recent years. For example, as of summer 2013, MG-RAST has been used to annotate over 110,000 data sets totaling over 43 terabases. With metagenomic sequencing finding even wider adoption in the scientific community, he existing web-based analysis tools and infrastructure in MG-RAST provide limited capability for comparative analysis (i.e., number of datasets). Moreover, although the system provides many analysis tools, it is not comprehensive. By opening MG-RAST up via a web services API (application programmers interface) we have enabled unprecedented access to MG-RAST data as well as provided a mechanism for the use of third-party analysis tools with MG-RAST data. This RESTful API makes all data and data objects created by the MG-RAST pipeline accessible as JSON objects.
@@ -41,36 +41,36 @@ https://github.com/MG-RAST/MG-RAST-Tools
 
 Over 110,000 metagenomic data sets have been uploaded and analyzed in MG-RAST since 2007, totaling over 43 terabases (TBp). Data uploaded falls in three classes: shotgun metagenomic data, amplicon data, and, more recently, metatranscriptomic data. The MG-RAST pipeline normalizes all samples by applying a uniform pipeline with the appropriate quality control mechanisms for the various data sources. Uniform processing and robust sequence quality control enable comparison across experimental systems and, to some extent, across sequencing platforms. With the inclusion of standardized metadata MG-RAST has enabled meta-analysis available through its web-based user interface. This provides an easy-to-use way to upload and download data, perform analyses, and create and share projects.
 
-As with most GUIs, however, there are limitations to what can be done, for example, regarding the number of samples processed in a single analysis, access to complete metadata, and easy access to raw data and quality metrics for each sample. As part of the DOE Systems Biology knowledgebase project (KBase) we have implemented a web services application programmers interface (API) that exposes all data to (authenticated) programmers, enabling access to available data and functionality through software applications. This makes user access to MG-RAST's internal data structures possible. 
+As with most GUIs, however, there are limitations to what can be done, for example, regarding the number of samples processed in a single analysis, access to complete metadata, and easy access to raw data and quality metrics for each sample. As part of the DOE Systems Biology knowledgebase project (KBase) we have implemented a web services application programmers interface (API) that exposes all data to (authenticated) programmers, enabling access to available data and functionality through software applications. This makes user access to MG-RAST's internal data structures possible.
 
-The MG-RAST API enables programmatic access to data and analyses in MG-RAST without requiring local installations. Using the API, users can authenticate against the service, submit their data, download results, and perform extensive comparisons of data sets. The API uses the Representational State Transfer (REST) [3] architecture which allows download of data in ASCII format, allowing users to query the system via URLs and returning MG-RAST data objects in their native format (e.g. similarity tables or sequence files). For structured data (e.g. metadata or project information) the MG-RAST API uses JSON (Javascript Object Notation, a widely used standard) as its data format. 
+The MG-RAST API enables programmatic access to data and analyses in MG-RAST without requiring local installations. Using the API, users can authenticate against the service, submit their data, download results, and perform extensive comparisons of data sets. The API uses the Representational State Transfer (REST) [3] architecture which allows download of data in ASCII format, allowing users to query the system via URLs and returning MG-RAST data objects in their native format (e.g. similarity tables or sequence files). For structured data (e.g. metadata or project information) the MG-RAST API uses JSON (Javascript Object Notation, a widely used standard) as its data format.
 
-This allows users to use simple tools to download data files or view the JSON in their web browsers using one of the many available JSON viewers. In addition many programming languages have libraries for convenient HTTP interaction and JSON conversions. The API has a minimal number of prerequisites; and any language with HTTP and JSON support or command line utilities such as ``curl" can easily integrate with the design. 
+This allows users to use simple tools to download data files or view the JSON in their web browsers using one of the many available JSON viewers. In addition many programming languages have libraries for convenient HTTP interaction and JSON conversions. The API has a minimal number of prerequisites; and any language with HTTP and JSON support or command line utilities such as ``curl" can easily integrate with the design.
 
-If you are not a programmer or you are not willing to spend the time learning the API, the Example scripts (see chapter \ref{API-Examples}.) 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+If you are not a programmer or you are not willing to spend the time learning the API, the Example scripts (see chapter \ref{API-Examples}.)
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Design and Implementation}
-The MG-RAST API enables programmatic access to data and analyses in MG-RAST without requiring local installations. Users can authenticate against the service, submit their data, download results, and perform extensive comparisons of data sets. We chose to use the Representational State Transfer (REST) [3] architecture. The REST approach allows download of data in ASCII format, allowing users to query the system via URLs and returning  MG-RAST data objects in their native format (e.g. similarity tables or sequence files). For structured data (e.g. metadata or project information) the MG-RAST API uses JSON (Javascript Object Notation, a widely used standard) as its data format. 
+The MG-RAST API enables programmatic access to data and analyses in MG-RAST without requiring local installations. Users can authenticate against the service, submit their data, download results, and perform extensive comparisons of data sets. We chose to use the Representational State Transfer (REST) [3] architecture. The REST approach allows download of data in ASCII format, allowing users to query the system via URLs and returning  MG-RAST data objects in their native format (e.g. similarity tables or sequence files). For structured data (e.g. metadata or project information) the MG-RAST API uses JSON (Javascript Object Notation, a widely used standard) as its data format.
 
-Using this approach users can use simple tools to download data files to their machines or view the JSON in their web browsers using one of the many available JSON viewers. In addition many programming languages have libraries for convenient HTTP interaction and JSON conversions. 
+Using this approach users can use simple tools to download data files to their machines or view the JSON in their web browsers using one of the many available JSON viewers. In addition many programming languages have libraries for convenient HTTP interaction and JSON conversions.
 
 Most of the API calls are simply URLs which can be entered in the address bar of a web browser to perform the download through the browser. These URLs can also be used with a command line tool like curl, in programing-language-specific libraries, or in command line scripts. The examples in the Results section illustrate the use of each of these methods. The example scripts are available on in the supplementary materials and on github (https://github.com/MG-RAST/MG-RAST-Tools) along with other useful illustrative scripts.
 
 The MG-RAST API covers most of the functionality available through the MG-RAST website, with access to annotations, analyses, metadata and access to the MG-RAST user inbox to view contents as well as upload files. All sequence data and data products from intermediate stages in the analysis pipeline are available for download. Other resources provide services not available through the website, e.g. the m5nr resource lets you query the m5nr database.
 
-Each query to the API is represented as a URI beginning with 
+Each query to the API is represented as a URI beginning with
 \begin{small}
 \begin{verbatim}
-http://api.mg-rast.org/
+https://api.mg-rast.org/
 \end{verbatim}
 \end{small} and has a defined structure to pass the requests and parameters to the API server. These URI queries can be used from the command line, e.g. using curl, in a browser, or incorporated in a shell script or program.
 
 Each URI has the form:
 \begin{small}
 \begin{verbatim}
-http://api.mg-rast.org/{version}/{resourcepath}?{querystring}
+https://api.mg-rast.org/{version}/{resourcepath}?{querystring}
 \end{verbatim}
 \end{small} where
 
@@ -98,16 +98,16 @@ is used to filter the results obtained for the resource, this is optional.
 For example, in:
 \begin{small}
 \begin{lstlisting}
-http://api.mg-rast.org/1/annotation/sequence/mgm4447943.3?evalue=10&type=organism&source=SwissProt
+https://api.mg-rast.org/1/annotation/sequence/mgm4447943.3?evalue=10&type=organism&source=SwissProt
 \end{lstlisting}
-\end{small} the resource path 
+\end{small} the resource path
 
 \begin{small}
 \begin{verbatim}
 annotation/sequence/mgm4447943.3
 \end{verbatim}
-\end{small} defines a request for the annotated sequences for the MG-RAST job with ID 4447943.3. 
-The optional query string 
+\end{small} defines a request for the annotated sequences for the MG-RAST job with ID 4447943.3.
+The optional query string
 
 \begin{small}
 \begin{verbatim}
@@ -128,19 +128,19 @@ All public data in MG-RAST is available without an auth\_key. All API queries fo
 The auth\_key can be included in the query string like:
 \begin{small}
 \begin{lstlisting}
-http://api.mg-rast.org/1/annotation/sequence/mgm4447943.3?evalue=10&type=organism&source=SwissProt&auth_key=j6FNL61ekNarTgqupMma6eMx5
+https://api.mg-rast.org/1/annotation/sequence/mgm4447943.3?evalue=10&type=organism&source=SwissProt&auth_key=j6FNL61ekNarTgqupMma6eMx5
 \end{lstlisting}
 \end{small} or in a request using curl like:
 \begin{small}
 \begin{lstlisting}
-curl -X GET -H "auth: j6FNL61ekNarTgqupMma6eMx5" "http://api.mg-rast.org/1/annotation/sequence/mgm4447943.3?evalue=10&type=organism&source=SwissProt"
+curl -X GET -H "auth: j6FNL61ekNarTgqupMma6eMx5" "https://api.mg-rast.org/1/annotation/sequence/mgm4447943.3?evalue=10&type=organism&source=SwissProt"
 \end{lstlisting}
 \end{small} Note that for the curl command the quotes are necessary for the query to be passed to the API correctly.
 
 If an optional parameter passed through the query string has a list of values only the first will be used. When multiple values are required, e.g. for multiple md5 checksum values, they can be passed to the API like:
 \begin{small}
 \begin{lstlisting}
-curl -X POST -d '{"data":["000821a2e2f63df1a3873e4b280002a8","15bf1950bd9867099e72ea6516e3d602"]}' "http://api.mg-rast.org/m5nr/md5"
+curl -X POST -d '{"data":["000821a2e2f63df1a3873e4b280002a8","15bf1950bd9867099e72ea6516e3d602"]}' "https://api.mg-rast.org//m5nr/md5"
 \end{lstlisting}
 \end{small}
 
@@ -151,7 +151,7 @@ https://api.mg-rast.org/1/project?order=name&limit=20&offset=100
 \end{lstlisting}
 \end{small} will limit the number of entries returned to 20 with an offset of 100. If these parameters are not provided default values of \texttt{limit=10} and \texttt{offset=0} are used. The returned JSON structure will contain the `next' and `prev' (previous) URIs to simplify stepping through the list.
 
-The data returned may be plain text, compressed gzipped files or a JSON structure. 
+The data returned may be plain text, compressed gzipped files or a JSON structure.
 
 Most API queries are `synchronous' and results are returned immediately. Some queries may require a substantial time to compute results, in these cases you can select the asynchronous option by adding \texttt{`\&asynchronous=1'} to the end of the query string. This query will then return a URL which will return the query results when they are ready.
 
@@ -187,14 +187,14 @@ Most of the API calls are simply URLs which can be entered in the address bar of
 \end{tabular}
 \label{table:upload_speeds}
 \end{table}
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Examples}
 The API provides index-driven access to data subsets using the following data types as indices into the data: functions, functional hierarchy data, and taxonomic data. Whenever possible we have employed standards to expose data and metadata, such as the BIOM standard for encoding abundance profiles. The examples below are intended to illustrate usage for the various resources available, they do not cover the entire functionality of the API, see the documentation at the API website for the comprehensive listing.
 
 \begin{itemize}
-\item 
+\item
 \textbf{annotation}
 \begin{small}
 \begin{lstlisting}
@@ -241,7 +241,7 @@ https://api.mg-rast.org/1/metagenome/mgm4440026.3
 \end{lstlisting}
 \end{small} List analysis submission parameters and other details for a metagenome.
 \newline
-The metagenome resource can also be used to search metadata, function and taxonomy.  
+The metagenome resource can also be used to search metadata, function and taxonomy.
 \begin{small}
 \begin{lstlisting}
 https://api.mg-rast.org/metagenome?function=dnaA&organism=coli&biome=marine&match=all&order=created
@@ -296,6 +296,6 @@ https://api.mg-rast.org/1/m5nr/md5/ffc62262a18b38671c3e337150ef535f?source=Swiss
 \end{small} Retrieve the UniProt ID for a given sequence identifier.
 
 \end{itemize}
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -103,7 +103,7 @@
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Motivation}
 
-MG-RAST provides Science as a Service for environmental DNA ("metagenomic sequences") at \url{https://mg-rast.org}.% or \url{https://mg-rast.org}.
+MG-RAST provides Science as a Service for environmental DNA ("metagenomic sequences") at \url{https://mg-rast.org}.% or \url{https://metagenomics.anl.gov}.
 
 
 The National Human Genome Research Institute (NHGRI), a division of the National Institutes of Health, publishes information (see Figure \ref{fig:cost_per_megabase}) describing the development of computing costs and DNA sequencing costs over time \cite{NHGRI_COST}. The dramatic gap between the shrinking costs of sequencing and the more or less stable costs of computing is a major challenge for biomedical researchers trying to use next-generation DNA sequencing platforms to obtain information on microbial communities. Wilkening \textit{et al.} \cite{MGCLOUD} provide a real currency cost for the analysis of 100 gigabasepairs of DNA sequence data using BLASTX on Amazon's \gls{EC2} service: \$300,000.\footnote{This includes only the computation cost, no data transfer cost, and was computed using 2009 prices.} A more recent study by University of Maryland researchers \cite{CLOVR} estimates the computation for a terabase of DNA shotgun data using their CLOVR metagenome analysis pipeline at over \$5 million per terabase.
@@ -296,7 +296,6 @@ The  team is listed below.
 \item Andreas Wilke
 \item Wolfgang Gerlach
 \item Travis Harrison
-\item Tobias Paczian
 \item William L. Trimble
 \item Folker Meyer
 \end{itemize}
@@ -322,6 +321,8 @@ The following people were associated with MG-RAST in the past:
 \item  Jared Bischof, 2010-2016
 \item Kevin Keegan, 2009-2016
 \item  Daniel Braithwaite, 2012-2015
+\item Tobias Paczian 2007 - 2018
+
 
 \end{itemize}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1076,19 +1077,19 @@ Do not use temporary identifiers in publications as they are designed to change 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
 
-The results on the Overview page (e.g. link) represent a quick summary of the biological and technical 
-content of each data set. In the past we use a relatively simple approach (best-hit) to compute the biological 
-information. Our reasoning was based on the fact that the “real” meaningful data was presented via the Analysis Page. 
+The results on the Overview page (e.g. link) represent a quick summary of the biological and technical
+content of each data set. In the past we use a relatively simple approach (best-hit) to compute the biological
+information. Our reasoning was based on the fact that the “real” meaningful data was presented via the Analysis Page.
 
 With version 4.04 we are now presenting an updated Overview page, results on this page are based on the lowest common
-ancestor (LCA) algorithm (see Figure \ref{fig:lca}). The LCA (or most recent common ancestor) for a given DNA sequence is 
-computed by evaluating the set of similarities observed when matching the sequence against a number 
-of databases. 
+ancestor (LCA) algorithm (see Figure \ref{fig:lca}). The LCA (or most recent common ancestor) for a given DNA sequence is
+computed by evaluating the set of similarities observed when matching the sequence against a number
+of databases.
 
-To put this in very simple language, when faced with uncertainty about which species to choose 
+To put this in very simple language, when faced with uncertainty about which species to choose
 (e.g. when faced with a protein shared by many E. coli species), the MG-RAST Overview page will
-display a genus level result Escherichia (one level up from species). Likewise if no decision can be 
-made between Escherichia and Shigella (both genera), the LCA will be set to Enterobacteriaceae.  
+display a genus level result Escherichia (one level up from species). Likewise if no decision can be
+made between Escherichia and Shigella (both genera), the LCA will be set to Enterobacteriaceae.
 
 \begin{figure}
 \begin{center}
@@ -1104,7 +1105,7 @@ Faced with a decision between multiple strain level hits (purple and orange) for
 
 We note that this will change results for some data sets and cause the analysis pages to look differently, the underlying sequence analysis however is not affected, we merely set a new default value for the generation of overview graphs on this page.
 
-Repeat: The scientific results (presented via the Analysis page) for download or comparison are not affected. 
+Repeat: The scientific results (presented via the Analysis page) for download or comparison are not affected.
 
 Additional reading: {\url https://en.wikipedia.org/wiki/Most\_recent\_common\_ancestor}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2071,7 +2072,7 @@ Note: Do not use the URL that is displayed in the browser when browsing the site
 
 \texttt{https://mg-rast.org/linkin.cgi?metagenome=}
 
-\texttt{http:s//mg-rast.org/linkin.cgi?project=}
+\texttt{https://mg-rast.org/linkin.cgi?project=}
 
 \caption{Stable URLs provided by the \texttt{linkin.cgi} mechanism for linking to MG-RAST.}
 \label{fig:linkin.cgi}
@@ -2626,21 +2627,21 @@ We strongly suggest that you use the scripts we provide, instead of the native R
 \item You can upload a file into your inbox with
 \begin{small}
 \begin{lstlisting}
-  curl -X POST -H "auth: <myToken>" -F "upload=@<path_to_file>/<file_name>" "http://api.mg-rast.org/inbox"
+  curl -X POST -H "auth: <myToken>" -F "upload=@<path_to_file>/<file_name>" "https://api.mg-rast.org/inbox"
 \end{lstlisting}
 \end{small}
 \item If you have a compressed file to upload, supports gzip or bzip2
 \begin{small}
 \begin{lstlisting}
-  curl -X POST -H "auth: <myToken>" -F "upload=@<path_to_file>/<gzip_file>" -F "compression=gzip" "http://api.mg-rast.org/inbox"
-  curl -X POST -H "auth: <myToken>" -F "upload=@<path_to_file>/<gzip_file>" -F "compression=bzip2" "http://api.mg-rast.org/inbox"
+  curl -X POST -H "auth: <myToken>" -F "upload=@<path_to_file>/<gzip_file>" -F "compression=gzip" "https://api.mg-rast.org/inbox"
+  curl -X POST -H "auth: <myToken>" -F "upload=@<path_to_file>/<gzip_file>" -F "compression=bzip2" "https://api.mg-rast.org/inbox"
 \end{lstlisting}
 \end{small}
 \item If you have an archive file containing multiple files to upload do the following two steps, supports: .zip, .tar, .tar.gz, .tar.bz2
 \begin{small}
 \begin{lstlisting}
-  1. curl -X POST -H "auth: <myToken>" -F "upload=@<path_to_file>/<archive_file>" "http://api.mg-rast.org/inbox"
-  2. curl -X POST -H "auth: <myToken>" -F "format=<one of: zip, tar, tar.gz, tar.bz2>" "http://api.mg-rast.org/inbox/unpack/<uploaded_file_id>"
+  1. curl -X POST -H "auth: <myToken>" -F "upload=@<path_to_file>/<archive_file>" "https://api.mg-rast.org/inbox"
+  2. curl -X POST -H "auth: <myToken>" -F "format=<one of: zip, tar, tar.gz, tar.bz2>" "https://api.mg-rast.org/inbox/unpack/<uploaded_file_id>"
 \end{lstlisting}
 \end{small}
 \end{enumerate}
@@ -2910,7 +2911,7 @@ Yes.  You can upload files to your user inbox using the MG-RAST API with the com
 \begin{small}
 \begin{verbatim}
 curl -H "auth: webkey" -X POST -F "upload=@/path_to_file/metagenome.fasta"
-          "http://api.mg-rast.org/1/inbox/" > curl_output.txt
+          "https://api.mg-rast.org/1/inbox/" > curl_output.txt
 \end{verbatim}
 \end{small}
 
