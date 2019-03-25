@@ -56,7 +56,7 @@ University of Maryland researchers (Angiuoli et al. 2011) estimates the
 computation for a terabase of DNA shotgun data using their CLOVR
 metagenome analysis pipeline at over $5 million per terabase.</p>
 <div class="figure" id="id12">
-<a class="reference internal image-reference" href="Images/cost_per_megabase.png"><img alt="Chart showing shrinking cost for DNA sequencing. This comparison with Moore’s law roughly describing the development of computing costs highlights the growing gap between sequence data and the available analysis resources. Source: NHGRI (Institute 2012)" src="Images/cost_per_megabase.png" style="width: 4in;" /></a>
+<a class="reference internal image-reference" href="../Images/cost_per_megabase.png"><img alt="Chart showing shrinking cost for DNA sequencing. This comparison with Moore’s law roughly describing the development of computing costs highlights the growing gap between sequence data and the available analysis resources. Source: NHGRI (Institute 2012)" src="../Images/cost_per_megabase.png" style="width: 4in;" /></a>
 <p class="caption"><span class="caption-text">Chart showing shrinking cost for DNA sequencing. This comparison with
 Moore’s law roughly describing the development of computing costs
 highlights the growing gap between sequence data and the available
@@ -288,7 +288,7 @@ implemented:</p>
 <li>Cassandra instead of Postgres as main data store for profiles</li>
 </ul>
 <div class="figure" id="fig-mgrastv2vsv3">
-<a class="reference internal image-reference" href="Images/mgrastv2VSv3.png"><img alt="Overview of processing pipeline in (left) MG-RAST v2 and (right) MG-RAST v3. In the old pipeline, metadata was rudimentary, compute steps were performed on individual reads on a 40-node cluster that was tightly coupled to the system, and similarities were computed by BLAST to yield abundance profiles that could then be compared on a per sample or per pair basis. In the new pipeline, rich metadata can be uploaded, normalization and feature prediction are performed, faster methods such as BLAT are used to compute similarities, and the resulting abundance profiles are fed into downstream pipelines on the cloud to perform community and metabolic reconstruction and to allow queries according to rich sample and functional metadata." src="Images/mgrastv2VSv3.png" style="width: 6in;" /></a>
+<a class="reference internal image-reference" href="_images/mgrastv2VSv3.png"><img alt="Overview of processing pipeline in (left) MG-RAST v2 and (right) MG-RAST v3. In the old pipeline, metadata was rudimentary, compute steps were performed on individual reads on a 40-node cluster that was tightly coupled to the system, and similarities were computed by BLAST to yield abundance profiles that could then be compared on a per sample or per pair basis. In the new pipeline, rich metadata can be uploaded, normalization and feature prediction are performed, faster methods such as BLAT are used to compute similarities, and the resulting abundance profiles are fed into downstream pipelines on the cloud to perform community and metabolic reconstruction and to allow queries according to rich sample and functional metadata." src="_images/mgrastv2VSv3.png" style="width: 6in;" /></a>
 <p class="caption"><span class="caption-text">Overview of processing pipeline in (left) MG-RAST v2 and (right)
 MG-RAST v3. In the old pipeline, metadata was rudimentary, compute
 steps were performed on individual reads on a 40-node cluster that
@@ -411,7 +411,7 @@ in table <a class="reference external" href="#xtab:v4-stores-to-API">[xtab:v4-st
 <p>The backend infrastructure and the overall system layout is shown in
 figure <a class="reference external" href="#fig:2016-production">2.1</a>.</p>
 <div class="figure" id="fig-2016-production">
-<a class="reference internal image-reference" href="Images/2016-production-overview.png"><img alt="Overview of the production system in mid 2016. Fleet is used to manage a number of containerized services (shown with dashed lines). Two services are provisioned outside the Fleet system: SHOCK (providing 0.7 Petabyte of storage) and a Postgres clusters. We note the significant number of different databases used to serve data required for the API." src="Images/2016-production-overview.png" style="width: 6in;" /></a>
+<a class="reference internal image-reference" href="_images/2016-production-overview.png"><img alt="Overview of the production system in mid 2016. Fleet is used to manage a number of containerized services (shown with dashed lines). Two services are provisioned outside the Fleet system: SHOCK (providing 0.7 Petabyte of storage) and a Postgres clusters. We note the significant number of different databases used to serve data required for the API." src="_images/2016-production-overview.png" style="width: 6in;" /></a>
 <p class="caption"><span class="caption-text">Overview of the production system in mid 2016. Fleet is used to
 manage a number of containerized services (shown with dashed lines).
 Two services are provisioned outside the Fleet system: SHOCK
@@ -469,7 +469,7 @@ features will be even more efficiently clustered, leading to more
 compression for abundant species.</li>
 </ul>
 <div class="figure" id="fig-data-model">
-<a class="reference internal image-reference" href="Images/data-model.png"><img alt="MG-RAST v3 data model." src="Images/data-model.png" style="width: 6in;" /></a>
+<a class="reference internal image-reference" href="_images/data-model.png"><img alt="MG-RAST v3 data model." src="_images/data-model.png" style="width: 6in;" /></a>
 <p class="caption"><span class="caption-text">MG-RAST v3 data model.</span></p>
 </div>
 <p>As shown in Figure <a class="reference external" href="#fig:data-model">2.2</a>, MG-RAST relies on
@@ -494,7 +494,7 @@ representations for the entities in the abundance profiles.</p>
 <div class="section" id="the-mg-rast-pipeline">
 <span id="section-mgrast-pipeline-details"></span><h1>The MG-RAST pipeline<a class="headerlink" href="#the-mg-rast-pipeline" title="Permalink to this headline">¶</a></h1>
 <div class="figure" id="fig-mgrast-v3-pipeline">
-<a class="reference internal image-reference" href="Images/mgrastv3pipeline.png"><img alt="Details of the analysis pipeline for MG-RAST version 3" src="Images/mgrastv3pipeline.png" style="width: 6in;" /></a>
+<a class="reference internal image-reference" href="_images/mgrastv3pipeline.png"><img alt="Details of the analysis pipeline for MG-RAST version 3" src="_images/mgrastv3pipeline.png" style="width: 6in;" /></a>
 <p class="caption"><span class="caption-text">Details of the analysis pipeline for MG-RAST version 3</span></p>
 </div>
 <p>MG-RAST provides automated processing of environmental DNA sequences via
@@ -872,7 +872,7 @@ from the beginning of each read.</p>
 should show biased distributions of bases at each position, reflecting
 both conservation and variability in the recovered sequences:</p>
 <div class="figure" id="fig-nucleotide-hist-amplicon">
-<a class="reference internal image-reference" href="Images/nucleotide-hist-amplicon.png"><img alt="Nucleotide histogram with biased distributions typical for an amplicon dataset." src="Images/nucleotide-hist-amplicon.png" style="width: 4in;" /></a>
+<a class="reference internal image-reference" href="_images/nucleotide-hist-amplicon.png"><img alt="Nucleotide histogram with biased distributions typical for an amplicon dataset." src="_images/nucleotide-hist-amplicon.png" style="width: 4in;" /></a>
 <p class="caption"><span class="caption-text">Nucleotide histogram with biased distributions typical for an
 amplicon dataset.</span></p>
 </div>
@@ -880,7 +880,7 @@ amplicon dataset.</span></p>
 basecalls, independent of position in the read as shown in Figure
 <a class="reference external" href="#fig:nucleotide-hist-ok">4.2</a>.</p>
 <div class="figure" id="fig-nucleotide-hist-ok">
-<a class="reference internal image-reference" href="Images/nucleotide-hist-ok.png"><img alt="Nucleotide histogram showing ideal distributions typical for a shotgun metagenome." src="Images/nucleotide-hist-ok.png" style="width: 4in;" /></a>
+<a class="reference internal image-reference" href="_images/nucleotide-hist-ok.png"><img alt="Nucleotide histogram showing ideal distributions typical for a shotgun metagenome." src="_images/nucleotide-hist-ok.png" style="width: 4in;" /></a>
 <p class="caption"><span class="caption-text">Nucleotide histogram showing ideal distributions typical for a
 shotgun metagenome.</span></p>
 </div>
@@ -891,7 +891,7 @@ similarity searches are not impacted by the presence of barcodes.
 However, if a significant fraction of the reads is consumed by barcodes,
 it reduces the biological information contained in the reads.</p>
 <div class="figure" id="fig-nucleotide-hist-barcodes">
-<a class="reference internal image-reference" href="Images/nucleotide-hist-barcodes.png"><img alt="Nucleotide histogram with untrimmed barcodes." src="Images/nucleotide-hist-barcodes.png" style="width: 4in;" /></a>
+<a class="reference internal image-reference" href="_images/nucleotide-hist-barcodes.png"><img alt="Nucleotide histogram with untrimmed barcodes." src="_images/nucleotide-hist-barcodes.png" style="width: 4in;" /></a>
 <p class="caption"><span class="caption-text">Nucleotide histogram with untrimmed barcodes.</span></p>
 </div>
 <p>If a shotgun dataset has clear patterns in the data, these indicate
@@ -899,7 +899,7 @@ likely contamination with artificial sequences. The dataset shown in see
 Figure <a class="reference external" href="#fig:nucleotide-with-contamination">4.4</a> had a large fraction
 of adapter dimers.</p>
 <div class="figure" id="fig-nucleotide-with-contamination">
-<a class="reference internal image-reference" href="Images/nucleotide-with-contamination.png"><img alt="Nucleotide histogram with contamination." src="Images/nucleotide-with-contamination.png" style="width: 4in;" /></a>
+<a class="reference internal image-reference" href="_images/nucleotide-with-contamination.png"><img alt="Nucleotide histogram with contamination." src="_images/nucleotide-with-contamination.png" style="width: 4in;" /></a>
 <p class="caption"><span class="caption-text">Nucleotide histogram with contamination.</span></p>
 </div>
 </div>
@@ -926,12 +926,12 @@ inflation in the counts)</li>
 <a class="reference external" href="#fig:UI-analysis-best-hit">4.6</a> show the effects of using the best
 and representative hit strategies.</p>
 <div class="figure" id="fig-ui-analysis-representative-hit">
-<a class="reference internal image-reference" href="Images/v402-UI-Analysis-best-hit-selected.png"><img alt="Selecting best hit for mapping data from study mgp128 against Subsystems." src="Images/v402-UI-Analysis-best-hit-selected.png" style="width: 4in;" /></a>
+<a class="reference internal image-reference" href="_images/v402-UI-Analysis-best-hit-selected.png"><img alt="Selecting best hit for mapping data from study mgp128 against Subsystems." src="_images/v402-UI-Analysis-best-hit-selected.png" style="width: 4in;" /></a>
 <p class="caption"><span class="caption-text">Selecting best hit for mapping data from study mgp128 against
 Subsystems.</span></p>
 </div>
 <div class="figure" id="fig-ui-analysis-best-hit">
-<a class="reference internal image-reference" href="Images/v402-UI-Analysis-representative-hit-selected.png"><img alt="Selecting representative hit for mapping data from study mgp128 against Subsystems leads to inflated numbers." src="Images/v402-UI-Analysis-representative-hit-selected.png" style="width: 4in;" /></a>
+<a class="reference internal image-reference" href="_images/v402-UI-Analysis-representative-hit-selected.png"><img alt="Selecting representative hit for mapping data from study mgp128 against Subsystems leads to inflated numbers." src="_images/v402-UI-Analysis-representative-hit-selected.png" style="width: 4in;" /></a>
 <p class="caption"><span class="caption-text">Selecting representative hit for mapping data from study mgp128
 against Subsystems leads to inflated numbers.</span></p>
 </div>
@@ -1077,7 +1077,7 @@ provide the linkin feature, See Section
 <a class="reference external" href="#section:linkin">[section:linkin]</a>.</div>
 </div>
 <div class="figure" id="fig-quad-chart-analysis-example">
-<a class="reference internal image-reference" href="Images/quad-chart-analysis-example.png"><img alt="(a) Using the web interface for a search of metagenomes for microbial mats in hotsprings (GSC-MIMS-Keywords Biome=“hotspring; microbial mat”), we find 6 metagenomes (refs: 4443745.3, 4443746.3, 4443747.3, 4443749.3, 4443750.3, 4443762.3). (b) Initial comparison reveals some differences in protein functional class abundance (using SEED subsystens level 1). (c) From the PCoA plot using normalized counts of functional SEED Subsystem–based functional annotations (level 2) and Bray-Curtis as metric, we attempt to find differences between two similar datasets (MG-RAST-IDs: 444749.3, 4443762.3). (d) Using exported tables with functional annotations and taxonomic mapping, we analyze the distribution of organisms observed to contain beta-lactamase and plot the abundance per species for two distinct samples." src="Images/quad-chart-analysis-example.png" style="width: 6in;" /></a>
+<a class="reference internal image-reference" href="_images/quad-chart-analysis-example.png"><img alt="(a) Using the web interface for a search of metagenomes for microbial mats in hotsprings (GSC-MIMS-Keywords Biome=“hotspring; microbial mat”), we find 6 metagenomes (refs: 4443745.3, 4443746.3, 4443747.3, 4443749.3, 4443750.3, 4443762.3). (b) Initial comparison reveals some differences in protein functional class abundance (using SEED subsystens level 1). (c) From the PCoA plot using normalized counts of functional SEED Subsystem–based functional annotations (level 2) and Bray-Curtis as metric, we attempt to find differences between two similar datasets (MG-RAST-IDs: 444749.3, 4443762.3). (d) Using exported tables with functional annotations and taxonomic mapping, we analyze the distribution of organisms observed to contain beta-lactamase and plot the abundance per species for two distinct samples." src="_images/quad-chart-analysis-example.png" style="width: 6in;" /></a>
 <p class="caption"><span class="caption-text">(a) Using the web interface for a search of metagenomes for microbial
 mats in hotsprings (GSC-MIMS-Keywords Biome=“hotspring; microbial
 mat”), we find 6 metagenomes (refs: 4443745.3, 4443746.3, 4443747.3,
@@ -1109,7 +1109,7 @@ processed, data sets owned by the user as well as any upcoming tasks for
 the users (i.e. release data to the public after the expiration of the
 quarantine period).</p>
 <div class="figure" id="fig-v4-mydata">
-<a class="reference internal image-reference" href="Images/v4-my-data.png"><img alt="The page shows currently running jobs, the tasks the user needs to perform in the system, a list of their studies and more." src="Images/v4-my-data.png" style="width: 7in;" /></a>
+<a class="reference internal image-reference" href="_images/v4-my-data.png"><img alt="The page shows currently running jobs, the tasks the user needs to perform in the system, a list of their studies and more." src="_images/v4-my-data.png" style="width: 7in;" /></a>
 <p class="caption"><span class="caption-text">The page shows currently running jobs, the tasks the user needs to
 perform in the system, a list of their studies and more.</span></p>
 </div>
@@ -1136,7 +1136,7 @@ provide specialized searches in one of the three data types.</p>
 <a class="reference external" href="#section:data-visibility">[section:data-visibility]</a>) not all data
 sets are visible to all users.</p>
 <div class="figure" id="fig-v4-search">
-<a class="reference internal image-reference" href="Images/v4-search-page.png"><img alt="The search page." src="Images/v4-search-page.png" style="width: 7in;" /></a>
+<a class="reference internal image-reference" href="_images/v4-search-page.png"><img alt="The search page." src="_images/v4-search-page.png" style="width: 7in;" /></a>
 <p class="caption"><span class="caption-text">The search page.</span></p>
 </div>
 <p>The search page has two components, the output widget (see figure
@@ -1154,7 +1154,7 @@ encouraged to provide information on the project in addition to the
 metadata. The study page also includes the ability to display analysis
 results generated with the MG-RAST user interface.</p>
 <div class="figure" id="fig-v4-study">
-<a class="reference internal image-reference" href="Images/v4-study-page.png"><img alt="A study page." src="Images/v4-study-page.png" style="width: 7in;" /></a>
+<a class="reference internal image-reference" href="_images/v4-study-page.png"><img alt="A study page." src="_images/v4-study-page.png" style="width: 7in;" /></a>
 <p class="caption"><span class="caption-text">A study page.</span></p>
 </div>
 <p>The study page provides a number of tools to the data set owner:</p>
@@ -1224,7 +1224,7 @@ to the underlying data, with version 4.0 we have expanded that to all
 tables and figures. The symbol shown in Figure
 <a class="reference external" href="#fig:download-symbol">5.5</a>.</p>
 <div class="figure" id="fig-download-symbol">
-<a class="reference internal image-reference" href="Images/download-symbol.png"><img alt="The download symbol, providing access to the API call and the data in a variety of formats. The (i) displays the API call used to generate the respective data and the pull down menu provides access in variety of formats." src="Images/download-symbol.png" style="width: 1in;" /></a>
+<a class="reference internal image-reference" href="_images/download-symbol.png"><img alt="The download symbol, providing access to the API call and the data in a variety of formats. The (i) displays the API call used to generate the respective data and the pull down menu provides access in variety of formats." src="_images/download-symbol.png" style="width: 1in;" /></a>
 <p class="caption"><span class="caption-text">The download symbol, providing access to the API call and the data in
 a variety of formats. The (i) displays the API call used to generate
 the respective data and the pull down menu provides access in variety
@@ -1264,7 +1264,7 @@ result Escherichia (one level up from species). Likewise if no decision
 can be made between Escherichia and Shigella (both genera), the LCA will
 be set to Enterobacteriaceae.</p>
 <div class="figure" id="fig-lca">
-<a class="reference internal image-reference" href="Images/lca-figure.png"><img alt="Determining the LCA." src="Images/lca-figure.png" style="width: 3in;" /></a>
+<a class="reference internal image-reference" href="_images/lca-figure.png"><img alt="Determining the LCA." src="_images/lca-figure.png" style="width: 3in;" /></a>
 <p class="caption"><span class="caption-text">Determining the LCA.</span></p>
 </div>
 <p>Faced with a decision between multiple strain level hits (purple and
@@ -1282,7 +1282,7 @@ download or comparison are not affected.</p>
 figure and or table, providing access to the data and API calls
 underlying each display item.</p>
 <div class="figure" id="fig-metagenome-overview">
-<a class="reference internal image-reference" href="Images/v4-metagenome-overview-page.png"><img alt="Top of the metagenome Overview page." src="Images/v4-metagenome-overview-page.png" style="width: 7in;" /></a>
+<a class="reference internal image-reference" href="_images/v4-metagenome-overview-page.png"><img alt="Top of the metagenome Overview page." src="_images/v4-metagenome-overview-page.png" style="width: 7in;" /></a>
 <p class="caption"><span class="caption-text">Top of the metagenome Overview page.</span></p>
 </div>
 <p>We provide an automatically generated paragraph of text describing the
@@ -1302,7 +1302,7 @@ recognized feature (red). In addition the predicted features are broken
 up into unknown protein (yellow), annotated protein (green) and
 ribosomal RNA (blue) in a second pie chart.</p>
 <div class="figure" id="fig-classification-pie-chart">
-<a class="reference internal image-reference" href="Images/v4-overviewpage-quality-pie-charts.png"><img alt="The first pie charts classifies the sequences submitted in this data set according to their QC results, the 2nd breaks down the detected features in to several categories." src="Images/v4-overviewpage-quality-pie-charts.png" style="width: 6in;" /></a>
+<a class="reference internal image-reference" href="_images/v4-overviewpage-quality-pie-charts.png"><img alt="The first pie charts classifies the sequences submitted in this data set according to their QC results, the 2nd breaks down the detected features in to several categories." src="_images/v4-overviewpage-quality-pie-charts.png" style="width: 6in;" /></a>
 <p class="caption"><span class="caption-text">The first pie charts classifies the sequences submitted in this data
 set according to their QC results, the 2nd breaks down the detected
 features in to several categories.</span></p>
@@ -1330,7 +1330,7 @@ is implemented using the standards developed by the Genomics Standards
 Consortium. Figure <a class="reference external" href="#fig:GSC-MIxS-checklist-information">5.9</a> shows
 the metadata summary for a dataset.</p>
 <div class="figure" id="fig-gsc-mixs-checklist-information">
-<a class="reference internal image-reference" href="Images/GSC-MIxS-checklist-information.png"><img alt="Information from the GSC MIxS checklist providing minimal metadata on the sample." src="Images/GSC-MIxS-checklist-information.png" style="width: 3.5in;" /></a>
+<a class="reference internal image-reference" href="_images/GSC-MIxS-checklist-information.png"><img alt="Information from the GSC MIxS checklist providing minimal metadata on the sample." src="_images/GSC-MIxS-checklist-information.png" style="width: 3.5in;" /></a>
 <p class="caption"><span class="caption-text">Information from the GSC MIxS checklist providing minimal metadata on
 the sample.</span></p>
 </div>
@@ -1355,7 +1355,7 @@ namespaces (Subsystems, Kegg Orthologues (KOGS), COGs and Eggnogs
 a rank-ordered list of taxonomic units at a user-defined taxonomic
 level, ordered by their abundance in the annotations.</p>
 <div class="figure" id="fig-rank-abundance">
-<a class="reference internal image-reference" href="Images/rank-abundance.png"><img alt="Sample rank abundance plot by phylum." src="Images/rank-abundance.png" style="width: 3in;" /></a>
+<a class="reference internal image-reference" href="_images/rank-abundance.png"><img alt="Sample rank abundance plot by phylum." src="_images/rank-abundance.png" style="width: 3in;" /></a>
 <p class="caption"><span class="caption-text">Sample rank abundance plot by phylum.</span></p>
 </div>
 </div>
@@ -1373,7 +1373,7 @@ few additional species. Sampling curves generally rise quickly at first
 and then level off toward an asymptote as fewer new species are found
 per unit of individuals collected.</p>
 <div class="figure" id="fig-rarefaction">
-<a class="reference internal image-reference" href="Images/rarefaction.png"><img alt="Rarefaction plot showing a curve of annotated species richness. This curve is a plot of the total number of distinct species annotations as a function of the number of sequences sampled." src="Images/rarefaction.png" style="width: 6in;" /></a>
+<a class="reference internal image-reference" href="_images/rarefaction.png"><img alt="Rarefaction plot showing a curve of annotated species richness. This curve is a plot of the total number of distinct species annotations as a function of the number of sequences sampled." src="_images/rarefaction.png" style="width: 6in;" /></a>
 <p class="caption"><span class="caption-text">Rarefaction plot showing a curve of annotated species richness. This
 curve is a plot of the total number of distinct species annotations
 as a function of the number of sequences sampled.</span></p>
@@ -1391,7 +1391,7 @@ the taxonomic annotations for the predicted proteins. The alpha
 diversity is presented in context of other metagenomes in the same
 project (see Figure <a class="reference external" href="#fig:alpha-diversity">5.12</a>).</p>
 <div class="figure" id="fig-alpha-diversity">
-<a class="reference internal image-reference" href="Images/alpha-diversity.png"><img alt="Alpha diversity plot showing the range of :math:`\alpha`-diversity values in the project the data set belongs to. The min, max, and mean values are shown, with the standard deviation ranges (:math:`\sigma` and :math:`2\sigma`) in different shades. The :math:`\alpha`-diversity of this metagenome is shown in red." src="Images/alpha-diversity.png" style="width: 6in;" /></a>
+<a class="reference internal image-reference" href="_images/alpha-diversity.png"><img alt="Alpha diversity plot showing the range of :math:`\alpha`-diversity values in the project the data set belongs to. The min, max, and mean values are shown, with the standard deviation ranges (:math:`\sigma` and :math:`2\sigma`) in different shades. The :math:`\alpha`-diversity of this metagenome is shown in red." src="_images/alpha-diversity.png" style="width: 6in;" /></a>
 <p class="caption"><span class="caption-text">Alpha diversity plot showing the range of <span class="math notranslate nohighlight">\(\alpha\)</span>-diversity
 values in the project the data set belongs to. The min, max, and mean
 values are shown, with the standard deviation ranges (<span class="math notranslate nohighlight">\(\sigma\)</span>
@@ -1427,7 +1427,7 @@ integrated in the page.</p>
 parameters for sequence similarity matches, is available from the
 Analysis page.</p>
 <div class="figure" id="fig-subsystems-functions-piechart">
-<a class="reference internal image-reference" href="Images/subsystems-functions-piechart.png"><img alt="The Subsystems function piechart, showing reads classified into SEED subsystem level-one functions. In contrast to the COG, eggNOG, and KEGG classification schemes, there are over 20 top-level subsystem categories, creating a more highly resolved “fingerprint” for the metagenome." src="Images/subsystems-functions-piechart.png" style="width: 4in;" /></a>
+<a class="reference internal image-reference" href="_images/subsystems-functions-piechart.png"><img alt="The Subsystems function piechart, showing reads classified into SEED subsystem level-one functions. In contrast to the COG, eggNOG, and KEGG classification schemes, there are over 20 top-level subsystem categories, creating a more highly resolved “fingerprint” for the metagenome." src="_images/subsystems-functions-piechart.png" style="width: 4in;" /></a>
 <p class="caption"><span class="caption-text">The Subsystems function piechart, showing reads classified into SEED
 subsystem level-one functions. In contrast to the COG, eggNOG, and
 KEGG classification schemes, there are over 20 top-level subsystem
@@ -1441,7 +1441,7 @@ metagenome.</span></p>
 <a class="reference external" href="#fig:v4-sample-page">5.14</a>, the page displays all sample specific
 information. The information on this page is derived from the metadata.</p>
 <div class="figure" id="fig-v4-sample-page">
-<a class="reference internal image-reference" href="Images/v4-sample-page.png"><img alt="A sample page." src="Images/v4-sample-page.png" style="width: 6in;" /></a>
+<a class="reference internal image-reference" href="_images/v4-sample-page.png"><img alt="A sample page." src="_images/v4-sample-page.png" style="width: 6in;" /></a>
 <p class="caption"><span class="caption-text">A sample page.</span></p>
 </div>
 </div>
@@ -1450,7 +1450,7 @@ information. The information on this page is derived from the metadata.</p>
 <p>For each set of sequences underlying a data set (“a library”) MG-RAST
 provides a specific page with information extracted from the metadata.</p>
 <div class="figure" id="fig-v4-library-page">
-<a class="reference internal image-reference" href="Images/v4-library-page.png"><img alt="A library page." src="Images/v4-library-page.png" style="width: 6in;" /></a>
+<a class="reference internal image-reference" href="_images/v4-library-page.png"><img alt="A library page." src="_images/v4-library-page.png" style="width: 6in;" /></a>
 <p class="caption"><span class="caption-text">A library page.</span></p>
 </div>
 </div>
@@ -1473,7 +1473,7 @@ the page</p>
 Figure <a class="reference external" href="#fig:v4-analysis-profile-load">5.16</a> shows an example
 download of 8 profiles.</p>
 <div class="figure" id="fig-v4-analysis-profile-load">
-<a class="reference internal image-reference" href="Images/v4-analysis-page-profile-load.png"><img alt="After selecting a project (“mgp128”) the Refseq and Subsystem profiles for the respective data sets are loaded. Blue progress bars indicated profiles being uploaded, green bars indicate the download has completed." src="Images/v4-analysis-page-profile-load.png" style="width: 6in;" /></a>
+<a class="reference internal image-reference" href="_images/v4-analysis-page-profile-load.png"><img alt="After selecting a project (“mgp128”) the Refseq and Subsystem profiles for the respective data sets are loaded. Blue progress bars indicated profiles being uploaded, green bars indicate the download has completed." src="_images/v4-analysis-page-profile-load.png" style="width: 6in;" /></a>
 <p class="caption"><span class="caption-text">After selecting a project (“mgp128”) the Refseq and Subsystem
 profiles for the respective data sets are loaded. Blue progress bars
 indicated profiles being uploaded, green bars indicate the download
@@ -1516,7 +1516,7 @@ used. Boxplots are easy to use, and the MG-RAST analysis page provides
 boxplots of the standardized abundance values for checking the
 comparability of samples (Figure <a class="reference external" href="#fig:boxplots">5.17</a>).</p>
 <div class="figure" id="fig-boxplots">
-<a class="reference internal image-reference" href="Images/boxplots.png"><img alt="Boxplots of the abundance data for raw values (top) as well as values that have undergone the normalization and standardization procedures (bottom) described in the text. After normalization and standardization, samples exhibit value distributions that are much more comparable and that have a normal distribution; the normalized and standardized data are suitable for analysis with parametric tests; the raw data are not." src="Images/boxplots.png" style="width: 3in;" /></a>
+<a class="reference internal image-reference" href="_images/boxplots.png"><img alt="Boxplots of the abundance data for raw values (top) as well as values that have undergone the normalization and standardization procedures (bottom) described in the text. After normalization and standardization, samples exhibit value distributions that are much more comparable and that have a normal distribution; the normalized and standardized data are suitable for analysis with parametric tests; the raw data are not." src="_images/boxplots.png" style="width: 3in;" /></a>
 <p class="caption"><span class="caption-text">Boxplots of the abundance data for raw values (top) as well as values
 that have undergone the normalization and standardization procedures
 (bottom) described in the text. After normalization and
@@ -1547,7 +1547,7 @@ species from protein similarities may introduce additional uncertainty.</p>
 species richness between samples in a way independent of the sampling
 depth.</p>
 <div class="figure" id="fig-analysis-page-rarefaction-example">
-<a class="reference internal image-reference" href="Images/analysis-page-rarefaction-example.png"><img alt="Rarefaction plot showing a curve of annotated species richness. This curve is a plot of the total number of distinct species annotations as a function of the number of sequences sampled." src="Images/analysis-page-rarefaction-example.png" style="width: 6in;" /></a>
+<a class="reference internal image-reference" href="_images/analysis-page-rarefaction-example.png"><img alt="Rarefaction plot showing a curve of annotated species richness. This curve is a plot of the total number of distinct species annotations as a function of the number of sequences sampled." src="_images/analysis-page-rarefaction-example.png" style="width: 6in;" /></a>
 <p class="caption"><span class="caption-text">Rarefaction plot showing a curve of annotated species richness. This
 curve is a plot of the total number of distinct species annotations
 as a function of the number of sequences sampled.</span></p>
@@ -1580,11 +1580,11 @@ Metagenomes can be assigned into one of two groups, and those groups can
 be visually compared (see Figure
 <a class="reference external" href="#fig:analysis-page-kegg-mapper-example">5.20</a>).</p>
 <div class="figure" id="fig-analysis-page-kegg-mapper-options">
-<a class="reference internal image-reference" href="Images/analysis-page-kegg-mapper-options.png"><img alt="Options available for coloring the KEGG maps." src="Images/analysis-page-kegg-mapper-options.png" style="width: 2in;" /></a>
+<a class="reference internal image-reference" href="_images/analysis-page-kegg-mapper-options.png"><img alt="Options available for coloring the KEGG maps." src="_images/analysis-page-kegg-mapper-options.png" style="width: 2in;" /></a>
 <p class="caption"><span class="caption-text">Options available for coloring the KEGG maps.</span></p>
 </div>
 <div class="figure" id="fig-analysis-page-kegg-mapper-example">
-<a class="reference internal image-reference" href="Images/analysis-page-kegg-mapper-example.png"><img alt="Comparison of two datasets using the KEGG mapper. Parts of metabolism common are shown in purple; unique to A are in blue; unique to B are in red." src="Images/analysis-page-kegg-mapper-example.png" style="width: 6in;" /></a>
+<a class="reference internal image-reference" href="_images/analysis-page-kegg-mapper-example.png"><img alt="Comparison of two datasets using the KEGG mapper. Parts of metabolism common are shown in purple; unique to A are in blue; unique to B are in red." src="_images/analysis-page-kegg-mapper-example.png" style="width: 6in;" /></a>
 <p class="caption"><span class="caption-text">Comparison of two datasets using the KEGG mapper. Parts of metabolism
 common are shown in purple; unique to A are in blue; unique to B are
 in red.</span></p>
@@ -1593,7 +1593,7 @@ in red.</span></p>
 <div class="section" id="bar-charts">
 <span id="section-bar-charts"></span><h3>Bar charts<a class="headerlink" href="#bar-charts" title="Permalink to this headline">¶</a></h3>
 <div class="figure" id="fig-analysis-page-bar-chart">
-<a class="reference internal image-reference" href="Images/analysis-page-bar-chart.png"><img alt="Bar chart view comparing normalized abundance of taxa. We have expanded the Bacteria domain to display the next level of the hierarchy." src="Images/analysis-page-bar-chart.png" style="width: 6in;" /></a>
+<a class="reference internal image-reference" href="_images/analysis-page-bar-chart.png"><img alt="Bar chart view comparing normalized abundance of taxa. We have expanded the Bacteria domain to display the next level of the hierarchy." src="_images/analysis-page-bar-chart.png" style="width: 6in;" /></a>
 <p class="caption"><span class="caption-text">Bar chart view comparing normalized abundance of taxa. We have
 expanded the Bacteria domain to display the next level of the
 hierarchy.</span></p>
@@ -1610,7 +1610,7 @@ Bacteria selected).</p>
 <div class="section" id="heatmap-dendrogram">
 <h3>Heatmap/Dendrogram<a class="headerlink" href="#heatmap-dendrogram" title="Permalink to this headline">¶</a></h3>
 <div class="figure" id="fig-heatmap">
-<a class="reference internal image-reference" href="Images/heatmap.png"><img alt="Heatmap/dendogram example in MG-RAST. The MG-RAST heatmap/dendrogram has two dendrograms, one indicating the similarity/dissimilarity among metagenomic samples (x axis dendrogram) and another indicating the similarity/dissimilarity among annotation categories (e.g., functional roles; the y-axis dendrogram)." src="Images/heatmap.png" style="width: 4in;" /></a>
+<a class="reference internal image-reference" href="_images/heatmap.png"><img alt="Heatmap/dendogram example in MG-RAST. The MG-RAST heatmap/dendrogram has two dendrograms, one indicating the similarity/dissimilarity among metagenomic samples (x axis dendrogram) and another indicating the similarity/dissimilarity among annotation categories (e.g., functional roles; the y-axis dendrogram)." src="_images/heatmap.png" style="width: 4in;" /></a>
 <p class="caption"><span class="caption-text">Heatmap/dendogram example in MG-RAST. The MG-RAST heatmap/dendrogram
 has two dendrograms, one indicating the similarity/dissimilarity
 among metagenomic samples (x axis dendrogram) and another indicating
@@ -1688,7 +1688,7 @@ data being displayed in the table.</li>
 page.</li>
 </ul>
 <div class="figure" id="fig-analysis-page-table">
-<a class="reference internal image-reference" href="Images/analysis-page-table.png"><img alt="View of the analysis page table." src="Images/analysis-page-table.png" style="width: 6in;" /></a>
+<a class="reference internal image-reference" href="_images/analysis-page-table.png"><img alt="View of the analysis page table." src="_images/analysis-page-table.png" style="width: 6in;" /></a>
 <p class="caption"><span class="caption-text">View of the analysis page table.</span></p>
 </div>
 <p>Below we explain the columns of the table and the functions available
@@ -1744,7 +1744,7 @@ additional columns.</p>
 <div class="section" id="the-parameter-widget">
 <h3>The parameter widget<a class="headerlink" href="#the-parameter-widget" title="Permalink to this headline">¶</a></h3>
 <div class="figure" id="fig-v4-analysis-page-parameters-initial">
-<a class="reference internal image-reference" href="Images/v4-analysis-page-parameters-initial.png"><img alt="After loading all profiles, the analysis parameter widget is displayed." src="Images/v4-analysis-page-parameters-initial.png" style="width: 6in;" /></a>
+<a class="reference internal image-reference" href="_images/v4-analysis-page-parameters-initial.png"><img alt="After loading all profiles, the analysis parameter widget is displayed." src="_images/v4-analysis-page-parameters-initial.png" style="width: 6in;" /></a>
 <p class="caption"><span class="caption-text">After loading all profiles, the analysis parameter widget is
 displayed.</span></p>
 </div>
@@ -1759,7 +1759,7 @@ databases to the features predicted for the environmental sequence data.</p>
 means to filter the sequences down by selecting only those matching
 certain criteria.</p>
 <div class="figure" id="fig-v4-analysis-page-evalue-filter">
-<a class="reference internal image-reference" href="Images/v4-analysis-page-evalue-filter.png"><img alt="By changing the e-value, minimum required percent identity or alignment length the annotations to the features loaded, can be modified. We note that the number of hits listed below the filter is reduced and the display is adjusted instanteneously." src="Images/v4-analysis-page-evalue-filter.png" style="width: 4in;" /></a>
+<a class="reference internal image-reference" href="_images/v4-analysis-page-evalue-filter.png"><img alt="By changing the e-value, minimum required percent identity or alignment length the annotations to the features loaded, can be modified. We note that the number of hits listed below the filter is reduced and the display is adjusted instanteneously." src="_images/v4-analysis-page-evalue-filter.png" style="width: 4in;" /></a>
 <p class="caption"><span class="caption-text">By changing the e-value, minimum required percent identity or
 alignment length the annotations to the features loaded, can be
 modified. We note that the number of hits listed below the filter is
@@ -1775,7 +1775,7 @@ filters can be used and they can be individually erased when no longer
 needed. Thus the user can filter, e.g. a certain phylum and the identify
 reads associated with a specific functional gene group.</p>
 <div class="figure" id="fig-v4-analysis-page-domain-filter">
-<a class="reference internal image-reference" href="Images/v4-analysis-page-domain-filter.png"><img alt="Adding a domain level filter for Bacteria. The filter is displayed as a blue box and is clearly labeled." src="Images/v4-analysis-page-domain-filter.png" style="width: 4in;" /></a>
+<a class="reference internal image-reference" href="_images/v4-analysis-page-domain-filter.png"><img alt="Adding a domain level filter for Bacteria. The filter is displayed as a blue box and is clearly labeled." src="_images/v4-analysis-page-domain-filter.png" style="width: 4in;" /></a>
 <p class="caption"><span class="caption-text">Adding a domain level filter for Bacteria. The filter is displayed as
 a blue box and is clearly labeled.</span></p>
 </div>
@@ -1790,18 +1790,18 @@ the filtering we select COG functional annotations using COG level 2
 (Figure
 <a class="reference external" href="#fig:v4-Analysis-page-COG-Level2-for-Bacteria-settings">5.28</a>).</p>
 <div class="figure" id="fig-v4-analysis-page-filtering-for-bacteria-settings">
-<a class="reference internal image-reference" href="Images/v4-Analysis-page-filtering-for-Bacteria-settings.png"><img alt="The parameter widget allows creation of a Filter for taxonomic units, in this case we use RefSeq annotation to filter at the domain level for Bacteria." src="Images/v4-Analysis-page-filtering-for-Bacteria-settings.png" style="width: 4in;" /></a>
+<a class="reference internal image-reference" href="_images/v4-Analysis-page-filtering-for-Bacteria-settings.png"><img alt="The parameter widget allows creation of a Filter for taxonomic units, in this case we use RefSeq annotation to filter at the domain level for Bacteria." src="_images/v4-Analysis-page-filtering-for-Bacteria-settings.png" style="width: 4in;" /></a>
 <p class="caption"><span class="caption-text">The parameter widget allows creation of a Filter for taxonomic units,
 in this case we use RefSeq annotation to filter at the domain level
 for Bacteria.</span></p>
 </div>
 <div class="figure" id="fig-v4-analysis-page-cog-level2-for-bacteria-settings">
-<a class="reference internal image-reference" href="Images/v4-Analysis-page-COG-Level2-for-Bacteria-settings.png"><img alt="After creating a filter for Bacteria only (using RefSeq taxonomic annotations) we select COG functional annotations using COG level 2." src="Images/v4-Analysis-page-COG-Level2-for-Bacteria-settings.png" style="width: 4in;" /></a>
+<a class="reference internal image-reference" href="_images/v4-Analysis-page-COG-Level2-for-Bacteria-settings.png"><img alt="After creating a filter for Bacteria only (using RefSeq taxonomic annotations) we select COG functional annotations using COG level 2." src="_images/v4-Analysis-page-COG-Level2-for-Bacteria-settings.png" style="width: 4in;" /></a>
 <p class="caption"><span class="caption-text">After creating a filter for Bacteria only (using RefSeq taxonomic
 annotations) we select COG functional annotations using COG level 2.</span></p>
 </div>
 <div class="figure" id="fig-v4-analysis-page-cog-level2-for-bacteria-results">
-<a class="reference internal image-reference" href="Images/v4-Analysis-page-COG-Level2-for-Bacteria-results.png"><img alt="COG level 2 abundance filtered for Bacteria. The results for the settings shown in Figure `5.28 &lt;#fig:v4-Analysis-page-COG-Level2-for-Bacteria-settings&gt;`__" src="Images/v4-Analysis-page-COG-Level2-for-Bacteria-results.png" style="width: 4in;" /></a>
+<a class="reference internal image-reference" href="_images/v4-Analysis-page-COG-Level2-for-Bacteria-results.png"><img alt="COG level 2 abundance filtered for Bacteria. The results for the settings shown in Figure `5.28 &lt;#fig:v4-Analysis-page-COG-Level2-for-Bacteria-settings&gt;`__" src="_images/v4-Analysis-page-COG-Level2-for-Bacteria-results.png" style="width: 4in;" /></a>
 <p class="caption"><span class="caption-text">COG level 2 abundance filtered for Bacteria. The results for the
 settings shown in Figure
 <a class="reference external" href="#fig:v4-Analysis-page-COG-Level2-for-Bacteria-settings">5.28</a></span></p>
@@ -1817,7 +1817,7 @@ sequence alignments underlying the annotation transfers (see Figure
 technology, users can retrieve alignments against the database of
 interest with no additional overhead.</p>
 <div class="figure" id="fig-blat-alignment">
-<a class="reference internal image-reference" href="Images/blat-alignment.png"><img alt="BLAT hit details with alignment." src="Images/blat-alignment.png" style="width: 6in;" /></a>
+<a class="reference internal image-reference" href="_images/blat-alignment.png"><img alt="BLAT hit details with alignment." src="_images/blat-alignment.png" style="width: 6in;" /></a>
 <p class="caption"><span class="caption-text">BLAT hit details with alignment.</span></p>
 </div>
 </div>
@@ -2040,12 +2040,12 @@ contact information). Figure
 <a class="reference external" href="#fig:project-spreadsheet-multiple-tabs">9.5</a> shows the various tabs
 in the spreadsheet.</p>
 <div class="figure" id="fig-project-spreadsheet">
-<a class="reference internal image-reference" href="Images/project-spreadsheet.png"><img alt="Project spreadsheet. In red are required fields. Note that the 2nd row contains information on how to fill out the form." src="Images/project-spreadsheet.png" style="width: 6in;" /></a>
+<a class="reference internal image-reference" href="_images/project-spreadsheet.png"><img alt="Project spreadsheet. In red are required fields. Note that the 2nd row contains information on how to fill out the form." src="_images/project-spreadsheet.png" style="width: 6in;" /></a>
 <p class="caption"><span class="caption-text">Project spreadsheet. In red are required fields. Note that the 2nd
 row contains information on how to fill out the form.</span></p>
 </div>
 <div class="figure" id="fig-project-spreadsheet-multiple-tabs">
-<a class="reference internal image-reference" href="Images/project-spreadsheet-multiple-tabs.png"><img alt="The various tabs in the spreadsheet. Project, sample and one of library metagenome or library mimarks survey are required." src="Images/project-spreadsheet-multiple-tabs.png" style="width: 6in;" /></a>
+<a class="reference internal image-reference" href="_images/project-spreadsheet-multiple-tabs.png"><img alt="The various tabs in the spreadsheet. Project, sample and one of library metagenome or library mimarks survey are required." src="_images/project-spreadsheet-multiple-tabs.png" style="width: 6in;" /></a>
 <p class="caption"><span class="caption-text">The various tabs in the spreadsheet. Project, sample and one of
 library metagenome or library mimarks survey are required.</span></p>
 </div>
@@ -2057,7 +2057,7 @@ contains descriptions that can help explain how to fill out the fields,
 along with what unit to use (e.g., temperature in Celsius and distance
 in meters), URL for the bioportal ontology site etc..</p>
 <div class="figure" id="fig-project-spreadsheet-with-3-samples">
-<a class="reference internal image-reference" href="Images/project-spreadsheet-with-3-samples.png"><img alt="Sample tab with 3 new samples (sample1, sample2, and sample3) added. Again red text in the first row indicates required fields. Rows 1 and 2 cannot be altered." src="Images/project-spreadsheet-with-3-samples.png" style="width: 6in;" /></a>
+<a class="reference internal image-reference" href="_images/project-spreadsheet-with-3-samples.png"><img alt="Sample tab with 3 new samples (sample1, sample2, and sample3) added. Again red text in the first row indicates required fields. Rows 1 and 2 cannot be altered." src="_images/project-spreadsheet-with-3-samples.png" style="width: 6in;" /></a>
 <p class="caption"><span class="caption-text">Sample tab with 3 new samples (sample1, sample2, and sample3) added.
 Again red text in the first row indicates required fields. Rows 1 and
 2 cannot be altered.</span></p>
@@ -2210,7 +2210,7 @@ using more than one sequencing method.</p>
 download your filled sheet. You can now use this for upload and
 submission to MG-RAST.</p>
 <div class="figure" id="id14">
-<a class="reference internal image-reference" href="Images/metazen_form.png"><img alt="The Metazen form for filling out metadata allows users to fill in data online and add data to existing projects or start new ones. Tabs are expandable and reveal forms for the various required metadata sections." src="Images/metazen_form.png" style="width: 6in;" /></a>
+<a class="reference internal image-reference" href="_images/metazen_form.png"><img alt="The Metazen form for filling out metadata allows users to fill in data online and add data to existing projects or start new ones. Tabs are expandable and reveal forms for the various required metadata sections." src="_images/metazen_form.png" style="width: 6in;" /></a>
 <p class="caption"><span class="caption-text">The Metazen form for filling out metadata allows users to fill in
 data online and add data to existing projects or start new ones. Tabs
 are expandable and reveal forms for the various required metadata
@@ -2218,13 +2218,13 @@ sections.</span></p>
 </div>
 <p>[fig:metazen_form]</p>
 <div class="figure" id="id15">
-<a class="reference internal image-reference" href="Images/metazen_expanded.png"><img alt="The Metazen form for filling out metadata allows users to fill in data using standard nomenclature." src="Images/metazen_expanded.png" style="width: 6in;" /></a>
+<a class="reference internal image-reference" href="_images/metazen_expanded.png"><img alt="The Metazen form for filling out metadata allows users to fill in data using standard nomenclature." src="_images/metazen_expanded.png" style="width: 6in;" /></a>
 <p class="caption"><span class="caption-text">The Metazen form for filling out metadata allows users to fill in
 data using standard nomenclature.</span></p>
 </div>
 <p>[fig:metazen_expanded]</p>
 <div class="figure" id="id16">
-<a class="reference internal image-reference" href="Images/metazen_step2.png"><img alt="The second tab in the Metazen form must be filled out before moving further down the forms. Selecting the number of libraries (other than zero) adds forms for those libraries. Click on the “show library input forms” button to display them. If no libraries are entered, then only the default tabs for environment and sample information are provided." src="Images/metazen_step2.png" style="width: 6in;" /></a>
+<a class="reference internal image-reference" href="_images/metazen_step2.png"><img alt="The second tab in the Metazen form must be filled out before moving further down the forms. Selecting the number of libraries (other than zero) adds forms for those libraries. Click on the “show library input forms” button to display them. If no libraries are entered, then only the default tabs for environment and sample information are provided." src="_images/metazen_step2.png" style="width: 6in;" /></a>
 <p class="caption"><span class="caption-text">The second tab in the Metazen form must be filled out before moving
 further down the forms. Selecting the number of libraries (other than
 zero) adds forms for those libraries. Click on the “show library

@@ -22,7 +22,7 @@ University of Maryland researchers (Angiuoli et al. 2011) estimates the
 computation for a terabase of DNA shotgun data using their CLOVR
 metagenome analysis pipeline at over $5 million per terabase.
 
-.. figure:: Images/cost_per_megabase.png
+.. figure:: ../Images/cost_per_megabase.png
    :alt: Chart showing shrinking cost for DNA sequencing. This comparison with Moore’s law roughly describing the development of computing costs highlights the growing gap between sequence data and the available analysis resources. Source: NHGRI (Institute 2012)
    :width: 4in
 

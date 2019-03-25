@@ -1,2 +1,2 @@
 theme: jekyll-theme-minimal
-keep-files: html/Images
+keep-files: html/Images keep-files: html/_static
