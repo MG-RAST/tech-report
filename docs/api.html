@@ -1,0 +1,1026 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>API — The MG-RAST Application Programming Interface &#8212; MG-RAST  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="FAQ – Frequently asked questions about MG-RAST" href="faq.html" />
+    <link rel="prev" title="MG-RAST user manual" href="user_manual.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="api-the-mg-rast-application-programming-interface">
+<span id="api"></span><h1>API — The MG-RAST Application Programming Interface<a class="headerlink" href="#api-the-mg-rast-application-programming-interface" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="urls">
+<h2>URLs<a class="headerlink" href="#urls" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">mg</span><span class="o">-</span><span class="n">rast</span><span class="o">.</span><span class="n">org</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>Further documentation, with a complete parameter listing for all
+resources available is at:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="p">,</span><span class="n">mg</span><span class="o">-</span><span class="n">rast</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">api</span><span class="o">.</span><span class="n">html</span>
+</pre></div>
+</div>
+<p>Github repository of script tools, examples, and contributed code for
+using the MG-RAST API:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">MG</span><span class="o">-</span><span class="n">RAST</span><span class="o">/</span><span class="n">MG</span><span class="o">-</span><span class="n">RAST</span><span class="o">-</span><span class="n">Tools</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="introduction">
+<span id="introduction-1"></span><h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Over 110,000 metagenomic data sets have been uploaded and analyzed in
+MG-RAST since 2007, totaling over 43 terabases (TBp). Data uploaded
+falls in three classes: shotgun metagenomic data, amplicon data, and,
+more recently, metatranscriptomic data. The MG-RAST pipeline normalizes
+all samples by applying a uniform pipeline with the appropriate quality
+control mechanisms for the various data sources. Uniform processing and
+robust sequence quality control enable comparison across experimental
+systems and, to some extent, across sequencing platforms. With the
+inclusion of standardized metadata MG-RAST has enabled meta-analysis
+available through its web-based user interface. This provides an
+easy-to-use way to upload and download data, perform analyses, and
+create and share projects.</p>
+<p>As with most GUIs, however, there are limitations to what can be done,
+for example, regarding the number of samples processed in a single
+analysis, access to complete metadata, and easy access to raw data and
+quality metrics for each sample. As part of the DOE Systems Biology
+knowledgebase project (KBase) we have implemented a web services
+application programmers interface (API) that exposes all data to
+(authenticated) programmers, enabling access to available data and
+functionality through software applications. This makes user access to
+MG-RAST’s internal data structures possible.</p>
+<p>The MG-RAST API enables programmatic access to data and analyses in
+MG-RAST without requiring local installations. Using the API, users can
+authenticate against the service, submit their data, download results,
+and perform extensive comparisons of data sets. The API uses the
+Representational State Transfer (REST) [3] architecture which allows
+download of data in ASCII format, allowing users to query the system via
+URLs and returning MG-RAST data objects in their native format (e.g.
+similarity tables or sequence files). For structured data (e.g. metadata
+or project information) the MG-RAST API uses JSON (Javascript Object
+Notation, a widely used standard) as its data format.</p>
+<p>This allows users to use simple tools to download data files or view the
+JSON in their web browsers using one of the many available JSON viewers.
+In addition many programming languages have libraries for convenient
+HTTP interaction and JSON conversions. The API has a minimal number of
+prerequisites; and any language with HTTP and JSON support or command
+line utilities such as “curl” can easily integrate with the design.</p>
+<p>If you are not a programmer or you are not willing to spend the time
+learning the API, the Example scripts (see chapter
+<a class="reference external" href="#API-Examples">7</a>.)</p>
+</div>
+<div class="section" id="design-and-implementation">
+<h2>Design and Implementation<a class="headerlink" href="#design-and-implementation" title="Permalink to this headline">¶</a></h2>
+<p>The MG-RAST API enables programmatic access to data and analyses in
+MG-RAST without requiring local installations. Users can authenticate
+against the service, submit their data, download results, and perform
+extensive comparisons of data sets. We chose to use the Representational
+State Transfer (REST) [3] architecture. The REST approach allows
+download of data in ASCII format, allowing users to query the system via
+URLs and returning MG-RAST data objects in their native format (e.g.
+similarity tables or sequence files). For structured data (e.g. metadata
+or project information) the MG-RAST API uses JSON (Javascript Object
+Notation, a widely used standard) as its data format.</p>
+<p>Using this approach users can use simple tools to download data files to
+their machines or view the JSON in their web browsers using one of the
+many available JSON viewers. In addition many programming languages have
+libraries for convenient HTTP interaction and JSON conversions.</p>
+<p>Most of the API calls are simply URLs which can be entered in the
+address bar of a web browser to perform the download through the
+browser. These URLs can also be used with a command line tool like curl,
+in programing-language-specific libraries, or in command line scripts.
+The examples in the Results section illustrate the use of each of these
+methods. The example scripts are available on in the supplementary
+materials and on github (<a class="reference external" href="https://github.com/MG-RAST/MG-RAST-Tools">https://github.com/MG-RAST/MG-RAST-Tools</a>) along
+with other useful illustrative scripts.</p>
+<p>The MG-RAST API covers most of the functionality available through the
+MG-RAST website, with access to annotations, analyses, metadata and
+access to the MG-RAST user inbox to view contents as well as upload
+files. All sequence data and data products from intermediate stages in
+the analysis pipeline are available for download. Other resources
+provide services not available through the website, e.g. the m5nr
+resource lets you query the m5nr database.</p>
+<p>Each query to the API is represented as a URI beginning with</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">mg</span><span class="o">-</span><span class="n">rast</span><span class="o">.</span><span class="n">org</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>and has a defined structure to pass the requests and parameters to the
+API server. These URI queries can be used from the command line, e.g.
+using curl, in a browser, or incorporated in a shell script or program.</p>
+<p>Each URI has the form:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://api.mg-rast.org/{version}/{resourcepath}?{querystring}
+</pre></div>
+</div>
+<p>where</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">version</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>explicitly directs the request to a specific version of the API. If it
+is omitted the latest API version will be used. The current version
+number is ‘1’.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">resourcepath</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>is constructed from the path parameters listed below to define a
+specific resource.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">querystring</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>is used to filter the results obtained for the resource, this is
+optional.</p>
+<p>For example, in:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://api.mg-rast.org/1/annotation/sequence/mgm4447943.3?evalue=10&amp;type=organism&amp;source=SwissProt
+</pre></div>
+</div>
+<p>the resource path</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">annotation</span><span class="o">/</span><span class="n">sequence</span><span class="o">/</span><span class="n">mgm4447943</span><span class="o">.</span><span class="mi">3</span>
+</pre></div>
+</div>
+<p>defines a request for the annotated sequences for the MG-RAST job with
+ID 4447943.3. The optional query string</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">evalue</span><span class="o">=</span><span class="mi">10</span><span class="o">&amp;</span><span class="nb">type</span><span class="o">=</span><span class="n">organism</span><span class="o">&amp;</span><span class="n">source</span><span class="o">=</span><span class="n">SwissProt</span>
+</pre></div>
+</div>
+<p>modifies the results by setting an evalue cutoff, annotation type and
+database source.</p>
+<p>The API provides an authentication mechanism for access to private
+MG-RAST jobs and users’ inbox. The ’auth_key’ (or ’webkey’) is a 25
+character long string, e.g.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">j6FNL61ekNarTgqupMma6eMx5</span>
+</pre></div>
+</div>
+<p>which is used by the API to identify an MG-RAST user account and
+determine access rights to metagenomes. Note that the auth_key is valid
+for a limited time after which queries using the key will be rejected.
+You can create a new auth_key or view the expiration date and time of an
+existing auth_key on the MG-RAST website. An account can have only one
+valid auth_key and creating a new key will invalidate an existing key.</p>
+<p>All public data in MG-RAST is available without an auth_key. All API
+queries for private data which either do not have an auth_key or use an
+invalid or expired auth_key will get a “insufficient permissions to view
+this data” response.</p>
+<p>The auth_key can be included in the query string like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://api.mg-rast.org/1/annotation/sequence/mgm4447943.3?evalue=10&amp;type=organism&amp;source=SwissProt&amp;auth_key=j6FNL61ekNarTgqupMma6eMx5
+</pre></div>
+</div>
+<p>or in a request using curl like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">GET</span> <span class="o">-</span><span class="n">H</span> <span class="s2">&quot;auth: j6FNL61ekNarTgqupMma6eMx5&quot;</span> <span class="s2">&quot;https://api.mg-rast.org/1/annotation/sequence/mgm4447943.3?evalue=10&amp;type=organism&amp;source=SwissProt&quot;</span>
+</pre></div>
+</div>
+<p>Note that for the curl command the quotes are necessary for the query to
+be passed to the API correctly.</p>
+<p>If an optional parameter passed through the query string has a list of
+values only the first will be used. When multiple values are required,
+e.g. for multiple md5 checksum values, they can be passed to the API
+like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="o">-</span><span class="n">d</span> <span class="s1">&#39;{&quot;data&quot;:[&quot;000821a2e2f63df1a3873e4b280002a8&quot;,&quot;15bf1950bd9867099e72ea6516e3d602&quot;]}&#39;</span> <span class="s2">&quot;https://api.mg-rast.org//m5nr/md5&quot;</span>
+</pre></div>
+</div>
+<p>In some cases, the data requested is in the form of a list with a large
+number of entries. In these cases the ‘limit’ and ‘offset’ parameters
+can be used to step through the list, e.g.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://api.mg-rast.org/1/project?order=name&amp;limit=20&amp;offset=100
+</pre></div>
+</div>
+<p>will limit the number of entries returned to 20 with an offset of 100.
+If these parameters are not provided default values of <code class="docutils literal notranslate"><span class="pre">limit=10</span></code> and
+<code class="docutils literal notranslate"><span class="pre">offset=0</span></code> are used. The returned JSON structure will contain the
+‘next’ and ‘prev’ (previous) URIs to simplify stepping through the list.</p>
+<p>The data returned may be plain text, compressed gzipped files or a JSON
+structure.</p>
+<p>Most API queries are ‘synchronous’ and results are returned immediately.
+Some queries may require a substantial time to compute results, in these
+cases you can select the asynchronous option by adding
+<code class="docutils literal notranslate"><span class="pre">‘&amp;asynchronous=1’</span></code> to the end of the query string. This query will
+then return a URL which will return the query results when they are
+ready.</p>
+<p>Most of the API calls are simply URLs which can be entered in the
+address bar of a web browser to perform the download through the
+browser. These URLs can also be used with a command line tool like curl,
+in programing-language-specific libraries, or in command line scripts.
+The examples below illustrate the use of each of these methods. The
+example scripts are available on the github site along with other useful
+illustrative scripts.</p>
+<table border="1" class="docutils" id="id7">
+<caption><span class="caption-text">Top-level resources available through the MG-RAST-API</span><a class="headerlink" href="#id7" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="16%" />
+<col width="84%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Resource/Object</strong></th>
+<th class="head"><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><strong>annotation</strong></td>
+<td>taxonomic and functional annotations made by comparison with the M5nr database</td>
+</tr>
+<tr class="row-odd"><td><strong>compute</strong></td>
+<td>resource to compute PCoA , heatmap, and normalization for a set of input metagenomes</td>
+</tr>
+<tr class="row-even"><td><strong>download</strong></td>
+<td>download results of the MG-RAST pipeline</td>
+</tr>
+<tr class="row-odd"><td><strong>inbox</strong></td>
+<td>upload and listing of data in the staging area prior to execution of the MG-RAST pipeline</td>
+</tr>
+<tr class="row-even"><td><strong>library</strong></td>
+<td>library information for uploaded metagenome provided by the user</td>
+</tr>
+<tr class="row-odd"><td><strong>matrix</strong></td>
+<td>abundance profiles in BIOM (5) format for a list of metagenomes</td>
+</tr>
+<tr class="row-even"><td><strong>M5nr</strong></td>
+<td>access M5 nonredundant protein database used for annotation of metagenomic sequences</td>
+</tr>
+<tr class="row-odd"><td><strong>metadata</strong></td>
+<td>creation, export, and validation of metadata templates and spreadsheets</td>
+</tr>
+<tr class="row-even"><td><strong>metagenome</strong></td>
+<td>container for sample, library, project, and precomputed data for an uploaded metagenomic sequence file</td>
+</tr>
+<tr class="row-odd"><td><strong>profile</strong></td>
+<td>returns a single data object in BIOM format</td>
+</tr>
+<tr class="row-even"><td><strong>project</strong></td>
+<td>project summary for metagenome provided by user</td>
+</tr>
+<tr class="row-odd"><td><strong>sample</strong></td>
+<td>sample information provided by user</td>
+</tr>
+<tr class="row-even"><td><strong>search</strong></td>
+<td>search MG-RAST by MG-ID, metadata, function, or taxonomy; or implement a more complex search.</td>
+</tr>
+<tr class="row-odd"><td><strong>validation</strong></td>
+<td>validates templates for correct structure and data</td>
+</tr>
+</tbody>
+</table>
+<p>[table:upload_speeds]</p>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>The API provides index-driven access to data subsets using the following
+data types as indices into the data: functions, functional hierarchy
+data, and taxonomic data. Whenever possible we have employed standards
+to expose data and metadata, such as the BIOM standard for encoding
+abundance profiles. The examples below are intended to illustrate usage
+for the various resources available, they do not cover the entire
+functionality of the API, see the documentation at the API website for
+the comprehensive listing.</p>
+<ul>
+<li><p class="first"><strong>annotation</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://api.mg-rast.org/1/annotation/sequence/mgm4440036.3?type=function&amp;filter=protease&amp;source=Subsystems
+</pre></div>
+</div>
+<p>Retrieve the reads from a metagenome with ID mgm4440036.3 which were
+annotated as protease in SEED Subsystems.</p>
+</li>
+<li><p class="first"><strong>download</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">mg</span><span class="o">-</span><span class="n">rast</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="mi">1</span><span class="o">/</span><span class="n">download</span><span class="o">/</span><span class="n">mgm4447943</span><span class="o">.</span><span class="mi">3</span>
+</pre></div>
+</div>
+<p>Retrieve information formatted as a JSON object about all the files
+available for download for metagenome mgm4447943.3 with information
+about the files and sequence statistics where applicable. Each file
+listed has a URL included which can be used to download the file,
+e.g.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://api.mg-rast.org/1/download/mgm4447943.3?file=650.1
+</pre></div>
+</div>
+<p>will download the protein.sims file containing the BLAT similarities.</p>
+</li>
+<li><p class="first"><strong>inbox</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="o">-</span><span class="n">H</span> <span class="s2">&quot;auth: auth_key&quot;</span> <span class="o">-</span><span class="n">F</span> <span class="s2">&quot;upload=@sequences.fastq&quot;</span> <span class="s2">&quot;https://api.mg-rast.org/1/inbox&quot;</span>
+</pre></div>
+</div>
+<p>Upload the file ’sequences.fastq’ to your inbox. This API call
+requires user authentication using the auth_key described above. It
+can not be used in a browser, but needs to be run from the command
+line or from a script.</p>
+</li>
+<li><p class="first"><strong>matrix</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://api.mg-rast.org/matrix/organism?group_level=family&amp;source=SEED&amp;evalue=5&amp;id=mgm4440442.5&amp;id=mgm4440026.3
+</pre></div>
+</div>
+<p>Retrieve the taxonomic abundance profile on family level for 2
+metagenomes based on SEED assignments with an evalue cutoff of 1e-5.</p>
+</li>
+<li><p class="first"><strong>metagenome</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">mg</span><span class="o">-</span><span class="n">rast</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="mi">1</span><span class="o">/</span><span class="n">metagenome</span><span class="o">/</span><span class="n">mgm4440026</span><span class="o">.</span><span class="mi">3</span>
+</pre></div>
+</div>
+<p>List analysis submission parameters and other details for a
+metagenome. The metagenome resource can also be used to search
+metadata, function and taxonomy.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://api.mg-rast.org/metagenome?function=dnaA&amp;organism=coli&amp;biome=marine&amp;match=all&amp;order=created
+</pre></div>
+</div>
+<p>This call will find all marine metagenomes with reads annotated as
+dnaA and have taxonomic assignment containing the text ‘coli’, the
+results will be ordered based on creation date for the metagenome.</p>
+</li>
+<li><p class="first"><strong>project</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://api.mg-rast.org/project/mgp31?verbosity=full
+</pre></div>
+</div>
+<p>Retrieve available information about the project with ID mgp31.</p>
+</li>
+<li><p class="first"><strong>sample</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://api.mg-rast.org/1/sample/mgs12326?verbosity=full
+</pre></div>
+</div>
+<p>Retrieve available information about individual samples, including
+IDs and metadata.</p>
+</li>
+<li><p class="first"><strong>metadata</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">mg</span><span class="o">-</span><span class="n">rast</span><span class="o">.</span><span class="n">org</span><span class="o">//</span><span class="n">metadata</span><span class="o">/</span><span class="n">template</span>
+</pre></div>
+</div>
+<p>Retrieve the static template for metadata object relationships and
+types used by MG-RAST.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">mg</span><span class="o">-</span><span class="n">rast</span><span class="o">.</span><span class="n">org</span><span class="o">//</span><span class="n">metadata</span><span class="o">/</span><span class="n">export</span><span class="o">/</span><span class="n">mgp128</span>
+</pre></div>
+</div>
+<p>Retrieve all metadata for project mgp128.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">mg</span><span class="o">-</span><span class="n">rast</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">metadata</span><span class="o">/</span><span class="n">cv</span>
+</pre></div>
+</div>
+<p>Retrieve a set of lists of all our controlled metadata terms,
+including the ontologies.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://api.mg-rast.org/metadata/ontology?name=biome&amp;version=2013-04-27
+</pre></div>
+</div>
+<p>Retrieve a more detailed list (with relationships) for a specific
+version of the ontology.</p>
+</li>
+<li><p class="first"><strong>m5nr</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://api.mg-rast.org/1/m5nr/md5/ffc62262a18b38671c3e337150ef535f?source=SwissProt
+</pre></div>
+</div>
+<p>Retrieve the UniProt ID for a given sequence identifier.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="example-scripts-using-the-mg-rast-rest-api">
+<span id="api-examples"></span><h1>Example scripts using the MG-RAST REST API<a class="headerlink" href="#example-scripts-using-the-mg-rast-rest-api" title="Permalink to this headline">¶</a></h1>
+<p>.</p>
+<div class="section" id="introduction-2">
+<span id="id1"></span><h2>Introduction<a class="headerlink" href="#introduction-2" title="Permalink to this headline">¶</a></h2>
+<p>As part of the RESTful API (see chapter <a class="reference external" href="#API">6</a>), we are providing
+a collection of example scripts.</p>
+<p>Each script has comments in the source code as well as a help function.
+This document provides a brief overview of the available scripts and
+their intended purpose. Please see the help associated with all of the
+individual files for a complete list of options and more details.</p>
+<p>We believe these scripts to be the best starting point for many users,
+he we attempt to provide a listing of the most important tools.</p>
+<div class="section" id="urls-1">
+<span id="id2"></span><h3>URLs<a class="headerlink" href="#urls-1" title="Permalink to this headline">¶</a></h3>
+<p>The Examples are located on github at:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">MG</span><span class="o">-</span><span class="n">RAST</span><span class="o">/</span><span class="n">MG</span><span class="o">-</span><span class="n">RAST</span><span class="o">-</span><span class="n">Tools</span>
+</pre></div>
+</div>
+<p>This is the base directory for the rest of this chapter, go here to find
+the tools and examples described below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">MG</span><span class="o">-</span><span class="n">RAST</span><span class="o">/</span><span class="n">MG</span><span class="o">-</span><span class="n">RAST</span><span class="o">-</span><span class="n">Tools</span><span class="o">/</span><span class="n">tree</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">tools</span><span class="o">/</span><span class="nb">bin</span>
+</pre></div>
+</div>
+<p>Each script has a verbose help option (–help) to list all options and
+explain their usage.</p>
+</div>
+</div>
+<div class="section" id="download-dna-sequence-for-a-function-mg-get-sequences-for-function-py">
+<h2>Download DNA sequence for a function – mg-get-sequences-for-function.py<a class="headerlink" href="#download-dna-sequence-for-a-function-mg-get-sequences-for-function-py" title="Permalink to this headline">¶</a></h2>
+<p>This script will retrieve sequences and annotation for a given function
+or functional class.</p>
+<p>The output is a tab-delimited list of: m5nr id, dna sequence, semicolon
+seperated list of annotations, sequence id.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mg</span><span class="o">-</span><span class="n">get</span><span class="o">-</span><span class="n">sequences</span><span class="o">-</span><span class="k">for</span><span class="o">-</span><span class="n">function</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="nb">id</span> <span class="s2">&quot;mgm4441680.3&quot;</span> <span class="o">--</span><span class="n">name</span> <span class="s2">&quot;Central carbohydrate metabolism&quot;</span> <span class="o">--</span><span class="n">level</span> <span class="n">level2</span> <span class="o">--</span><span class="n">source</span> <span class="n">Subsystems</span> <span class="o">--</span><span class="n">evalue</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="download-dna-sequences-for-a-taxon-or-taxonomic-group-mg-get-sequences-for-taxon-py">
+<h2>Download DNA sequences for a taxon or taxonomic group– mg-get-sequences-for-taxon.py<a class="headerlink" href="#download-dna-sequences-for-a-taxon-or-taxonomic-group-mg-get-sequences-for-taxon-py" title="Permalink to this headline">¶</a></h2>
+<p>This script will retrieve sequences and annotation for a given taxon or
+taxonomic group.</p>
+<p>The output is a tab-delimited list of: m5nr id, dna sequence, semicolon
+seperated list of annotations, sequence id</p>
+<p><strong>Example:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mg</span><span class="o">-</span><span class="n">get</span><span class="o">-</span><span class="n">sequences</span><span class="o">-</span><span class="k">for</span><span class="o">-</span><span class="n">taxon</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="nb">id</span> <span class="s2">&quot;mgm4441680.3&quot;</span> <span class="o">--</span><span class="n">name</span> <span class="n">Lachnospiraceae</span> <span class="o">--</span><span class="n">level</span> <span class="n">family</span> <span class="o">--</span><span class="n">source</span> <span class="n">RefSeq</span> <span class="o">--</span><span class="n">evalue</span> <span class="mi">8</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="download-sequences-annotated-with-function-and-taxonomy-mg-get-annotation-set-py">
+<h2>Download sequences annotated with function and taxonomy – mg-get-annotation-set.py<a class="headerlink" href="#download-sequences-annotated-with-function-and-taxonomy-mg-get-annotation-set-py" title="Permalink to this headline">¶</a></h2>
+<p>Retrieve functional annotations for given metagenome and organism.</p>
+<p>The output is a tab-delimited list of annotations: feature list,
+function, abundance for function, avg evalue for function, organism.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mg</span><span class="o">-</span><span class="n">get</span><span class="o">-</span><span class="n">annotation</span><span class="o">-</span><span class="nb">set</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="nb">id</span> <span class="s2">&quot;mgm4441680.3&quot;</span> <span class="o">--</span><span class="n">top</span> <span class="mi">5</span> <span class="o">--</span><span class="n">level</span> <span class="n">genus</span> <span class="o">--</span><span class="n">source</span> <span class="n">SEED</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="download-the-n-most-abundant-functions-for-a-metagenome-mg-abundant-functions-py">
+<h2>Download the n most abundant functions for a metagenome – mg-abundant-functions.py<a class="headerlink" href="#download-the-n-most-abundant-functions-for-a-metagenome-mg-abundant-functions-py" title="Permalink to this headline">¶</a></h2>
+<p>Retrieve the top n abundant functions for metagenome.</p>
+<p>The output is a tab-delimited list of function and abundance sorted by
+abundance (largest first). ’top’ option controls number of rows
+returned.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mg</span><span class="o">-</span><span class="n">abundant</span><span class="o">-</span><span class="n">functions</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="nb">id</span> <span class="s2">&quot;mgm4441680.3&quot;</span> <span class="o">--</span><span class="n">level</span> <span class="n">level3</span> <span class="o">--</span><span class="n">source</span> <span class="n">Subsystems</span> <span class="o">--</span><span class="n">top</span> <span class="mi">20</span> <span class="o">--</span><span class="n">evalue</span> <span class="mi">8</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="download-and-translate-similarities-into-different-namespaces-e-g-seed-or-genbank-m5nr-tools-pl">
+<h2>Download and translate similarities into different namespaces e.g. SEED or GenBank – m5nr-tools.pl<a class="headerlink" href="#download-and-translate-similarities-into-different-namespaces-e-g-seed-or-genbank-m5nr-tools-pl" title="Permalink to this headline">¶</a></h2>
+<p>MG-RAST computes similarities against a non-redundant database (Wilke et
+al. 2012) and later translates them into any of the supported
+namespaces. As a result you can view your annotations (or indeed the
+similarity results) in each of these namespaces. Sometimes this can lead
+to new features and or differences becoming visible that would otherwise
+be obscured.</p>
+<p>m5nr-tools can translate accession ids, md5 checksums, or protein
+sequence into annotations. One option for output is a blast m8 formatted
+file.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">m5nr</span><span class="o">-</span><span class="n">tools</span><span class="o">.</span><span class="n">pl</span> <span class="o">--</span><span class="n">api</span> <span class="s2">&quot;https://api.mg-rast.org/1&quot;</span> <span class="o">--</span><span class="n">option</span> <span class="n">annotation</span> <span class="o">--</span><span class="n">source</span> <span class="n">RefSeq</span> <span class="o">--</span><span class="n">md5</span> <span class="mi">0</span><span class="n">b95101ffea9396db4126e4656460ce5</span><span class="p">,</span><span class="mf">068792e95</span><span class="n">e38032059ba7d9c26c1be78</span><span class="p">,</span><span class="mi">0</span><span class="n">b96c92ce600d8b2427eedbc221642f1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="download-multiple-abundance-profiles-for-comparison-mg-compare-functions">
+<h2>Download multiple abundance profiles for comparison – mg-compare-functions<a class="headerlink" href="#download-multiple-abundance-profiles-for-comparison-mg-compare-functions" title="Permalink to this headline">¶</a></h2>
+<p>Retrieve matrix of functional abundance profiles for multiple
+metagenomes. The output is either tab-delimited table of functional
+abundance profiles, metagenomes in columns and functions in rows or BIOM
+format of functional abundance profiles.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mg</span><span class="o">-</span><span class="n">compare</span><span class="o">-</span><span class="n">functions</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">ids</span> <span class="s2">&quot;mgm4441679.3,mgm4441680.3,mgm4441681.3,mgm4441682.3&quot;</span> <span class="o">--</span><span class="n">level</span> <span class="n">level2</span> <span class="o">--</span><span class="n">source</span> <span class="n">KO</span> <span class="o">--</span><span class="nb">format</span> <span class="n">text</span> <span class="o">--</span><span class="n">evalue</span> <span class="mi">8</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="standard-operating-procedures-sops-for-mg-rast">
+<h1>Standard operating procedures SOPs for MG-RAST<a class="headerlink" href="#standard-operating-procedures-sops-for-mg-rast" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="sop-metagenome-submission-publication-and-submission-to-insdc-via-mg-rast">
+<h2>SOP - Metagenome submission, publication and submission to INSDC via MG-RAST<a class="headerlink" href="#sop-metagenome-submission-publication-and-submission-to-insdc-via-mg-rast" title="Permalink to this headline">¶</a></h2>
+<p>MG-RAST can be used to host data for public access. There are three
+interfaces for uploading and publishing data, the Web interface,
+intended for most users, command line scripts, intended for programmers,
+and the native RESTful API, recommended for experienced programmers.</p>
+<p>When data is published in MG-RAST, it can also be released to the INSDC
+databases. This tutorial covers both use cases.</p>
+<p>We note that MG-RAST provides temporary IDs and permanent public
+identifiers. The permanent identifiers are assigned at the time data is
+made public. Permanent MG-RAST identifiers begin with “mgm” (e.g.
+“mgm4449249.3”) for data sets and mgp (e.g.”mgp128”) for
+projects/studies.</p>
+<p>The following data types are supported:</p>
+<ul class="simple">
+<li>Shotgun metagenomes (“raw” and assembled)</li>
+<li>Metatranscriptome data (“raw” and assembled)</li>
+<li>Ribosomal amplicon data (16s, 18s, ITS amplicons)</li>
+<li>Metabarcoding data (e.g. cytochrome C amplicons; basically all non
+ribosomal amplicons)</li>
+</ul>
+<p>PLEASE NOTE: We strongly prefer raw data over assembled data, if you
+submit assembled data, please submit the raw reads in parallel. If you
+perform local optimization e.g. adapter removal or quality clipping,
+please submit the raw data as well.</p>
+<p>This document is intended for experienced to very experienced users and
+programmers. We recommend that most users not use the RESTful API. There
+is also a document describing data publication and INSDC submission via
+the web UI.</p>
+<p>An access token for the MG-RAST API, this can be obtained from the
+MG-RAST web page (<a class="reference external" href="http://mg-rast.org">http://mg-rast.org</a>) in the user section.</p>
+<p>You will need a working python interpreter and the command line scripts
+and example data can be found in
+<a class="reference external" href="https://github.com/MG-RAST/MG-RAST-Tools">https://github.com/MG-RAST/MG-RAST-Tools</a>:</p>
+<p>Scripts: MG-RAST-Tools/tools/bin Data: MG-RAST-Tools/examples/sop/data</p>
+<p>Change into MG-RAST-Tools/examples/sop/data and call:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sh</span> <span class="n">get_test_data</span><span class="o">.</span><span class="n">sh</span>
+</pre></div>
+</div>
+<p>to add additional example data.</p>
+<p>Either download the repository as a zipped archive from
+<a class="reference external" href="https://github.com/MG-RAST/MG-RAST-Tools/archive/master.zip">https://github.com/MG-RAST/MG-RAST-Tools/archive/master.zip</a> or use the
+git command line tool:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">MG</span><span class="o">-</span><span class="n">RAST</span><span class="o">/</span><span class="n">MG</span><span class="o">-</span><span class="n">RAST</span><span class="o">-</span><span class="n">Tools</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p>We tested up to the following parameters:</p>
+<ul class="simple">
+<li>max. size per file: 10GB</li>
+<li>max. project size: 200 metagenomes</li>
+</ul>
+<p>While there is no reason to assume the software will not work with
+larger numbers of files or larger files, we did not test for that.</p>
+<div class="section" id="sop">
+<h3>SOP:<a class="headerlink" href="#sop" title="Permalink to this headline">¶</a></h3>
+<p>Upload and submit sequence data and metadata to MG-RAST using the
+command mg-submit.py Note: This is an asynchronous process that may take
+some time depending on the size and number of datasets. (Note: We
+recommend that novice users try the web frontend; the cmd-line is
+primarily intended for programmers) The metadata in this example is in
+Microsoft Excel format, there is also an option of using JSON formatted
+data. Please note: We have observed multiple problems with spreadsheets
+that were converted from older version of Excel or “compatible” tools
+e.g. OpenOffice.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mg</span><span class="o">-</span><span class="n">submit</span><span class="o">.</span><span class="n">py</span> <span class="n">submit</span> <span class="n">simple</span>  <span class="o">....</span>  <span class="o">--</span><span class="n">metadata</span>
+</pre></div>
+</div>
+<p>Verify the results and obtain a temporary identifier E.g. by using the
+WebUI at <a class="reference external" href="http://mg-rast.org">http://mg-rast.org</a> – you can also use that to publish the data
+and trigger submission to INSDC.</p>
+<p>Publish your project in MG-RAST and obtain a stable and public MG-RAST
+project identifier</p>
+<p>Note: once the data is made public the data is read only, but metadata
+can be improved</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>mg-project make-public $temporary_ID
+</pre></div>
+</div>
+<p>Trigger release to INSDC/ submit to EBI</p>
+<p>Note: Metadata updates are automatically synced with INSDC databases
+within 48 hours.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>mg-project submit-ebi $PROJECT_ID
+</pre></div>
+</div>
+<p>Check status of release to INSDC/ submission to EBI</p>
+<p>Note: This is an asynchronous process that may take some time depending
+on the size and number of datasets.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>mg-project status-ebi $PROJECT_ID
+</pre></div>
+</div>
+<p>We include a sample submission below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>From within the MG-RAST-Tool repository directory
+
+# Retrieve repository and setup environment
+git clone http://github.com/MG-RAST/MG-RAST-Tools.git
+cd MG-RAST-Tools
+
+# Path to scripts for this example
+PATH=$PATH:`pwd`/tools/bin
+
+# set environment variables
+source set_env.sh
+
+# Set credentials, obtain token from your user preferences in the UI
+mg-submit.py login --token
+
+# Create metadata spreadsheet. Make sure you map your samples to your
+# sequence files
+# Upload metagenomes and metadata to MG-RAST
+
+mg-submit.py submit simple \
+           examples/sop/data/sample_1.fasta.gz \
+           examples/sop/data/sample_2.fasta.gz \
+           --metadata examples/sop/data/metadata.xlsx
+
+# Output
+&gt; Temp Project ID: ed2102aa666d676d343735323836382e33
+&gt; Submission ID: 77a1a1a5-4cbd-4673-86bf-f87c9096c3e1
+
+# Remember IDs for later use
+SUBMISSION_ID=77a1a1a5-4cbd-4673-86bf-f87c9096c3e1
+TEMP_ID=mgp128
+
+# Check if project is finished
+mg-submit.py status $SUBMISSION_ID
+
+# Output
+&gt; Submission: 77a1a1a5-4cbd-4673-86bf-f87c9096c3e1 Status: in-progress
+
+
+# Make project public in MG-RAST
+mg-project.py make-public $TEMP_ID
+
+# Output
+&gt; # Your project is public.
+&gt; Project ID: mgp128
+&gt; URL: https://mg-rast.org/linkin.cgi?project=mgp128
+PROJECT_ID=mgp128
+
+# Release project to INSDC archives
+mg-project.py submit-ebi $PROJECT_ID
+
+# Output
+&gt; # Your Project mgp128 has been submitted
+&gt; Submission ID: 0cf7d811-1d43-4554-ab97-3cb1f5ceb6aa
+
+# Check if project is finished
+mg-project.py status-ebi $PROJECT_ID
+
+# Output
+&gt; Completed
+&gt; ENA Study Accession: ERP104408
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="acknowledgments">
+<h2>Acknowledgments<a class="headerlink" href="#acknowledgments" title="Permalink to this headline">¶</a></h2>
+<p>This project is funded by the NIH grant R01AI123037 and by NSF grant
+1645609</p>
+<p>This work used the Magellan machine (U.S.Department of Energy, Office of
+Science, Advanced Scientific Computing Research, under contract
+DE-AC02-06CH11357) at Argonne National Laboratory, and the PADS resource
+(National Science Foundation grant OCI-0821678) at the Argonne National
+Laboratory/University of Chicago Computation Institute.</p>
+<p>In the past the following sources contributed to MG-RAST development:</p>
+<ul class="simple">
+<li>U.S. Dept. of Energy under Contract DE-AC02-06CH11357</li>
+<li>Sloan Foundation (SLOAN #2010-12),</li>
+<li>NIH NIAID (HHSN272200900040C),</li>
+<li>NIH Roadmap HMP program (1UH2DK083993-01).</li>
+</ul>
+<div class="references docutils container" id="refs">
+<div class="docutils container" id="ref-clovr">
+Angiuoli, S. V., M. Matalka, A. Gussman, K. Galens, M. Vangala, D.
+R. Riley, C. Arze, J. R. White, O. White, and W. F. Fricke. 2011.
+“CloVR: A Virtual Machine for Automated and Portable Sequence
+Analysis from the Desktop Using Cloud Computing.” <em>BMC
+Bioinformatics</em> 12: 356.</div>
+<div class="docutils container" id="ref-rast">
+Aziz, Ramy, Daniela Bartels, Aaron Best, Matthew DeJongh, Terrence
+Disz, Robert Edwards, Kevin Formsma, et al. 2008. “The RAST
+Server: Rapid Annotations Using Subsystems Technology.” <em>BMC
+Genomics</em> 9 (1): 75. <a class="reference external" href="https://doi.org/10.1186/1471-2164-9-75">https://doi.org/10.1186/1471-2164-9-75</a>.</div>
+<div class="docutils container" id="ref-genbank">
+Benson, D. A., M. Cavanaugh, K. Clark, I. Karsch-Mizrachi, D. J.
+Lipman, J. Ostell, and E. W. Sayers. 2013. “GenBank.” <em>Nucleic
+Acids Res</em> 41 (Database issue): D36–42.</div>
+<div class="docutils container" id="ref-openmp">
+Board, OpenMP Architecture Review. 2011. “OpenMP Application
+Program Interface Version 3.1.”</div>
+<div class="docutils container" id="ref-crisprs">
+Bolotin, A., B. Quinquis, A. Sorokin, and S. D. Ehrlich. 2005.
+“Clustered Regularly Interspaced Short Palindrome Repeats
+(CRISPRs) Have Spacers of Extrachromosomal Origin.” <em>Microbiology</em>
+151 (Pt 8): 2551–61.</div>
+<div class="docutils container" id="ref-diamond">
+Buchfink, Benjamin, Chao Xie, and Daniel H Huson. 2015. “Fast and
+Sensitive Protein Alignment Using Diamond.” <em>Nature Methods</em> 12
+(1): 59–60.</div>
+<div class="docutils container" id="ref-qiime">
+Caporaso, J. G., J. Kuczynski, J. Stombaugh, K. Bittinger, F. D.
+Bushman, E. K. Costello, N. Fierer, et al. 2010. “QIIME Allows
+Analysis of High-Throughput Community Sequencing Data.” <em>Nat
+Methods</em> 7 (5): 335–6.</div>
+<div class="docutils container" id="ref-rdp">
+Cole, J. R., B. Chai, T. L. Marsh, R. J. Farris, Q. Wang, S. A.
+Kulam, S. Chandra, et al. 2003. “The Ribosomal Database Project
+(RDP-II): Previewing a New Autoaligner That Allows Regular Updates
+and the New Prokaryotic Taxonomy.” <em>Nucleic Acids Research</em> 31
+(1): 442–43. <a class="reference external" href="http://www.ncbi.nlm.nih.gov/pmc/articles/PMC165486/">http://www.ncbi.nlm.nih.gov/pmc/articles/PMC165486/</a>.</div>
+<div class="docutils container" id="ref-solexaqa">
+Cox, M. P., D. A. Peterson, and P. J. Biggs. 2010. “SolexaQA:
+At-a-Glance Quality Assessment of Illumina Second-Generation
+Sequencing Data.” <em>BMC Bioinformatics</em> 11: 485.</div>
+<div class="docutils container" id="ref-greengenes">
+DeSantis, T. Z., P. Hugenholtz, N. Larsen, M. Rojas, E. L. Brodie,
+K. Keller, T. Huber, D. Dalevi, P. Hu, and G. L. Andersen. 2006.
+“Greengenes, a Chimera-Checked16S rRNA Gene Database and Workbench
+Compatible with ARB.” <em>Appl. Environ. Microbiol.</em> 72 (7): 5069–72.
+<a class="reference external" href="https://doi.org/10.1128/aem.03006-05">https://doi.org/10.1128/aem.03006-05</a>.</div>
+<div class="docutils container" id="ref-uclust">
+Edgar, R. C. 2010. “Search and Clustering Orders of Magnitude
+Faster Than BLAST.” <em>Bioinformatics</em> 26 (19): 2460–1.</div>
+<div class="docutils container" id="ref-gsc">
+Field, D., L. Amaral-Zettler, G. Cochrane, J. R. Cole, P. Dawyndt,
+G. M. Garrity, J. Gilbert, F. O. Glöckner, L. Hirschman, and I.
+Karsch-Mizrachi. 2011. “The Genomic Standards Consortium.” <em>PLOS
+Biology</em> 9 (6): e1001088.</div>
+<div class="docutils container" id="ref-skyport">
+Gerlach, Wolfgang, Wei Tang, Kevin Keegan, Travis Harrison,
+Andreas Wilke, Jared Bischof, Mark D’Souza, et al. 2014. “Skyport:
+Container-Based Execution Environment Management for Multi-Cloud
+Scientific Workflows.” In <em>Proceedings of the 5th International
+Workshop on Data-Intensive Computing in the Clouds</em>, 25–32.
+DataCloud ’14. Piscataway, NJ, USA: IEEE Press.
+<a class="reference external" href="https://doi.org/10.1109/DataCloud.2014.6">https://doi.org/10.1109/DataCloud.2014.6</a>.</div>
+<div class="docutils container" id="ref-adrs">
+Gomez-Alvarez, V., T. K. Teal, and T. M. Schmidt. 2009.
+“Systematic Artifacts in Metagenomes from Complex Microbial
+Communities.” <em>ISME J</em> 3 (11): 1314–7.</div>
+<div class="docutils container" id="ref-husepyro">
+Huse, S. M., J. A. Huber, H. G. Morrison, M. L. Sogin, and D. M.
+Welch. 2007. “Accuracy and Quality of Massively Parallel DNA
+Pyrosequencing.” <em>Genome Biol</em> 8 (7): R143.</div>
+<div class="docutils container" id="ref-megan">
+Huson, D. H., A. F. Auch, J. Qi, and S. C. Schuster. 2007. “MEGAN
+Analysis of Metagenomic Data.” <em>Genome Res</em> 17 (3): 377–86.</div>
+<div class="docutils container" id="ref-nhgri-cost">
+Institute, National Human Genome Research. 2012. “Cost Per Raw
+Megabase of Dna Sequence.”
+<a class="reference external" href="http://www.genome.gov/images/content/cost_per_megabase.jpg">http://www.genome.gov/images/content/cost_per_megabase.jpg</a>.</div>
+<div class="docutils container" id="ref-eggnog">
+Jensen, L. J., P. Julien, M. Kuhn, C. von Mering, J. Muller, T.
+Doerks, and P. Bork. 2008. “EggNOG: Automated Construction and
+Annotation of Orthologous Groups of Genes.” <em>Nucleic Acids Res</em> 36
+(Database issue): D250–4.</div>
+<div class="docutils container" id="ref-kegg">
+Kanehisa, M. 2002. “The KEGG Database.” <em>Novartis Found Symp</em> 247:
+91–101; discussion 101–3, 119–28, 244–52.</div>
+<div class="docutils container" id="ref-drisee">
+Keegan, K. P., W. L. Trimble, J. Wilkening, A. Wilke, T. Harrison,
+M. D’Souza, and F. Meyer. 2012. “A Platform-Independent Method for
+Detecting Errors in Metagenomic Sequencing Data: DRISEE.” <em>PLOS
+Comput Biol</em> 8 (6): e1002541.</div>
+<div class="docutils container" id="ref-blat">
+Kent, W. J. 2002. “BLAT–the BLAST-Like Alignment Tool.” <em>Genome
+Res</em> 12 (4): 656–64.</div>
+<div class="docutils container" id="ref-bowtie">
+Langmead, B., C. Trapnell, M. Pop, and S. L. Salzberg. 2009.
+“Ultrafast and Memory-Efficient Alignment of Short DNA Sequences
+to the Human Genome.” <em>Genome Biol</em> 10 (3): R25.</div>
+<div class="docutils container" id="ref-loman">
+Loman, Nicholas J., Raju V. Misra, Timothy J. Dallman, Chrystala
+Constantinidou, Saheer E Gharbia, John Wain, and Mark J. Pallen.
+2012. “Performance Comparison of Benchtop High-Throughput
+Sequencing Platforms.” <em>Nature Biotechnology</em> 30 (5): 434–39.
+<a class="reference external" href="https://doi.org/10.1038/nbt.2198">https://doi.org/10.1038/nbt.2198</a>.</div>
+<div class="docutils container" id="ref-uniprot">
+Magrane, Michele, and UniProt Consortium. 2011. “UniProt
+Knowledgebase: A Hub of Integrated Protein Data.” <em>Database: The
+Journal of Biological Databases and Curation</em> 2011 (January).
+<a class="reference external" href="https://doi.org/10.1093/database/bar009">https://doi.org/10.1093/database/bar009</a>.</div>
+<div class="docutils container" id="ref-img">
+Markowitz, V. M., N. N. Ivanova, E. Szeto, K. Palaniappan, K. Chu,
+D. Dalevi, I. M. Chen, et al. 2008. “IMG/M: A Data Management and
+Analysis System for Metagenomes.” <em>Nucleic Acids Res</em> 36 (Database
+issue): D534–8.</div>
+<div class="docutils container" id="ref-biom">
+McDonald, D., J. C. Clemente, J. Kuczynski, J. Rideout, J.
+Stombaugh, D. Wendel, A. Wilke, S. Huse, J. Hufnagle, and F.
+Meyer. 2012. “The Biological Observation Matrix (BIOM) Format or:
+How I Learned to Stop Worrying and Love the Ome-Ome.”
+<em>Gigascience</em>.</div>
+<div class="docutils container" id="ref-mg-rast">
+Meyer, F., D. Paarmann, M. D’Souza, R. Olson, E. M. Glass, M.
+Kubal, T. Paczian, et al. 2008. “The Metagenomics RAST Server - a
+Public Resource for the Automatic Phylogenetic and Functional
+Analysis of Metagenomes.” <em>BMC Bioinformatics</em> 9 (1): 386.
+<a class="reference external" href="https://doi.org/10.1186/1471-2105-9-386">https://doi.org/10.1186/1471-2105-9-386</a>.</div>
+<div class="docutils container" id="ref-krona">
+Ondov, B. D., N. H. Bergman, and A. M. Phillippy. 2011.
+“Interactive Metagenomic Visualization in a Web Browser.” <em>BMC
+Bioinformatics</em> 12: 385.</div>
+<div class="docutils container" id="ref-subsystems">
+Overbeek, R., T. Begley, R. M. Butler, J. V. Choudhuri, N. Diaz,
+H.-Y. Chuang, M. Cohoon, et al. 2005. “The Subsystems Approach to
+Genome Annotation and Its Use in the Project to Annotate 1000
+Genomes.” <em>Nucleic Acids Res</em> 33 (17).</div>
+<div class="docutils container" id="ref-silva">
+Pruesse, Elmar, Christian Quast, Katrin Knittel, Bernhard M.
+Fuchs, Wolfgang Ludwig, Jörg Peplies, and Frank Oliver O.
+Glöckner. 2007. “SILVA: A Comprehensive Online Resource for
+Quality Checked and Aligned Ribosomal RNA Sequence Data Compatible
+with ARB.” <em>Nucleic Acids Research</em> 35 (21): 7188–96.
+<a class="reference external" href="https://doi.org/10.1093/nar/gkm864">https://doi.org/10.1093/nar/gkm864</a>.</div>
+<div class="docutils container" id="ref-refseq">
+Pruitt, K. D., T. Tatusova, and D. R. Maglott. 2007. “NCBI
+Reference Sequences (RefSeq): A Curated Non-Redundant Sequence
+Database of Genomes, Transcripts and Proteins.” <em>Nucleic Acids
+Res</em> 35 (Database issue).
+<a class="reference external" href="http://view.ncbi.nlm.nih.gov/pubmed/17130148">http://view.ncbi.nlm.nih.gov/pubmed/17130148</a>.</div>
+<div class="docutils container" id="ref-gcdml">
+R., Kottmann, Gray T., Murphy S., Kagan L., Kravitz S., Lombardot
+T., Field D., and Glöckner FO; Genomic Standards Consortium. 2008.
+“A Standard MIGS/MIMS Compliant XML Schema: Toward the Development
+of the Genomic Contextual Data Markup Language (GCDML).” <em>OMICS</em>
+12 (2): 115–21. <a class="reference external" href="https://doi.org/10.1089/omi.2008.0A10">https://doi.org/10.1089/omi.2008.0A10</a>.</div>
+<div class="docutils container" id="ref-rare">
+Reeder, J., and R. Knight. 2009. “The ‘Rare Biosphere’: A Reality
+Check.” <em>Nat Methods</em> 6 (9): 636–7.</div>
+<div class="docutils container" id="ref-fgs">
+Rho, Mina, Haixu Tang, and Yuzhen Ye. 2010. “FragGeneScan:
+Predicting Genes in Short and Error-Prone Reads.” <em>Nucleic Acids
+Research</em> 38 (20): e191–e191.</div>
+<div class="docutils container" id="ref-mgreview">
+Riesenfeld, C. S., P. D. Schloss, and J. Handelsman. 2004.
+“Metagenomics: Genomic Analysis of Microbial Communities.” <em>Annu
+Rev Genet</em> 38: 525–52.</div>
+<div class="docutils container" id="ref-patric">
+Snyder, E. E., N. Kampanya, J. Lu, E. K. Nordberg, H. R. Karur, M.
+Shukla, J. Soneja, et al. 2007. “PATRIC: The VBI PathoSystems
+Resource Integration Center.” <em>Nucleic Acids Res</em> 35 (Database
+issue). <a class="reference external" href="https://doi.org/10.1093/nar/gkl858">https://doi.org/10.1093/nar/gkl858</a>.</div>
+<div class="docutils container" id="ref-1584883278">
+Speed, Terry. 2003. <em>Statistical Analysis of Gene Expression
+Microarray Data</em>. Chapman; Hall/CRC.
+<a class="reference external" href="http://www.amazon.com/Statistical-Analysis-Gene-Expression-Microarray/dp/1584883278/">http://www.amazon.com/Statistical-Analysis-Gene-Expression-Microarray/dp/1584883278/</a>.</div>
+<div class="docutils container" id="ref-cog">
+Tatusov, R. L., N. D. Fedorova, J. D. Jackson, A. R. Jacobs, B.
+Kiryutin, E. V. Koonin, D. M. Krylov, et al. 2003. “The COG
+Database: An Updated Version Includes Eukaryotes.” <em>BMC
+Bioinformatics</em> 4: 41.</div>
+<div class="docutils container" id="ref-thomasreview">
+Thomas, Torsten, Jack Gilbert, and Folker Meyer. 2012.
+“Metagenomics - a Guide from Sampling to Data Analysis.”
+<em>Microbial Informatics and Experimentation</em> 2 (1): 3.
+<a class="reference external" href="https://doi.org/10.1186/2042-5783-2-3">https://doi.org/10.1186/2042-5783-2-3</a>.</div>
+<div class="docutils container" id="ref-trimble-short">
+Trimble, W. L., K. P. Keegan, M. D’Souza, A. Wilke, J. Wilkening,
+J. Gilbert, and F. Meyer. 2012. “Short-Read Reading-Frame
+Predictors Are Not Created Equal: Sequence Error Causes Loss of
+Signal.” <em>BMC Bioinformatics</em> 13 (1): 183.</div>
+<div class="docutils container" id="ref-m5nr">
+Wilke, A., T. Harrison, J. Wilkening, D. Field, E. M. Glass, N.
+Kyrpides, K. Mavrommatis, and F. Meyer. 2012. “The M5nr: A Novel
+Non-Redundant Database Containing Protein Sequences and
+Annotations from Multiple Sources and Associated Tools.” <em>BMC
+Bioinformatics</em> 13: 141.</div>
+<div class="docutils container" id="ref-shock">
+Wilke, Andreas, Wolfgang Gerlach, Travis Harrison, Tobias Paczian,
+Wei Tang, William L. Trimble, Jared Wilkening, Narayan Desai, and
+Folker Meyer. 2015. “Shock: Active Storage for Multicloud
+Streaming Data Analysis.” In <em>2nd IEEE/ACM International Symposium
+on Big Data Computing, BDC 2015, Limassol, Cyprus, December 7-10,
+2015</em>, edited by Ioan Raicu, Omer F. Rana, and Rajkumar Buyya,
+68–72. IEEE. <a class="reference external" href="https://doi.org/10.1109/BDC.2015.40">https://doi.org/10.1109/BDC.2015.40</a>.</div>
+<div class="docutils container" id="ref-awe">
+Wilke, A., J. Wilkening, E. M. Glass, N. Desai, and F. Meyer.
+2011. “An Experience Report: Porting the MG-RAST Rapid
+Metagenomics Analysis Pipeline to the Cloud.” <em>Concurrency and
+Computation: Practice and Experience</em> 23 (17): 2250–7.</div>
+<div class="docutils container" id="ref-mgcloud">
+Wilkening, J., A. Wilke, N. Desai, and F. Meyer. 2009. “Using
+Clouds for Metagenomics: A Case Study.” In <em>IEEE Cluster 2009</em>.</div>
+<div class="docutils container" id="ref-miens">
+Yilmaz, Pelin, Renzo Kottmann, Dawn Field, Rob Knight, James Cole,
+Linda Amaral-Zettler, Jack Gilbert, et al. 2010. “The ‘Minimum
+Information About an ENvironmental Sequence’ (MIENS)
+Specification.” <em>Nature Biotechnology</em>.</div>
+</div>
+<table class="docutils footnote" frame="void" id="id3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[1]</td><td>This includes only the computation cost, no data transfer cost, and
+was computed using 2009 prices.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[2]</td><td>We use the term <em>cloud</em> as a shortcut for Infrastructure as a Service
+(IaaS).</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id5" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[3]</td><td>This would be for several metagenomes that are part of the JGI
+Prairie pilot.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id6" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[4]</td><td>An MD5 checksum is a widely used way to create a digital fingerprint
+for a file. Think of it as a kind of checksum, if the fingerprint
+changed, so did the file. The fingerprints are easy to compare. There
+are many tools out there for creating MD5 checksums, google is your
+friend.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">MG-RAST</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="user_manual.html">MG-RAST user manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_manual.html#under-the-hood-the-mg-rast-technology-platform">Under the hood: The MG-RAST technology platform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_manual.html#the-mg-rast-pipeline">The MG-RAST pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_manual.html#mg-rast-data-products">MG-RAST data products</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_manual.html#the-version-4-0-web-interface">The version 4.0 web interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_manual.html#standard-operating-procedures-sops-for-mg-rast">Standard operating procedures SOPs for MG-RAST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_manual.html#putting-it-all-in-perspective">Putting It All in Perspective</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_manual.html#the-downloadable-files-for-each-data-set">The downloadable files for each data set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_manual.html#terms-of-service">Terms of Service</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_manual.html#tools-and-data-used-by-mg-rast">Tools and data used by MG-RAST</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API — The MG-RAST Application Programming Interface</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#urls">URLs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#design-and-implementation">Design and Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#example-scripts-using-the-mg-rast-rest-api">Example scripts using the MG-RAST REST API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction-2">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#download-dna-sequence-for-a-function-mg-get-sequences-for-function-py">Download DNA sequence for a function – mg-get-sequences-for-function.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#download-dna-sequences-for-a-taxon-or-taxonomic-group-mg-get-sequences-for-taxon-py">Download DNA sequences for a taxon or taxonomic group– mg-get-sequences-for-taxon.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#download-sequences-annotated-with-function-and-taxonomy-mg-get-annotation-set-py">Download sequences annotated with function and taxonomy – mg-get-annotation-set.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#download-the-n-most-abundant-functions-for-a-metagenome-mg-abundant-functions-py">Download the n most abundant functions for a metagenome – mg-abundant-functions.py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#download-and-translate-similarities-into-different-namespaces-e-g-seed-or-genbank-m5nr-tools-pl">Download and translate similarities into different namespaces e.g. SEED or GenBank – m5nr-tools.pl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#download-multiple-abundance-profiles-for-comparison-mg-compare-functions">Download multiple abundance profiles for comparison – mg-compare-functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#standard-operating-procedures-sops-for-mg-rast">Standard operating procedures SOPs for MG-RAST</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sop-metagenome-submission-publication-and-submission-to-insdc-via-mg-rast">SOP - Metagenome submission, publication and submission to INSDC via MG-RAST</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#acknowledgments">Acknowledgments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ – Frequently asked questions about MG-RAST</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="user_manual.html" title="previous chapter">MG-RAST user manual</a></li>
+      <li>Next: <a href="faq.html" title="next chapter">FAQ – Frequently asked questions about MG-RAST</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Folker Meyer and the MG-RAST team.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/api.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
