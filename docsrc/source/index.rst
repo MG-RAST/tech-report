@@ -13,4 +13,3 @@ Welcome to MG-RAST documentation's documentation!
    user_manual
    api
    faq
-

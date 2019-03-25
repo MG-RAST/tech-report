@@ -7,10 +7,9 @@ Welcome to MG-RAST documentation's documentation!
 =================================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents:
 
    user_manual
    api
    faq
-
