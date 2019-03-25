@@ -1,3 +1,4 @@
+docsrc/_build
 # temporary latex files
 *.log
 *.synctex.gz
