@@ -210,7 +210,7 @@ users simply enter their email address via clicking the ``Sharing`` link
 on the Metagenome Overview page. The dialogue shown in Figure
 `9.2 <#fig:sharing>`__ will allow entering email addresses.
 
-.. figure:: Images/sharing
+.. figure:: Images/sharing.png
    :alt:  Dialogue showing the sharing mechanism. The mechanism requires a valid email address for the user with whom the data is to be shared. A list of users with access to the data is displayed at the bottom on the page.
    :name: fig:sharing
    :width: 6in
@@ -227,7 +227,7 @@ Project pages respectively.
 As shown in Figure `9.3 <#fig:Data-sharing-in-mg-rast>`__, we tend to
 see dataset sharing between small groups of users.
 
-.. figure:: Images/Data-sharing-in-mg-rast
+.. figure:: Images/Data-sharing-in-mg-rast.png
    :alt:  Data sets shared in MG-RAST by users (orange dots), shown as connecting edges.
    :name: fig:Data-sharing-in-mg-rast
    :width: 3in
